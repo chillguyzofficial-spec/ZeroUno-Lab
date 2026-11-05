@@ -18,10 +18,44 @@
 <link rel="preload" href="assets/font/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/font/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{if(localStorage.getItem('zul-tema')==='chiaro')document.documentElement.dataset.tema='chiaro'}catch(e){}</script>
-<link rel="stylesheet" href="css/stile.css?v=93">
+<link rel="stylesheet" href="css/stile.css?v=100">
 </head>
 <body>
 <a class="salta" href="#modulo" data-apri-modulo>Apri il modulo</a>
+
+<!-- Barra dei servizi in cima: scorre da sola, va via con la pagina (05/11, richiesta di Francesco) -->
+<div class="barra-servizi">
+  <div class="barra-traccia">
+    <ul class="barra-copia" aria-label="Cosa facciamo">
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Siti web</li>
+      <li><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Negozi online</li>
+      <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="3.5"/></svg>Gestionali</li>
+      <li><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>App</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
+    </ul>
+    <ul class="barra-copia" aria-hidden="true">
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Siti web</li>
+      <li><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Negozi online</li>
+      <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="3.5"/></svg>Gestionali</li>
+      <li><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>App</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
+    </ul>
+    <ul class="barra-copia" aria-hidden="true">
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Siti web</li>
+      <li><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Negozi online</li>
+      <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="3.5"/></svg>Gestionali</li>
+      <li><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>App</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
+    </ul>
+    <ul class="barra-copia" aria-hidden="true">
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Siti web</li>
+      <li><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Negozi online</li>
+      <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="3.5"/></svg>Gestionali</li>
+      <li><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>App</li>
+      <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
+    </ul>
+  </div>
+</div>
 
 <!-- 1 · Apertura -->
 <section class="apertura" aria-label="Apertura">
@@ -35,13 +69,6 @@
     </header>
     <div class="apertura-corpo">
       <div class="apertura-testo">
-        <ul class="cosa-facciamo" aria-label="Cosa facciamo">
-          <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Siti web</li>
-          <li><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Negozi online</li>
-          <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="3.5"/></svg>Gestionali</li>
-          <li><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>App</li>
-          <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
-        </ul>
         <h1>Il sito che i tuoi clienti <span class="corsivo">ricorderanno</span>.</h1>
         <div class="promo-card">
           <span class="promo-etichetta"><span class="punto" aria-hidden="true"></span>Promo a tempo</span>
@@ -68,7 +95,7 @@
   <div class="contenitore pila">
     <div class="testa-sez">
       <h2 class="titolo" id="t-oltre">Cosa possiamo <span class="corsivo">fare</span> per te.</h2>
-      <p class="sottotitolo">Siti, negozi online, gestionali e app scritti da zero, e il marketing che ti porta clienti. Prezzi in promo fino al <span data-promo-data>31 dicembre 2026</span>.</p>
+      <p class="sottotitolo">Siti, negozi online, gestionali e app scritti da zero, e il marketing che ti porta clienti.</p>
     </div>
     <div class="srv-griglia">
       <article class="srv">
@@ -110,16 +137,17 @@
         <div>
           <span class="prog-etichetta">Marketing · con Alex</span>
           <h3>Il sito porta clienti se qualcuno lo <span class="corsivo">trova</span>.</h3>
-          <p>Non ci fermiamo al sito: lo pensiamo insieme alla pubblicità che lo porta. La pagina che riceve le inserzioni è fatta per farti contattare, e ogni euro speso si misura.</p>
+          <p>Il sito lo pensiamo insieme alla pubblicità che lo porta. La pagina che riceve le inserzioni è fatta per farti contattare, e ogni euro speso si misura.</p>
         </div>
         <span class="mkt-prezzo">Su preventivo<small>il budget pubblicitario lo paghi direttamente alla piattaforma</small></span>
       </div>
-      <ul class="mkt-voci">
+      <ul class="mkt-voci fila-scorre" id="fila-mkt" tabindex="0" aria-label="Cosa facciamo nel marketing">
         <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span><strong>Campagne Instagram e Facebook</strong><span>Inserzioni che portano le persone giuste sul tuo sito, con il budget che decidi tu.</span></li>
         <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg></span><strong>Google Ads e ricerca locale</strong><span>Ti fai trovare quando qualcuno cerca quello che fai, nella tua zona.</span></li>
         <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></svg></span><strong>Strategia e consulenza</strong><span>A chi parli, cosa offri e perché sceglierti: prima di spendere, un piano chiaro.</span></li>
         <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20v-4M10 20v-8M15 20v-11M20 20V4"/></svg></span><strong>Risultati misurati</strong><span>Quanti contatti arrivano e quanto ti costa ognuno, spiegato in parole semplici.</span></li>
       </ul>
+      <div class="fila-comandi"><div class="fila-barra" aria-hidden="true"><span data-fila-barra="fila-mkt"></span></div><div class="frecce fila-frecce"><button type="button" data-fila="fila-mkt" data-dir="-1" aria-label="Voci precedenti">←</button><button type="button" data-fila="fila-mkt" data-dir="1" aria-label="Voci successive">→</button></div></div>
     </div>
     <p class="nota-prezzi">I prezzi barrati sono quelli di listino; quelli in promo valgono per le richieste entro il <span data-promo-data>31 dicembre 2026</span>. Sono prezzi di partenza: prima ti ascoltiamo, poi ti mandiamo un preventivo scritto a prezzo fisso. Budget stretto? Partiamo dall’essenziale e aggiungiamo il resto dopo, senza rifare niente.</p>
   </div>
@@ -169,6 +197,8 @@
 </section>
 
 
+
+
 <!-- 2 · La promo -->
 <section class="sezione chiara" aria-labelledby="t-promo">
   <div class="contenitore pila">
@@ -200,22 +230,23 @@
     </div>
     <div class="pac-barra">
       <span class="pac-data"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg>Valida per le richieste entro il <span data-promo-data>31 dicembre 2026</span></span>
-      <span class="pac-pag">50% all’approvazione della bozza <i aria-hidden="true">·</i> 50% alla consegna</span>
+      <span class="pac-pag">Paghi tutto alla consegna <i aria-hidden="true">·</i> dopo aver visto il sito finito</span>
       <button type="button" class="pac-vai" data-apri-modulo aria-haspopup="dialog" aria-controls="modulo" aria-label="Parlaci del tuo progetto">→</button>
     </div>
     <p class="pac-nota">Non compreso: dominio e spazio web a tuo nome (poche decine di euro l’anno). Pagine in più, negozio e gestionali su preventivo.</p>
     <div class="garanzia">
       <span class="garanzia-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
-      <div><strong>Prima vedi, poi decidi.</strong><span>La bozza è gratuita: se non ti convince, non paghi niente. Paghi il primo 50% solo quando la approvi.</span></div>
+      <div><strong>Prima vedi, poi decidi.</strong><span>La bozza è gratuita: se non ti convince, non paghi niente.</span></div>
     </div>
     <div class="metodo">
       <div class="metodo-testa"><span class="prog-etichetta">Come lavoriamo</span><p>Dalla prima chiamata al sito online, in circa <strong>2 settimane</strong>.</p></div>
-      <ol class="metodo-tappe">
+      <ol class="metodo-tappe fila-scorre" id="fila-metodo" tabindex="0" aria-label="Le tappe del lavoro">
         <li><div class="mt-alto"><span class="mt-num">01</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span></div><p class="mt-quando">Giorno 1</p><h4>Ci sentiamo</h4><p class="mt-desc">Chiamata gratuita: ci racconti l’attività e chi deve usare il sito.</p></li>
-        <li><div class="mt-alto"><span class="mt-num">02</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="m14 7 3 3"/></svg></span></div><p class="mt-quando">Giorni 2–4</p><h4>Bozza e preventivo</h4><p class="mt-desc">Vedi la bozza prima di decidere. <strong>Paghi il 50% solo quando la approvi.</strong></p></li>
+        <li><div class="mt-alto"><span class="mt-num">02</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="m14 7 3 3"/></svg></span></div><p class="mt-quando">Giorni 2–4</p><h4>Bozza e preventivo</h4><p class="mt-desc">Vedi la bozza prima di decidere e la cambiamo <strong>finché non ti convince.</strong></p></li>
         <li><div class="mt-alto"><span class="mt-num">03</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span></div><p class="mt-quando">Giorni 5–12</p><h4>Costruiamo il sito</h4><p class="mt-desc">Lo provi sul tuo telefono da un indirizzo privato mentre lo facciamo.</p></li>
-        <li><div class="mt-alto"><span class="mt-num">04</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 4-2 6 2 0 4.5-.5 6-2"/><path d="M9 15 6 12l3-6c3-3 7-3.5 10-3.5 0 3-.5 7-3.5 10l-6 3z"/><circle cx="14.5" cy="9.5" r="1.5"/></svg></span></div><p class="mt-quando">Giorni 13–14</p><h4>Online</h4><p class="mt-desc">Lo pubblichiamo sul tuo dominio e per 30 giorni correggiamo gratis ogni problema.</p></li>
+        <li><div class="mt-alto"><span class="mt-num">04</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 4-2 6 2 0 4.5-.5 6-2"/><path d="M9 15 6 12l3-6c3-3 7-3.5 10-3.5 0 3-.5 7-3.5 10l-6 3z"/><circle cx="14.5" cy="9.5" r="1.5"/></svg></span></div><p class="mt-quando">Giorni 13–14</p><h4>Online</h4><p class="mt-desc">Lo pubblichiamo sul tuo dominio: da quel giorno partono i 30 giorni di assistenza.</p></li>
       </ol>
+      <div class="fila-comandi"><div class="fila-barra" aria-hidden="true"><span data-fila-barra="fila-metodo"></span></div><div class="frecce fila-frecce"><button type="button" data-fila="fila-metodo" data-dir="-1" aria-label="Tappe precedenti">←</button><button type="button" data-fila="fila-metodo" data-dir="1" aria-label="Tappe successive">→</button></div></div>
       <p class="tappe-nota">I giorni partono da quando abbiamo testi e foto.</p>
     </div>
   </div>
@@ -352,19 +383,34 @@
       <div class="col altre" id="altre-domande">
         <details><summary>Posso aggiornare io il sito?<span class="segno" aria-hidden="true"></span></summary><p>Per orari, menù o foto basta un messaggio su WhatsApp e lo aggiorniamo noi. Se devi cambiare spesso da solo, per esempio un catalogo o le notizie, lo diciamo all’inizio e scegliamo una soluzione con pannello di gestione.</p></details>
         <details><summary>Ho già un sito: potete seguire solo il marketing?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Partiamo da quello che hai: guardiamo il sito e i canali che usi, e se serve ti diciamo cosa sistemare perché le campagne rendano. Il sito nuovo non è obbligatorio.</p></details>
-      <details><summary>Mi aiutate anche con la pubblicità?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Alex segue da 10 anni campagne e consulenze pubblicitarie per piccole e medie imprese: ne parliamo nella prima chiamata e, se ti serve, la gestione delle campagne la quotiamo a parte. Il budget pubblicitario lo decidi tu e lo paghi direttamente alla piattaforma.</p></details>
-        <details><summary>Come funziona il pagamento?<span class="segno" aria-hidden="true"></span></summary><p>50% quando approvi bozza e preventivo, 50% alla consegna. Prima di quel momento non paghi niente.</p></details>
-        <details><summary>Dominio e spazio web li fate voi?<span class="segno" aria-hidden="true"></span></summary><p>Ti aiutiamo a sceglierli e a configurarli, ma restano intestati a te e li paghi direttamente al fornitore, di solito poche decine di euro l’anno. Così il sito è sempre tuo.</p></details>
-        <details><summary>Il sito sarà mio?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Dominio e spazio web sono a tuo nome e alla consegna ricevi tutti i file. Se un giorno cambi fornitore, ti porti via tutto.</p></details>
+        <details><summary>Come funziona il pagamento?<span class="segno" aria-hidden="true"></span></summary><p>In un’unica volta, alla consegna: prima vedi e provi il sito finito, poi paghi l’intero importo del preventivo. Fino a quel momento non paghi niente.</p></details>
+        <details><summary>Il sito sarà mio?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Dominio e spazio web li scegliamo e configuriamo insieme, ma sono intestati a te e li paghi direttamente al fornitore. Alla consegna ricevi tutti i file: se un giorno cambi fornitore, ti porti via tutto.</p></details>
       </div>
     </div>
-    <button type="button" class="altre-domande" aria-expanded="false" aria-controls="altre-domande">Altre 5 domande <span aria-hidden="true">↓</span></button>
+    <button type="button" class="altre-domande" aria-expanded="false" aria-controls="altre-domande">Altre 4 domande <span aria-hidden="true">↓</span></button>
     </div>
   </div>
 </section>
 
+<!-- 4 · Dal clic al cliente: sito e marketing pensati insieme (05/11, ponte tra Team e Progetti) -->
+<section class="sezione chiara" aria-labelledby="t-clic">
+  <div class="contenitore pila">
+    <div class="testa-sez">
+      <span class="prog-etichetta scura-e">Sito + marketing</span>
+      <h2 class="titolo" id="t-clic">Dal clic al <span class="corsivo">cliente</span>.</h2>
+      <p class="sottotitolo">Quando sito e pubblicità li pensa lo stesso team, ogni passo prepara il successivo.</p>
+    </div>
+    <ol class="percorso">
+      <li><div class="pc-testa"><span class="pc-num">01</span><span class="pc-chi">Alex</span></div><span class="pc-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg></span><h3>L’annuncio</h3><p>La campagna mostra la tua offerta alle persone giuste, con le stesse parole che troveranno sulla pagina.</p></li>
+      <li><div class="pc-testa"><span class="pc-num">02</span><span class="pc-chi">Francesco</span></div><span class="pc-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span><h3>La pagina</h3><p>Si apre subito sul telefono e riprende il messaggio dell’annuncio: chi arriva capisce di essere nel posto giusto.</p></li>
+      <li><div class="pc-testa"><span class="pc-num">03</span><span class="pc-chi">Il tuo cliente</span></div><span class="pc-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L4 20l1-3.5A8.4 8.4 0 1 1 20 11.6z"/></svg></span><h3>Il contatto</h3><p>Chi è convinto ti scrive subito: un tocco e la richiesta arriva a te, con il messaggio già pronto.</p></li>
+      <li><div class="pc-testa"><span class="pc-num">04</span><span class="pc-chi">Insieme</span></div><span class="pc-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20v-4M10 20v-8M15 20v-11M20 20V4"/></svg></span><h3>Si migliora</h3><p>Guardiamo da quale annuncio arrivano le richieste e spostiamo il budget su quello che funziona.</p></li>
+    </ol>
+  </div>
+</section>
+
 <!-- 8 · Chiusura -->
-<section class="chiara chiusura-sez" aria-label="Contatti">
+<section class="sezione scura chiusura-sez" aria-label="Contatti">
   <div class="contenitore">
     <div class="chiusura">
       <div class="chiusura-dentro">
@@ -380,12 +426,17 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+<!-- Footer chiaro a sé: l'ultima sezione è scura (regola di Francesco) -->
+<div class="chiara piede-fascia">
+  <div class="contenitore">
     <footer class="piede">
       <span>© 2026 Zero Uno Lab · Francesco Mascolo e Alex Iancu</span>
       <nav aria-label="Note legali"><a href="privacy.html">Privacy</a><a href="privacy.html#cookie">Cookie</a></nav>
     </footer>
   </div>
-</section>
+</div>
 </main>
 
 <!-- Lavoro aperto: computer + telefono, frecce per gli altri -->
@@ -539,6 +590,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=92" defer></script>
+<script src="js/main.js?v=95" defer></script>
 </body>
 </html>

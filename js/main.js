@@ -184,6 +184,57 @@
     window.addEventListener('pointerup', () => { if (!tiro) return; tiro = null; pacFila.classList.remove('tiro'); const p = passoPac(); pacFila.scrollTo({ left: Math.round(pacFila.scrollLeft / p) * p, behavior: 'smooth' }); });
   }
 
+  // ── Schede a scorrimento (Come lavoriamo, Marketing): frecce, dito, trascinamento col mouse, barra di avanzamento (05/11) ──
+  document.querySelectorAll('.fila-scorre').forEach(fila => {
+    const barra = document.querySelector('[data-fila-barra="' + fila.id + '"]');
+    const comandi = barra && barra.closest('.fila-comandi');
+    const passo = () => { const s = fila.querySelector('li'); return s ? s.getBoundingClientRect().width + 16 : 280; };
+    const aggiorna = () => {
+      const tot = fila.scrollWidth, vis = fila.clientWidth;
+      if (comandi) comandi.classList.toggle('ferma', tot <= vis + 4); // tutte visibili: niente comandi
+      if (barra) { barra.style.width = (vis / tot * 100) + '%'; barra.style.left = (fila.scrollLeft / tot * 100) + '%'; }
+    };
+    fila.addEventListener('scroll', aggiorna, { passive: true });
+    addEventListener('resize', aggiorna); aggiorna();
+    document.querySelectorAll('[data-fila="' + fila.id + '"]').forEach(btn => btn.addEventListener('click', () => {
+      const dir = Number(btn.dataset.dir);
+      const fine = fila.scrollLeft + fila.clientWidth >= fila.scrollWidth - 4;
+      if (dir > 0 && fine) fila.scrollTo({ left: 0, behavior: 'smooth' });
+      else if (dir < 0 && fila.scrollLeft <= 4) fila.scrollTo({ left: fila.scrollWidth, behavior: 'smooth' });
+      else fila.scrollBy({ left: dir * passo(), behavior: 'smooth' });
+    }));
+    let tiro = null;
+    fila.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; tiro = { x: e.clientX, s: fila.scrollLeft }; fila.classList.add('tiro'); });
+    addEventListener('pointermove', e => { if (tiro) fila.scrollLeft = tiro.s - (e.clientX - tiro.x); });
+    addEventListener('pointerup', () => { if (!tiro) return; tiro = null; fila.classList.remove('tiro'); const p = passo(); fila.scrollTo({ left: Math.round(fila.scrollLeft / p) * p, behavior: 'smooth' }); });
+  });
+
+  // ── Titoli in binario (05/11): le parole in viola compaiono come 0 e 1 e si «decodificano» in lettere, una volta sola ──
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const decodifica = el => {
+      const vero = el.dataset.parola || el.textContent;
+      el.dataset.parola = vero;
+      const r = el.getBoundingClientRect();
+      el.classList.add('in-binario'); el.style.width = r.width + 'px'; // larghezza ferma: il titolo non si muove
+      const durata = 1000, t0 = performance.now(), n = vero.length; // un pelino più lento (Francesco, 05/11)
+      let ultimo = 0;
+      const passo = now => {
+        const p = Math.min(1, (now - t0) / durata);
+        if (now - ultimo > 55 || p === 1) { // cifre che cambiano ogni 55 ms: si vedono
+          ultimo = now;
+          const fatte = Math.floor(p * (n + 2)) - 2;
+          let s = ''; for (let i = 0; i < n; i++) s += vero[i] === ' ' || i < fatte ? vero[i] : (Math.random() < .5 ? '0' : '1');
+          el.textContent = p === 1 ? vero : s;
+        }
+        if (p < 1) requestAnimationFrame(passo);
+        else { el.classList.remove('in-binario'); el.style.width = ''; }
+      };
+      requestAnimationFrame(passo);
+    };
+    const oss = new IntersectionObserver(voci => voci.forEach(v => { if (v.isIntersecting) { oss.unobserve(v.target); setTimeout(() => decodifica(v.target), v.target.closest('.apertura') ? 350 : 0); } }), { threshold: .8 });
+    document.querySelectorAll('h1 .corsivo, h2 .corsivo, h3 .corsivo').forEach(el => { if (!el.closest('dialog')) oss.observe(el); });
+  }
+
   // ── Domande: «Altre 5 domande» sul telefono ──
   const altreBtn = document.querySelector('.altre-domande');
   if (altreBtn) altreBtn.addEventListener('click', () => {

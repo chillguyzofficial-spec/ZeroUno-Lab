@@ -1004,3 +1004,85 @@ html[data-tema="chiaro"] .fiducia > span:last-child { background: rgba(255,255,2
 .pac-scheda p { color: rgba(255,255,255,.72) !important; }
 .pac-scheda strong::before { content: '> '; font-family: 'JetBrains Mono', monospace; color: var(--viola); }
 .pac-scheda:nth-child(even) .ps-num { color: var(--viola); }
+
+/* ── Barra dei servizi in cima (05/11): scorre da sola, non è fissa, non si ferma col mouse; ferma con «riduci movimento» ── */
+:root { --barra-h: 44px; }
+.barra-servizi { position: relative; z-index: 2; height: var(--barra-h); overflow: hidden; display: flex; align-items: center; background: #0B0A12; border-bottom: 1px solid rgba(var(--viola-luce), .35); color: #fff; }
+.barra-traccia { display: flex; width: max-content; animation: barra-scorre 36s linear infinite; }
+.barra-copia { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.barra-copia li { display: inline-flex; align-items: center; gap: 10px; padding: 0 22px; }
+.barra-copia li::after { content: '/'; margin-left: 32px; color: rgba(255,255,255,.3); }
+.barra-copia svg { width: 16px; height: 16px; fill: none; stroke: var(--viola); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes barra-scorre { to { transform: translateX(-25%); } }
+@media (prefers-reduced-motion: reduce) { .barra-traccia { animation: none; } }
+@media (max-width: 600px) { :root { --barra-h: 38px; } .barra-copia { font-size: 12px; } .barra-copia li { padding: 0 16px; } .barra-copia li::after { margin-left: 22px; } }
+/* l'apertura resta a tutto schermo insieme alla barra */
+.apertura { min-height: calc(100vh - var(--barra-h)); min-height: calc(100svh - var(--barra-h)); }
+@media (max-width: 700px) { .apertura, html[data-tema="chiaro"] .apertura { min-height: calc(100vh - var(--barra-h)); min-height: calc(100svh - var(--barra-h)); } }
+
+/* ── Schede a scorrimento (05/11): Come lavoriamo e Marketing. Come il pacchetto (frecce, dito, trascinamento, mai da sole) ma con barra di avanzamento ── */
+.metodo-tappe.fila-scorre, .mkt-voci.fila-scorre { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: clamp(270px, 30%, 400px); gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 2px 6px; cursor: grab; }
+.fila-scorre::-webkit-scrollbar { display: none; }
+.fila-scorre > li { scroll-snap-align: start; }
+.fila-scorre.tiro { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.metodo-tappe.fila-scorre::before { display: none; }
+@media (max-width: 600px) { .metodo-tappe.fila-scorre, .mkt-voci.fila-scorre { grid-auto-columns: 84%; } }
+.fila-comandi { display: flex; align-items: center; gap: 20px; }
+.fila-barra { position: relative; flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,.12); overflow: hidden; }
+.fila-barra span { position: absolute; top: 0; bottom: 0; left: 0; width: 30%; border-radius: 3px; background: linear-gradient(90deg, var(--viola-scuro), var(--viola)); box-shadow: 0 0 10px rgba(var(--viola-luce),.9); transition: left .2s, width .2s; }
+.fila-frecce { margin: 0; flex: none; }
+.fila-frecce button { border-color: rgba(255,255,255,.28); color: #fff; background: rgba(255,255,255,.04); }
+.fila-frecce button:hover { background: #fff; color: #0a0a0a; }
+.fila-comandi.ferma { display: none; }
+@media (prefers-reduced-motion: reduce) { .fila-barra span { transition: none; } }
+
+/* ── Dal clic al cliente (05/11): 4 passi, una linea viola dietro le schede ── */
+.percorso { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.percorso::before { content: ''; position: absolute; left: 4%; right: 4%; top: 50%; height: 2px; background: linear-gradient(90deg, rgba(var(--viola-luce),.15), var(--viola-scuro), rgba(var(--viola-luce),.15)); }
+.percorso li { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px 22px 24px; border-radius: 22px; background: #fff; border: 1px solid rgba(20,20,20,.1); box-shadow: 0 22px 44px -30px rgba(60,30,120,.45); }
+.percorso li:last-child { background: #0B0A12; color: #fff; border-color: rgba(var(--viola-luce),.5); box-shadow: 0 0 0 1px rgba(var(--viola-luce),.2), 0 24px 50px -24px rgba(var(--viola-luce),.7); }
+.pc-testa { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.pc-num { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: .08em; color: var(--viola-scuro); }
+.pc-chi { padding: 4px 10px; border-radius: 999px; background: #0B0A12; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.pc-icona { display: grid; place-items: center; width: 46px; height: 46px; margin-top: 4px; border-radius: 14px; background: rgba(var(--viola-luce),.12); border: 1px solid rgba(var(--viola-luce),.3); }
+.pc-icona svg { width: 22px; height: 22px; fill: none; stroke: var(--viola-scuro); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.percorso h3 { margin: 4px 0 0; font-size: clamp(20px, 1.7vw, 24px); font-weight: 600; letter-spacing: -0.01em; }
+.percorso p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--grigio-2); }
+.percorso li:last-child .pc-num { color: var(--viola); }
+.percorso li:last-child .pc-chi { background: #fff; color: #0a0a0a; }
+.percorso li:last-child .pc-icona svg { stroke: var(--viola); }
+.percorso li:last-child p { color: rgba(255,255,255,.78); }
+@media (max-width: 1000px) { .percorso { grid-template-columns: repeat(2, minmax(0, 1fr)); } .percorso::before { display: none; } }
+@media (max-width: 600px) {
+  .percorso { grid-template-columns: 1fr; gap: 10px; }
+  .percorso::before { display: block; left: 45px; right: auto; top: 20px; bottom: 20px; width: 2px; height: auto; background: linear-gradient(180deg, rgba(var(--viola-luce),.15), var(--viola-scuro), rgba(var(--viola-luce),.15)); }
+  .percorso li { display: grid; grid-template-columns: 46px 1fr; column-gap: 14px; row-gap: 4px; padding: 16px; }
+  .percorso li .pc-testa { grid-column: 1 / -1; }
+  .percorso li .pc-icona { grid-row: 2 / 4; margin: 0; }
+  .percorso h3 { margin: 0; font-size: 19px; }
+  .percorso p { font-size: 15px; }
+}
+/* chiusura scura (05/11) e footer in una fascia chiara a sé */
+.chiusura-sez.scura { padding: clamp(56px, 6vw, 88px) 0; }
+.piede-fascia { border-top: 1px solid rgba(20,20,20,.08); }
+/* riquadro della chiusura BIANCO dentro la sezione nera (05/11, Francesco), con il nastro della versione chiara */
+.chiusura { color: var(--inchiostro); background: #fff url(../assets/img/nastro-bianco-1672.webp) 100% 50% / auto 140% no-repeat; box-shadow: 0 0 0 1px rgba(var(--viola-luce),.35), 0 40px 90px -40px rgba(var(--viola-luce),.9); }
+.chiusura::before { background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 45%, rgba(255,255,255,.1) 100%); }
+.chiusura .testo-c .prog-etichetta { color: #3E3B36; }
+.chiusura .testo-c .prog-etichetta::after { background: rgba(20,20,20,.4); }
+.chiusura .titolo { color: var(--inchiostro); }
+.chiusura .titolo .corsivo { color: var(--viola-scuro); text-shadow: none; }
+.chiusura .testo-c p { color: #3E3B36; }
+.chiusura-punti li { color: var(--inchiostro); border-color: rgba(20,20,20,.14); background: #fff; }
+.chiusura-punti li::before { background: var(--viola-scuro); box-shadow: none; }
+.chiusura-wa { color: var(--inchiostro); border-color: rgba(20,20,20,.16); background: rgba(255,255,255,.92); }
+.chiusura-wa:hover { background: #fff; }
+.chiusura-wa svg { stroke: #1FA855; }
+.chiusura-wa small { color: #3E3B36; }
+@media (max-width: 600px) {
+  .chiusura { background: #fff url(../assets/img/verticale-bianco.webp) 100% 100% / cover no-repeat; }
+  .chiusura::before { background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.9) 55%, rgba(255,255,255,.35) 100%); }
+}
+
+/* titoli in binario (05/11): durante la decodifica la parola ha larghezza fissa e non va a capo */
+.corsivo.in-binario { display: inline-block; white-space: nowrap; text-align: left; overflow: clip; overflow-clip-margin: 0.08em; }
