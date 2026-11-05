@@ -1,937 +1,544 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eff$Kappa · Siti scritti a mano</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="description" content="Eff$Kappa, studio di Francesco Mascolo: niente modelli, niente agenzie. Siti, negozi online e gestionali scritti a mano per ristoranti, negozi e studi.">
+<!-- Anteprima: togliere il noindex solo quando la pagina va sul dominio zerounolab.it -->
 <meta name="robots" content="noindex, nofollow">
+<title>Siti, app e marketing per la tua attività · Zero Uno Lab</title>
+<meta name="description" content="Sviluppo e marketing nello stesso studio: siti, negozi online, gestionali, app e campagne che ti portano clienti. Siti in promo da 499 €, bozza gratuita.">
+<meta name="theme-color" content="#060708">
 <meta property="og:type" content="website">
+<meta property="og:title" content="Siti, app e marketing per far crescere la tua attività · Zero Uno Lab">
+<meta property="og:description" content="Due competenze, un'unica direzione: sviluppo e marketing sul tuo progetto. Bozza gratuita prima di pagare.">
+<meta property="og:image" content="assets/img/condivisione.jpg">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Eff$Kappa · Niente modelli, niente agenzie">
-<meta property="og:description" content="Un sito scritto a mano per il tuo ristorante, il tuo negozio o il tuo studio. Studio di Francesco Mascolo.">
-<meta property="og:url" content="https://chillguyzofficial-spec.github.io/LandingPage_Eff-Kappa/">
-<meta property="og:image" content="https://chillguyzofficial-spec.github.io/LandingPage_Eff-Kappa/assets/og.jpg?v=3">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Eff$Kappa: il sito di Hedoné su computer e telefono">
-<meta name="twitter:card" content="summary_large_image">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=68">
-<script>
-(function () {
-  var h = document.documentElement;
-  h.classList.add('js');
-  // apertura FK: solo la prima volta nella sessione e solo se non si arriva a una sezione precisa
-  try { if (!sessionStorage.getItem('fk-entrato') && !location.hash) h.classList.add('intro'); } catch (e) {}
-})();
-</script>
+<link rel="icon" href="assets/img/icona-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/icona-180.png">
+<link rel="preload" href="assets/font/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/font/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{if(localStorage.getItem('zul-tema')==='chiaro')document.documentElement.dataset.tema='chiaro'}catch(e){}</script>
+<link rel="stylesheet" href="css/stile.css?v=92">
 </head>
-<body id="top">
-<a class="salta" href="#main">Salta al contenuto</a>
+<body>
+<a class="salta" href="#modulo" data-apri-modulo>Apri il modulo</a>
 
-  <!-- Apertura: schermo nero con FK, al tocco si apre come due ante -->
-  <div class="gate" data-gate>
-    <div class="gate-half gate-l" aria-hidden="true"><span class="gate-bg"></span><span class="gate-stage"><span class="gate-float"><span class="gate-letter gate-f">F</span></span></span></div>
-    <div class="gate-half gate-r" aria-hidden="true"><span class="gate-bg"></span><span class="gate-stage"><span class="gate-float"><span class="gate-letter gate-k">K</span></span></span></div>
-    <div class="gate-dust" aria-hidden="true"><i style="--x:8%;--d:0s;--t:13s"></i><i style="--x:17%;--d:-4s;--t:11s"></i><i style="--x:26%;--d:-9s;--t:15s"></i><i style="--x:34%;--d:-2s;--t:12s"></i><i style="--x:43%;--d:-11s;--t:14s"></i><i style="--x:57%;--d:-6s;--t:13s"></i><i style="--x:64%;--d:-1s;--t:16s"></i><i style="--x:72%;--d:-8s;--t:12s"></i><i style="--x:81%;--d:-3s;--t:14s"></i><i style="--x:90%;--d:-10s;--t:11s"></i><i style="--x:22%;--d:-13s;--t:17s"></i><i style="--x:76%;--d:-12s;--t:15s"></i><i style="--x:50%;--d:-7s;--t:18s"></i><i style="--x:12%;--d:-15s;--t:16s"></i></div>
-    <span class="gate-line" aria-hidden="true"></span>
-    <button type="button" class="gate-btn" data-gate-open aria-label="Entra nel sito di Eff$Kappa"></button>
-    <p class="gate-hint" aria-hidden="true"><span class="gate-hint-brand mono">Eff$Kappa</span><span class="gate-cta"><span class="gate-ring"><svg viewBox="0 0 56 56"><circle class="gate-ring-base" cx="28" cy="28" r="26"/><circle class="gate-ring-arc" cx="28" cy="28" r="26"/></svg><i></i></span><span class="gate-cta-txt"><span class="gate-tap">Tocca per entrare</span><span class="gate-click">Clicca per entrare</span></span></span></p>
+<!-- 1 · Apertura -->
+<section class="apertura" aria-label="Apertura">
+  <div class="contenitore">
+    <header class="testata">
+      <span class="logo"><img class="logo-scuro" src="assets/img/logo-bianco.webp" alt="Zero Uno Lab" width="240" height="30"><img class="logo-chiaro" src="assets/img/logo-nero.webp" alt="" width="240" height="30"></span>
+      <div class="testata-destra">
+        <button type="button" class="tema" data-tema-bottone aria-pressed="false"><span class="tema-icona" aria-hidden="true"></span><span class="tema-testo">Chiaro</span></button>
+        <a class="link-wa" href="https://wa.me/393454517186?text=Ciao%2C%20ho%20visto%20la%20promo%20di%20Zero%20Uno%20Lab%20e%20vorrei%20parlarvi%20di%20un%20progetto." target="_blank" rel="noopener">Contattaci su WhatsApp ↗</a>
+      </div>
+    </header>
+    <div class="apertura-corpo">
+      <div class="apertura-testo">
+        <ul class="cosa-facciamo" aria-label="Cosa facciamo">
+          <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>Siti web</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Negozi online</li>
+          <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><circle cx="16.5" cy="16.5" r="3.5"/></svg>Gestionali</li>
+          <li><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>App</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
+        </ul>
+        <h1>Il sito che i tuoi clienti <span class="corsivo">ricorderanno</span>.</h1>
+        <div class="promo-card">
+          <span class="promo-etichetta"><span class="punto" aria-hidden="true"></span>Promo a tempo</span>
+          <div class="promo-corpo">
+            <p class="promo-prezzo"><span class="da">a partire da</span><strong>499<span class="eur">€</span></strong></p>
+            <div class="promo-lato">
+              <p class="promo-cosa">Il tuo sito su misura, scritto da zero</p>
+              <p class="promo-scade">Valida fino al <span data-promo-data>31 dicembre 2026</span></p>
+            </div>
+          </div>
+        </div>
+        <p class="apertura-riga">Non ci limitiamo a creare siti web: costruiamo strumenti digitali pensati per far crescere la tua attività, con più contatti, più prenotazioni e più vendite.</p>
+        <button type="button" class="cta-apertura" data-apri-modulo aria-haspopup="dialog" aria-controls="modulo">Parlaci del tuo progetto <span aria-hidden="true">→</span></button>
+        <p class="fiducia"><span class="fiducia-stelle" aria-hidden="true">“</span><span>«Sono rimasto stupito da tutto» — <strong>Thomas</strong>, titolare di Hedoné · 7 progetti online</span></p>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <div class="progress" aria-hidden="true"><span data-progress></span></div>
-
-  <header class="site-header">
-    <a href="#top" class="wordmark">Eff<span class="dollar">$</span>Kappa</a>
-    <nav class="site-nav">
-      <a href="#chi-sono">Chi sono</a>
-      <a href="#lavori">Lavori</a>
-      <a href="#servizi">Servizi</a>
-      <a href="#metodo">Metodo</a>
-      <a href="#contatti">Contatti</a>
-    </nav>
-  </header>
-
-  <main id="main" tabindex="-1">
-
-    <!-- Apertura -->
-    <section class="hero">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-text">
-        <p class="eyebrow hero-in"><span class="pulse" aria-hidden="true"></span>Disponibile per nuovi progetti</p>
-        <h1 class="hero-in">Niente modelli, <em>niente agenzie</em>.</h1>
-        <p class="hero-hook hero-in">Stufo del solito sito fermo, che non ti porta <em>nessun cliente</em>?</p>
-        <p class="lead hero-in">Un sito <strong>scritto a mano</strong> per il tuo ristorante, il tuo negozio o il tuo studio, <strong>online in poche settimane</strong>. Si apre <strong>in fretta sul telefono</strong> e porta dritto a <strong>prenotare, comprare o scriverti</strong>.</p>
-        <div class="hero-actions hero-in">
-          <a href="#contatti" class="btn btn-gold">Raccontami il progetto <span aria-hidden="true">→</span></a>
-          <a href="#chi-sono" class="hero-link">Chi sono <span aria-hidden="true">↓</span></a>
-          <a href="#lavori" class="hero-link">Guarda i lavori <span aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-      <figure class="hero-proof hero-in">
-        <a class="project-media" href="https://www.hedonevimodrone.it/" aria-label="Apri il sito Hedoné">
-          <div class="browser">
-            <div class="browser-bar"><span></span><span></span><span></span><em>hedonevimodrone.it</em></div>
-            <div class="screen"><img class="scroll-shot" src="assets/shots/full/hedone-home-desk.webp?v=2" alt="Pagina iniziale del sito Hedoné su computer" width="1000" height="5463" fetchpriority="high"></div>
-          </div>
-          <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" src="assets/shots/full/hedone-home-mob.webp" alt="Pagina iniziale del sito Hedoné su telefono" width="600" height="5846"></div></div>
-        </a>
-        <figcaption><span class="badge badge-live">Online</span><span><b>Hedoné</b>, ristorante sul Naviglio Martesana. Sul dominio del cliente da settembre 2026.</span></figcaption>
-      </figure>
-
-      <dl class="stats hero-in">
-        <div><dt>Lavori in vetrina</dt><dd><span data-count-to="6">6</span></dd></div>
-        <div><dt>Accessibilità · Lighthouse</dt><dd><span data-count-to="100">100</span><small>/100</small></dd></div>
-        <div><dt>Tempo di risposta</dt><dd><span data-count-to="24">24</span><small> h</small></dd></div>
-        <div><dt>Assistenza inclusa</dt><dd><span data-count-to="30">30</span><small> giorni</small></dd></div>
-      </dl>
-    </section>
-
-    <!-- Fascia dei settori -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Ristoranti</span><i>✲</i><span>Moda</span><i>✲</i><span>Studi medici</span><i>✲</i><span>Negozi online</span><i>✲</i><span>Palestre e studi</span><i>✲</i><span>Gestionali</span><i>✲</i>
-        <span>Ristoranti</span><i>✲</i><span>Moda</span><i>✲</i><span>Studi medici</span><i>✲</i><span>Negozi online</span><i>✲</i><span>Palestre e studi</span><i>✲</i><span>Gestionali</span><i>✲</i>
-      </div>
+<main>
+<!-- 2 · Cosa facciamo -->
+<section class="sezione chiara" aria-labelledby="t-oltre">
+  <div class="contenitore pila">
+    <div class="testa-sez">
+      <h2 class="titolo" id="t-oltre">Cosa possiamo <span class="corsivo">fare</span> per te.</h2>
+      <p class="sottotitolo">Siti, negozi online, gestionali e app scritti da zero, e il marketing che ti porta clienti. Prezzi in promo fino al <span data-promo-data>31 dicembre 2026</span>.</p>
     </div>
-
-    <!-- Chi c'è dietro -->
-    <section class="about" id="chi-sono">
-      <div class="about-top">
-        <figure class="about-photo" data-reveal>
-          <img src="assets/francesco.webp" alt="Francesco Mascolo, lo sviluppatore dietro Eff$Kappa" width="760" height="1140" loading="lazy" decoding="async">
-          <figcaption class="mono">Francesco Mascolo · sviluppatore</figcaption>
-        </figure>
-        <div class="about-text">
-          <div class="section-head" data-reveal>
-            <p class="eyebrow"><span class="idx">01</span>Chi c'è dietro</p>
-            <h2 data-words>Codice scritto a mano, da chi poi lo mantiene.</h2>
-          </div>
-          <p class="about-lead" data-reveal>Sono Francesco Mascolo, sviluppatore. Progetto, scrivo e pubblico da solo ogni sito, gestionale e app, dal primo schema alla messa online: niente temi già pronti, niente programmi che montano pagine a blocchi, nessun passaggio di mano. Ogni giorno lavoro su software dove un errore costa caro, e porto lo stesso metodo su ogni progetto, dal sito di presentazione al gestionale: ogni modifica al codice registrata, prove prima della consegna, nessuna sorpresa dopo.</p>
-
-          <div class="spec spec-x" data-reveal>
-            <details class="spec-item" style="--i:0"><summary><span class="spec-n mono">01</span><span class="spec-t mono">Cosa faccio</span><span class="spec-breve">Siti, negozi online, gestionali e app</span><span class="faq-icon" aria-hidden="true"></span></summary><p>Siti vetrina, negozi online, gestionali web e app da installare dal browser (PWA).</p></details>
-            <details class="spec-item" style="--i:1"><summary><span class="spec-n mono">02</span><span class="spec-t mono">Strumenti</span><span class="spec-breve">HTML, CSS, JavaScript · Next.js · Shopify</span><span class="faq-icon" aria-hidden="true"></span></summary><p>HTML, CSS e JavaScript scritti a mano per i siti; Next.js e Node.js per i gestionali; Shopify e Stripe per i negozi con molti prodotti.</p></details>
-            <details class="spec-item" style="--i:2"><summary><span class="spec-n mono">03</span><span class="spec-t mono">Prestazioni</span><span class="spec-breve">Pagine leggere, pensate per il telefono</span><span class="faq-icon" aria-hidden="true"></span></summary><p>Immagini WebP caricate solo quando servono, tutto pensato prima per il telefono, accessibilità misurata con Lighthouse.</p></details>
-            <details class="spec-item" style="--i:3"><summary><span class="spec-n mono">04</span><span class="spec-t mono">Controlli</span><span class="spec-breve">Prove automatiche prima di ogni consegna</span><span class="faq-icon" aria-hidden="true"></span></summary><p>Prove automatiche su telefono, tablet e computer prima di ogni consegna: oltre 100 sui percorsi d'acquisto di un negozio, oltre 400 su sito e app.</p></details>
-            <details class="spec-item" style="--i:4"><summary><span class="spec-n mono">05</span><span class="spec-t mono">Proprietà</span><span class="spec-breve">Tutto a nome tuo</span><span class="faq-icon" aria-hidden="true"></span></summary><p>Codice, dominio e spazio web a nome del cliente, con tutti i file consegnati.</p></details>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lavori -->
-    <section class="work" id="lavori">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow"><span class="idx">02</span>Lavori</p>
-        <h2>Sei lavori, sei settori.</h2>
-        <p class="section-sub">Uno per settore: sei aperti e navigabili, il gestionale in dimostrazione su richiesta e un ottavo in lavorazione. Scegli un lavoro per vederne le pagine, sul computer e sul telefono.</p>
-      </div>
-
-      <div class="vt" data-vt data-reveal>
-        <ol class="vt-binario" data-vt-track aria-label="I lavori">
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-ristorazione">
-            <span class="vt-foto" role="img" aria-label="Pagina iniziale del sito Hedoné su iPhone">
-              <span class="vt-iphone"><span class="vt-schermo"><img src="assets/shots/vetrina/hedone-mob.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>01</b>Ristorazione · Vimodrone</span><span class="vt-stato mono is-live">Online</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Hedoné</span><span class="vt-tipo mono">Sito vetrina</span></span>
-              <span class="vt-frase">Il menù con gli ingredienti a un tocco e la prenotazione già aperta.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-moda">
-            <span class="vt-foto" role="img" aria-label="Pagina iniziale del sito Ossidiana su iPhone">
-              <span class="vt-iphone"><span class="vt-schermo"><img src="assets/shots/vetrina/ossidiana-mob.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>02</b>Moda e lusso · Milano</span><span class="vt-stato mono">Dimostrativo</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Ossidiana</span><span class="vt-tipo mono">Sito vetrina</span></span>
-              <span class="vt-frase">Foto grandi e poche parole, come nei siti delle grandi case di moda.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-gestionali">
-            <span class="vt-foto" role="img" aria-label="Anteprima illustrativa del gestionale Home Unity su iPhone, con dati fittizi">
-              <span class="vt-iphone"><span class="vt-schermo"><span class="vt-mdash" aria-hidden="true">
-                <b class="vt-md-top">HU <em>Ultimi 30 giorni</em></b>
-                <span class="vt-md-kpi"><small>Ricavo per casa</small><strong>€ 84</strong><em class="up">+6%</em></span>
-                <span class="vt-md-kpi"><small>Occupazione</small><strong>75%</strong><em class="down">−2%</em></span>
-                <span class="vt-md-chart"><svg viewBox="0 0 300 120" preserveAspectRatio="none"><polyline class="ly" points="0,82 50,78 100,70 150,66 200,58 250,52 300,48"/><polyline class="cy" points="0,94 50,80 100,64 150,56 200,40 250,36 300,22"/></svg></span>
-                <span class="vt-md-row"><i class="dot red"></i>Appartamento A<em>−18%</em></span>
-                <span class="vt-md-row"><i class="dot amber"></i>Appartamento B<em>−7%</em></span>
-                <span class="vt-md-row"><i class="dot green"></i>Appartamento C<em>+4%</em></span>
-              </span></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>03</b>Gestionali · Milano, Firenze, Garda</span><span class="vt-stato mono">Privato</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Home Unity</span><span class="vt-tipo mono">Gestionale web</span></span>
-              <span class="vt-frase">I numeri di 108 appartamenti in una sola schermata.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-professionisti">
-            <span class="vt-foto" role="img" aria-label="Pagina iniziale del sito Studio Lumea su iPhone">
-              <span class="vt-iphone"><span class="vt-schermo"><img src="assets/shots/vetrina/lumea-mob.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>04</b>Professionisti · Milano</span><span class="vt-stato mono">Dimostrativo</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Studio Lumea</span><span class="vt-tipo mono">Sito vetrina</span></span>
-              <span class="vt-frase">Un sito pensato per chi ha paura del dentista.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-ecommerce">
-            <span class="vt-foto" role="img" aria-label="Pagina iniziale del sito Michelangelo Beauty su iPhone">
-              <span class="vt-iphone"><span class="vt-schermo"><img src="assets/shots/vetrina/michelangelo-mob.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>05</b>Negozi online · Toscana</span><span class="vt-stato mono">Dimostrativo</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Michelangelo Beauty</span><span class="vt-tipo mono">Negozio online</span></span>
-              <span class="vt-frase">Un negozio di cosmetica con il carattere di una bottega.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-fitness">
-            <span class="vt-foto" role="img" aria-label="Pagina iniziale del sito Cento Respiri su iPhone">
-              <span class="vt-iphone"><span class="vt-schermo"><img src="assets/shots/vetrina/centorespiri-mob.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>06</b>Fitness e app · Torino</span><span class="vt-stato mono">Dimostrativo</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Cento Respiri</span><span class="vt-tipo mono">Sito + app</span></span>
-              <span class="vt-frase">Sito, area clienti e app con un solo account.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item">
-          <a class="vt-card" draggable="false" href="#lavoro-app">
-            <span class="vt-foto" role="img" aria-label="Pagina iniziale del sito Cose Che Non Dovevo Scordare su iPhone">
-              <span class="vt-iphone"><span class="vt-schermo"><img src="assets/shots/vetrina/agenda-mob.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>07</b>App · agenda personale</span><span class="vt-stato mono">Online</span></span>
-              <span class="vt-titolo"><span class="vt-nome">Cose Che Non Dovevo Scordare</span><span class="vt-tipo mono">App da installare</span></span>
-              <span class="vt-frase">Un'agenda da sfogliare come un libro vero, anche senza rete.</span>
-              <span class="vt-vai">Guarda il lavoro <span aria-hidden="true">↓</span></span>
-            </span>
-          </a>
-        </li>
-        <li class="vt-item vt-item-presto">
-          <a class="vt-card" draggable="false" data-presto>
-            <span class="vt-foto" role="img" aria-label="Lavoro in lavorazione, non ancora visibile">
-              <span class="vt-iphone"><span class="vt-schermo vt-presto" aria-hidden="true"><i></i><i></i><i></i><b class="mono">In lavorazione</b><span class="vt-presto-barra"><span></span></span></span><span class="vt-isola" aria-hidden="true"></span></span>
-            </span>
-            <span class="vt-info">
-              <span class="vt-riga"><span class="vt-dove mono"><b>08</b>Abbigliamento</span><span class="vt-stato mono is-presto">Presto</span></span>
-              <span class="vt-titolo"><span class="vt-nome">In lavorazione</span><span class="vt-tipo mono">Negozio online</span></span>
-              <span class="vt-frase">Un negozio online di abbigliamento, costruito insieme al cliente. Presto visibile qui.</span>
-              <span class="vt-vai vt-vai-presto">Presto online</span>
-            </span>
-          </a>
-        </li>
-        </ol>
-        <div class="vt-comandi">
-          <button type="button" class="round" data-vt-prev aria-label="Lavoro precedente"><span aria-hidden="true">←</span></button>
-          <p class="mono vt-conta" aria-live="polite"><span data-vt-count>01</span> / 08</p>
-          <button type="button" class="round" data-vt-next aria-label="Lavoro successivo"><span aria-hidden="true">→</span></button>
-        </div>
-      </div>
-      <div class="lavori-dettaglio" id="lavori-dettaglio">
-        <div class="filters" role="group" aria-label="Scegli il settore">
-          <p class="mono filters-label">Scegli il settore</p>
-          <button type="button" class="chip is-active" data-filter="ristorazione" aria-pressed="true" aria-controls="lavoro-ristorazione"><span>01</span>Ristorazione</button>
-          <button type="button" class="chip" data-filter="moda" aria-pressed="false" aria-controls="lavoro-moda"><span>02</span>Moda e lusso</button>
-          <button type="button" class="chip" data-filter="gestionali" aria-pressed="false" aria-controls="lavoro-gestionali"><span>03</span>Gestionali</button>
-          <button type="button" class="chip" data-filter="professionisti" aria-pressed="false" aria-controls="lavoro-professionisti"><span>04</span>Professionisti</button>
-          <button type="button" class="chip" data-filter="ecommerce" aria-pressed="false" aria-controls="lavoro-ecommerce"><span>05</span>Negozi online</button>
-          <button type="button" class="chip" data-filter="fitness" aria-pressed="false" aria-controls="lavoro-fitness"><span>06</span>Fitness e app</button>
-          <button type="button" class="chip" data-filter="app" aria-pressed="false" aria-controls="lavoro-app"><span>07</span>App</button>
-        </div>
-
-      <!-- Ristorazione -->
-      <div class="category is-on" id="lavoro-ristorazione" data-category="ristorazione">
-        <h3 class="category-title"><span class="mono">01</span>Ristorazione</h3>
-        <article class="project" data-shots>
-          <div class="project-media-wrap">
-            <div class="tabs-row">
-              <button type="button" class="round round-sm" data-tab-prev aria-label="Sezione precedente di Hedoné"><span aria-hidden="true">←</span></button>
-              <div class="tabs tabs-4" role="group" aria-label="Sezioni del sito Hedoné">
-                <button type="button" class="tab is-active" data-desk="assets/shots/full/hedone-home-desk.webp?v=2" data-mob="assets/shots/full/hedone-home-mob.webp" data-alt="pagina iniziale">Inizio</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/hedone-menu-desk.webp" data-mob="assets/shots/full/hedone-menu-mob.webp" data-alt="pagina del menù">Menù</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/hedone-serate-desk.webp" data-mob="assets/shots/full/hedone-serate-mob.webp" data-alt="pagina delle serate ed eventi">Serate</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/hedone-chisiamo-desk.webp" data-mob="assets/shots/full/hedone-chisiamo-mob.webp" data-alt="pagina Chi siamo">Chi siamo</button>
-              </div>
-              <button type="button" class="round round-sm" data-tab-next aria-label="Sezione successiva di Hedoné"><span aria-hidden="true">→</span></button>
-            </div>
-            <a class="project-media is-draggable" href="https://www.hedonevimodrone.it/" draggable="false" aria-label="Apri il sito Hedoné">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><em>hedonevimodrone.it</em></div>
-                <div class="screen"><img class="scroll-shot" draggable="false" data-shot-desk src="assets/shots/full/hedone-home-desk.webp?v=2" alt="Sito Hedoné su computer: pagina iniziale" loading="eager" decoding="async" width="1000" height="5463"></div>
-              </div>
-              <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" draggable="false" data-shot-mob src="assets/shots/full/hedone-home-mob.webp" alt="Sito Hedoné su telefono: pagina iniziale" loading="eager" decoding="async" width="600" height="5846"></div></div>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge badge-live">Online</span><span class="mono">Ristorante · sito vetrina · 2026</span></div>
-            <h4>Hedoné</h4>
-            <p class="project-sub">Ristorante e lounge bar sul Naviglio Martesana, a Vimodrone.</p>
-            <p class="project-text">Quattro pagine e l'informativa privacy, scritte da zero al posto del vecchio WordPress: menù con gli ingredienti a un tocco, serate ed eventi, prenotazione collegata alla piattaforma del ristorante.</p>
-            <ul class="results">
-              <li>Online sul dominio del cliente da settembre 2026</li>
-              <li>I vecchi indirizzi portano ai nuovi: nessuna pagina rotta da Google</li>
-              <li>Accessibilità 100/100 su Lighthouse, il test di Google</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="https://www.hedonevimodrone.it/">Vedi il sito online <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Moda e lusso -->
-      <div class="category" id="lavoro-moda" data-category="moda">
-        <h3 class="category-title"><span class="mono">02</span>Moda e lusso</h3>
-        <article class="project project-flip" data-shots>
-          <div class="project-media-wrap">
-            <div class="tabs-row">
-              <button type="button" class="round round-sm" data-tab-prev aria-label="Sezione precedente di Ossidiana"><span aria-hidden="true">←</span></button>
-              <div class="tabs tabs-3" role="group" aria-label="Sezioni del sito Ossidiana">
-                <button type="button" class="tab is-active" data-desk="assets/shots/full/ossidiana-home-desk.webp" data-mob="assets/shots/full/ossidiana-home-mob.webp" data-alt="pagina iniziale">Inizio</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/ossidiana-storia-desk.webp" data-mob="assets/shots/full/ossidiana-storia-mob.webp" data-alt="pagina della storia">Storia</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/ossidiana-manifesto-desk.webp" data-mob="assets/shots/full/ossidiana-manifesto-mob.webp" data-alt="pagina del manifesto">Manifesto</button>
-              </div>
-              <button type="button" class="round round-sm" data-tab-next aria-label="Sezione successiva di Ossidiana"><span aria-hidden="true">→</span></button>
-            </div>
-            <a class="project-media is-draggable" href="https://chillguyzofficial-spec.github.io/ossidiana/" draggable="false" aria-label="Apri il sito Ossidiana">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><em>ossidiana</em></div>
-                <div class="screen"><img class="scroll-shot" draggable="false" data-shot-desk src="assets/shots/full/ossidiana-home-desk.webp" alt="Sito Ossidiana su computer: pagina iniziale" loading="lazy" decoding="async" width="1000" height="3750"></div>
-              </div>
-              <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" draggable="false" data-shot-mob src="assets/shots/full/ossidiana-home-mob.webp" alt="Sito Ossidiana su telefono: pagina iniziale" loading="lazy" decoding="async" width="600" height="5846"></div></div>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge">Dimostrativo</span><span class="mono">Moda di lusso · sito vetrina · 2026</span></div>
-            <h4>Ossidiana</h4>
-            <p class="project-sub">Sartoria di alta moda a Milano, inventato per mostrare un sito di moda di lusso.</p>
-            <p class="project-text">Poche parole e foto grandi, con la stessa impaginazione su computer e telefono come fanno le grandi case di moda. Schede con galleria e richiesta di prova con calendario.</p>
-            <ul class="results">
-              <li>Foto a tutta pagina, mai tagliate</li>
-              <li>Tre pagine: home, storia e manifesto</li>
-              <li>Accessibilità 100/100 su Lighthouse, il test di Google</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="https://chillguyzofficial-spec.github.io/ossidiana/">Vedi il sito online <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Gestionali -->
-      <div class="category" id="lavoro-gestionali" data-category="gestionali">
-        <h3 class="category-title"><span class="mono">03</span>Gestionali</h3>
-        <article class="project">
-          <div class="project-media project-media-static">
-            <div class="browser">
-              <div class="browser-bar"><span></span><span></span><span></span><em>gestionale · area riservata</em></div>
-              <div class="dash" aria-label="Anteprima illustrativa del pannello, con dati fittizi" role="img">
-                <aside class="dash-side"><b>HU</b><i></i><i></i><i></i><i></i></aside>
-                <div class="dash-main">
-                  <div class="dash-top"><span>Panoramica · ultimi 30 giorni</span><span class="dash-pill">rispetto al 2025</span></div>
-                  <div class="dash-kpis">
-                    <div><small>Ricavo per casa</small><strong>€ 84</strong><em class="up">+6%</em></div>
-                    <div><small>Prezzo medio</small><strong>€ 112</strong><em class="up">+3%</em></div>
-                    <div><small>Occupazione</small><strong>75%</strong><em class="down">−2%</em></div>
-                    <div><small>Nuove prenotazioni, 7 giorni</small><strong>41</strong><em class="up">+9</em></div>
-                  </div>
-                  <div class="dash-chart">
-                    <svg viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
-                      <polyline class="ly" points="0,62 25,58 50,60 75,50 100,54 125,44 150,48 175,40 200,46 225,36 250,40 275,32 300,36"/>
-                      <polyline class="cy" points="0,70 25,60 50,52 75,55 100,42 125,46 150,34 175,38 200,28 225,33 250,22 275,26 300,18"/>
-                    </svg>
-                  </div>
-                  <div class="dash-list">
-                    <div><span class="dot red"></span>Appartamento A · Milano<em>−18%</em></div>
-                    <div><span class="dot amber"></span>Appartamento B · Firenze<em>−7%</em></div>
-                    <div><span class="dot green"></span>Appartamento C · Garda<em>+4%</em></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="media-note">Anteprima illustrativa: nomi e numeri sono fittizi, i dati del cliente restano riservati.</p>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge">Privato</span><span class="mono">Affitti brevi · gestionale web · 2026</span></div>
-            <h4>Gestionale Home Unity</h4>
-            <p class="project-sub">Il controllo dei ricavi per una società che gestisce affitti brevi: 108 appartamenti tra Milano, Firenze e lago di Garda.</p>
-            <p class="project-text">Un pannello collegato al programma delle prenotazioni, con accessi separati per amministratore e operatori. Consegnata a giugno 2026.</p>
-            <ul class="results">
-              <li>I dati arrivano da soli dal gestionale, nessuno li ricopia più a mano</li>
-              <li>Ricavo per casa, prezzo medio, occupazione e nuove prenotazioni confrontati con l'anno prima</li>
-              <li>Un semaforo segnala le case che rendono meno del solito</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="#contatti">Dimostrazione su richiesta <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Professionisti -->
-      <div class="category" id="lavoro-professionisti" data-category="professionisti">
-        <h3 class="category-title"><span class="mono">04</span>Professionisti</h3>
-        <article class="project project-flip" data-shots>
-          <div class="project-media-wrap">
-            <div class="tabs-row">
-              <button type="button" class="round round-sm" data-tab-prev aria-label="Sezione precedente di Studio Lumea"><span aria-hidden="true">←</span></button>
-              <div class="tabs tabs-4" role="group" aria-label="Sezioni del sito Studio Lumea">
-                <button type="button" class="tab is-active" data-desk="assets/shots/full/lumea-home-desk.webp" data-mob="assets/shots/full/lumea-home-mob.webp" data-alt="pagina iniziale">Inizio</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/lumea-trattamento-desk.webp" data-mob="assets/shots/full/lumea-trattamento-mob.webp" data-alt="scheda di un trattamento">Trattamento</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/lumea-guide-desk.webp" data-mob="assets/shots/full/lumea-guide-mob.webp" data-alt="pagina delle guide">Guide</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/lumea-contatti-desk.webp" data-mob="assets/shots/full/lumea-contatti-mob.webp" data-alt="pagina dei contatti con richiesta di appuntamento">Contatti</button>
-              </div>
-              <button type="button" class="round round-sm" data-tab-next aria-label="Sezione successiva di Studio Lumea"><span aria-hidden="true">→</span></button>
-            </div>
-            <a class="project-media is-draggable" href="https://chillguyzofficial-spec.github.io/StudioLumea_Dentistico/" draggable="false" aria-label="Apri il sito Studio Lumea">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><em>studio lumea</em></div>
-                <div class="screen"><img class="scroll-shot" draggable="false" data-shot-desk src="assets/shots/full/lumea-home-desk.webp" alt="Sito Studio Lumea su computer: pagina iniziale" loading="lazy" decoding="async" width="1000" height="3750"></div>
-              </div>
-              <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" draggable="false" data-shot-mob src="assets/shots/full/lumea-home-mob.webp" alt="Sito Studio Lumea su telefono: pagina iniziale" loading="lazy" decoding="async" width="600" height="5846"></div></div>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge">Dimostrativo</span><span class="mono">Studio dentistico · sito vetrina · 2026</span></div>
-            <h4>Studio Lumea</h4>
-            <p class="project-sub">Studio dentistico a Milano, inventato per mostrare un sito sanitario chiaro e in regola.</p>
-            <p class="project-text">Dodici pagine pensate per chi ha paura del dentista: una per ogni trattamento, guide pratiche, costi chiari, un riquadro per le urgenze e richiesta di appuntamento con gli orari liberi.</p>
-            <ul class="results">
-              <li>Niente foto prima e dopo né offerte, come chiedono le regole sulla pubblicità sanitaria</li>
-              <li>Logo e icone disegnati su misura</li>
-              <li>Accessibilità 100/100 su Lighthouse, il test di Google</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="https://chillguyzofficial-spec.github.io/StudioLumea_Dentistico/">Vedi il sito online <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Negozi online -->
-      <div class="category" id="lavoro-ecommerce" data-category="ecommerce">
-        <h3 class="category-title"><span class="mono">05</span>Negozi online</h3>
-        <article class="project" data-shots>
-          <div class="project-media-wrap">
-            <div class="tabs-row">
-              <button type="button" class="round round-sm" data-tab-prev aria-label="Sezione precedente di Michelangelo Beauty"><span aria-hidden="true">←</span></button>
-              <div class="tabs tabs-4" role="group" aria-label="Sezioni del sito Michelangelo Beauty">
-                <button type="button" class="tab is-active" data-desk="assets/shots/full/michelangelo-home-desk.webp" data-mob="assets/shots/full/michelangelo-home-mob.webp" data-alt="pagina iniziale">Inizio</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/michelangelo-opere-desk.webp" data-mob="assets/shots/full/michelangelo-opere-mob.webp" data-alt="catalogo con i filtri">Catalogo</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/michelangelo-scheda-desk.webp" data-mob="assets/shots/full/michelangelo-scheda-mob.webp" data-alt="scheda prodotto">Prodotto</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/michelangelo-rituale-desk.webp" data-mob="assets/shots/full/michelangelo-rituale-mob.webp" data-alt="questionario del rituale">Questionario</button>
-              </div>
-              <button type="button" class="round round-sm" data-tab-next aria-label="Sezione successiva di Michelangelo Beauty"><span aria-hidden="true">→</span></button>
-            </div>
-            <a class="project-media is-draggable" href="https://chillguyzofficial-spec.github.io/MichelangeloBeauty/" draggable="false" aria-label="Apri il sito Michelangelo Beauty">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><em>michelangelo beauty</em></div>
-                <div class="screen"><img class="scroll-shot" draggable="false" data-shot-desk src="assets/shots/full/michelangelo-home-desk.webp" alt="Sito Michelangelo Beauty su computer: pagina iniziale" loading="lazy" decoding="async" width="1000" height="3750"></div>
-              </div>
-              <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" draggable="false" data-shot-mob src="assets/shots/full/michelangelo-home-mob.webp" alt="Sito Michelangelo Beauty su telefono: pagina iniziale" loading="lazy" decoding="async" width="600" height="5846"></div></div>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge">Dimostrativo</span><span class="mono">Cosmetica artigianale · negozio online · 2026</span></div>
-            <h4>Michelangelo Beauty</h4>
-            <p class="project-sub">Bottega toscana di cosmetica artigianale, inventata per mostrare un negozio online con un carattere suo.</p>
-            <p class="project-text">Negozio completo con carrello, confezione regalo e pagamento in quattro passaggi. In più il questionario che consiglia i prodotti adatti alla tua pelle e il tracciamento del lotto.</p>
-            <ul class="results">
-              <li>Ingredienti spiegati in italiano, prezzo al litro e al chilo</li>
-              <li>Oltre cento controlli automatici sui percorsi d'acquisto</li>
-              <li>Accessibilità 100/100 su tutte le pagine</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="https://chillguyzofficial-spec.github.io/MichelangeloBeauty/">Vedi il sito online <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Fitness e app -->
-      <div class="category" id="lavoro-fitness" data-category="fitness">
-        <h3 class="category-title"><span class="mono">06</span>Fitness e app</h3>
-        <article class="project project-flip" data-shots>
-          <div class="project-media-wrap">
-            <div class="tabs-row">
-              <button type="button" class="round round-sm" data-tab-prev aria-label="Sezione precedente di Cento Respiri"><span aria-hidden="true">←</span></button>
-              <div class="tabs tabs-4" role="group" aria-label="Sezioni del sito Cento Respiri">
-                <button type="button" class="tab is-active" data-desk="assets/shots/full/centorespiri-home-desk.webp" data-mob="assets/shots/full/centorespiri-app-mob.webp" data-alt="pagina iniziale del sito e app iscritti">Inizio</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/centorespiri-orario-desk.webp" data-mob="assets/shots/full/centorespiri-orario-mob.webp" data-alt="orario della settimana">Orario</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/centorespiri-prezzi-desk.webp" data-mob="assets/shots/full/centorespiri-prezzi-mob.webp" data-alt="pagina dei prezzi">Prezzi</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/centorespiri-istruttori-desk.webp" data-mob="assets/shots/full/centorespiri-istruttori-mob.webp" data-alt="pagina degli istruttori">Istruttori</button>
-              </div>
-              <button type="button" class="round round-sm" data-tab-next aria-label="Sezione successiva di Cento Respiri"><span aria-hidden="true">→</span></button>
-            </div>
-            <a class="project-media is-draggable" href="https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/" draggable="false" aria-label="Apri il sito Cento Respiri">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><em>cento respiri</em></div>
-                <div class="screen"><img class="scroll-shot" draggable="false" data-shot-desk src="assets/shots/full/centorespiri-home-desk.webp" alt="Sito Cento Respiri su computer: pagina iniziale del sito e app iscritti" loading="lazy" decoding="async" width="1000" height="3750"></div>
-              </div>
-              <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" draggable="false" data-shot-mob src="assets/shots/full/centorespiri-app-mob.webp" alt="Sito Cento Respiri su telefono: pagina iniziale del sito e app iscritti" loading="lazy" decoding="async" width="600" height="1298"></div></div>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge">Dimostrativo</span><span class="mono">Studio di pilates · sito + app · 2026</span></div>
-            <h4>Cento Respiri</h4>
-            <p class="project-sub">Studio di pilates reformer a Torino, inventato per mostrare sito, area clienti e app che lavorano insieme.</p>
-            <p class="project-text">Sito di otto pagine, area clienti dal computer e app da installare sul telefono, con lo stesso account. La lista d'attesa assegna il posto da sola; ci sono carnet, buoni regalo e QR all'ingresso.</p>
-            <ul class="results">
-              <li>L'app funziona anche senza rete</li>
-              <li>Un pannello per lo studio segna le presenze</li>
-              <li>Oltre quattrocento controlli automatici su telefono, tablet e computer</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/">Vedi il sito online <span aria-hidden="true">↗</span></a>
-              <a class="project-link" href="https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/app/">Prova l'app <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- App -->
-      <div class="category" id="lavoro-app" data-category="app">
-        <h3 class="category-title"><span class="mono">07</span>App</h3>
-        <article class="project" data-shots>
-          <div class="project-media-wrap">
-            <div class="tabs-row">
-              <button type="button" class="round round-sm" data-tab-prev aria-label="Sezione precedente di Cose Che Non Dovevo Scordare"><span aria-hidden="true">←</span></button>
-              <div class="tabs tabs-4" role="group" aria-label="Sezioni del sito Cose Che Non Dovevo Scordare">
-                <button type="button" class="tab is-active" data-desk="assets/shots/full/agenda-settimana-desk.webp" data-mob="assets/shots/full/agenda-settimana-mob.webp" data-alt="settimana sfogliabile">Settimana</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/agenda-giorno-desk.webp" data-mob="assets/shots/full/agenda-giorno-mob.webp" data-alt="pagina del giorno per scrivere">Giorno</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/agenda-mese-desk.webp" data-mob="assets/shots/full/agenda-mese-mob.webp" data-alt="calendario del mese">Mese</button>
-                <button type="button" class="tab" data-desk="assets/shots/full/agenda-copertina-desk.webp" data-mob="assets/shots/full/agenda-copertina-mob.webp" data-alt="copertina da personalizzare">Copertina</button>
-              </div>
-              <button type="button" class="round round-sm" data-tab-next aria-label="Sezione successiva di Cose Che Non Dovevo Scordare"><span aria-hidden="true">→</span></button>
-            </div>
-            <a class="project-media is-draggable" href="https://chillguyzofficial-spec.github.io/cose-che-non-dovevo-scordare-ma-ho-scordato./" draggable="false" aria-label="Apri il sito Cose Che Non Dovevo Scordare">
-              <div class="browser">
-                <div class="browser-bar"><span></span><span></span><span></span><em>cose che non dovevo scordare</em></div>
-                <div class="screen"><img class="scroll-shot" draggable="false" data-shot-desk src="assets/shots/full/agenda-settimana-desk.webp" alt="Sito Cose Che Non Dovevo Scordare su computer: settimana sfogliabile" loading="lazy" decoding="async" width="1000" height="625"></div>
-              </div>
-              <div class="phone"><div class="screen screen-mob"><img class="scroll-shot" draggable="false" data-shot-mob src="assets/shots/full/agenda-settimana-mob.webp" alt="Sito Cose Che Non Dovevo Scordare su telefono: settimana sfogliabile" loading="lazy" decoding="async" width="600" height="1298"></div></div>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-meta"><span class="badge">Online</span><span class="mono">Agenda · app da installare · 2026</span></div>
-            <h4>Cose Che Non Dovevo Scordare</h4>
-            <p class="project-sub">Un'agenda settimanale nata come regalo: un libro in pelle da sfogliare, sul telefono e sul computer.</p>
-            <p class="project-text">Una settimana per pagina e la pagina del giorno dove scrivere, con liste da spuntare e cose da ricordare. Ogni stagione ha i suoi colori e i suoi sticker; la copertina si decora con pelle, scritte, adesivi e disegni a mano.</p>
-            <ul class="results">
-              <li>Funziona anche senza rete e si installa come un'app</li>
-              <li>Lettere al futuro che si aprono solo nel giorno scelto</li>
-              <li>Oltre trecentosettanta controlli automatici su telefono, tablet e computer</li>
-            </ul>
-            <div class="project-links">
-              <a class="project-link" href="https://chillguyzofficial-spec.github.io/cose-che-non-dovevo-scordare-ma-ho-scordato./">Vedi il sito online <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-      </div>
-      </div>
-
-    </section>
-
-    <!-- Recensioni vere di clienti, con lo screenshot del messaggio originale -->
-    <section class="review" id="recensioni">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow">Dicono di me</p>
-        <h2>I clienti, con parole loro.</h2>
-        <p class="section-sub">Messaggi arrivati su WhatsApp, riportati come li hanno scritti. <b class="review-come">Come le verifico:</b> pubblico solo recensioni di clienti per cui ho lavorato davvero, con il loro nome e lo screenshot del messaggio originale, che si apre toccandolo.</p>
-      </div>
-      <div class="carousel review-car" data-carousel data-reveal>
-        <div class="carousel-top">
-          <div class="review-top-left">
-            <p class="mono carousel-count" aria-live="polite"><span data-count>01</span> / 02</p>
-            <p class="carousel-hint mono"><span class="hint-lungo">Scorri o usa le frecce per leggere l'altra recensione</span><span class="hint-corto">Scorri per l'altra recensione</span> <i aria-hidden="true">→</i></p>
-          </div>
-          <div class="carousel-nav">
-            <button type="button" class="round" data-prev aria-label="Recensione precedente"><span aria-hidden="true">←</span></button>
-            <button type="button" class="round" data-next aria-label="Recensione successiva"><span aria-hidden="true">→</span></button>
-          </div>
-        </div>
-        <ul class="carousel-track review-track" data-track>
-        <li class="review-item">
-          <figure class="review-main">
-            <blockquote class="review-text">
-              <p>Ho conosciuto Francesco tramite un lavoro online, facendo qualche chiacchiera mi ha parlato anche che costruisce siti web su misura. Avendo un'attività di ristorazione e un sito web obsoleto, ho colto l'occasione di fargli mettere mano e farglielo elaborare.</p>
-              <p>Sono rimasto stupito da tutto, <mark>segue il cliente passo passo, testo dopo testo e fotografia dopo fotografia</mark>. Un modo di lavorare totalmente innovativo. Dopo tutto questo, Francesco ci segue anche per ogni singolo aggiornamento pagina, per esempio il cambio menù, <mark>in tempi record</mark> riesce a modificare descrizione e fotografie.</p>
-              <p class="review-end">Lo consiglio? Assolutamente sì.</p>
-            </blockquote>
-            <figcaption><div class="review-chi"><b>Thomas Arduini</b><span class="review-ok mono"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>Recensione verificata</span></div><span>Titolare del ristorante Hedoné, Vimodrone</span><a class="project-link" href="#lavoro-ristorazione">Guarda il sito di Hedoné <span aria-hidden="true">↑</span></a></figcaption>
-          </figure>
-          <button type="button" class="review-proof" data-proof-open data-full="assets/recensioni/thomas-hedone-1000.webp?v=2" data-h="1263" data-alt="Messaggio WhatsApp di Thomas Arduini con la recensione completa" aria-haspopup="dialog">
-            <img src="assets/recensioni/thomas-hedone-520.webp?v=2" alt="Screenshot del messaggio WhatsApp con la recensione di Thomas Arduini" width="520" height="657" decoding="async">
-            <span class="review-proof-label mono">Il messaggio originale su WhatsApp <span aria-hidden="true">↗</span></span>
-          </button>
-        </li>
-        <li class="review-item">
-          <figure class="review-main">
-            <blockquote class="review-text">
-              <p>Sono davvero soddisfatto del lavoro svolto! <mark>Hai sviluppato il gestionale completamente da zero</mark>, ascoltando fin da subito le mie esigenze e trasformando le mie idee in un <mark>prodotto concreto, funzionale e intuitivo</mark>.</p>
-              <p>Durante tutto il progetto ti sei dimostrato professionale, disponibile e attento ai dettagli, rispettando le mie richieste e trovando sempre soluzioni adatte alle mie necessità. Il risultato finale ha rispecchiato pienamente le mie aspettative.</p>
-              <p class="review-end">Un lavoro fatto con competenza e passione, che consiglio assolutamente!</p>
-            </blockquote>
-            <figcaption><div class="review-chi"><b>Alexandru Iancu</b><span class="review-ok mono"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>Recensione verificata</span></div><span>Socio titolare di Home Unity, affitti brevi</span><a class="project-link" href="#lavoro-gestionali">Guarda il gestionale <span aria-hidden="true">↑</span></a></figcaption>
-          </figure>
-          <button type="button" class="review-proof" data-proof-open data-full="assets/recensioni/alex-homeunity-1000.webp?v=2" data-h="1055" data-alt="Messaggio WhatsApp di Alexandru Iancu con la recensione completa" aria-haspopup="dialog">
-            <img src="assets/recensioni/alex-homeunity-520.webp?v=2" alt="Screenshot del messaggio WhatsApp con la recensione di Alexandru Iancu" width="520" height="549" decoding="async">
-            <span class="review-proof-label mono">Il messaggio originale su WhatsApp <span aria-hidden="true">↗</span></span>
-          </button>
-        </li>
-        </ul>
-        <div class="carousel-dots" data-dots></div>
-      </div>
-      <dialog class="proof-dialog" data-proof aria-label="Messaggio originale">
-        <button type="button" class="round proof-close" data-proof-close aria-label="Chiudi"><span aria-hidden="true">✕</span></button>
-      </dialog>
-    </section>
-
-    <!-- Fascia delle tecnologie: dopo le recensioni, lontana da quella dei settori -->
-    <div class="stack-band">
-        <div class="stack" aria-label="Con cosa lavoro">
-          <div class="stack-track">
-            <div class="stack-group"><span class="mono">HTML5</span><span class="mono">CSS3</span><span class="mono">JavaScript</span><span class="mono">Prima il telefono</span><span class="mono">Ricerca su Google</span><span class="mono" aria-hidden="true">HTML5</span><span class="mono" aria-hidden="true">CSS3</span><span class="mono" aria-hidden="true">JavaScript</span><span class="mono" aria-hidden="true">Prima il telefono</span><span class="mono" aria-hidden="true">Ricerca su Google</span><span class="mono" aria-hidden="true">HTML5</span><span class="mono" aria-hidden="true">CSS3</span><span class="mono" aria-hidden="true">JavaScript</span><span class="mono" aria-hidden="true">Prima il telefono</span><span class="mono" aria-hidden="true">Ricerca su Google</span></div><div class="stack-group" aria-hidden="true"><span class="mono">HTML5</span><span class="mono">CSS3</span><span class="mono">JavaScript</span><span class="mono">Prima il telefono</span><span class="mono">Ricerca su Google</span><span class="mono">HTML5</span><span class="mono">CSS3</span><span class="mono">JavaScript</span><span class="mono">Prima il telefono</span><span class="mono">Ricerca su Google</span><span class="mono">HTML5</span><span class="mono">CSS3</span><span class="mono">JavaScript</span><span class="mono">Prima il telefono</span><span class="mono">Ricerca su Google</span></div>
-          </div>
-        </div>
+    <div class="srv-griglia">
+      <article class="srv">
+        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M6.5 6h.01M9 6h.01M7 12h6M7 15.5h10"/></svg></span><span class="srv-num">01</span></div>
+        <h3>Sito vetrina</h3>
+        <p class="srv-desc">Le pagine della tua attività, fatte per farti trovare e contattare.</p>
+        <ul><li>Chi sei, cosa offri, dove trovarti</li><li>Prenotazione, WhatsApp e chiamata a un tocco</li><li>Ricerca locale su Google</li></ul>
+        <div class="srv-prezzo"><s>800 €</s><strong>da 499 €</strong><span>3–6 settimane</span></div>
+        <p class="srv-es">Esempio: Hedoné</p>
+      </article>
+      <article class="srv">
+        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span><span class="srv-num">02</span></div>
+        <h3>Negozio online</h3>
+        <p class="srv-desc">Catalogo, carrello e pagamenti, su misura o su Shopify.</p>
+        <ul><li>Schede prodotto con i dati di legge</li><li>Sconti, spedizioni e confezione regalo</li><li>Pagamenti con Stripe o Shopify</li></ul>
+        <div class="srv-prezzo"><s>1.000 €</s><strong>da 799 €</strong></div>
+        <p class="srv-es">Esempio: Michelangelo Beauty</p>
+      </article>
+      <article class="srv">
+        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg></span><span class="srv-num">03</span></div>
+        <h3>Gestionale</h3>
+        <p class="srv-desc">I numeri della tua attività in un pannello solo.</p>
+        <ul><li>Dati presi in automatico</li><li>Confronti con il periodo prima</li><li>Accessi per te e per chi lavora con te</li></ul>
+        <div class="srv-prezzo"><strong>Su preventivo</strong></div>
+        <p class="srv-es">Esempio: Home Unity</p>
+      </article>
+      <article class="srv">
+        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="srv-num">04</span></div>
+        <h3>App</h3>
+        <p class="srv-desc">Dal browser oppure su App Store e Google Play.</p>
+        <ul><li>Funziona anche senza rete</li><li>Stesso account da computer e telefono</li><li>Prenotazioni, notifiche e promemoria</li></ul>
+        <div class="srv-prezzo"><strong>Su preventivo</strong></div>
+        <p class="srv-es">Esempio: Cento Respiri, Carico</p>
+      </article>
     </div>
-
-    <!-- Servizi -->
-    <section class="services" id="servizi">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow"><span class="idx">03</span>Servizi</p>
-        <h2>Cosa posso costruire per te.</h2>
-        <p class="section-sub">Cinque tipi di lavoro, tutti scritti su misura. Tocca un servizio per vedere cosa comprende e un esempio vero. Se non sai quale ti serve, lo scegliamo insieme nella prima chiamata.</p>
+    <div class="mkt">
+      <div class="mkt-testa">
+        <span class="mkt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></span>
+        <div>
+          <span class="prog-etichetta">Marketing · con Alex</span>
+          <h3>Il sito porta clienti se qualcuno lo <span class="corsivo">trova</span>.</h3>
+          <p>Non ci fermiamo al sito: lo pensiamo insieme alla pubblicità che lo porta. La pagina che riceve le inserzioni è fatta per farti contattare, e ogni euro speso si misura.</p>
+        </div>
+        <span class="mkt-prezzo">Su preventivo<small>il budget pubblicitario lo paghi direttamente alla piattaforma</small></span>
       </div>
-      <ol class="svc" data-svc data-reveal>
-        <li class="svc-item is-open">
-          <button type="button" class="svc-head" aria-expanded="true" aria-controls="svc-01"><span class="mono">01</span><span class="svc-name">Pagina di lancio</span><span class="svc-plus" aria-hidden="true"></span></button>
-          <div class="svc-body" id="svc-01" role="region" aria-label="Pagina di lancio">
-            <p class="svc-big">Pagina di lancio</p>
-            <p class="svc-desc">Una pagina sola per lanciare un'attività, un evento o un prodotto, con un'unica cosa da fare: chiamare, prenotare o scriverti.</p>
-            <ul class="svc-points">
-              <li>Una sola azione principale</li>
-              <li>Pronta per la pubblicità su Instagram e Google</li>
-              <li>Anteprima curata quando la condividi su WhatsApp</li>
-            </ul>
-            <div class="svc-foot"><span class="svc-meta"><span class="mono">Prezzo · <b>da 400 €</b></span><span class="mono">Tempi · <b>1–2 settimane</b></span></span><a class="project-link" href="#top">Esempio: questa pagina che stai guardando <span aria-hidden="true">↑</span></a></div>
-          </div>
-        </li>
-        <li class="svc-item">
-          <button type="button" class="svc-head" aria-expanded="false" aria-controls="svc-02"><span class="mono">02</span><span class="svc-name">Sito vetrina</span><span class="svc-plus" aria-hidden="true"></span></button>
-          <div class="svc-body" id="svc-02" role="region" aria-label="Sito vetrina">
-            <p class="svc-big">Sito vetrina</p>
-            <p class="svc-desc">Le pagine della tua attività: chi sei, cosa offri, dove trovarti e come prenotare. Con il menù, gli orari e la mappa sempre aggiornati.</p>
-            <ul class="svc-points">
-              <li>Prenotazione, WhatsApp e chiamata a un tocco</li>
-              <li>Ricerca locale su Google</li>
-              <li>I vecchi indirizzi portano alle pagine nuove</li>
-            </ul>
-            <div class="svc-foot"><span class="svc-meta"><span class="mono">Prezzo · <b>da 800 €</b></span><span class="mono">Tempi · <b>3–6 settimane</b></span></span><a class="project-link" href="#lavoro-ristorazione">Esempio: Hedoné, ristorante sul Naviglio <span aria-hidden="true">↓</span></a></div>
-          </div>
-        </li>
-        <li class="svc-item">
-          <button type="button" class="svc-head" aria-expanded="false" aria-controls="svc-03"><span class="mono">03</span><span class="svc-name">Negozio online</span><span class="svc-plus" aria-hidden="true"></span></button>
-          <div class="svc-body" id="svc-03" role="region" aria-label="Negozio online">
-            <p class="svc-big">Negozio online</p>
-            <p class="svc-desc">Catalogo, carrello e pagamenti. Scritto su misura, oppure su Shopify con una grafica disegnata per te quando i prodotti sono tanti e vuoi gestirli da solo.</p>
-            <ul class="svc-points">
-              <li>Schede prodotto con tutti i dati che chiede la legge</li>
-              <li>Carrello, sconti e confezione regalo</li>
-              <li>Pagamenti con Stripe o Shopify</li>
-            </ul>
-            <div class="svc-foot"><span class="svc-meta"><span class="mono">Prezzo · <b>da 1.000 €</b></span><span class="mono">Tempi · <b>nel preventivo</b></span></span><a class="project-link" href="#lavoro-ecommerce">Esempio: Michelangelo Beauty, cosmetica <span aria-hidden="true">↓</span></a></div>
-          </div>
-        </li>
-        <li class="svc-item">
-          <button type="button" class="svc-head" aria-expanded="false" aria-controls="svc-04"><span class="mono">04</span><span class="svc-name">Gestionale</span><span class="svc-plus" aria-hidden="true"></span></button>
-          <div class="svc-body" id="svc-04" role="region" aria-label="Gestionale">
-            <p class="svc-big">Gestionale</p>
-            <p class="svc-desc">Un pannello con i numeri della tua attività, collegato ai programmi che usi già, con accessi diversi per te e per chi lavora con te.</p>
-            <ul class="svc-points">
-              <li>Dati presi in automatico, niente ricopiature</li>
-              <li>Confronti con il periodo prima</li>
-              <li>Accessi per ruolo</li>
-            </ul>
-            <div class="svc-foot"><span class="svc-meta"><span class="mono">Prezzo · <b>su preventivo</b></span><span class="mono">Tempi · <b>nel preventivo</b></span></span><a class="project-link" href="#lavoro-gestionali">Esempio: Home Unity, affitti brevi <span aria-hidden="true">↓</span></a></div>
-          </div>
-        </li>
-        <li class="svc-item">
-          <button type="button" class="svc-head" aria-expanded="false" aria-controls="svc-05"><span class="mono">05</span><span class="svc-name">App da installare</span><span class="svc-plus" aria-hidden="true"></span></button>
-          <div class="svc-body" id="svc-05" role="region" aria-label="App da installare">
-            <p class="svc-big">App da installare</p>
-            <p class="svc-desc">Prenotazioni, area clienti, carnet: un'app che si installa dal browser senza passare da App Store e Google Play, e funziona anche senza rete.</p>
-            <ul class="svc-points">
-              <li>Stesso account da computer e telefono</li>
-              <li>Si installa con un tocco</li>
-              <li>Notifiche e promemoria</li>
-            </ul>
-            <div class="svc-foot"><span class="svc-meta"><span class="mono">Prezzo · <b>su preventivo</b></span><span class="mono">Tempi · <b>nel preventivo</b></span></span><a class="project-link" href="#lavoro-fitness">Esempio: Cento Respiri, studio di pilates <span aria-hidden="true">↓</span></a></div>
-          </div>
-        </li>
-      </ol>
-
-      <p class="svc-nota" data-reveal><b>Sono prezzi di partenza:</b> il preventivo dipende da cosa ti serve. Il budget è stretto? Partiamo dall'essenziale e aggiungiamo il resto dopo, senza rifare niente.</p>
-
-      <div class="included" data-reveal>
-        <p class="eyebrow">Sempre incluso</p>
-        <ul class="included-list">
-          <li>Preventivo scritto a prezzo fisso</li>
-          <li>Versione per telefono, tablet e computer</li>
-          <li>Codice e file consegnati a te; dominio e spazio web a tuo nome, li paghi tu al fornitore</li>
-          <li>Ricerca locale di base su Google</li>
-          <li>Informativa privacy collegata al sito</li>
-          <li>30 giorni di assistenza dopo la messa online</li>
-        </ul>
-        <p class="included-note">Dopo i 30 giorni ogni modifica la fai su richiesta, con un preventivo. Se preferisci essere seguito ogni mese c'è un'assistenza mensile su misura, facoltativa: il prezzo lo decidiamo insieme in base a quanto ti serve, e la disdici entro 30 giorni prima del rinnovo.</p>
-      </div>
-    </section>
-
-    <!-- Confronto: le alternative, nessuna azienda nominata -->
-    <section class="compare-why" id="confronto">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow"><span class="idx">04</span>Perché me</p>
-        <h2>Hai tre alternative. <em class="gold-text">Ecco perché scegliere la quarta.</em></h2>
-        <p class="section-sub">Un confronto generale, senza nomi: ogni offerta è diversa e conviene sempre leggerne le condizioni.</p>
-      </div>
-      <ul class="cmp-punti" data-reveal>
-        <li>Niente intermediari</li><li>Tutto su misura</li><li>Niente vincoli</li>
+      <ul class="mkt-voci">
+        <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span><strong>Campagne Instagram e Facebook</strong><span>Inserzioni che portano le persone giuste sul tuo sito, con il budget che decidi tu.</span></li>
+        <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg></span><strong>Google Ads e ricerca locale</strong><span>Ti fai trovare quando qualcuno cerca quello che fai, nella tua zona.</span></li>
+        <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></svg></span><strong>Strategia e consulenza</strong><span>A chi parli, cosa offri e perché sceglierti: prima di spendere, un piano chiaro.</span></li>
+        <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20v-4M10 20v-8M15 20v-11M20 20V4"/></svg></span><strong>Risultati misurati</strong><span>Quanti contatti arrivano e quanto ti costa ognuno, spiegato in parole semplici.</span></li>
       </ul>
-      <div class="cmp" data-cmp data-reveal>
-        <div class="cmp-switch" role="group" aria-label="Confronta con">
-          <span class="mono">Confronta con</span>
-          <button type="button" class="cmp-btn is-active cmp-btn-all" data-cmp-vs="all" aria-pressed="true">Tutti</button>
-          <button type="button" class="cmp-btn" data-cmp-vs="ag" aria-pressed="false">Agenzia</button>
-          <button type="button" class="cmp-btn" data-cmp-vs="fdt" aria-pressed="false">Fai da te</button>
-          <button type="button" class="cmp-btn" data-cmp-vs="con" aria-pressed="false">Il conoscente</button>
-        </div>
-        <div class="cmp-wrap" data-vs="all">
-          <table class="cmp-table">
-            <caption class="sr-only">Confronto tra un'agenzia, un sito fai da te, un conoscente e Eff$Kappa</caption>
-            <thead><tr><td></td><th scope="col" class="cmp-col-ag"><span class="cmp-nome">Agenzia</span><span class="cmp-sotto mono">una squadra di più persone</span></th><th scope="col" class="cmp-col-fdt"><span class="cmp-nome">Fai da te</span><span class="cmp-sotto mono">piattaforma con modelli</span></th><th scope="col" class="cmp-col-con"><span class="cmp-nome">Il conoscente</span><span class="cmp-sotto mono">che se la cava</span></th><th scope="col" class="cmp-col-me"><span class="cmp-badge mono">Consigliato</span><span class="cmp-nome">Eff$Kappa</span><span class="cmp-sotto mono">su misura</span></th></tr></thead>
-            <tbody>
-            <tr style="--r:0">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Con chi parli</span><span class="cmp-tip">Ogni passaggio in più tra te e chi scrive il codice è un messaggio che può cambiare per strada.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Di solito un commerciale o un responsabile di progetto, poi chi sviluppa</span></td>
-              <td class="cmp-col-fdt cmp-no" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7 7 17"/></svg><span class="sr-only">No: </span></span><span class="cmp-txt">Con nessuno: lo costruisci tu</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Con lui, quando ha tempo</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">Direttamente con chi scrive il codice</span></td>
-            </tr>
-            <tr style="--r:1">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Una bozza prima di decidere</span><span class="cmp-tip">Vedi com'è il tuo sito prima di pagare, e lo cambiamo finché non ti convince.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">A volte, spesso dopo un acconto</span></td>
-              <td class="cmp-col-fdt cmp-no" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7 7 17"/></svg><span class="sr-only">No: </span></span><span class="cmp-txt">Lo costruisci tu, mentre impari</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Di solito no: lo vedi a lavoro finito</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">Insieme al preventivo, e la cambiamo subito se qualcosa non ti piace</span></td>
-            </tr>
-            <tr style="--r:2">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Come è fatto</span><span class="cmp-tip">Un sito scritto per la tua attività dice chi sei; un modello dice solo quale modello hai scelto.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Spesso parte da un tema già pronto, poi modificato</span></td>
-              <td class="cmp-col-fdt cmp-no" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7 7 17"/></svg><span class="sr-only">No: </span></span><span class="cmp-txt">Un modello scelto da un catalogo</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Spesso un tema gratuito, adattato</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">Scritto a mano, su misura</span></td>
-            </tr>
-            <tr style="--r:3">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Leggerezza</span><span class="cmp-tip">Ogni componente aggiuntivo è codice che il telefono del tuo cliente deve scaricare.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Spesso un tema con componenti aggiuntivi, più pesante</span></td>
-              <td class="cmp-col-fdt cmp-forse" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Il codice del modello e delle app aggiunte, anche quello che non usi</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Spesso molti componenti aggiuntivi, per fare prima</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">Niente componenti inutili, foto compresse</span></td>
-            </tr>
-            <tr style="--r:4">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Costi</span><span class="cmp-tip">Sai quanto spendi prima di iniziare, senza ore che si aggiungono strada facendo.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Di solito più alti, a volte con canoni</span></td>
-              <td class="cmp-col-fdt cmp-forse" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Canone della piattaforma, che si rinnova</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Basso, ma senza un accordo scritto</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">Preventivo scritto a prezzo fisso, 50% all'inizio e 50% alla consegna; dominio e spazio web a parte, a tuo nome</span></td>
-            </tr>
-            <tr style="--r:5">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Di chi è il sito</span><span class="cmp-tip">Se un giorno cambi fornitore, ti porti via tutto.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Dipende dal contratto</span></td>
-              <td class="cmp-col-fdt cmp-no" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7 7 17"/></svg><span class="sr-only">No: </span></span><span class="cmp-txt">Di solito resta sulla piattaforma</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Spesso non è chiaro</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">Codice e dominio a tuo nome</span></td>
-            </tr>
-            <tr style="--r:6">
-              <th scope="row" tabindex="0"><span class="cmp-voce">Se serve aiuto dopo</span><span class="cmp-tip">Chi ha scritto il sito lo conosce riga per riga: le correzioni sono più veloci.</span></th>
-              <td class="cmp-col-ag cmp-forse" data-who="Agenzia"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Assistenza di solito a pagamento</span></td>
-              <td class="cmp-col-fdt cmp-forse" data-who="Fai da te"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Il supporto della piattaforma, non sul tuo sito</span></td>
-              <td class="cmp-col-con cmp-forse" data-who="Il conoscente"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M6 12h12"/></svg><span class="sr-only">In parte: </span></span><span class="cmp-txt">Quando ha tempo, senza tempi garantiti</span></td>
-              <td class="cmp-col-me cmp-si" data-who="Eff$Kappa"><span class="cmp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="m6 12.5 4 4 8-9"/></svg><span class="sr-only">Sì: </span></span><span class="cmp-txt">30 giorni gratis, poi preventivo o assistenza mensile su misura; rispondo entro 24 ore</span></td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="cmp-frase">Non sono l'opzione più grande. Sono quella in cui sai sempre con chi stai parlando, quanto spendi e a chi appartiene il tuo sito.</p>
+    </div>
+    <p class="nota-prezzi">I prezzi barrati sono quelli di listino; quelli in promo valgono per le richieste entro il <span data-promo-data>31 dicembre 2026</span>. Sono prezzi di partenza: prima ti ascoltiamo, poi ti mandiamo un preventivo scritto a prezzo fisso. Budget stretto? Partiamo dall’essenziale e aggiungiamo il resto dopo, senza rifare niente.</p>
+  </div>
+</section>
+
+<!-- 3 · Chi siamo (modello grafico di Francesco, 05/11) -->
+<section class="sezione scura team" aria-labelledby="t-chi">
+  <div class="contenitore">
+    <div class="team-intesta">
+      <div>
+        <span class="prog-etichetta">Il team</span>
+        <h2 class="titolo" id="t-chi">Due mestieri,<br>un solo <span class="corsivo">progetto</span>.</h2>
       </div>
-      <p class="eyebrow about-sub" data-reveal>Cosa cambia per te</p>
-      <div class="carousel" data-carousel data-reveal>
-        <div class="carousel-top">
-          <p class="mono carousel-count" aria-live="polite"><span data-count>01</span> / 05</p>
-          <div class="carousel-nav">
-            <button type="button" class="round" data-prev aria-label="Punto precedente"><span aria-hidden="true">←</span></button>
-            <button type="button" class="round" data-next aria-label="Punto successivo"><span aria-hidden="true">→</span></button>
+      <p class="team-frase"><span class="team-frase-alto">Competenze diverse, <em>un obiettivo comune</em>.</span>Costruire soluzioni digitali che funzionano davvero per il tuo business. <strong>Parli direttamente con noi due.</strong></p>
+    </div>
+    <div class="team-schede">
+      <article class="membro">
+        <img class="membro-foto" src="assets/img/francesco-800.webp" srcset="assets/img/francesco-480.webp 480w, assets/img/francesco-800.webp 800w" sizes="(max-width: 700px) 60vw, 320px" width="800" height="800" alt="Francesco Mascolo, in bianco e nero con occhiali e maglietta bianca" loading="lazy">
+        <div class="membro-testo">
+          <h3>Francesco<br>Mascolo</h3>
+          <span class="ruolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg>Sviluppo</span>
+          <p>Da oltre 10 anni nel software per banche e istituti finanziari, dove un errore costa caro. Ogni sito passa prove automatiche su telefono, tablet e computer prima della consegna.</p>
+          <ul class="membro-icone" aria-hidden="true"><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="11" rx="1.5"/><path d="M2 19h20"/></svg></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></li></ul>
+        </div>
+      </article>
+      <article class="membro">
+        <img class="membro-foto" src="assets/img/alex-800.webp" srcset="assets/img/alex-480.webp 480w, assets/img/alex-800.webp 800w" sizes="(max-width: 700px) 60vw, 320px" width="800" height="800" alt="Alex Iancu, in bianco e nero a braccia conserte con maglietta bianca" loading="lazy">
+        <div class="membro-testo">
+          <h3>Alex<br>Iancu</h3>
+          <span class="ruolo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></svg>Marketing</span>
+          <p>Da 10 anni nel marketing per piccole e medie imprese. Pensa il sito insieme alla campagna che lo porta: a chi parla, cosa deve fare chi arriva, quanto costa ogni contatto.</p>
+          <ul class="membro-icone" aria-hidden="true"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-4M10 20v-8M15 20v-11M20 20V4"/></svg></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></svg></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.9.4 5 2.8 5 5.8"/></svg></li></ul>
+          <div class="alex-brand">
+            <span class="mono">Ha curato il marketing di</span>
+            <ul><li><img src="assets/img/logo-valcolatte.webp" width="480" height="160" alt="Caseificio Valcolatte" loading="lazy"></li><li><img src="assets/img/logo-bedogni.webp" width="480" height="160" alt="Bedogni Egidio" loading="lazy"></li><li><img src="assets/img/logo-absolute.webp" width="480" height="160" alt="Absolute Yachts" loading="lazy"></li><li><img src="assets/img/logo-porada.webp" width="480" height="160" alt="Porada" loading="lazy"></li></ul>
           </div>
         </div>
-        <ul class="carousel-track" data-track>
-          <li class="card">
-            <span class="card-n mono">01</span>
-            <svg class="card-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z"/></svg>
-            <h3>Pagine leggere</h3>
-            <p>Foto compresse e niente codice inutile: si sente anche con poco segnale.</p>
-          </li>
-          <li class="card">
-            <span class="card-n mono">02</span>
-            <svg class="card-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
-            <h3>Ti trovano dal telefono</h3>
-            <p>Parto dal telefono, perché è lì che ti cercano.</p>
-          </li>
-          <li class="card">
-            <span class="card-n mono">03</span>
-            <svg class="card-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10.5" width="16" height="11" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
-            <h3>È tuo</h3>
-            <p>Codice e dominio restano tuoi: nessuna piattaforma a cui restare legato.</p>
-          </li>
-          <li class="card">
-            <span class="card-n mono">04</span>
-            <svg class="card-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5l3 2"/></svg>
-            <h3>Cambi un orario con un messaggio</h3>
-            <p>Mi scrivi su WhatsApp e lo aggiorno io.</p>
-          </li>
-          <li class="card">
-            <span class="card-n mono">05</span>
-            <svg class="card-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H9l-5 4z"/><path d="M8.5 10.5h7"/></svg>
-            <h3>Parli con chi scrive il codice</h3>
-            <p>Nessun intermediario tra te e il tuo sito.</p>
-          </li>
-        </ul>
-        <div class="carousel-dots" data-dots></div>
-      </div>
+      </article>
+    </div>
+    <ul class="numeri">
+      <li><strong>7</strong><span>lavori online in 7 settori diversi</span></li>
+      <li><strong>100/100</strong><span>accessibilità su Lighthouse, il test di Google</span></li>
+      <li><strong>24 h</strong><span>per risponderti, con una persona vera</span></li>
+      <li><strong>30 giorni</strong><span>di assistenza inclusa dopo la messa online</span></li>
+    </ul>
+  </div>
+</section>
 
-      <details class="honest" data-honest data-reveal open>
-        <summary><span>Quando non sono la scelta giusta</span><span class="faq-icon" aria-hidden="true"></span></summary>
-        <ul>
-          <li>Se ti servono insieme un grafico, chi scrive i testi e un esperto di Google, un'agenzia è più adatta.</li>
-          <li>Se il progetto richiede integrazioni molto complesse o scadenze con più persone in parallelo, ti dico onestamente che conviene una squadra.</li>
-          <li>Se hai già un sito che funziona, ti dico di non rifarlo.</li>
-        </ul>
-        <p>Se non sono io, te lo dico subito. Parlarne non costa niente.</p>
-      </details>
-    </section>
 
-    <!-- Come lavoro -->
-    <section class="method" id="metodo">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow"><span class="idx">05</span>Come lavoro</p>
-        <h2>Quattro passaggi, e sai sempre a che punto siamo.</h2>
+<!-- 2 · La promo -->
+<section class="sezione chiara" aria-labelledby="t-promo">
+  <div class="contenitore pila">
+    <div class="pac-testa">
+      <div>
+        <span class="prog-etichetta scura-e">Sito su misura</span>
+        <h2 class="titolo" id="t-promo">Cosa c’è nel <span class="corsivo">pacchetto</span>.</h2>
+        <p class="sottotitolo">Tutto quello che serve per essere online e ricevere contatti, senza costi a sorpresa.</p>
       </div>
-      <ol class="timeline" data-timeline>
-        <li class="tl-line" aria-hidden="true"><span data-tl-fill></span></li>
-        <li class="tl-step"><span class="tl-dot" aria-hidden="true"></span><span class="mono">01 · Idea</span><h3>Ci sentiamo</h3><p>Una chiamata gratuita. Mi racconti l'attività e chi deve usare il sito; io ascolto e faccio domande.</p></li>
-        <li class="tl-step"><span class="tl-dot" aria-hidden="true"></span><span class="mono">02 · Bozza</span><h3>Bozza e preventivo</h3><p>Dopo averti ascoltato preparo una bozza del sito e te la mando insieme al preventivo. Se qualcosa non ti convince, la bozza la cambiamo subito. Comincio a scrivere il sito solo quando approvi la bozza e il preventivo finale.</p></li>
-        <li class="tl-step"><span class="tl-dot" aria-hidden="true"></span><span class="mono">03 · Sviluppo</span><h3>Scrivo il sito</h3><p>Mentre lo costruisco te lo faccio provare sul tuo telefono con un indirizzo privato. Le revisioni si fanno qui, prima di andare online.</p></li>
-        <li class="tl-step"><span class="tl-dot" aria-hidden="true"></span><span class="mono">04 · Online</span><h3>Online, e poi seguito</h3><p>Pubblico sul tuo dominio. Per 30 giorni correggo gratis qualsiasi problema. Dopo, le modifiche le facciamo su tua richiesta con un preventivo, oppure con l'assistenza mensile su misura, se vuoi essere seguito.</p></li>
+      <div class="pac-prezzo">
+        <div class="pac-cifre"><span class="pac-chip">Promo</span><s aria-label="Prezzo di listino 800 euro">800 €</s><strong>499 €</strong></div>
+        <p class="giorni" data-giorni hidden></p>
+        <p class="dopo">Dal 1° gennaio 2027 torna da 800 €: cosa è incluso resta lo stesso, cambia solo il prezzo.</p>
+      </div>
+    </div>
+    <div class="pac-giostra">
+      <ul class="pac-fila" tabindex="0" aria-label="Cosa è incluso nel pacchetto">
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 13h4M7 16h7"/></svg></span><span class="ps-num">0b0001</span></div><strong>Sito di una pagina scritto da zero, fino a 6 sezioni</strong><p>Una pagina sola, progettata per la tua attività: niente modelli già pronti.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="m14 7 3 3"/></svg></span><span class="ps-num">0b0010</span></div><strong>Testi scritti con te</strong><p>Ci racconti cosa fai, noi lo scriviamo in modo chiaro per chi ti cerca.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5"/><path d="M6 18h6M9 14v4"/><rect x="17" y="9" width="5" height="11" rx="1"/></svg></span><span class="ps-num">0b0011</span></div><strong>Versione per telefono, tablet e computer</strong><p>Si legge bene ovunque, a partire dal telefono da cui arriva la maggior parte delle persone.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span><span class="ps-num">0b0100</span></div><strong>Modulo contatti, WhatsApp e chiamata a un tocco</strong><p>Chi ti trova ti contatta subito, senza cercare il numero.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12.2c0-.6 0-1.2-.2-1.7H12v3.3h4.5a4 4 0 0 1-1.7 2.6v2.1h2.7c1.6-1.5 2.5-3.7 2.5-6.3z"/><path d="M12 20.5c2.3 0 4.2-.8 5.5-2l-2.7-2.1c-.8.5-1.7.8-2.8.8a4.9 4.9 0 0 1-4.6-3.4H4.6v2.2A8.5 8.5 0 0 0 12 20.5z"/><path d="M7.4 13.8a5 5 0 0 1 0-3.2V8.4H4.6a8.5 8.5 0 0 0 0 7.6z"/><path d="M12 6.9c1.3 0 2.4.4 3.3 1.3l2.4-2.4A8.5 8.5 0 0 0 4.6 8.4l2.8 2.2A4.9 4.9 0 0 1 12 6.9z"/></svg></span><span class="ps-num">0b0101</span></div><strong>Scheda Google collegata e ricerca locale di base</strong><p>Compari su Google Maps e nelle ricerche della tua zona.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></span><span class="ps-num">0b0110</span></div><strong>Pronto per la pubblicità su Instagram, Facebook e Google</strong><p>Pagina pensata per ricevere le inserzioni e trasformarle in contatti.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="ps-num">0b0111</span></div><strong>Informativa privacy</strong><p>Il testo sulla privacy collegato al sito, come chiede la legge.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1-1 1.5-3 1.5h-2"/></svg></span><span class="ps-num">0b1000</span></div><strong>30 giorni di assistenza</strong><p>Per un mese dopo la messa online correggiamo gratis ogni problema.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><span class="ps-num">0b1001</span></div><strong>Codice e file tuoi</strong><p>Alla consegna ricevi tutti i file: il sito è tuo, non di una piattaforma.</p></li>
+      </ul>
+      <div class="frecce pac-frecce"><button type="button" data-pac="-1" aria-label="Voci precedenti">←</button><button type="button" data-pac="1" aria-label="Voci successive">→</button></div>
+    </div>
+    <div class="pac-barra">
+      <span class="pac-data"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg>Valida per le richieste entro il <span data-promo-data>31 dicembre 2026</span></span>
+      <span class="pac-pag">50% all’approvazione della bozza <i aria-hidden="true">·</i> 50% alla consegna</span>
+      <button type="button" class="pac-vai" data-apri-modulo aria-haspopup="dialog" aria-controls="modulo" aria-label="Parlaci del tuo progetto">→</button>
+    </div>
+    <p class="pac-nota">Non compreso: dominio e spazio web a tuo nome (poche decine di euro l’anno). Pagine in più, negozio e gestionali su preventivo.</p>
+    <div class="garanzia">
+      <span class="garanzia-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div><strong>Prima vedi, poi decidi.</strong><span>La bozza è gratuita: se non ti convince, non paghi niente. Paghi il primo 50% solo quando la approvi.</span></div>
+    </div>
+    <div class="metodo">
+      <div class="metodo-testa"><span class="prog-etichetta">Come lavoriamo</span><p>Dalla prima chiamata al sito online, in circa <strong>2 settimane</strong>.</p></div>
+      <ol class="metodo-tappe">
+        <li><div class="mt-alto"><span class="mt-num">01</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span></div><p class="mt-quando">Giorno 1</p><h4>Ci sentiamo</h4><p class="mt-desc">Chiamata gratuita: ci racconti l’attività e chi deve usare il sito.</p></li>
+        <li><div class="mt-alto"><span class="mt-num">02</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="m14 7 3 3"/></svg></span></div><p class="mt-quando">Giorni 2–4</p><h4>Bozza e preventivo</h4><p class="mt-desc">Vedi la bozza prima di decidere. <strong>Paghi il 50% solo quando la approvi.</strong></p></li>
+        <li><div class="mt-alto"><span class="mt-num">03</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span></div><p class="mt-quando">Giorni 5–12</p><h4>Costruiamo il sito</h4><p class="mt-desc">Lo provi sul tuo telefono da un indirizzo privato mentre lo facciamo.</p></li>
+        <li><div class="mt-alto"><span class="mt-num">04</span><span class="mt-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 4-2 6 2 0 4.5-.5 6-2"/><path d="M9 15 6 12l3-6c3-3 7-3.5 10-3.5 0 3-.5 7-3.5 10l-6 3z"/><circle cx="14.5" cy="9.5" r="1.5"/></svg></span></div><p class="mt-quando">Giorni 13–14</p><h4>Online</h4><p class="mt-desc">Lo pubblichiamo sul tuo dominio e per 30 giorni correggiamo gratis ogni problema.</p></li>
       </ol>
-    </section>
+      <p class="tappe-nota">I giorni partono da quando abbiamo testi e foto.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Domande frequenti -->
-    <section class="faq" id="faq">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow"><span class="idx">06</span>Domande frequenti</p>
-        <h2>Le cose che mi chiedono sempre.</h2>
+<!-- 3 · Progetti in evidenza (direzione grafica di Francesco, 05/11) + recensione -->
+<section class="sezione scura progetti" aria-labelledby="t-lavori">
+  <div class="contenitore">
+    <div class="prog-intesta">
+      <div>
+        <span class="prog-etichetta">Lavori svolti</span>
+        <h2 class="titolo" id="t-lavori">Progetti in <span class="corsivo">evidenza</span>.</h2>
       </div>
-      <div class="faq-list" data-reveal>
-        <details class="faq-item">
-          <summary>Quanto costa un sito?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Si parte da 400 € per una pagina di lancio, 800 € per un sito vetrina e 1.000 € per un negozio online; gestionali e app su preventivo. Il prezzo finale dipende da cosa ti serve: prima ti ascolto, poi ti mando un preventivo scritto a prezzo fisso, e la cifra che leggi è quella che paghi, senza ore che si aggiungono strada facendo.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Quanto tempo ci vuole?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Per una pagina di lancio di solito una o due settimane, per un sito vetrina da tre a sei. Il conto parte da quando ho testi e foto: se arrivano a pezzi, i tempi si allungano. Per un gestionale li fissiamo insieme nel preventivo.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Come funziona il pagamento?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>50% quando approvi bozza e preventivo, 50% alla consegna. Prima di quel momento non paghi niente.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Ci sono costi dopo la consegna?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Solo dominio e spazio web, intestati a te e pagati direttamente al fornitore: di solito poche decine di euro l'anno. Con me non ci sono abbonamenti obbligatori. Se vuoi che segua il sito ogni mese c'è un'assistenza mensile su misura, facoltativa, che disdici entro 30 giorni prima del rinnovo.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Testi e foto chi li prepara?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Tu conosci la tua attività meglio di me. Mi dai le informazioni e le foto che hai, e io ti aiuto a scrivere i testi e a scegliere le immagini, così il sito parla come parli tu.</p>
-        </details>
-        <details class="faq-item">
-          <summary>E se dopo voglio cambiare qualcosa?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Le revisioni incluse sono scritte nel preventivo, e nei 30 giorni dopo la messa online correggo gratis qualsiasi problema. Dopo, cambiare un menù, un orario o una foto si fa su tua richiesta con un piccolo preventivo, oppure rientra nell'assistenza mensile, se l'hai scelta.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Posso aggiornare io il sito?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>I miei siti sono scritti su misura, senza un pannello da imparare, ed è anche per questo che sono leggeri. Un orario o una foto nuova me li mandi su WhatsApp e li pubblico io, su preventivo o con l'assistenza mensile. Se devi aggiornare spesso da solo, per esempio le notizie o un catalogo, lo diciamo all'inizio e scelgo una soluzione con pannello di gestione.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Il sito sarà davvero mio?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Sì. Dominio e spazio web sono a tuo nome e alla consegna ricevi tutti i file. Se un giorno vorrai cambiare fornitore, ti porti via tutto.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Si vedrà bene sul telefono?<span class="faq-icon" aria-hidden="true"></span></summary>
-          <p>Sì: ogni lavoro lo provo su telefono, tablet e computer prima della consegna. La maggior parte dei tuoi clienti ti troverà dal telefono, ed è da lì che parto.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- Contatti -->
-    <section class="contact" id="contatti" data-reveal>
-      <div class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <p class="eyebrow"><span class="idx">07</span>Contatti</p>
-      <h2 class="contact-title">Hai un progetto?<br><span class="gold-text">Parliamone.</span></h2>
-      <p class="lead">Scrivimi due righe: che attività hai, cosa ti serve e quale dei lavori qui sopra ti piace di più. Rispondo io, entro 24 ore. La prima chiamata è gratuita e non ti impegna.</p>
-      <div class="contact-actions">
-        <a class="btn btn-gold btn-wa" href="https://wa.me/393454517186?text=Ciao%20Francesco%2C%20ho%20visto%20i%20tuoi%20lavori%20e%20vorrei%20fissare%20una%20prima%20chiamata%20per%20parlarti%20di%20un%20progetto." target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-          Prima chiamata gratuita
+      <p>Alcuni dei progetti che abbiamo realizzato, tra brand, attività locali e soluzioni su misura. Tocca un progetto per vederlo sul computer e sul telefono.</p>
+    </div>
+    <div class="prog-giostra">
+      <ul class="prog-fila" tabindex="0" aria-label="Progetti">
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="0" aria-haspopup="dialog" aria-controls="lavori" aria-label="Hedoné: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Hedoné</strong><span>Lounge bar & ristorante</span></div>
+          <a class="prog-link" href="https://www.hedonevimodrone.it/" target="_blank" rel="noopener" aria-label="Apri il sito di Hedoné in una nuova scheda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          <img src="assets/img/lavoro-hedone-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li class="online"><span aria-hidden="true"></span>Online · cliente ufficiale</li><li>Sito web</li></ul>
+        </li>
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="1" aria-haspopup="dialog" aria-controls="lavori" aria-label="Ossidiana: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Ossidiana</strong><span>Alta sartoria · Milano</span></div>
+          <a class="prog-link" href="https://chillguyzofficial-spec.github.io/ossidiana/" target="_blank" rel="noopener" aria-label="Apri il sito di Ossidiana in una nuova scheda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          <img src="assets/img/lavoro-ossidiana-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li>Sito vetrina</li><li>Moda</li><li>Dimostrativo</li></ul>
+        </li>
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="2" aria-haspopup="dialog" aria-controls="lavori" aria-label="Home Unity: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Home Unity</strong><span>Affitti brevi</span></div>
+          
+          <img src="assets/img/lavoro-homeunity-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li>Gestionale</li><li>Area riservata</li></ul>
+        </li>
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="3" aria-haspopup="dialog" aria-controls="lavori" aria-label="Studio Lumea: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Studio Lumea</strong><span>Studio dentistico · Milano</span></div>
+          <a class="prog-link" href="https://chillguyzofficial-spec.github.io/StudioLumea_Dentistico/" target="_blank" rel="noopener" aria-label="Apri il sito di Studio Lumea in una nuova scheda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          <img src="assets/img/lavoro-lumea-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li>Sito</li><li>Professionisti</li><li>Dimostrativo</li></ul>
+        </li>
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="4" aria-haspopup="dialog" aria-controls="lavori" aria-label="Michelangelo Beauty: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Michelangelo Beauty</strong><span>Cosmetica · Toscana</span></div>
+          <a class="prog-link" href="https://chillguyzofficial-spec.github.io/MichelangeloBeauty/" target="_blank" rel="noopener" aria-label="Apri il sito di Michelangelo Beauty in una nuova scheda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          <img src="assets/img/lavoro-michelangelo-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li>Negozio online</li><li>Dimostrativo</li></ul>
+        </li>
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="5" aria-haspopup="dialog" aria-controls="lavori" aria-label="Cento Respiri: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Cento Respiri</strong><span>Pilates · Torino</span></div>
+          <a class="prog-link" href="https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/" target="_blank" rel="noopener" aria-label="Apri il sito di Cento Respiri in una nuova scheda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          <img src="assets/img/lavoro-centorespiri-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li>Sito + app</li><li>Dimostrativo</li></ul>
+        </li>
+        <li class="prog">
+          <button type="button" class="prog-apri" data-lavoro="6" aria-haspopup="dialog" aria-controls="lavori" aria-label="Carico: guarda il lavoro sul computer e sul telefono"></button>
+          <div class="prog-testa"><strong>Carico</strong><span>Personal trainer</span></div>
+          <a class="prog-link" href="https://chillguyzofficial-spec.github.io/Carico/" target="_blank" rel="noopener" aria-label="Apri il sito di Carico in una nuova scheda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+          <img src="assets/img/lavoro-carico-pc.webp" width="960" height="600" alt="" loading="lazy">
+          <ul class="prog-tag"><li>App + gestionale</li><li>Dimostrativo</li></ul>
+        </li>
+      </ul>
+    </div>
+    <div class="prog-comandi">
+      <div class="prog-punti" aria-hidden="true"><span class="attivo"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="frecce prog-frecce"><button type="button" data-giostra="-1" aria-label="Progetti precedenti">←</button><button type="button" data-giostra="1" aria-label="Progetti successivi">→</button></div>
+    </div>
+    <figure class="recensione">
+        <div>
+          <blockquote>«Sono rimasto stupito da tutto, segue il cliente passo passo, testo dopo testo e fotografia dopo fotografia.»</blockquote>
+          <figcaption>
+            <strong>Thomas Arduini</strong>
+            <span>Titolare del ristorante Hedoné, Vimodrone</span>
+            <small>Messaggio arrivato su WhatsApp, riportato come l’ha scritto: pubblichiamo solo recensioni di clienti veri, con nome e screenshot.</small>
+          </figcaption>
+        </div>
+        <a class="originale" href="assets/img/recensione-thomas.webp" target="_blank" rel="noopener">
+          <img src="assets/img/recensione-thomas.webp" width="150" height="168" alt="Screenshot del messaggio WhatsApp di Thomas Arduini" loading="lazy">
+          <span>Il messaggio originale ↗</span>
         </a>
-        <a class="contact-phone mono" href="tel:+393454517186">345 451 7186</a>
+      </figure>
+  </div>
+</section>
+
+<!-- Perché noi: confronto con le alternative (dalla vecchia landing, al plurale) -->
+<section class="sezione chiara" aria-labelledby="t-perche">
+  <div class="contenitore pila">
+    <div class="testa-sez">
+      <h2 class="titolo" id="t-perche">Hai tre alternative. Ecco perché scegliere la <span class="corsivo">quarta</span>.</h2>
+      <p class="sottotitolo">Cosa succede di solito, in base ai prezzi di mercato e alle esperienze più comuni. Senza nomi: ogni offerta è diversa, conviene sempre leggerne le condizioni.</p>
+    </div>
+    <div class="vs2">
+      <div class="vs2-filtri" role="group" aria-label="Confronta Zero Uno Lab con">
+        <button type="button" data-vs="agenzia" aria-pressed="true">Agenzia</button><button type="button" data-vs="faidate" aria-pressed="false">Fai da te</button><button type="button" data-vs="conoscente" aria-pressed="false">Il conoscente</button>
       </div>
-      <p class="contact-or">oppure via email</p>
-      <a class="mail" href="mailto:effekappatech@gmail.com?subject=Nuovo%20progetto">effekappatech@gmail.com</a>
-      <figure class="quote-wrap"><blockquote class="quote">La funzione del buon software è di rendere semplice il complesso.</blockquote><figcaption class="quote-by mono">— attribuita a Grady Booch</figcaption></figure>
-    </section>
-  </main>
+      <script type="application/json" id="vs-dati">{"agenzia":["Agenzia","Spesso oltre 2.000 €","1–3 mesi",["Un commerciale, poi un responsabile di progetto","Spesso un tema già pronto con molti plugin","Dominio a volte a nome loro","Modifiche a preventivo o canone mensile"]],"faidate":["Fai da te","12–30 € al mese","Serate e weekend",["Solo l’assistenza in chat della piattaforma","Un modello simile a migliaia di altri","Resta sulla piattaforma: non puoi portarlo via","Lo aggiorni tu, quando riesci"]],"conoscente":["Il conoscente","Poco o niente, a voce","Quando ha tempo",["Con lui, se risponde","Spesso un tema gratuito, adattato","Dominio e accessi spesso a nome suo","Se cambia lavoro, resti senza"]]}</script>
+      <div class="vs2-campo">
+        <article class="vs2-scheda loro" aria-live="polite">
+          <h3 data-vs-nome>Agenzia</h3>
+          <div class="vs2-numeri"><div><small>Prezzo</small><strong data-vs-prezzo>Spesso oltre 2.000 €</strong></div><div><small>Tempi</small><strong data-vs-tempi>1–3 mesi</strong></div></div>
+          <ul data-vs-lista><li><span class="vs2-segno no" aria-hidden="true"></span><div><small>Con chi parli</small><span>Un commerciale, poi un responsabile di progetto</span></div></li><li><span class="vs2-segno no" aria-hidden="true"></span><div><small>Come è fatto</small><span>Spesso un tema già pronto con molti plugin</span></div></li><li><span class="vs2-segno no" aria-hidden="true"></span><div><small>Di chi è il sito</small><span>Dominio a volte a nome loro</span></div></li><li><span class="vs2-segno no" aria-hidden="true"></span><div><small>Dopo la consegna</small><span>Modifiche a preventivo o canone mensile</span></div></li></ul>
+        </article>
+        <span class="vs2-badge" aria-hidden="true">VS</span>
+        <article class="vs2-scheda noi">
+          <h3><span class="cf-logo" aria-hidden="true">01</span>Zero Uno Lab</h3>
+          <div class="vs2-numeri"><div><small>Prezzo</small><strong>da 499 €</strong></div><div><small>Tempi</small><strong>2 settimane</strong></div></div>
+          <ul><li><span class="vs2-segno si" aria-hidden="true"></span><div><small>Con chi parli</small><span>Con chi scrive il codice e con chi cura il marketing</span></div></li><li><span class="vs2-segno si" aria-hidden="true"></span><div><small>Come è fatto</small><span>Scritto da zero, veloce sul telefono</span></div></li><li><span class="vs2-segno si" aria-hidden="true"></span><div><small>Di chi è il sito</small><span>Codice e dominio a tuo nome</span></div></li><li><span class="vs2-segno si" aria-hidden="true"></span><div><small>Dopo la consegna</small><span>30 giorni di assistenza gratis, poi su richiesta</span></div></li></ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <span>© 2026 Eff$Kappa · Francesco Mascolo</span>
-    <a href="#top">Torna su ↑</a>
-  </footer>
+<!-- 7 · Domande frequenti -->
+<section class="sezione scura" aria-labelledby="t-domande">
+  <div class="contenitore domande-griglia impilate">
+    <div class="testa-sez">
+      <h2 class="titolo" id="t-domande">Domande <span class="corsivo">frequenti</span>.</h2>
+      <p class="sottotitolo">Le cose che ci chiedono prima di partire.</p>
+    </div>
+    <div class="domande due-col">
+      <div class="col">
+        <details><summary>La promo è davvero a 499 €?<span class="segno" aria-hidden="true"></span></summary><p>Sì, per il sito di una pagina descritto qui sopra, se ci scrivi entro il <span data-promo-data>31 dicembre 2026</span>. Restano a parte solo dominio e spazio web, a tuo nome. Se ti serve di più te lo diciamo nel preventivo, prima di iniziare, e decidi tu.</p></details>
+        <details><summary>Perché costate meno di un’agenzia?<span class="segno" aria-hidden="true"></span></summary><p>Siamo in due e il lavoro lo facciamo noi: niente commerciali né passaggi di mano da pagare. Scriviamo il codice da zero, senza temi a pagamento né canoni di piattaforme.</p></details>
+        <details><summary>Quanto tempo ci vuole?<span class="segno" aria-hidden="true"></span></summary><p>Per il sito della promo circa 2 settimane dalla prima chiamata. Il conto parte da quando abbiamo testi e foto: se arrivano a pezzi, i tempi si allungano. Per un sito più grande, un negozio o un gestionale, li fissiamo insieme nel preventivo.</p></details>
+        <details><summary>Ci sono costi dopo la consegna?<span class="segno" aria-hidden="true"></span></summary><p>Solo dominio e spazio web, intestati a te e pagati direttamente al fornitore: di solito poche decine di euro l’anno. Nessun abbonamento obbligatorio. Dopo i 30 giorni di assistenza, le modifiche le chiedi quando servono con un piccolo preventivo, oppure con un’assistenza mensile facoltativa, che disdici entro 30 giorni prima del rinnovo.</p></details>
+        <details><summary>Testi e foto chi li prepara?<span class="segno" aria-hidden="true"></span></summary><p>Tu conosci la tua attività meglio di noi: ci dai le informazioni e le foto che hai, i testi li scriviamo insieme e ti diciamo quali immagini servono e in che formato.</p></details>
+      </div>
+      <div class="col altre" id="altre-domande">
+        <details><summary>Posso aggiornare io il sito?<span class="segno" aria-hidden="true"></span></summary><p>Per orari, menù o foto basta un messaggio su WhatsApp e lo aggiorniamo noi. Se devi cambiare spesso da solo, per esempio un catalogo o le notizie, lo diciamo all’inizio e scegliamo una soluzione con pannello di gestione.</p></details>
+        <details><summary>Ho già un sito: potete seguire solo il marketing?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Partiamo da quello che hai: guardiamo il sito e i canali che usi, e se serve ti diciamo cosa sistemare perché le campagne rendano. Il sito nuovo non è obbligatorio.</p></details>
+      <details><summary>Mi aiutate anche con la pubblicità?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Alex segue da 10 anni campagne e consulenze pubblicitarie per piccole e medie imprese: ne parliamo nella prima chiamata e, se ti serve, la gestione delle campagne la quotiamo a parte. Il budget pubblicitario lo decidi tu e lo paghi direttamente alla piattaforma.</p></details>
+        <details><summary>Come funziona il pagamento?<span class="segno" aria-hidden="true"></span></summary><p>50% quando approvi bozza e preventivo, 50% alla consegna. Prima di quel momento non paghi niente.</p></details>
+        <details><summary>Dominio e spazio web li fate voi?<span class="segno" aria-hidden="true"></span></summary><p>Ti aiutiamo a sceglierli e a configurarli, ma restano intestati a te e li paghi direttamente al fornitore, di solito poche decine di euro l’anno. Così il sito è sempre tuo.</p></details>
+        <details><summary>Il sito sarà mio?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Dominio e spazio web sono a tuo nome e alla consegna ricevi tutti i file. Se un giorno cambi fornitore, ti porti via tutto.</p></details>
+      </div>
+    </div>
+    <button type="button" class="altre-domande" aria-expanded="false" aria-controls="altre-domande">Altre 5 domande <span aria-hidden="true">↓</span></button>
+    </div>
+  </div>
+</section>
 
-  <script src="js/main.js?v=24"></script>
+<!-- 8 · Chiusura -->
+<section class="chiara chiusura-sez" aria-label="Contatti">
+  <div class="contenitore">
+    <div class="chiusura">
+      <div class="chiusura-dentro">
+        <div class="testo-c">
+          <span class="prog-etichetta">Parliamone</span>
+          <h2 class="titolo">Hai un’idea da <span class="corsivo">sviluppare</span>?</h2>
+          <p>Un sito nuovo, un negozio online, un gestionale, un’app o le campagne per farti trovare: raccontaci cosa ti serve e ti rispondiamo entro 24 ore con una prima idea e il preventivo, senza impegno.</p>
+          <ul class="chiusura-punti"><li>Prima chiamata gratuita</li><li>Prezzo fisso scritto</li><li>Promo fino al <span data-promo-data>31 dicembre 2026</span></li></ul>
+        </div>
+        <div class="chiusura-azioni">
+          <a class="cta-apertura" href="#modulo" data-apri-modulo>Parlaci del tuo progetto <span aria-hidden="true">→</span></a>
+          <a class="chiusura-wa" href="https://wa.me/393454517186" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L4 20l1-3.5A8.4 8.4 0 1 1 20 11.6z"/><path d="M9 8.6c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.6 1.5c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.1.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.5.3-1.1.4-1.7.3-2.6-.6-4.6-2.6-5.2-5.2-.1-.6 0-1.2.3-1.7z"/></svg><span>Scrivici su WhatsApp<small>345 451 7186</small></span></a>
+        </div>
+      </div>
+    </div>
+    <footer class="piede">
+      <span>© 2026 Zero Uno Lab · Francesco Mascolo e Alex Iancu</span>
+      <nav aria-label="Note legali"><a href="privacy.html">Privacy</a><a href="privacy.html#cookie">Cookie</a></nav>
+    </footer>
+  </div>
+</section>
+</main>
+
+<!-- Lavoro aperto: computer + telefono, frecce per gli altri -->
+<dialog class="finestra finestra-lavori" id="lavori" aria-label="Lavori">
+  <div class="finestra-dentro">
+    <button type="button" class="chiudi" data-chiudi aria-label="Chiudi">×</button>
+    <article class="vetrina" id="lavoro-0">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo" data-intera="assets/img/lavoro-hedone-pc-intera.webp"><img src="assets/img/lavoro-hedone-pc.webp" width="960" height="600" alt="La home del sito di Hedoné sul computer" loading="lazy"></div></div><div class="base-pc"></div><button type="button" class="scorri" data-scorri>Clicca per scorrere <span aria-hidden="true">↓</span></button><div class="schermo-tel"><div class="schermo" data-intera="assets/img/lavoro-hedone-tel-intera.webp"><img src="assets/img/lavoro-hedone-tel.webp" width="360" height="780" alt="Il sito di Hedoné sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">01 / 07</span>
+        <h3>Hedoné</h3>
+        <div class="etichette"><span>Ristorazione · Vimodrone</span><span>Cliente</span></div>
+        <p>Ristorante e lounge bar sul Naviglio Martesana: il menù con gli ingredienti a un tocco e la prenotazione già aperta.</p>
+        <ul class="punti"><li>Online sul dominio del cliente da settembre 2026</li><li>I vecchi indirizzi portano ai nuovi: nessuna pagina rotta su Google</li><li>Accessibilità 100/100 su Lighthouse, il test di Google</li></ul>
+        <a class="vai" href="https://www.hedonevimodrone.it/" target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+    <article class="vetrina" id="lavoro-1">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo" data-intera="assets/img/lavoro-ossidiana-pc-intera.webp"><img src="assets/img/lavoro-ossidiana-pc.webp" width="960" height="600" alt="La home di Ossidiana sul computer" loading="lazy"></div></div><div class="base-pc"></div><button type="button" class="scorri" data-scorri>Clicca per scorrere <span aria-hidden="true">↓</span></button><div class="schermo-tel"><div class="schermo" data-intera="assets/img/lavoro-ossidiana-tel-intera.webp"><img src="assets/img/lavoro-ossidiana-tel.webp" width="360" height="780" alt="Ossidiana sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">02 / 07</span>
+        <h3>Ossidiana</h3>
+        <div class="etichette"><span>Moda e lusso · Milano</span><span class="demo">Dimostrativo</span></div>
+        <p>Una sartoria di alta moda inventata per mostrare un sito di lusso: foto grandi e poche parole, come nei siti delle grandi case di moda.</p>
+        <ul class="punti"><li>Foto a tutta pagina, mai tagliate</li><li>Stessa impaginazione su computer e telefono</li><li>Tre pagine: home, storia e manifesto</li></ul>
+        <a class="vai" href="https://chillguyzofficial-spec.github.io/ossidiana/" target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+    <article class="vetrina" id="lavoro-2">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo"><img src="assets/img/lavoro-homeunity-pc.webp" width="960" height="600" alt="Anteprima illustrativa del gestionale Home Unity sul computer" loading="lazy"></div></div><div class="base-pc"></div><div class="schermo-tel"><div class="schermo"><img src="assets/img/lavoro-homeunity-tel.webp" width="360" height="780" alt="Anteprima illustrativa del gestionale sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">03 / 07</span>
+        <h3>Home Unity</h3>
+        <div class="etichette"><span>Gestionale · affitti brevi</span><span class="demo">Area riservata</span></div>
+        <p>I numeri di 108 appartamenti tra Milano, Firenze e lago di Garda in una sola schermata: i dati arrivano da soli dal programma delle prenotazioni.</p>
+        <p class="piccolo">È il gestionale della società di Alex, costruito prima che lavorassimo insieme. Anteprima con dati di fantasia: quelli veri restano riservati.</p>
+        <ul class="punti"><li>I dati arrivano da soli, nessuno li ricopia più a mano</li><li>Ricavo, prezzo medio e occupazione confrontati con l’anno prima</li><li>Un semaforo segnala le case che rendono meno del solito</li></ul>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+    <article class="vetrina" id="lavoro-3">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo" data-intera="assets/img/lavoro-lumea-pc-intera.webp"><img src="assets/img/lavoro-lumea-pc.webp" width="960" height="600" alt="La home di Studio Lumea sul computer" loading="lazy"></div></div><div class="base-pc"></div><button type="button" class="scorri" data-scorri>Clicca per scorrere <span aria-hidden="true">↓</span></button><div class="schermo-tel"><div class="schermo" data-intera="assets/img/lavoro-lumea-tel-intera.webp"><img src="assets/img/lavoro-lumea-tel.webp" width="360" height="780" alt="Studio Lumea sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">04 / 07</span>
+        <h3>Studio Lumea</h3>
+        <div class="etichette"><span>Studio dentistico · Milano</span><span class="demo">Dimostrativo</span></div>
+        <p>Dodici pagine pensate per chi ha paura del dentista: una per trattamento, costi chiari e richiesta di appuntamento con gli orari liberi, nel rispetto delle regole sulla pubblicità sanitaria.</p>
+        <ul class="punti"><li>Una pagina per ogni trattamento, con costi chiari</li><li>Niente foto prima e dopo né offerte, come chiedono le regole</li><li>Logo e icone disegnati su misura</li></ul>
+        <a class="vai" href="https://chillguyzofficial-spec.github.io/StudioLumea_Dentistico/" target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+    <article class="vetrina" id="lavoro-4">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo" data-intera="assets/img/lavoro-michelangelo-pc-intera.webp"><img src="assets/img/lavoro-michelangelo-pc.webp" width="960" height="600" alt="La home di Michelangelo Beauty sul computer" loading="lazy"></div></div><div class="base-pc"></div><button type="button" class="scorri" data-scorri>Clicca per scorrere <span aria-hidden="true">↓</span></button><div class="schermo-tel"><div class="schermo" data-intera="assets/img/lavoro-michelangelo-tel-intera.webp"><img src="assets/img/lavoro-michelangelo-tel.webp" width="360" height="780" alt="Michelangelo Beauty sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">05 / 07</span>
+        <h3>Michelangelo Beauty</h3>
+        <div class="etichette"><span>Negozio online · Toscana</span><span class="demo">Dimostrativo</span></div>
+        <p>Un negozio di cosmetica con il carattere di una bottega: carrello, confezione regalo, pagamento in quattro passaggi e un questionario che consiglia i prodotti.</p>
+        <ul class="punti"><li>Ingredienti spiegati in italiano, prezzo al litro e al chilo</li><li>Oltre cento controlli automatici sui percorsi d’acquisto</li><li>Accessibilità 100/100 su tutte le pagine</li></ul>
+        <a class="vai" href="https://chillguyzofficial-spec.github.io/MichelangeloBeauty/" target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+    <article class="vetrina" id="lavoro-5">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo" data-intera="assets/img/lavoro-centorespiri-pc-intera.webp"><img src="assets/img/lavoro-centorespiri-pc.webp" width="960" height="600" alt="La home di Cento Respiri sul computer" loading="lazy"></div></div><div class="base-pc"></div><button type="button" class="scorri" data-scorri>Clicca per scorrere <span aria-hidden="true">↓</span></button><div class="schermo-tel"><div class="schermo" data-intera="assets/img/lavoro-centorespiri-tel-intera.webp"><img src="assets/img/lavoro-centorespiri-tel.webp" width="360" height="780" alt="L'app di Cento Respiri sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">06 / 07</span>
+        <h3>Cento Respiri</h3>
+        <div class="etichette"><span>Pilates · Torino</span><span class="demo">Dimostrativo</span></div>
+        <p>Sito, area clienti e app da installare con un solo account: lista d’attesa che assegna il posto da sola, carnet, buoni regalo e QR all’ingresso.</p>
+        <ul class="punti"><li>L’app funziona anche senza rete</li><li>Un pannello per lo studio segna le presenze</li><li>Oltre quattrocento controlli automatici su telefono, tablet e computer</li></ul>
+        <a class="vai" href="https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/" target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+    <article class="vetrina" id="lavoro-6">
+      <div class="schermi"><div class="schermo-pc"><div class="schermo"><img src="assets/img/lavoro-carico-pc.webp" width="960" height="600" alt="Il sito di presentazione di Carico sul computer" loading="lazy"></div></div><div class="base-pc"></div><div class="schermo-tel"><div class="schermo"><img src="assets/img/lavoro-carico-tel.webp" width="360" height="780" alt="La schermata Oggi dell'app di Carico sul telefono" loading="lazy"></div></div></div>
+      <div class="scheda-lavoro">
+        <span class="mono">07 / 07</span>
+        <h3>Carico</h3>
+        <div class="etichette"><span>Personal trainer · app + gestionale</span><span class="demo">Dimostrativo</span></div>
+        <p>L’app per l’atleta con la scheda dell’allenamento, i video della tecnica rivisti dal coach e i progressi; il gestionale del coach da computer, collegato all’app.</p>
+        <ul class="punti"><li>Scheda d’allenamento con serie, carichi e ripetizioni</li><li>I video della tecnica arrivano al coach, che risponde dal gestionale</li><li>Oltre trecento controlli automatici su app e gestionale</li></ul>
+        <a class="vai" href="https://chillguyzofficial-spec.github.io/Carico/" target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <div class="frecce"><button type="button" data-freccia="-1" aria-label="Lavoro precedente">←</button><button type="button" data-freccia="1" aria-label="Lavoro successivo">→</button></div>
+      </div>
+    </article>
+  </div>
+</dialog>
+
+<!-- Widget 01: fisso in basso a destra, apre il modulo -->
+<button type="button" class="widget-01" data-apri-modulo aria-haspopup="dialog" aria-controls="modulo" aria-label="Parlaci del tuo progetto: apri il modulo">
+  <span class="w-chip" aria-hidden="true"><span class="w-testo"><span class="w-bit" data-bit>0</span><span class="w-bit" data-bit>1</span><span class="w-cursore">_</span></span></span>
+  <span class="widget-nota" aria-hidden="true">Parlaci del progetto</span>
+</button>
+
+<!-- Modulo: si apre toccando lo 01 (o «Apri il modulo» in fondo) -->
+<dialog class="finestra" id="modulo" aria-labelledby="t-modulo">
+  <div class="modulo-box">
+<button type="button" class="chiudi" data-chiudi aria-label="Chiudi il modulo">×</button>
+<div class="mod-testa"><span class="mod-logo" aria-hidden="true">01</span><div><h2 id="t-modulo">Raccontaci il tuo progetto</h2><p>Cinque campi, meno di un minuto. Ti rispondiamo entro 24 ore.</p></div></div>
+    <form class="modulo" novalidate>
+      <label class="campo" data-campo="nome">
+        <span class="etichetta">Nome</span>
+        <input type="text" name="nome" autocomplete="name" required>
+        <span class="errore-campo" role="alert">Scrivi il tuo nome, così sappiamo chi cercare.</span>
+      </label>
+      <label class="campo" data-campo="telefono">
+        <span class="etichetta">Telefono / WhatsApp</span>
+        <input type="tel" name="telefono" inputmode="tel" autocomplete="tel" placeholder="+39" required>
+        <span class="aiuto">Ti scriviamo qui, niente chiamate a sorpresa</span>
+        <span class="errore-campo" role="alert">Manca il numero di telefono: senza non possiamo risponderti.</span>
+      </label>
+      <label class="campo" data-campo="attivita">
+        <span class="etichetta">Che attività hai?</span>
+        <input type="text" name="attivita" placeholder="Es. ristorante, parrucchiere, studio" required>
+        <span class="errore-campo" role="alert">Dicci in due parole che attività hai.</span>
+      </label>
+      <fieldset class="scelte">
+        <legend class="etichetta">Cosa ti serve?</legend>
+        <div class="pillole">
+          <label class="pillola"><input type="radio" name="serve" value="Sito nuovo"><span>Sito nuovo</span></label>
+          <label class="pillola"><input type="radio" name="serve" value="Rifare il sito che ho"><span>Rifare il sito che ho</span></label>
+          <label class="pillola"><input type="radio" name="serve" value="Negozio online"><span>Negozio online</span></label>
+          <label class="pillola"><input type="radio" name="serve" value="Gestionale o app"><span>Gestionale o app</span></label>
+          <label class="pillola"><input type="radio" name="serve" value="Pubblicità e marketing"><span>Pubblicità e marketing</span></label>
+          <label class="pillola"><input type="radio" name="serve" value="Non lo so ancora"><span>Non lo so ancora</span></label>
+        </div>
+      </fieldset>
+      <label class="campo">
+        <span class="etichetta">Email <small>(facoltativa)</small></span>
+        <input type="email" name="email" autocomplete="email">
+      </label>
+      <label class="consenso">
+        <input type="checkbox" name="privacy" required>
+        <span>Ho letto l’<a href="privacy.html" target="_blank">informativa privacy</a> e acconsento a essere ricontattato.</span>
+      </label>
+      <span class="errore-campo consenso-errore" role="alert">Per inviare la richiesta serve il consenso.</span>
+      <button class="invia" type="submit">Invia la richiesta <span aria-hidden="true">→</span></button>
+      <p class="mod-fiducia">Nessun impegno · Prima chiamata gratuita · Dati usati solo per risponderti</p>
+    </form>
+    <div class="inviato" role="status" tabindex="-1">
+      <span class="ok" aria-hidden="true"></span>
+      <p>Richiesta arrivata. Ti scriviamo su WhatsApp entro 24 ore.</p>
+      <p class="piccolo" data-nota-wa hidden>Si è aperto WhatsApp con il messaggio già scritto: premi invia e la richiesta arriva a noi.</p>
+      <button type="button" data-ricomincia>Invia un’altra richiesta</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="js/main.js?v=91" defer></script>
 </body>
 </html>

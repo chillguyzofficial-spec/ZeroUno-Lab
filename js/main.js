@@ -1,436 +1,313 @@
+/* Zero Uno Lab — landing */
 (() => {
   'use strict';
 
-  // Niente effetti legati al mouse (richiesta di Francesco): tutto il movimento dipende dallo scorrimento.
-  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  const header = document.querySelector('.site-header');
-  const headerH = () => (header ? header.offsetHeight : 0);
+  // ── Impostazioni: si cambiano solo qui ─────────────────────────────
+  const CONFIG = {
+    promoData: '31 dicembre 2026',
+    promoFine: '2026-12-31T23:59:59+01:00', // stessa data, per i giorni che restano (veri: non ripartono mai)          // scadenza vera della promo (compare in 4 punti)
+    // Dove arrivano le richieste del modulo. Vuoto = si apre WhatsApp con il messaggio già scritto.
+    // Quando c'è un servizio email (es. Web3Forms o il nostro Worker), mettere qui l'indirizzo.
+    endpoint: '',
+    whatsapp: '393454517186',
+  };
 
-  // ---------- Apertura FK: al tocco le due ante si aprono sulla landing ----------
-  const root = document.documentElement;
-  const gate = document.querySelector('[data-gate]');
-  if (gate && root.classList.contains('intro')) {
-    const btn = gate.querySelector('[data-gate-open]');
-    let opened = false;
-    const open = () => {
-      if (opened) return;
-      opened = true;
-      try { sessionStorage.setItem('fk-entrato', '1'); } catch (e) { /* niente */ }
-      root.classList.add('opening');
+  document.querySelectorAll('[data-promo-data]').forEach(el => { el.textContent = CONFIG.promoData; });
+  // giorni che restano alla fine della promo; finita la promo il riquadro non si mostra
+  const giorni = document.querySelector('[data-giorni]');
+  if (giorni) {
+    const resto = Math.ceil((new Date(CONFIG.promoFine) - Date.now()) / 86400000);
+    if (resto > 0) { giorni.textContent = resto === 1 ? 'Ultimo giorno' : 'Mancano ' + resto + ' giorni'; giorni.hidden = false; }
+  }
+
+  // ── Provenienza (utm delle inserzioni), salvata per la sessione ────
+  const sorgente = (() => {
+    const q = new URLSearchParams(location.search);
+    const utm = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(k => { if (q.get(k)) utm[k] = q.get(k); });
+    try {
+      if (Object.keys(utm).length) sessionStorage.setItem('zul-utm', JSON.stringify(utm));
+      return JSON.parse(sessionStorage.getItem('zul-utm') || '{}');
+    } catch (e) { return utm; }
+  })();
+
+  // ── Progetti: giostra con frecce e punti, ogni scheda apre la finestra con computer e telefono ──
+  const fila = document.querySelector('.prog-fila');
+  const punti = [...document.querySelectorAll('.prog-punti span')];
+  if (fila) {
+    const passo = () => { const s = fila.querySelector('.prog'); return s ? s.getBoundingClientRect().width + 20 : 300; };
+    document.querySelectorAll('[data-giostra]').forEach(b => b.addEventListener('click', () => {
+      const fine = fila.scrollLeft + fila.clientWidth >= fila.scrollWidth - 4;
+      const inizio = fila.scrollLeft <= 4;
+      const dir = Number(b.dataset.giostra);
+      if (dir > 0 && fine) fila.scrollTo({ left: 0, behavior: 'smooth' });
+      else if (dir < 0 && inizio) fila.scrollTo({ left: fila.scrollWidth, behavior: 'smooth' });
+      else fila.scrollBy({ left: dir * passo(), behavior: 'smooth' });
+    }));
+    fila.addEventListener('scroll', () => {
+      const i = Math.round(fila.scrollLeft / passo());
+      punti.forEach((p, k) => p.classList.toggle('attivo', k === Math.min(i, punti.length - 1)));
+    }, { passive: true });
+  }
+  const dlgLavori = document.getElementById('lavori');
+  const pannelli = [...dlgLavori.querySelectorAll('.vetrina')];
+  let attuale = 0;
+  const mostra = (i) => {
+    attuale = (i + pannelli.length) % pannelli.length;
+    pannelli.forEach((p, k) => { const si = k === attuale; p.hidden = !si; p.classList.remove('entra'); if (!si) ferma(p); });
+    void pannelli[attuale].offsetWidth;
+    pannelli[attuale].classList.add('entra');
+  };
+  const chiudiLavori = () => { if (dlgLavori.open) dlgLavori.close(); if (!document.querySelector('dialog[open]')) document.documentElement.classList.remove('bloccato'); };
+  dlgLavori.addEventListener('close', () => { ferma(pannelli[attuale]); if (!document.querySelector('dialog[open]')) document.documentElement.classList.remove('bloccato'); });
+  dlgLavori.addEventListener('click', e => { if (e.target === dlgLavori) chiudiLavori(); });
+  dlgLavori.querySelector('[data-chiudi]').addEventListener('click', chiudiLavori);
+  document.querySelectorAll('[data-lavoro]').forEach(b => b.addEventListener('click', () => {
+    mostra(Number(b.dataset.lavoro));
+    dlgLavori.showModal();
+    document.documentElement.classList.add('bloccato');
+    const f = pannelli[attuale].querySelector('[data-freccia="1"]'); if (f) f.focus({ preventScroll: true });
+  }));
+  dlgLavori.querySelectorAll('[data-freccia]').forEach(b => b.addEventListener('click', () => {
+    mostra(attuale + Number(b.dataset.freccia));
+    const btn = pannelli[attuale].querySelector(`[data-freccia="${b.dataset.freccia}"]`);
+    if (btn) btn.focus({ preventScroll: true });
+  }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && dlgLavori.open) { e.preventDefault(); chiudiLavori(); } });
+  mostra(0);
+
+  // «Clicca per scorrere»: carica la pagina intera e la fa scorrere nel riquadro; di nuovo = torna su
+  function ferma(pannello) {
+    pannello.querySelectorAll('.schermo img').forEach(img => { img.style.transform = ''; });
+    const b = pannello.querySelector('[data-scorri]');
+    if (b) { b.dataset.giu = ''; b.firstChild.textContent = 'Clicca per scorrere '; b.lastChild.textContent = '↓'; }
+  }
+  document.querySelectorAll('[data-scorri]').forEach(btn => btn.addEventListener('click', async () => {
+    const pannello = btn.closest('.vetrina');
+    if (btn.dataset.giu) { ferma(pannello); return; }
+    btn.dataset.giu = '1'; btn.firstChild.textContent = 'Torna su '; btn.lastChild.textContent = '↑';
+    const schermi = [...pannello.querySelectorAll('.schermo[data-intera]')];
+    await Promise.all(schermi.map(s => {
+      const img = s.querySelector('img');
+      if (img.dataset.caricata) return null;
+      return new Promise(ok => { const n = new Image(); n.onload = n.onerror = () => { img.src = n.src; img.removeAttribute('srcset'); img.dataset.caricata = '1'; ok(); }; n.src = s.dataset.intera; });
+    }));
+    requestAnimationFrame(() => schermi.forEach(s => {
+      const img = s.querySelector('img');
+      const corsa = Math.max(0, img.getBoundingClientRect().height - s.getBoundingClientRect().height);
+      img.style.setProperty('--durata', Math.min(14, Math.max(3, corsa / 220)) + 's');
+      img.style.transform = 'translateY(' + (-corsa) + 'px)';
+    }));
+  }));
+
+  // ── 01 che ruota: anello di cifre binarie ──────────────────────────
+  const anello = document.querySelector('[data-anello]');
+  if (anello) {
+    const bit = '0110100101101001011010010110';
+    [...bit].forEach((c, i) => {
+      const s = document.createElement('span');
+      s.textContent = c;
+      s.style.setProperty('--a', (i * 360 / bit.length) + 'deg');
+      s.style.setProperty('--y', (Math.sin(i * 0.9) * 14).toFixed(1) + 'px');
+      anello.appendChild(s);
+    });
+  }
+
+  // ── Versione chiara / scura (scelta ricordata su questo dispositivo) ──
+  const btnTema = document.querySelector('[data-tema-bottone]');
+  const segnaTema = () => {
+    const chiaro = document.documentElement.dataset.tema === 'chiaro';
+    btnTema.setAttribute('aria-pressed', chiaro);
+    btnTema.querySelector('.tema-testo').textContent = chiaro ? 'Scuro' : 'Chiaro';
+    btnTema.setAttribute('aria-label', chiaro ? 'Passa alla versione scura' : 'Passa alla versione chiara');
+  };
+  if (btnTema) {
+    segnaTema();
+    btnTema.addEventListener('click', () => {
+      const chiaro = document.documentElement.dataset.tema !== 'chiaro';
+      if (chiaro) document.documentElement.dataset.tema = 'chiaro'; else delete document.documentElement.dataset.tema;
+      try { localStorage.setItem('zul-tema', chiaro ? 'chiaro' : 'scuro'); } catch (e) {}
+      segnaTema();
+    });
+  }
+
+  // ── Alternative: il filtro cambia la scheda di sinistra in tutte le voci ──
+  const altBottoni = [...document.querySelectorAll('[data-alt]')];
+  const NOMI = { agenzia: 'Agenzia', faidate: 'Fai da te', conoscente: 'Il conoscente' };
+  altBottoni.forEach(btn => btn.addEventListener('click', () => {
+    const k = btn.dataset.alt;
+    altBottoni.forEach(x => x.setAttribute('aria-pressed', x === btn));
+    document.querySelectorAll('.alt-loro p').forEach(p => {
+      p.classList.add('cambia');
+      setTimeout(() => { p.textContent = p.dataset[k]; p.classList.remove('cambia'); }, 180);
+    });
+    document.querySelectorAll('[data-alt-nome]').forEach(s => { s.textContent = NOMI[k]; });
+  }));
+
+  // ── Confronto: il selettore cambia la scheda di sinistra ──
+  const vsDati = document.getElementById('vs-dati');
+  if (vsDati) {
+    const D = JSON.parse(vsDati.textContent);
+    const scheda = document.querySelector('.vs2-scheda.loro');
+    const voci = [...scheda.querySelectorAll('[data-vs-lista] li span:not(.vs2-segno)')];
+    const bott = [...document.querySelectorAll('[data-vs]')];
+    bott.forEach(btn => btn.addEventListener('click', () => {
+      const d = D[btn.dataset.vs];
+      bott.forEach(x => x.setAttribute('aria-pressed', x === btn));
+      scheda.classList.add('cambia');
       setTimeout(() => {
-        root.classList.remove('intro', 'opening');
-        gate.remove();
-        window.dispatchEvent(new Event('scroll'));
-      }, still ? 220 : 1150);
-    };
-    btn.addEventListener('click', open);
-    document.addEventListener('keydown', (e) => { if (['Enter', ' ', 'Escape'].includes(e.key) && root.classList.contains('intro')) { e.preventDefault(); open(); } });
-    btn.focus({ preventScroll: true });
-  } else if (gate) {
-    gate.remove();
-  }
-
-  // ---------- Recensione: lo screenshot del messaggio si apre grande ----------
-  const proof = document.querySelector('[data-proof]');
-  if (proof && proof.showModal) {
-    let big = null;
-    document.querySelectorAll('[data-proof-open]').forEach((b) => b.addEventListener('click', () => {
-      if (!big) { big = document.createElement('img'); big.width = 1000; big.decoding = 'async'; proof.prepend(big); }
-      big.src = b.dataset.full; big.alt = b.dataset.alt; big.height = +b.dataset.h;
-      proof.showModal();
+        scheda.querySelector('[data-vs-nome]').textContent = d[0];
+        scheda.querySelector('[data-vs-prezzo]').textContent = d[1];
+        scheda.querySelector('[data-vs-tempi]').textContent = d[2];
+        d[3].forEach((t, k) => { voci[k].textContent = t; });
+        scheda.classList.remove('cambia');
+      }, 180);
     }));
-    proof.querySelector('[data-proof-close]').addEventListener('click', () => proof.close());
-    // tocco fuori dall'immagine: chiude
-    proof.addEventListener('click', (e) => { if (e.target === proof) proof.close(); });
   }
 
-  // ---------- Servizi: tocchi un servizio e il dettaglio cambia ----------
-  document.querySelectorAll('[data-svc]').forEach((svc) => {
-    const items = [...svc.querySelectorAll('.svc-item')];
-    const wide = window.matchMedia('(min-width: 901px)');
-    items.forEach((it) => {
-      it.querySelector('.svc-head').addEventListener('click', () => {
-        const wasOpen = it.classList.contains('is-open');
-        // sul computer resta sempre un servizio aperto; sul telefono si può richiudere
-        if (wasOpen && wide.matches) return;
-        items.forEach((o) => {
-          const on = o === it && !wasOpen;
-          o.classList.toggle('is-open', on);
-          o.querySelector('.svc-head').setAttribute('aria-expanded', on ? 'true' : 'false');
-        });
-      });
-    });
+  // ── Pacchetto: schede da scorrere con le frecce o trascinando col mouse ──
+  const pacFila = document.querySelector('.pac-fila');
+  // sfondo di 0 e 1 diverso per ogni scheda
+  document.querySelectorAll('.ps-bit').forEach((el, k) => { let s = '', x = 9301 + k * 49297; for (let i = 0; i < 420; i++) { x = (x * 1103515245 + 12345) % 2147483648; s += x % 7 < 3 ? '1' : '0'; } el.textContent = s; });
+  if (pacFila) {
+    const passoPac = () => { const s = pacFila.querySelector('.pac-scheda'); return s ? s.getBoundingClientRect().width + 14 : 280; };
+    document.querySelectorAll('[data-pac]').forEach(btn => btn.addEventListener('click', () => {
+      const dir = Number(btn.dataset.pac);
+      const fine = pacFila.scrollLeft + pacFila.clientWidth >= pacFila.scrollWidth - 4;
+      if (dir > 0 && fine) pacFila.scrollTo({ left: 0, behavior: 'smooth' });
+      else if (dir < 0 && pacFila.scrollLeft <= 4) pacFila.scrollTo({ left: pacFila.scrollWidth, behavior: 'smooth' });
+      else pacFila.scrollBy({ left: dir * passoPac() * 2, behavior: 'smooth' });
+    }));
+    let tiro = null;
+    pacFila.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; tiro = { x: e.clientX, s: pacFila.scrollLeft }; pacFila.classList.add('tiro'); });
+    window.addEventListener('pointermove', e => { if (tiro) pacFila.scrollLeft = tiro.s - (e.clientX - tiro.x); });
+    window.addEventListener('pointerup', () => { if (!tiro) return; tiro = null; pacFila.classList.remove('tiro'); const p = passoPac(); pacFila.scrollTo({ left: Math.round(pacFila.scrollLeft / p) * p, behavior: 'smooth' }); });
+  }
+
+  // ── Domande: «Altre 5 domande» sul telefono ──
+  const altreBtn = document.querySelector('.altre-domande');
+  if (altreBtn) altreBtn.addEventListener('click', () => {
+    const col = document.getElementById('altre-domande');
+    const ap = col.classList.toggle('aperte');
+    altreBtn.setAttribute('aria-expanded', ap);
+    altreBtn.firstChild.textContent = ap ? 'Meno domande ' : 'Altre ' + col.querySelectorAll('details').length + ' domande ';
+    altreBtn.lastChild.textContent = ap ? '↑' : '↓';
   });
 
-  // ---------- Pagine che scorrono dentro i mockup, solo dopo il clic su "Clicca per scorrere" ----------
-  const scrollers = new Map();
-  const startScroll = (img) => {
-    const old = scrollers.get(img);
-    if (old) old.cancel();
-    scrollers.delete(img);
-    if (still) return;
-    const run = () => {
-      const screen = img.parentElement;
-      const dist = img.getBoundingClientRect().height - screen.clientHeight;
-      if (dist < 12 || !screen.clientHeight) return;
-      const speed = screen.classList.contains('screen-mob') ? 34 : 55; // pixel al secondo
-      // in loop: parte dall'alto, scende fino in fondo, svanisce e ricomincia (mai all'indietro)
-      const end = `translateY(${-dist}px)`;
-      const anim = img.animate([
-        { transform: 'translateY(0)', opacity: 1, offset: 0, easing: 'ease-in-out' },
-        { transform: end, opacity: 1, offset: .86 },
-        { transform: end, opacity: 1, offset: .93 },
-        { transform: end, opacity: 0, offset: .98 },
-        { transform: 'translateY(0)', opacity: 0, offset: .98 },
-        { transform: 'translateY(0)', opacity: 1, offset: 1 },
-      ], { duration: Math.max(7000, dist / speed * 1000 / .82), iterations: Infinity });
-      const media = img.closest('.project-media');
-      if (!media.classList.contains('is-playing') || !img.dataset.visible) anim.pause();
-      scrollers.set(img, anim);
-    };
-    if (img.complete && img.naturalHeight) run();
-    else img.addEventListener('load', run, { once: true });
+  // ── Widget 01: l'etichetta «Richiedi la bozza» si vede per qualche secondo all'ingresso ──
+  const widget = document.querySelector('.widget-01');
+  if (widget) { setTimeout(() => widget.classList.add('mostra'), 1200); setTimeout(() => widget.classList.remove('mostra'), 5200); }
+
+  // ogni tanto un bit «sfarfalla» per un attimo e torna 01
+  const bits = [...document.querySelectorAll('[data-bit]')];
+  if (bits.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => {
+      const b = bits[Math.random() < .5 ? 0 : 1], vero = b === bits[0] ? '0' : '1';
+      b.textContent = vero === '0' ? '1' : '0'; b.classList.add('cambia');
+      setTimeout(() => { b.textContent = vero; b.classList.remove('cambia'); }, 160);
+    }, 2600);
+  }
+
+  // ── Finestra del modulo ────────────────────────────────────────────
+  const dlg = document.getElementById('modulo');
+  const box = dlg.querySelector('.modulo-box');
+  const apri = (e) => {
+    if (e) e.preventDefault();
+    if (dlg.open) return;
+    dlg.showModal();
+    document.documentElement.classList.add('bloccato'); // scorrimento bloccato solo su html
+    const primo = box.classList.contains('fatto') ? box.querySelector('.inviato') : dlg.querySelector('[name=nome]');
+    if (primo) primo.focus({ preventScroll: true });
   };
-  const shots = [...document.querySelectorAll('.scroll-shot')];
-  const playing = (img) => img.closest('.project-media').classList.contains('is-playing');
-  // si muovono solo se avviate col pulsante e quando sono sullo schermo
-  const shotIO = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
-    entries.forEach((en) => {
-      const img = en.target;
-      img.dataset.visible = en.isIntersecting ? '1' : '';
-      const a = scrollers.get(img);
-      if (!a) { if (en.isIntersecting) startScroll(img); return; }
-      if (en.isIntersecting && playing(img)) a.play(); else a.pause();
-    });
-  }, { rootMargin: '100px 0px' }) : null;
-  shots.forEach((img) => { if (shotIO) shotIO.observe(img); else { img.dataset.visible = '1'; startScroll(img); } });
-  // pulsante sotto ogni anteprima: avvia e ferma lo scorrimento (con il movimento ridotto non compare)
-  if (!still) document.querySelectorAll('.project-media:not(.project-media-static)').forEach((m) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'scroll-btn';
-    const label = () => {
-      const on = m.classList.contains('is-playing');
-      btn.innerHTML = on ? '<span class="scroll-ico" aria-hidden="true">❚❚</span>Ferma' : '<span class="scroll-ico" aria-hidden="true">↓</span>Clicca per scorrere';
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    };
-    btn.addEventListener('click', () => {
-      const on = m.classList.toggle('is-playing');
-      m.querySelectorAll('.scroll-shot').forEach((i) => {
-        const a = scrollers.get(i);
-        if (!a) { startScroll(i); return; }
-        if (on) a.play(); else a.pause();
-      });
-      label();
-    });
-    label();
-    m.after(btn); // le barrette delle sezioni si mettono tra l'anteprima e il pulsante
-  });
-  let rz = null;
-  window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => shots.forEach(startScroll), 200); });
+  const chiudi = () => { if (dlg.open) dlg.close(); document.documentElement.classList.remove('bloccato'); };
+  dlg.addEventListener('close', () => document.documentElement.classList.remove('bloccato'));
+  dlg.addEventListener('click', e => { if (e.target === dlg) chiudi(); }); // tocco fuori dal riquadro
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && dlg.open) { e.preventDefault(); chiudi(); } }); // Chrome a volte ignora il primo Esc
+  dlg.querySelector('[data-chiudi]').addEventListener('click', chiudi);
+  document.querySelectorAll('[data-apri-modulo]').forEach(el => el.addEventListener('click', apri));
 
-  // ---------- Sezioni dei siti: pulsanti, frecce, dito ----------
-  const projects = [...document.querySelectorAll('[data-shots]')].map((box) => {
-    const tabs = [...box.querySelectorAll('.tab')];
-    const desk = box.querySelector('[data-shot-desk]');
-    const mob = box.querySelector('[data-shot-mob]');
-    const deskName = desk.alt.split(':')[0];
-    const mobName = mob.alt.split(':')[0];
-    const prev = box.querySelector('[data-tab-prev]');
-    const next = box.querySelector('[data-tab-next]');
-    const steps = document.createElement('div');
-    steps.className = 'scene-steps';
-    steps.setAttribute('aria-hidden', 'true');
-    steps.innerHTML = tabs.map(() => '<i></i>').join('');
-    box.querySelector('.project-media').after(steps);
-    const p = { box, tabs, index: 0 };
+  // ── Modulo ─────────────────────────────────────────────────────────
+  const form = box.querySelector('form');
+  const campo = n => form.querySelector(`[data-campo="${n}"]`);
+  const consenso = form.querySelector('.consenso');
+  const invia = form.querySelector('.invia');
 
-    p.set = (i) => {
-      i = clamp(i, 0, tabs.length - 1);
-      prev.disabled = i === 0;
-      next.disabled = i === tabs.length - 1;
-      [...steps.children].forEach((s, k) => s.classList.toggle('is-on', k <= i));
-      if (i === p.index && desk.src.includes(tabs[i].dataset.desk.split('/').pop())) return;
-      p.index = i;
-      const tab = tabs[i];
-      tabs.forEach((t, k) => { t.classList.toggle('is-active', k === i); t.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
-      box.classList.add('is-swapping');
-      let ready = 0;
-      const done = () => {
-        if (++ready < 2 || p.index !== i) return;
-        desk.src = tab.dataset.desk;
-        mob.src = tab.dataset.mob;
-        desk.alt = deskName + ': ' + tab.dataset.alt;
-        mob.alt = mobName + ': ' + tab.dataset.alt;
-        box.classList.remove('is-swapping');
-        startScroll(desk);
-        startScroll(mob);
-      };
-      [tab.dataset.desk, tab.dataset.mob].forEach((src) => { const im = new Image(); im.onload = im.onerror = done; im.src = src; });
-    };
-    p.choose = (i) => p.set(clamp(i, 0, tabs.length - 1));
-    tabs.forEach((t, k) => t.addEventListener('click', () => p.choose(k)));
-    prev.addEventListener('click', () => p.choose(p.index - 1));
-    next.addEventListener('click', () => p.choose(p.index + 1));
-
-    // trascinando l'anteprima a destra o a sinistra (dito o mouse) cambia sezione
-    const media = box.querySelector('.project-media');
-    let sx = 0, sy = 0, down = false, moved = false;
-    media.addEventListener('dragstart', (e) => e.preventDefault());
-    media.addEventListener('pointerdown', (e) => {
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
-      down = true; moved = false; sx = e.clientX; sy = e.clientY;
-    });
-    media.addEventListener('pointermove', (e) => {
-      if (!down || e.pointerType !== 'mouse') return;
-      if (!moved && Math.abs(e.clientX - sx) > 6) { moved = true; media.classList.add('is-dragging'); }
-    });
-    const end = (e) => {
-      if (!down) return;
-      down = false;
-      media.classList.remove('is-dragging');
-      const dx = e.clientX - sx, dy = e.clientY - sy;
-      if (Math.abs(dx) > 6) moved = true;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) p.choose(p.index + (dx < 0 ? 1 : -1));
-    };
-    media.addEventListener('pointerup', end);
-    media.addEventListener('pointerleave', (e) => { if (down && e.pointerType === 'mouse') end(e); });
-    media.addEventListener('pointercancel', () => { down = false; media.classList.remove('is-dragging'); });
-    // dopo un trascinamento il clic non apre il sito
-    media.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; } });
-
-    p.set(0);
-    return p;
+  const segna = (el, ko) => el.classList.toggle('ko', ko);
+  const controlla = () => {
+    const d = new FormData(form);
+    const errori = [];
+    const nome = (d.get('nome') || '').trim();
+    const tel = (d.get('telefono') || '').replace(/[^\d+]/g, '');
+    const att = (d.get('attivita') || '').trim();
+    segna(campo('nome'), !nome); if (!nome) errori.push(campo('nome'));
+    const telOk = tel.replace(/\D/g, '').length >= 8;
+    segna(campo('telefono'), !telOk); if (!telOk) errori.push(campo('telefono'));
+    segna(campo('attivita'), !att); if (!att) errori.push(campo('attivita'));
+    const priv = form.privacy.checked;
+    segna(consenso, !priv); if (!priv) errori.push(consenso);
+    return errori;
+  };
+  form.addEventListener('input', e => {
+    const c = e.target.closest('.campo, .consenso');
+    if (c && c.classList.contains('ko')) controlla();
   });
 
-  // ---------- Barra di avanzamento e linea del tempo ----------
-  const bar = document.querySelector('[data-progress]');
-  const tl = document.querySelector('[data-timeline]');
-  const tlFill = tl && tl.querySelector('[data-tl-fill]');
-  const tlSteps = tl ? [...tl.querySelectorAll('.tl-step')] : [];
-  const onScroll = () => {
-    const doc = document.documentElement;
-    const max = doc.scrollHeight - window.innerHeight;
-    if (bar) bar.style.transform = `scaleX(${max > 0 ? clamp(window.scrollY / max, 0, 1) : 0})`;
-    if (tl && !still) {
-      const r = tl.getBoundingClientRect();
-      const mark = window.innerHeight * .62;
-      const prog = clamp((mark - r.top) / r.height, 0, 1);
-      tlFill.style.transform = `scaleY(${prog})`;
-      tlSteps.forEach((s) => s.classList.toggle('is-lit', s.getBoundingClientRect().top + 10 < mark));
+  const messaggioWa = d => [
+    'Ciao Zero Uno Lab, vi scrivo dal sito per la promo.',
+    `Nome: ${d.nome}`,
+    `Attività: ${d.attivita}`,
+    d.serve ? `Mi serve: ${d.serve}` : '',
+    d.email ? `Email: ${d.email}` : '',
+  ].filter(Boolean).join('\n');
+
+  const fatto = (conWa) => {
+    box.querySelector('[data-nota-wa]').hidden = !conWa;
+    box.classList.add('fatto');
+    box.querySelector('.inviato').focus({ preventScroll: true });
+  };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const errori = controlla();
+    if (errori.length) {
+      const primo = errori[0].querySelector('input');
+      if (primo) primo.focus();
+      return;
     }
-  };
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => { ticking = false; onScroll(); });
-  }, { passive: true });
-  const relayout = () => onScroll();
-  window.addEventListener('resize', () => { clearTimeout(relayout.t); relayout.t = setTimeout(relayout, 150); });
-  window.addEventListener('load', relayout);
-  relayout();
-  if (still) tlSteps.forEach((s) => s.classList.add('is-lit'));
-
-  // ---------- Carosello "Chi c'è dietro": frecce, puntini, contatore ----------
-  document.querySelectorAll('[data-carousel]').forEach((car) => {
-    const track = car.querySelector('[data-track]');
-    const items = [...track.children];
-    const prev = car.querySelector('[data-prev]');
-    const next = car.querySelector('[data-next]');
-    const count = car.querySelector('[data-count]');
-    const dotsBox = car.querySelector('[data-dots]');
-    const pad = (n) => String(n).padStart(2, '0');
-    const step = () => items[1].offsetLeft - items[0].offsetLeft;
-    const current = () => Math.round(track.scrollLeft / step());
-    const maxIndex = () => Math.round((track.scrollWidth - track.clientWidth) / step());
-    const goTo = (i) => track.scrollTo({ left: clamp(i, 0, maxIndex()) * step() });
-    const dots = items.map((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', 'Vai al punto ' + (i + 1));
-      b.addEventListener('click', () => goTo(i));
-      dotsBox.appendChild(b);
-      return b;
-    });
-    const update = () => {
-      const i = current();
-      const last = maxIndex();
-      count.textContent = pad(Math.min(i + 1, items.length));
-      prev.disabled = i <= 0;
-      next.disabled = i >= last;
-      dots.forEach((d, k) => { d.hidden = k > last; d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    const d = Object.fromEntries(new FormData(form));
+    const dati = {
+      nome: d.nome.trim(), telefono: d.telefono.trim(), attivita: d.attivita.trim(),
+      serve: d.serve || '', email: (d.email || '').trim(),
+      ...sorgente, pagina: location.href.split('?')[0],
     };
-    prev.addEventListener('click', () => goTo(current() - 1));
-    next.addEventListener('click', () => goTo(current() + 1));
-    let t = null;
-    track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+
+    if (!CONFIG.endpoint) {
+      // Nessun servizio collegato: WhatsApp con il messaggio pronto (aperto subito, dentro il tocco)
+      window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(messaggioWa(dati))}`, '_blank', 'noopener');
+      fatto(true);
+      return;
+    }
+    invia.disabled = true;
+    invia.textContent = 'Invio in corso…';
+    try {
+      const r = await fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(dati) });
+      if (!r.ok) throw new Error(r.status);
+      fatto(false);
+    } catch (err) {
+      invia.disabled = false;
+      invia.innerHTML = 'Invia la richiesta <span aria-hidden="true">→</span>';
+      if (confirm('La richiesta non è partita, forse per la rete. Vuoi mandarcela su WhatsApp?')) {
+        window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(messaggioWa(dati))}`, '_blank', 'noopener');
+        fatto(true);
+      }
+    }
   });
 
-  // ---------- Vetrina dei lavori: una fila che scorre, la scheda al centro è accesa ----------
-  document.querySelectorAll('[data-vt]').forEach((vt) => {
-    const track = vt.querySelector('[data-vt-track]');
-    const items = [...track.children];
-    const prev = vt.querySelector('[data-vt-prev]');
-    const next = vt.querySelector('[data-vt-next]');
-    const count = vt.querySelector('[data-vt-count]');
-    // su PC la fila è allineata a sinistra (scheda corrente = la prima in vista), su telefono al centro
-    const isStart = () => getComputedStyle(items[0]).scrollSnapAlign.includes('start');
-    const padL = () => parseFloat(getComputedStyle(track).paddingLeft);
-    const mid = (it) => (isStart() ? it.offsetLeft - padL() + track.clientWidth / 2 : it.offsetLeft + it.offsetWidth / 2);
-    const centre = () => {
-      const c = track.scrollLeft + track.clientWidth / 2;
-      let best = 0;
-      items.forEach((it, i) => { if (Math.abs(mid(it) - c) < Math.abs(mid(items[best]) - c)) best = i; });
-      return best;
-    };
-    const goTo = (i) => {
-      const it = items[clamp(i, 0, items.length - 1)];
-      track.scrollTo({ left: mid(it) - track.clientWidth / 2, behavior: still ? 'auto' : 'smooth' });
-    };
-    const update = () => {
-      const i = centre();
-      items.forEach((it, k) => it.classList.toggle('is-active', k === i));
-      count.textContent = String(i + 1).padStart(2, '0');
-      prev.disabled = i <= 0;
-      next.disabled = i >= items.length - 1 || track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
-    };
-    prev.addEventListener('click', () => goTo(centre() - 1));
-    next.addEventListener('click', () => goTo(centre() + 1));
-    // trascinamento col mouse (col dito scorre già da sé); dopo un trascinamento il clic non apre il lavoro
-    let drag = null;
-    let moved = false;
-    track.addEventListener('pointerdown', (e) => {
-      if (e.pointerType !== 'mouse' || e.button !== 0) return;
-      drag = { x: e.clientX, left: track.scrollLeft };
-      moved = false;
-    });
-    window.addEventListener('pointermove', (e) => {
-      if (!drag) return;
-      const dx = e.clientX - drag.x;
-      if (!moved && Math.abs(dx) > 6) { moved = true; track.classList.add('is-dragging'); }
-      if (moved) track.scrollLeft = drag.left - dx;
-    });
-    window.addEventListener('pointerup', () => {
-      if (!drag) return;
-      drag = null;
-      if (!moved) return;
-      const i = centre();
-      track.classList.remove('is-dragging');
-      goTo(i);
-    });
-    // tocco su una scheda spenta: la porta al centro invece di aprire il lavoro
-    items.forEach((it, k) => it.querySelector('a').addEventListener('click', (e) => {
-      if (moved) { e.preventDefault(); moved = false; return; }
-      if (!isStart() && !it.classList.contains('is-active')) { e.preventDefault(); goTo(k); return; }
-      // lavoro in arrivo: non c'è ancora niente da aprire
-      if (e.currentTarget.hasAttribute('data-presto')) e.preventDefault();
-    }));
-    let t = null;
-    track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+  box.querySelector('[data-ricomincia]').addEventListener('click', () => {
+    form.reset();
+    box.classList.remove('fatto');
+    invia.disabled = false;
+    invia.innerHTML = 'Invia la richiesta <span aria-hidden="true">→</span>';
+    form.nome.focus();
   });
-
-  // ---------- Titoli che compaiono parola per parola ----------
-  document.querySelectorAll('[data-words]').forEach((h) => {
-    const words = h.textContent.trim().split(/\s+/);
-    h.setAttribute('aria-label', h.textContent.trim());
-    h.innerHTML = words.map((w, i) => `<span class="w" aria-hidden="true" style="--i:${i}">${w}</span>`).join(' ');
-  });
-
-  // ---------- Confronto: selettore a pillole ----------
-  document.querySelectorAll('[data-cmp]').forEach((cmp) => {
-    const wrap = cmp.querySelector('.cmp-wrap');
-    const btns = [...cmp.querySelectorAll('[data-cmp-vs]')];
-    const phone = window.matchMedia('(max-width: 767px)');
-    const choose = (b) => {
-      btns.forEach((o) => { const on = o === b; o.classList.toggle('is-active', on); o.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-      wrap.dataset.vs = b.dataset.cmpVs;
-    };
-    btns.forEach((b) => b.addEventListener('click', () => choose(b)));
-    // sul telefono "Tutti" non c'è: si parte da Agenzia
-    const fit = () => { if (phone.matches && wrap.dataset.vs === 'all') choose(btns[1]); };
-    phone.addEventListener('change', fit);
-    fit();
-  });
-  // "Quando non sono la scelta giusta": aperto su PC, chiuso sul telefono
-  document.querySelectorAll('[data-honest]').forEach((d) => { if (window.matchMedia('(max-width: 767px)').matches) d.open = false; });
-
-  // ---------- Prima e dopo: compare solo se ci sono entrambe le immagini ----------
-  document.querySelectorAll('[data-compare]').forEach((sec) => {
-    const imgs = [...sec.querySelectorAll('img')];
-    let ok = 0;
-    imgs.forEach((im) => {
-      const test = new Image();
-      test.onload = () => { if (++ok === imgs.length) { sec.hidden = false; relayout(); } };
-      test.src = im.getAttribute('src');
-    });
-    const ba = sec.querySelector('[data-ba]');
-    const range = sec.querySelector('.ba-range');
-    range.addEventListener('input', () => ba.style.setProperty('--pos', range.value + '%'));
-  });
-
-  // ---------- Filtri per settore: un lavoro alla volta ----------
-  const chips = [...document.querySelectorAll('[data-filter]')];
-  const cats = [...document.querySelectorAll('[data-category]')];
-  const showCat = (f) => {
-    if (!cats.some((c) => c.dataset.category === f)) return false;
-    chips.forEach((c) => { const on = c.dataset.filter === f; c.classList.toggle('is-active', on); c.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-    cats.forEach((cat) => cat.classList.toggle('is-on', cat.dataset.category === f));
-    cats.forEach((cat) => cat.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in')));
-    relayout();
-    return true;
-  };
-  chips.forEach((chip) => chip.addEventListener('click', () => showCat(chip.dataset.filter)));
-  // link a un lavoro (vetrina, esempi dei servizi): apre il settore e ci porta lì
-  const goCat = (hash, smooth) => {
-    const f = hash.replace('#lavoro-', '');
-    if (!showCat(f)) return false;
-    const box = document.getElementById('lavori-dettaglio');
-    window.scrollTo({ top: box.getBoundingClientRect().top + window.scrollY - headerH() - 12, behavior: smooth && !still ? 'smooth' : 'auto' });
-    return true;
-  };
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[href^="#lavoro-"]');
-    if (!a || e.defaultPrevented) return;
-    const hash = a.getAttribute('href');
-    if (goCat(hash, true)) { e.preventDefault(); history.pushState(null, '', hash); }
-  });
-  window.addEventListener('hashchange', () => { if (location.hash.startsWith('#lavoro-')) goCat(location.hash, false); });
-  if (location.hash.startsWith('#lavoro-')) window.addEventListener('load', () => goCat(location.hash, false), { once: true });
-
-  // ---------- Comparsa allo scroll e contatori ----------
-  const els = document.querySelectorAll('[data-reveal]');
-  const counters = [...document.querySelectorAll('[data-count-to]')];
-  const countUp = (el) => {
-    // dietro l'apertura FK aspetta che si entri
-    if (root.classList.contains('intro')) { setTimeout(() => countUp(el), 200); return; }
-    const to = +el.dataset.countTo;
-    if (still) { el.textContent = to; return; }
-    const t0 = performance.now();
-    const tick = (t) => {
-      const k = clamp((t - t0) / 1400, 0, 1);
-      el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
-      if (k < 1) requestAnimationFrame(tick);
-    };
-    el.textContent = '0';
-    requestAnimationFrame(tick);
-  };
-  if (!('IntersectionObserver' in window)) {
-    els.forEach((el) => el.classList.add('is-in'));
-    return;
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((en) => {
-      if (!en.isIntersecting) return;
-      if (en.target.dataset.countTo) countUp(en.target); else en.target.classList.add('is-in');
-      io.unobserve(en.target);
-    });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: .08 });
-  els.forEach((el) => io.observe(el));
-  counters.forEach((el) => io.observe(el));
 })();
