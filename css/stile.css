@@ -1084,5 +1084,6 @@ html[data-tema="chiaro"] .fiducia > span:last-child { background: rgba(255,255,2
   .chiusura::before { background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.9) 55%, rgba(255,255,255,.35) 100%); }
 }
 
-/* titoli in binario (05/11): durante la decodifica la parola ha larghezza fissa e non va a capo */
-.corsivo.in-binario { display: inline-block; white-space: nowrap; text-align: left; overflow: clip; overflow-clip-margin: 0.08em; }
+/* titoli in binario (05/11): la parola vera tiene il posto (trasparente), le cifre stanno sopra, stessa riga */
+.corsivo.in-binario { position: relative; -webkit-text-fill-color: transparent; }
+.corsivo.in-binario::after { content: attr(data-bit); position: absolute; left: 0; top: 0; width: calc(100% + .14em); line-height: normal; overflow: hidden; white-space: nowrap; -webkit-text-fill-color: var(--bin-colore); color: var(--bin-colore); pointer-events: none; }

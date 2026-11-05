@@ -211,12 +211,12 @@
 
   // ── Titoli in binario (05/11): le parole in viola compaiono come 0 e 1 e si «decodificano» in lettere, una volta sola ──
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    // la parola vera resta sempre al suo posto (trasparente): le cifre sono disegnate sopra con ::after,
+    // così la riga non si sposta mai (05/11: prima la parola saliva durante l'effetto)
     const decodifica = el => {
-      const vero = el.dataset.parola || el.textContent;
-      el.dataset.parola = vero;
-      const r = el.getBoundingClientRect();
-      el.classList.add('in-binario'); el.style.width = r.width + 'px'; // larghezza ferma: il titolo non si muove
-      const durata = 1000, t0 = performance.now(), n = vero.length; // un pelino più lento (Francesco, 05/11)
+      const vero = el.textContent, n = vero.length, durata = 1000, t0 = performance.now(); // un pelino più lento (Francesco, 05/11)
+      el.style.setProperty('--bin-colore', getComputedStyle(el).color);
+      el.classList.add('in-binario');
       let ultimo = 0;
       const passo = now => {
         const p = Math.min(1, (now - t0) / durata);
@@ -224,10 +224,10 @@
           ultimo = now;
           const fatte = Math.floor(p * (n + 2)) - 2;
           let s = ''; for (let i = 0; i < n; i++) s += vero[i] === ' ' || i < fatte ? vero[i] : (Math.random() < .5 ? '0' : '1');
-          el.textContent = p === 1 ? vero : s;
+          el.dataset.bit = s;
         }
         if (p < 1) requestAnimationFrame(passo);
-        else { el.classList.remove('in-binario'); el.style.width = ''; }
+        else { el.classList.remove('in-binario'); delete el.dataset.bit; el.style.removeProperty('--bin-colore'); }
       };
       requestAnimationFrame(passo);
     };
