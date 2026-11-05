@@ -524,8 +524,13 @@ html[data-tema="chiaro"] .apertura::before { background: linear-gradient(90deg, 
 .link-wa { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: rgba(5,6,10,.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-decoration: none; }
 .tema { background: rgba(5,6,10,.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 html[data-tema="chiaro"] .link-wa, html[data-tema="chiaro"] .tema { background: rgba(255,255,255,.9); border: 1px solid rgba(20,20,20,.18); }
-/* telefono: il nastro diventa una fascia in fondo all'apertura, sotto il pulsante, intero */
-@media (max-width: 700px) { .apertura, html[data-tema="chiaro"] .apertura { background-size: 100% auto; background-position: center bottom; padding-bottom: 52vw; } }
+/* telefono: sfondo a tutto schermo (05/11, Francesco: la fascia in fondo non gli piaceva); ombra solo sul testo, nessun velo sulla foto */
+@media (max-width: 700px) {
+  .apertura { min-height: 100vh; min-height: 100svh; padding-bottom: 0; background-image: url(../assets/img/verticale-nero.webp); background-size: cover; background-position: center; }
+  html[data-tema="chiaro"] .apertura { min-height: 100vh; min-height: 100svh; padding-bottom: 0; background-image: url(../assets/img/verticale-bianco.webp); background-size: cover; background-position: center; }
+  .apertura-riga { color: #fff; text-shadow: 0 0 18px rgba(5,6,10,.95), 0 0 6px rgba(5,6,10,.9), 0 1px 2px rgba(5,6,10,.9); }
+  html[data-tema="chiaro"] .apertura-riga { color: #1a1814; text-shadow: 0 0 18px #fff, 0 0 6px #fff, 0 0 2px #fff; }
+}
 
 /* Alternative: griglia a schede (05/11). Colonna Zero Uno Lab scura, rialzata, col viola */
 .cf { display: grid; grid-template-columns: minmax(150px, .9fr) repeat(3, 1fr) 1.2fr; grid-template-rows: auto repeat(6, auto); column-gap: 12px; }

@@ -196,7 +196,8 @@
 
   // ── Widget 01: l'etichetta «Richiedi la bozza» si vede per qualche secondo all'ingresso ──
   const widget = document.querySelector('.widget-01');
-  if (widget) { setTimeout(() => widget.classList.add('mostra'), 1200); setTimeout(() => widget.classList.remove('mostra'), 5200); }
+  // sul telefono la nuvoletta copriva il pulsante dell'apertura: lì non compare da sola (05/11)
+  if (widget && !matchMedia('(max-width: 600px)').matches) { setTimeout(() => widget.classList.add('mostra'), 1200); setTimeout(() => widget.classList.remove('mostra'), 5200); }
 
   // ogni tanto un bit «sfarfalla» per un attimo e torna 01
   const bits = [...document.querySelectorAll('[data-bit]')];
