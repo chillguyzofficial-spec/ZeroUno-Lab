@@ -245,10 +245,22 @@
     altreBtn.lastChild.textContent = ap ? '↑' : '↓';
   });
 
-  // ── Widget 01: l'etichetta «Richiedi la bozza» si vede per qualche secondo all'ingresso ──
+  // ── Widget 01 (06/11): etichetta «Parlaci del progetto» sempre visibile appena il pulsante
+  // dell'apertura esce dallo schermo (così non lo copre sul telefono); il widget sparisce quando
+  // il modulo della chiusura è in vista (lì il modulo c'è già).
   const widget = document.querySelector('.widget-01');
-  // sul telefono la nuvoletta copriva il pulsante dell'apertura: lì non compare da sola (05/11)
-  if (widget && !matchMedia('(max-width: 600px)').matches) { setTimeout(() => widget.classList.add('mostra'), 1200); setTimeout(() => widget.classList.remove('mostra'), 5200); }
+  const casa = document.querySelector('.modulo-casa');
+  const ctaApertura = document.querySelector('.apertura .cta-apertura');
+  const vista = { cta: true, casa: false };
+  const aggiornaWidget = () => {
+    if (!widget) return;
+    widget.classList.toggle('etichetta', !vista.cta && !vista.casa);
+    widget.classList.toggle('via', vista.casa);
+  };
+  if ('IntersectionObserver' in window) {
+    if (ctaApertura) new IntersectionObserver(([e]) => { vista.cta = e.isIntersecting; aggiornaWidget(); }).observe(ctaApertura);
+    if (casa) new IntersectionObserver(([e]) => { vista.casa = e.isIntersecting; aggiornaWidget(); }, { threshold: 0.15 }).observe(casa);
+  }
 
   // ogni tanto un bit «sfarfalla» per un attimo e torna 01
   const bits = [...document.querySelectorAll('[data-bit]')];
@@ -261,21 +273,32 @@
   }
 
   // ── Finestra del modulo ────────────────────────────────────────────
+  // Il modulo vive nella chiusura (#richiesta): la finestra lo prende in prestito e lo restituisce
+  // alla chiusura (stesso modulo, quello che si è scritto resta).
   const dlg = document.getElementById('modulo');
-  const box = dlg.querySelector('.modulo-box');
+  const box = document.querySelector('.modulo-box');
+  // Nella chiusura il modulo resta chiuso (intestazione + Nome + «Continua la richiesta»): toccando «Continua»
+  // si apre la stessa finestra del widget 01, con il nome già scritto (Francesco, 06/11: niente espansione nella sezione).
+  const continua = box.querySelector('.mod-continua');
+  const torna = () => { if (casa && box.parentNode !== casa) casa.insertBefore(box, casa.firstChild); };
   const apri = (e) => {
     if (e) e.preventDefault();
     if (dlg.open) return;
+    const daChiusura = e && e.currentTarget === continua;
+    dlg.appendChild(box);
     dlg.showModal();
     document.documentElement.classList.add('bloccato'); // scorrimento bloccato solo su html
-    const primo = box.classList.contains('fatto') ? box.querySelector('.inviato') : dlg.querySelector('[name=nome]');
+    const nome = box.querySelector('[name=nome]');
+    const primo = box.classList.contains('fatto') ? box.querySelector('.inviato')
+      : (daChiusura && nome.value.trim() ? box.querySelector('[name=telefono]') : nome);
     if (primo) primo.focus({ preventScroll: true });
   };
-  const chiudi = () => { if (dlg.open) dlg.close(); document.documentElement.classList.remove('bloccato'); };
-  dlg.addEventListener('close', () => document.documentElement.classList.remove('bloccato'));
+  const chiudi = () => { if (dlg.open) dlg.close(); document.documentElement.classList.remove('bloccato'); torna(); };
+  dlg.addEventListener('close', () => { document.documentElement.classList.remove('bloccato'); torna(); }); // il modulo torna nella chiusura
   dlg.addEventListener('click', e => { if (e.target === dlg) chiudi(); }); // tocco fuori dal riquadro
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && dlg.open) { e.preventDefault(); chiudi(); } }); // Chrome a volte ignora il primo Esc
-  dlg.querySelector('[data-chiudi]').addEventListener('click', chiudi);
+  box.querySelector('[data-chiudi]').addEventListener('click', chiudi);
+  if (continua) continua.addEventListener('click', apri);
   document.querySelectorAll('[data-apri-modulo]').forEach(el => el.addEventListener('click', apri));
 
   // ── Modulo ─────────────────────────────────────────────────────────
@@ -320,6 +343,7 @@
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    if (casa && box.parentNode === casa) { continua.click(); return; } // Invio nel Nome della chiusura: si apre la finestra
     const errori = controlla();
     if (errori.length) {
       const primo = errori[0].querySelector('input');

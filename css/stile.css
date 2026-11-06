@@ -289,11 +289,11 @@ details[open] .segno::before { content: '−'; }
 html.bloccato { overflow: hidden; }
 .finestra { width: min(480px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; background: transparent; color: #fff; overflow: auto; overscroll-behavior: contain; }
 .finestra::backdrop { background: rgba(3,4,6,.74); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.finestra .modulo-box { max-width: none; background: linear-gradient(160deg, #1a1c20, #0c0d10 55%, #121317); }
+:is(.finestra, .modulo-casa) .modulo-box { max-width: none; background: linear-gradient(160deg, #1a1c20, #0c0d10 55%, #121317); }
 .finestra[open] .modulo-box { animation: sale .35s cubic-bezier(.2,.7,.2,1) both; }
 .chiudi { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255,255,255,.06); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; }
 .chiudi:hover { background: rgba(255,255,255,.14); }
-.finestra .modulo-box h2 { padding-right: 48px; }
+:is(.finestra, .modulo-casa) .modulo-box h2 { padding-right: 48px; }
 @media (max-width: 600px) {
   .finestra { width: 100%; max-height: 92dvh; margin: auto 0 0; }
   .finestra .modulo-box { border-radius: 22px 22px 0 0; border-bottom: 0; padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
@@ -912,24 +912,24 @@ html[data-tema="chiaro"] .fiducia > span:last-child { background: rgba(255,255,2
 .garanzia span { color: #fff; }
 
 /* ── Modulo più curato (05/11) ── */
-.finestra .modulo-box { background: radial-gradient(80% 50% at 100% 0%, rgba(var(--viola-luce),.28), transparent 60%), linear-gradient(165deg, #17131f, #0a090e 65%); border: 1px solid rgba(var(--viola-luce),.35); box-shadow: 0 40px 90px -30px rgba(0,0,0,.85), 0 0 60px -20px rgba(var(--viola-luce),.5); }
+:is(.finestra, .modulo-casa) .modulo-box { background: radial-gradient(80% 50% at 100% 0%, rgba(var(--viola-luce),.28), transparent 60%), linear-gradient(165deg, #17131f, #0a090e 65%); border: 1px solid rgba(var(--viola-luce),.35); box-shadow: 0 40px 90px -30px rgba(0,0,0,.85), 0 0 60px -20px rgba(var(--viola-luce),.5); }
 .mod-testa { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-right: 48px; }
 .mod-testa h2 { margin: 0 !important; padding: 0 !important; font-size: clamp(22px, 2vw, 26px); }
 .mod-testa p { margin: 4px 0 0; font-size: 14px; color: rgba(255,255,255,.7); }
 .mod-logo { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: radial-gradient(120% 90% at 50% 0%, #2a1d46, #0c0a14 70%); box-shadow: 0 0 0 1px rgba(var(--viola-luce),.6), 0 0 18px rgba(var(--viola-luce),.5); font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #fff; text-shadow: 0 0 8px rgba(var(--viola-luce),.9); }
-.finestra .campo input { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.16); transition: border-color .2s, box-shadow .2s, background .2s; }
-.finestra .campo input:focus { border-color: var(--viola); background: rgba(var(--viola-luce),.07); box-shadow: 0 0 0 4px rgba(var(--viola-luce),.18); }
-.finestra .pillola span { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.03); transition: border-color .2s, background .2s; }
-.finestra .pillola span:hover { border-color: rgba(var(--viola-luce),.7); }
-.finestra .pillola input:checked + span { background: var(--viola); border-color: var(--viola); color: #160d2a; }
-.finestra .consenso input { border-color: rgba(255,255,255,.4); }
-.finestra .consenso input:checked { background: var(--viola); border-color: var(--viola); }
-.finestra .consenso input:checked::after { border-color: #160d2a; }
-.finestra .invia { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(110deg, var(--viola-scuro), #8B5CF6); color: #fff; box-shadow: 0 16px 36px -14px rgba(var(--viola-luce),.9); transition: filter .2s, transform .2s; }
-.finestra .invia:hover { background: linear-gradient(110deg, var(--viola-scuro), #8B5CF6); filter: brightness(1.1); transform: translateY(-1px); }
+:is(.finestra, .modulo-casa) .campo input { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.16); transition: border-color .2s, box-shadow .2s, background .2s; }
+:is(.finestra, .modulo-casa) .campo input:focus { border-color: var(--viola); background: rgba(var(--viola-luce),.07); box-shadow: 0 0 0 4px rgba(var(--viola-luce),.18); }
+:is(.finestra, .modulo-casa) .pillola span { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.03); transition: border-color .2s, background .2s; }
+:is(.finestra, .modulo-casa) .pillola span:hover { border-color: rgba(var(--viola-luce),.7); }
+:is(.finestra, .modulo-casa) .pillola input:checked + span { background: var(--viola); border-color: var(--viola); color: #160d2a; }
+:is(.finestra, .modulo-casa) .consenso input { border-color: rgba(255,255,255,.4); }
+:is(.finestra, .modulo-casa) .consenso input:checked { background: var(--viola); border-color: var(--viola); }
+:is(.finestra, .modulo-casa) .consenso input:checked::after { border-color: #160d2a; }
+:is(.finestra, .modulo-casa) .invia { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(110deg, var(--viola-scuro), #8B5CF6); color: #fff; box-shadow: 0 16px 36px -14px rgba(var(--viola-luce),.9); transition: filter .2s, transform .2s; }
+:is(.finestra, .modulo-casa) .invia:hover { background: linear-gradient(110deg, var(--viola-scuro), #8B5CF6); filter: brightness(1.1); transform: translateY(-1px); }
 .mod-fiducia { margin: 2px 0 0; text-align: center; font-size: 12px; color: rgba(255,255,255,.62); }
-.finestra .inviato .ok { background: var(--viola); box-shadow: 0 0 40px rgba(var(--viola-luce),.6); }
-@media (prefers-reduced-motion: reduce) { .finestra .invia { transition: none; } .finestra .invia:hover { transform: none; } }
+:is(.finestra, .modulo-casa) .inviato .ok { background: var(--viola); box-shadow: 0 0 40px rgba(var(--viola-luce),.6); }
+@media (prefers-reduced-motion: reduce) { :is(.finestra, .modulo-casa) .invia { transition: none; } :is(.finestra, .modulo-casa) .invia:hover { transform: none; } }
 .nastro-traccia li { text-transform: none; font-size: clamp(16px, 1.35vw, 20px); font-weight: 600; letter-spacing: 0; }
 /* chiusura compatta: il titolo non deve crescere in altezza (05/11) */
 .chiusura .testo-c .titolo { flex: none; font-size: clamp(30px, 3.2vw, 46px); }
@@ -1087,3 +1087,29 @@ html[data-tema="chiaro"] .fiducia > span:last-child { background: rgba(255,255,2
 /* titoli in binario (05/11): la parola vera tiene il posto (trasparente), le cifre stanno sopra, stessa riga */
 .corsivo.in-binario { position: relative; -webkit-text-fill-color: transparent; }
 .corsivo.in-binario::after { content: attr(data-bit); position: absolute; left: 0; top: 0; width: calc(100% + .14em); line-height: normal; overflow: hidden; white-space: nowrap; -webkit-text-fill-color: var(--bin-colore); color: var(--bin-colore); pointer-events: none; }
+
+/* Modulo visibile nella chiusura (06/11, Francesco: «il modulo è la cosa più importante, deve vedersi»).
+   È lo stesso modulo della finestra: main.js lo sposta nella finestra quando si apre da un pulsante più in alto. */
+.modulo-casa { flex: 1 1 380px; max-width: 480px; min-width: min(100%, 300px); }
+.modulo-casa .modulo-box { flex: none; max-width: none; width: 100%; color: #fff; scroll-margin-top: 16px; }
+.modulo-casa .chiudi { display: none; }
+.modulo-casa .mod-testa { padding-right: 0; }
+.chiusura-dentro { align-items: flex-start; }
+.chiusura .testo-c { align-self: center; }
+@media (max-width: 600px) { .modulo-casa .modulo-box { padding: 22px 18px; } }
+
+/* Widget 01 con etichetta: compare quando il pulsante dell'apertura è uscito dallo schermo, sparisce sopra il modulo */
+.widget-01 { transition: opacity .3s, transform .3s; }
+.widget-01.etichetta .widget-nota { opacity: 1; transform: translate(0, -50%); pointer-events: auto; }
+.widget-nota { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; font-size: 15px; background: linear-gradient(110deg, var(--viola-scuro), #8B5CF6); color: #fff; box-shadow: 0 14px 30px -12px rgba(var(--viola-luce),.9), 0 0 0 1px rgba(255,255,255,.18); }
+.widget-nota::after { content: '→'; }
+.widget-01.via { opacity: 0; transform: translateY(12px); pointer-events: none; }
+.widget-01.via .widget-nota { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .widget-01 { transition: none; } }
+
+/* Modulo della chiusura: sempre chiuso (intestazione + Nome + «Continua»); «Continua» apre la finestra come il widget 01 */
+.mod-continua { display: none; }
+.modulo-casa .modulo-box:not(.aperto) .mod-continua { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; border: 0; border-radius: 12px; background: linear-gradient(110deg, var(--viola-scuro), #8B5CF6); color: #fff; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 16px 36px -14px rgba(var(--viola-luce),.9); }
+.modulo-casa .modulo-box:not(.aperto) .mod-continua:hover { filter: brightness(1.1); }
+.modulo-casa .modulo-box:not(.aperto) .modulo > :not([data-campo="nome"]):not(.mod-continua) { display: none; }
+.modulo-casa .modulo-box:not(.aperto) .mod-testa { margin-bottom: 16px; }
