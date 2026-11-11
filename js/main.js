@@ -95,7 +95,7 @@
     requestAnimationFrame(() => schermi.forEach(s => {
       const img = s.querySelector('img');
       const corsa = Math.max(0, img.getBoundingClientRect().height - s.getBoundingClientRect().height);
-      img.style.setProperty('--durata', Math.min(14, Math.max(3, corsa / 220)) + 's');
+      img.style.setProperty('--durata', Math.min(32, Math.max(6, corsa / 90)) + 's'); // 11/11: più lento (circa 90 px al secondo)
       img.style.transform = 'translateY(' + (-corsa) + 'px)';
     }));
   }));
@@ -244,6 +244,125 @@
     altreBtn.firstChild.textContent = ap ? 'Meno domande ' : 'Altre ' + col.querySelectorAll('details').length + ' domande ';
     altreBtn.lastChild.textContent = ap ? '↑' : '↓';
   });
+
+
+  // ── Ingresso dell'apertura (11/11): la riga «siti · app · marketing» si scrive lettera per lettera,
+  // titolo, testo, promo e pulsante salgono uno dopo l'altro; poi le schede dei lavori. Una volta sola, mai con «riduci movimento».
+  const scritto = document.querySelector('[data-scrivi]');
+  const fermo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (scritto) {
+    const testo = scritto.dataset.scrivi;
+    if (fermo) { scritto.textContent = testo; scritto.parentElement.classList.add('finito'); }
+    else {
+      let k = 0;
+      const passo = () => { scritto.textContent = testo.slice(0, ++k); if (k < testo.length) setTimeout(passo, 38); else setTimeout(() => scritto.parentElement.classList.add('finito'), 900); };
+      setTimeout(passo, 250);
+    }
+  }
+  if (!fermo) document.documentElement.classList.add('ap-ingresso');
+
+  // ── Lavori a scorrimento sotto l'apertura (11/11, direzione Claude Design) ──
+  // Frecce, tastiera e trascinamento; mai da soli. La scheda al centro apre il lavoro (stessa finestra dei Progetti).
+  const car = document.querySelector('[data-carosello]');
+  if (car) {
+    const vista = car.querySelector('.car-vista');
+    const traccia = car.querySelector('.car-traccia');
+    const schede = [...car.querySelectorAll('.car-scheda')];
+    const frecce = car.querySelectorAll('[data-car]');
+    const conta = car.querySelector('.car-conta');
+    const annuncio = car.querySelector('.car-annuncio');
+    const n = schede.length;
+    let i = Math.max(0, schede.findIndex(s => s.hasAttribute('data-inizio')));
+    const due = x => String(x).padStart(2, '0');
+    const segniBox = conta.querySelector('.car-segni');
+    const segni = schede.map(() => segniBox.appendChild(document.createElement('i')));
+    const geo = (k = i) => {
+      const W = vista.clientWidth, vw = window.innerWidth;
+      const mobile = vw < 640, tablet = vw < 1024;
+      const gap = mobile ? 12 : 28;
+      const w = Math.round(mobile ? W - 92 : tablet ? W * 0.6 : Math.min(760, W * 0.5));
+      return { gap, w, x: Math.round((W - w) / 2 - k * (w + gap)) };
+    };
+    const disegna = (annuncia) => {
+      const g = geo();
+      car.style.setProperty('--car-w', g.w + 'px');
+      car.style.setProperty('--car-gap', g.gap + 'px');
+      traccia.style.transform = `translate3d(${g.x}px,0,0)`;
+      schede.forEach((s, k) => {
+        const attiva = k === i, b = s.querySelector('.car-bottone');
+        s.classList.toggle('attiva', attiva);
+        s.setAttribute('aria-roledescription', 'scheda');
+        s.setAttribute('aria-label', `${k + 1} di ${n}: ${s.dataset.nome}`);
+        b.setAttribute('aria-label', attiva ? `${s.dataset.nome}: guarda il lavoro sul computer e sul telefono` : `Mostra ${s.dataset.nome}`);
+        b.tabIndex = attiva ? 0 : -1;
+      });
+      frecce[0].setAttribute('aria-disabled', i === 0);
+      frecce[1].setAttribute('aria-disabled', i === n - 1);
+      const cifre = conta.querySelectorAll('b'); cifre[0].textContent = due(i + 1); cifre[1].textContent = due(n);
+      segni.forEach((s, k) => s.classList.toggle('acceso', k === i));
+      if (annuncia) annuncio.textContent = `Progetto ${i + 1} di ${n}: ${schede[i].dataset.nome}`;
+    };
+    const vai = k => { i = Math.max(0, Math.min(n - 1, k)); disegna(true); };
+    frecce.forEach(f => f.addEventListener('click', () => vai(i + Number(f.dataset.car))));
+    vista.addEventListener('keydown', e => {
+      const m = { ArrowLeft: i - 1, ArrowRight: i + 1, Home: 0, End: n - 1 };
+      if (e.key in m) { e.preventDefault(); vai(m[e.key]); }
+    });
+    // trascinamento col dito o col mouse: parte solo se il gesto è orizzontale (in verticale la pagina scorre)
+    let tr = null, trascinato = false;
+    vista.addEventListener('pointerdown', e => { if (e.button !== 0) return; tr = { x: e.clientX, y: e.clientY, dx: 0, attivo: false, id: e.pointerId }; trascinato = false; });
+    vista.addEventListener('pointermove', e => {
+      if (!tr) return;
+      const dx = e.clientX - tr.x, dy = e.clientY - tr.y;
+      if (!tr.attivo) {
+        if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) { tr.attivo = true; try { vista.setPointerCapture(tr.id); } catch (_) {} vista.classList.add('trascina'); }
+        else if (Math.abs(dy) > 10) { tr = null; return; } else return;
+      }
+      const bordo = (i === 0 && dx > 0) || (i === n - 1 && dx < 0);
+      tr.dx = bordo ? dx * 0.3 : dx;
+      traccia.style.transform = `translate3d(${geo().x + tr.dx}px,0,0)`;
+    });
+    const fine = () => {
+      const t = tr; tr = null;
+      if (!t || !t.attivo) return;
+      vista.classList.remove('trascina');
+      trascinato = true; setTimeout(() => { trascinato = false; }, 0);
+      const soglia = Math.min(80, geo().w * 0.18);
+      vai(t.dx < -soglia ? i + 1 : t.dx > soglia ? i - 1 : i);
+    };
+    // touchpad (due dita di lato) e rotellina con Maiusc: un passo per gesto. Lo scorrimento in verticale resta alla pagina.
+    // Dopo un gesto il touchpad continua a mandare la «coda» d'inerzia (valori che calano): la ignoriamo, ma se i valori
+    // tornano a salire è un gesto nuovo e deve valere subito (12/11: prima il secondo gesto veloce veniva perso).
+    let somma = 0, bloccato = false, pausa = null, ultimo = 0, tBlocco = 0;
+    vista.addEventListener('wheel', e => {
+      const dx = e.deltaX || (e.shiftKey ? e.deltaY : 0);
+      const dy = e.shiftKey ? 0 : e.deltaY;
+      if (Math.abs(dx) < 1 || Math.abs(dx) < Math.abs(dy) * 0.7) return;
+      e.preventDefault();
+      clearTimeout(pausa); pausa = setTimeout(() => { somma = 0; bloccato = false; ultimo = 0; }, 140);
+      const forza = Math.abs(dx);
+      if (bloccato) {
+        const riparte = e.timeStamp - tBlocco > 260 && (forza > Math.abs(ultimo) + 3 || Math.sign(dx) !== Math.sign(ultimo));
+        ultimo = dx;
+        if (!riparte) return;
+        bloccato = false; somma = 0;
+      }
+      ultimo = dx; somma += dx;
+      if (Math.abs(somma) > 28) { vai(i + (somma > 0 ? 1 : -1)); somma = 0; bloccato = true; tBlocco = e.timeStamp; }
+    }, { passive: false });
+    vista.addEventListener('pointerup', fine);
+    vista.addEventListener('pointercancel', fine);
+    schede.forEach((s, k) => s.querySelector('.car-bottone').addEventListener('click', () => {
+      if (trascinato) return;
+      if (k !== i) { vai(k); return; }
+      mostra(Number(s.dataset.apri));
+      dlgLavori.showModal();
+      document.documentElement.classList.add('bloccato');
+      const f = pannelli[attuale].querySelector('[data-freccia="1"]'); if (f) f.focus({ preventScroll: true });
+    }));
+    window.addEventListener('resize', () => disegna(false));
+    disegna(false);
+  }
 
   // ── Widget 01 (06/11): etichetta «Parlaci del progetto» sempre visibile appena il pulsante
   // dell'apertura esce dallo schermo (così non lo copre sul telefono); il widget sparisce quando
