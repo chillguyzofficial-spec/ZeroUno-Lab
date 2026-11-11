@@ -1767,3 +1767,15 @@ body { font-weight: 500; }
   .finestra .modulo > .campo[data-campo], .finestra .modulo > .campo:not([data-campo]) { grid-column: 1; }
   .finestra .mod-testa h2 { font-size: 22px; }
 }
+
+/* FIX 11/11: su telefono il modulo è un foglio a tutta larghezza dal basso (la regola desktop sopra lo aveva ristretto e spostato a sinistra) */
+@media (max-width: 600px) {
+  .finestra:not(.finestra-lavori) { width: 100%; max-width: 100%; margin: auto 0 0; }
+}
+
+/* BUG HUNT 11/11: link Privacy e Cookie nel piede erano alti 21 px (area di tocco troppo piccola) → 44 px senza cambiare l'aspetto */
+.piede nav { gap: 8px; }
+.piede nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; }
+
+/* BUG HUNT 11/11: su telefono la nuvoletta «Parlaci del progetto» copriva le domande delle FAQ e le frecce (il tocco non arrivava): sotto 600 px resta solo il pulsante «01», sempre visibile */
+@media (max-width: 600px) { .widget-nota { display: none !important; } }
