@@ -1117,7 +1117,7 @@ html[data-tema="chiaro"] .fiducia > span:last-child { background: rgba(255,255,2
 
 /* ═══ 11/11 · Nuova apertura (direzione Claude Design: titolo centrato, promo in riga, lavori a scorrimento)
    Sfondo: le immagini attuali (nastro su PC, verticale sul telefono) con un velo prugna che tiene leggibile il centro. ═══ */
-:root { --prugna: #1a161d; --carta-calda: #F5F0E7; --ap-muted: #CFC6D4; --ap-accento: #C7B3FF; --ap-cta: #6C3FF0; }
+:root { --prugna: #1a161d; --carta-calda: #F5F2EC; --ap-muted: #CFC6D4; --ap-accento: #C7B3FF; --ap-cta: #6C3FF0; }
 .apertura.ap2 { min-height: 0; background-color: var(--prugna); }
 html .apertura.ap2::before { display: block; background: radial-gradient(ellipse 60% 70% at 50% 45%, rgba(26,22,29,.82), rgba(26,22,29,.55) 60%, rgba(26,22,29,.25) 100%), linear-gradient(180deg, rgba(26,22,29,0) 70%, var(--prugna) 100%); }
 .ap2 .testata { padding: clamp(14px, 1.6vw, 20px) 0; }
@@ -1459,7 +1459,7 @@ html .apertura.ap2, html[data-tema="chiaro"] .apertura.ap2 { background: none; c
 /* velo solo al centro, dove sta il testo: sui tablet gli anelli arrivano vicino alle parole */
 html .apertura.ap2::before, html[data-tema="chiaro"] .apertura.ap2::before { display: block; background: radial-gradient(ellipse 46% 60% at 50% 52%, rgba(0,0,0,.9), rgba(0,0,0,.6) 60%, rgba(0,0,0,0) 100%); }
 @media (max-width: 767px) { html .apertura.ap2::before { background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,0,0,.82), rgba(0,0,0,.5) 60%, rgba(0,0,0,0) 100%); } }
-.carosello, html[data-tema="chiaro"] .carosello { background: linear-gradient(180deg, rgba(245,240,231,0) 0%, rgba(245,240,231,0) 18%, rgba(245,240,231,.82) 52%, var(--carta-calda) 74%, var(--carta-calda) 100%); }
+.carosello, html[data-tema="chiaro"] .carosello { background: linear-gradient(180deg, rgba(245,242,236,0) 0%, rgba(245,242,236,0) 18%, rgba(245,242,236,.82) 52%, var(--carta-calda) 74%, var(--carta-calda) 100%); }
 .ap2 .tema { display: none; }
 .ap2 .link-wa { background: rgba(0,0,0,.6); }
 .ap2 .promo-card { background: rgba(8,6,10,.86); }
@@ -1779,3 +1779,216 @@ body { font-weight: 500; }
 
 /* BUG HUNT 11/11: su telefono la nuvoletta «Parlaci del progetto» copriva le domande delle FAQ e le frecce (il tocco non arrivava): sotto 600 px resta solo il pulsante «01», sempre visibile */
 @media (max-width: 600px) { .widget-nota { display: none !important; } }
+
+/* ═══ 12/11 · «Cosa possiamo fare»: schede con pannello illustrato, «Ideale per», 4 voci incluse e piede uniforme
+   (prezzo + tempi + esempio sempre alla stessa altezza). Le illustrazioni sono SVG in pagina, niente immagini. ═══ */
+.sez-servizi .srv-griglia { gap: 18px; border-top: 0; align-items: stretch; }
+.sez-servizi .srv { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 0 0 18px; overflow: hidden; border: 1px solid rgba(30,25,34,.14); border-radius: 22px; background: #fff; box-shadow: 0 18px 40px -30px rgba(60,30,140,.5); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.sez-servizi .srv::before { display: none; }
+.sez-servizi .srv:hover { transform: translateY(-4px); border-color: rgba(98,54,224,.5); box-shadow: 0 28px 50px -28px rgba(98,54,224,.65); }
+.sez-servizi .srv > :not(.srv-vista) { margin-left: 20px; margin-right: 20px; }
+.srv-vista { position: relative; height: 128px; margin: 0 0 8px; display: grid; place-items: center; background: radial-gradient(90% 120% at 85% 0%, rgba(139,92,246,.55), transparent 62%), radial-gradient(70% 90% at 0% 100%, rgba(98,54,224,.4), transparent 65%), linear-gradient(160deg, #1b1430, #0b0912 75%); border-bottom: 1px solid rgba(139,92,246,.35); }
+.srv-vista svg { width: min(84%, 230px); height: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+.srv-vista .srv-num { position: absolute; top: 12px; right: 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #D9C9FF; letter-spacing: .08em; }
+.sez-servizi .srv h3 { font-size: clamp(22px, 1.8vw, 26px); }
+.srv-ideale { margin-top: -2px; margin-bottom: 0; align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: rgba(98,54,224,.09); border: 1px solid rgba(98,54,224,.22); font-size: 12.5px; line-height: 1.35; color: #3B2A78; font-weight: 500; }
+.srv-ideale b { font-weight: 700; color: #5B2FD0; margin-right: 2px; }
+.sez-servizi .srv ul { margin-top: 2px; gap: 9px; }
+.sez-servizi .srv-prezzo { margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(30,25,34,.16); display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.sez-servizi .srv-prezzo strong { font-size: 24px; letter-spacing: -0.02em; }
+.sez-servizi .srv-prezzo span { flex-basis: auto; font-size: 13.5px; color: #3A3340; }
+.sez-servizi .srv-es { margin-top: 2px; font-size: 13.5px; font-weight: 600; color: #5B2FD0; }
+@media (max-width: 560px) { .srv-vista { height: 112px; } .sez-servizi .srv-griglia { gap: 14px; } }
+@media (prefers-reduced-motion: reduce) { .sez-servizi .srv { transition: none; } .sez-servizi .srv:hover { transform: none; } }
+
+/* ═══ 12/11 · «Cosa possiamo fare»: da quattro colonne a un ELENCO a righe grandi, espandibili (un servizio aperto alla volta,
+   il primo aperto). Numero, nome grande, frase breve, prezzo e «+». Aperta, la riga mostra illustrazione, voci incluse, tempi ed esempio.
+   <details name="servizi">: tocco, tastiera e lettori di schermo funzionano senza JavaScript. ═══ */
+.srv-lista { display: flex; flex-direction: column; border-top: 1px solid rgba(30,25,34,.35); }
+.srv-riga { border-bottom: 1px solid rgba(30,25,34,.35); transition: background-color .25s ease; }
+.srv-riga[open] { background: linear-gradient(90deg, rgba(98,54,224,.07), rgba(98,54,224,0) 70%); }
+.srv-riga > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 56px minmax(0, 300px) minmax(0, 1fr) auto 48px; align-items: center; gap: 0 20px; min-height: 92px; padding: 14px 8px; }
+.srv-riga > summary::-webkit-details-marker { display: none; }
+.srv-riga > summary:hover .srv-tit { color: #5B2FD0; }
+.srv-riga > summary:focus-visible { outline: 2px solid #5B2FD0; outline-offset: -2px; border-radius: 10px; }
+.srv-n { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: .08em; color: #5B2FD0; font-weight: 500; }
+.srv-tit { font-size: clamp(26px, 2.8vw, 40px); line-height: 1.05; font-weight: 600; letter-spacing: -0.03em; color: #1B1620; transition: color .2s; }
+.srv-breve { font-size: 16px; line-height: 1.45; color: #37313E; font-weight: 500; padding-right: 16px; text-wrap: pretty; }
+.srv-chip { justify-self: end; padding: 8px 16px; border-radius: 999px; background: #1B1620; color: #fff; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+.srv-piu { position: relative; justify-self: end; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(30,25,34,.45); transition: background-color .2s, border-color .2s, transform .25s ease; }
+.srv-piu::before, .srv-piu::after { content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 2px; margin: -1px 0 0 -8px; background: #1B1620; border-radius: 2px; transition: transform .25s ease, background-color .2s; }
+.srv-piu::after { transform: rotate(90deg); }
+.srv-riga[open] .srv-piu { background: #5B2FD0; border-color: #5B2FD0; }
+.srv-riga[open] .srv-piu::before, .srv-riga[open] .srv-piu::after { background: #fff; }
+.srv-riga[open] .srv-piu::after { transform: rotate(0deg); }
+.srv-riga > summary:hover .srv-piu { border-color: #5B2FD0; }
+.srv-corpo { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr) minmax(0, 250px); gap: 28px; align-items: stretch; padding: 4px 8px 30px 84px; }
+.srv-corpo .srv-vista { position: relative; min-height: 200px; border-radius: 20px; display: grid; place-items: center; overflow: hidden; background: radial-gradient(90% 120% at 85% 0%, rgba(139,92,246,.55), transparent 62%), radial-gradient(70% 90% at 0% 100%, rgba(98,54,224,.4), transparent 65%), linear-gradient(160deg, #1b1430, #0b0912 75%); border: 1px solid rgba(139,92,246,.4); height: auto; margin: 0; }
+.srv-corpo .srv-vista svg { width: min(88%, 280px); height: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+.srv-testo { display: flex; flex-direction: column; gap: 12px; padding-top: 2px; }
+.srv-testo .srv-desc { display: none; }
+.srv-testo .srv-ideale { margin: 0; align-self: flex-start; padding: 5px 12px; border-radius: 999px; background: rgba(98,54,224,.09); border: 1px solid rgba(98,54,224,.22); font-size: 13px; line-height: 1.35; color: #3B2A78; font-weight: 500; }
+.srv-testo .srv-ideale b { font-weight: 700; color: #5B2FD0; margin-right: 2px; }
+.srv-testo ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+.srv-testo li { display: flex; gap: 11px; font-size: 16px; line-height: 1.4; color: #1B1620; font-weight: 500; }
+.srv-testo li::before { content: ''; flex: none; width: 18px; height: 18px; margin-top: 1px; border-radius: 50%; background: rgba(98,54,224,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B2FD0' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 11px no-repeat; }
+.srv-meta { margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 18px 18px 18px 20px; border-left: 2px solid rgba(98,54,224,.35); align-self: center; }
+.srv-meta dt { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #5B2FD0; margin-bottom: 3px; }
+.srv-meta dd { margin: 0; font-size: 16px; line-height: 1.35; color: #1B1620; font-weight: 600; }
+@media (max-width: 1000px) {
+  .srv-riga > summary { grid-template-columns: 44px minmax(0, 1fr) auto 48px; }
+  .srv-breve { display: none; }
+  .srv-corpo { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); padding-left: 8px; }
+  .srv-meta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 14px 36px; align-self: stretch; border-left: 0; border-top: 1px solid rgba(30,25,34,.2); padding: 14px 0 0; }
+}
+@media (max-width: 640px) {
+  .srv-riga > summary { grid-template-columns: 30px minmax(0, 1fr) 44px; gap: 0 12px; min-height: 76px; padding: 12px 2px; }
+  .srv-chip { display: none; }
+  .srv-tit { font-size: 24px; }
+  .srv-corpo { grid-template-columns: 1fr; gap: 18px; padding: 2px 2px 24px; }
+  .srv-corpo .srv-vista { min-height: 150px; }
+  .srv-testo .srv-desc { display: block; margin: 0; font-size: 16px; line-height: 1.5; color: #37313E; font-weight: 500; }
+  .srv-meta { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { .srv-riga, .srv-piu, .srv-piu::before, .srv-piu::after, .srv-tit { transition: none; } }
+/* il prezzo nel dettaglio serve solo dove nella riga non c'è (telefono e tablet stretto) */
+.srv-m-prezzo { display: none; }
+@media (max-width: 640px) { .srv-m-prezzo { display: block; } }
+
+/* ═══ 12/11 · Sezioni chiare: via la puntinatura, avorio #F5F2EC con filigrana lavanda fine agli angoli (alto a destra, basso a sinistra),
+   come nella proposta approvata di Codex (servizi-avorio). Lo sfondo chiaro separato non era stato consegnato: la filigrana è un SVG nostro (assets/img/filigrana-chiara.svg). ═══ */
+.sez-servizi::before, [aria-labelledby="t-promo"]::before, [aria-labelledby="t-perche"]::before,
+.sez-servizi::after, [aria-labelledby="t-promo"]::after, [aria-labelledby="t-perche"]::after {
+  content: ''; display: block; position: absolute; inset: auto; z-index: -1; pointer-events: none;
+  width: min(640px, 62vw); aspect-ratio: 640 / 400; background: url(../assets/img/filigrana-chiara.svg) no-repeat right top / 100% 100%;
+  -webkit-mask-image: none; mask-image: none; opacity: .95;
+}
+.sez-servizi::before, [aria-labelledby="t-promo"]::before, [aria-labelledby="t-perche"]::before { top: 0; right: 0; }
+.sez-servizi::after, [aria-labelledby="t-promo"]::after, [aria-labelledby="t-perche"]::after { bottom: 0; left: 0; transform: rotate(180deg); }
+@media (max-width: 767px) { .sez-servizi::before, .sez-servizi::after, [aria-labelledby="t-promo"]::before, [aria-labelledby="t-promo"]::after, [aria-labelledby="t-perche"]::before, [aria-labelledby="t-perche"]::after { width: 78vw; opacity: .8; } }
+.sez-servizi, [aria-labelledby="t-promo"], [aria-labelledby="t-perche"] { background-color: var(--carta-calda); }
+
+/* riga aperta dei servizi: titolo viola (stato attivo come nella proposta) */
+.srv-riga[open] .srv-tit { color: #7046DB; }
+
+/* riquadro Marketing: sfondo di Codex (prugna liscia a sinistra, filamenti lavanda a destra), cresce coi contenuti */
+.mkt { background: url(../assets/img/sfondo-marketing-pc.webp) right center / cover no-repeat, #211B29; border-radius: 24px; overflow: hidden; }
+@media (max-width: 767px) { .mkt { background: url(../assets/img/sfondo-marketing-mobile.webp) right bottom / cover no-repeat, #211B29; border-radius: 18px; } }
+
+/* ═══ Ponti di 0/1 tra le sezioni: stesso motivo della home e dei Team/Domande, a cavallo di ogni confine, così la pagina si legge come un filo continuo ═══ */
+.ponte { position: relative; height: 0; z-index: 4; pointer-events: none; }
+.ponte i { position: absolute; left: 0; right: 0; top: -30px; height: 60px; display: block;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='60'%3E%3Cg font-family='JetBrains Mono,ui-monospace,monospace' font-size='12' fill='%238B6CF0'%3E%3Ctext x='4' y='14' opacity='.28'%3E0 1 1 0 1 0 0 1 1 0 1 0 1 1 0 0 1 0 1 1 0 0 1%3C/text%3E%3Ctext x='18' y='27' opacity='.55'%3E1 0 0 1 0 1 1 0 0 1 0 0 1 0 1 1 0 1 0 0 1 1%3C/text%3E%3Ctext x='2' y='47' opacity='.55'%3E0 1 0 0 1 1 0 1 0 1 1 0 0 1 0 0 1 1 0 1 0 1%3C/text%3E%3Ctext x='12' y='60' opacity='.28'%3E1 1 0 1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 0%3C/text%3E%3C/g%3E%3C/svg%3E") 0 0 / 360px 60px repeat-x,
+    radial-gradient(42% 70% at 50% 50%, rgba(139,92,246,.34), transparent 72%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); }
+@media (max-width: 600px) { .ponte i { top: -22px; height: 44px; background-size: 360px 44px, 100% 100%; } }
+
+/* ═══ Menu in alto a sinistra: il nome Zero Uno Lab; su PC si allarga al passaggio del mouse (o con la tastiera), su telefono si tocca ═══ */
+html { scroll-padding-top: 76px; }
+.testata { justify-content: flex-end; }
+.menu-sito { position: fixed; top: 14px; left: max(var(--gutter), 12px); z-index: 70; }
+.menu-pillola { display: flex; align-items: center; min-height: 48px; border-radius: 999px; overflow: hidden; background: rgba(8,6,12,.9); border: 1px solid rgba(255,255,255,.28); box-shadow: 0 10px 30px -12px rgba(0,0,0,.7); transition: border-color .2s, background-color .2s; }
+.menu-nome { display: inline-flex; align-items: center; gap: 12px; height: 46px; padding: 0 16px 0 18px; background: none; border: 0; color: #fff; cursor: pointer; font: inherit; }
+.menu-nome img { height: 22px; width: auto; }
+.menu-freccia { width: 9px; height: 9px; border-right: 2px solid #CBB6FF; border-bottom: 2px solid #CBB6FF; transform: translateY(-2px) rotate(-45deg); transition: transform .25s ease; }
+.menu-voci { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; max-width: 0; opacity: 0; overflow: hidden; white-space: nowrap; transition: max-width .35s ease, opacity .2s ease, padding .35s ease; }
+.menu-voci a { display: inline-flex; align-items: center; min-height: 46px; padding: 0 13px; color: rgba(255,255,255,.92); text-decoration: none; font-size: 14.5px; font-weight: 600; border-radius: 999px; }
+.menu-voci a:hover, .menu-voci a:focus-visible { color: #fff; background: rgba(139,92,246,.35); outline: none; }
+.menu-nome:focus-visible { outline: 2px solid #CBB6FF; outline-offset: -4px; border-radius: 999px; }
+@media (hover: hover) and (min-width: 761px) {
+  .menu-pillola:hover, .menu-pillola:focus-within { border-color: rgba(203,182,255,.8); }
+  .menu-pillola:hover .menu-voci, .menu-pillola:focus-within .menu-voci { max-width: 640px; opacity: 1; padding-right: 8px; }
+  .menu-pillola:hover .menu-freccia, .menu-pillola:focus-within .menu-freccia { transform: translateX(2px) rotate(-45deg); }
+}
+.menu-sito.aperto .menu-pillola { border-color: rgba(203,182,255,.8); }
+.menu-sito.aperto .menu-voci { max-width: 640px; opacity: 1; padding-right: 8px; }
+.menu-sito.aperto .menu-freccia { transform: translateY(2px) rotate(45deg); }
+@media (max-width: 760px), (hover: none) {
+  .menu-pillola { overflow: visible; position: relative; }
+  .menu-voci { position: absolute; top: calc(100% + 8px); left: 0; display: none; flex-direction: column; align-items: stretch; max-width: none; width: min(260px, calc(100vw - 24px)); opacity: 1; padding: 8px; border-radius: 22px; background: rgba(8,6,12,.97); border: 1px solid rgba(203,182,255,.55); box-shadow: 0 24px 50px -16px rgba(0,0,0,.85); white-space: normal; }
+  .menu-sito.aperto .menu-voci { display: flex; padding: 8px; }
+  .menu-voci a { min-height: 48px; padding: 0 16px; font-size: 16px; border-radius: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .menu-voci, .menu-freccia, .menu-pillola { transition: none; } }
+/* ponte più leggero: una riga di 0/1 sopra e una sotto il confine + alone lavanda */
+.ponte i { top: -24px; height: 48px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='48'%3E%3Cg font-family='JetBrains Mono,ui-monospace,monospace' font-size='12' fill='%238B6CF0'%3E%3Ctext x='4' y='17' opacity='.38'%3E0 1 1 0 1 0 0 1 1 0 1 0 1 1 0 0 1 0 1 1 0 0 1%3C/text%3E%3Ctext x='18' y='38' opacity='.38'%3E1 0 0 1 0 1 1 0 0 1 0 0 1 0 1 1 0 1 0 0 1 1%3C/text%3E%3C/g%3E%3C/svg%3E") 0 0 / 360px 48px repeat-x,
+    radial-gradient(40% 60% at 50% 50%, rgba(139,92,246,.3), transparent 72%); }
+@media (max-width: 600px) { .ponte i { top: -20px; height: 40px; background-size: 360px 40px, 100% 100%; } }
+
+/* ═══ 12/11 · Più elegante (Francesco: «troppo zerouno… più elegante») ═══
+   Ponti tra sezioni: niente più cifre, solo un alone lavanda morbido a cavallo del confine (le cifre restano solo nella home e negli sfondi di Team e Domande).
+   Menu: pillola più sottile, voci che compaiono DOPO che la pillola si è allargata, sottolineatura fine al passaggio, separatore a filo. */
+.ponte i { top: -40px; height: 80px; background: radial-gradient(38% 46% at 50% 50%, rgba(139,92,246,.26), transparent 74%), radial-gradient(70% 30% at 50% 50%, rgba(139,92,246,.1), transparent 80%); -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 600px) { .ponte i { top: -28px; height: 56px; background-size: 100% 100%, 100% 100%; } }
+
+.menu-pillola { min-height: 44px; background: rgba(10,8,14,.8); border: 1px solid rgba(255,255,255,.2); box-shadow: 0 14px 34px -18px rgba(0,0,0,.85); }
+.menu-nome { height: 42px; gap: 14px; padding: 0 18px 0 20px; }
+.menu-nome img { height: 19px; }
+.menu-freccia { width: 15px; height: 6px; border: 0; border-top: 1.5px solid #CBB6FF; border-bottom: 1.5px solid #CBB6FF; transform: none; transition: width .25s ease; }
+.menu-voci { margin: 9px 0 9px 2px; padding-left: 4px; border-left: 1px solid rgba(255,255,255,.16); transition: max-width .5s cubic-bezier(.2,.7,.2,1), opacity .25s ease; }
+.menu-voci a { position: relative; min-height: 26px; padding: 0 13px; background: none; border-radius: 0; font-size: 14px; font-weight: 500; letter-spacing: .015em; color: rgba(255,255,255,.82); transition: color .2s; }
+.menu-voci a::after { content: ''; position: absolute; left: 13px; right: 13px; bottom: -3px; height: 1px; background: #CBB6FF; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+.menu-voci a:hover, .menu-voci a:focus-visible { background: none; color: #fff; }
+.menu-voci a:hover::after, .menu-voci a:focus-visible::after { transform: scaleX(1); }
+@media (hover: hover) and (min-width: 761px) {
+  .menu-pillola:hover .menu-voci, .menu-pillola:focus-within .menu-voci { max-width: 600px; opacity: 1; padding-right: 10px; transition-delay: 0s, .18s; }
+  .menu-pillola:hover .menu-freccia, .menu-pillola:focus-within .menu-freccia { width: 0; border-color: transparent; transform: none; }
+  .menu-nome { transition: gap .3s; }
+  .menu-pillola:hover .menu-nome, .menu-pillola:focus-within .menu-nome { gap: 0; padding-right: 14px; }
+}
+.menu-sito.aperto .menu-voci { max-width: 600px; opacity: 1; padding-right: 10px; }
+.menu-sito.aperto .menu-freccia { transform: none; }
+@media (max-width: 760px), (hover: none) {
+  .menu-voci { margin: 0; padding: 6px; border-left: 0; border-radius: 20px; background: rgba(10,8,14,.97); border: 1px solid rgba(255,255,255,.2); }
+  .menu-voci li + li { border-top: 1px solid rgba(255,255,255,.08); }
+  .menu-voci a { min-height: 50px; padding: 0 16px; font-size: 16px; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,.9); }
+  .menu-voci a::after { display: none; }
+  .menu-voci a:hover, .menu-voci a:focus-visible { color: #CBB6FF; }
+  .menu-sito.aperto .menu-freccia { transform: none; }
+}
+
+/* ═══ 12/11 · UNIFORMITÀ dei box + meno spazio vuoto + testi più leggibili sopra le trame (richieste di Francesco) ═══
+   Tutti i grandi riquadri scuri (Marketing, Come lavoriamo, Prima vedi poi decidi, Pacchetto-prezzo) hanno lo stesso raggio, lo stesso bordo lavanda, la stessa ombra e lo stesso padding;
+   le schede dentro (4 voci del Marketing, 4 tappe) hanno lo stesso raggio, fondo e bordo, e sono ABBASTANZA OPACHE da non far passare le trame sotto il testo. */
+:root { --box-r: 24px; --box-pad: clamp(22px, 2.6vw, 34px); --box-bordo: rgba(203,182,255,.24); --scheda-r: 18px; --scheda-fondo: rgba(14,10,20,.9); --scheda-bordo: rgba(255,255,255,.14); }
+.mkt, .metodo { border-radius: var(--box-r); padding: var(--box-pad); border: 1px solid var(--box-bordo); box-shadow: 0 30px 60px -36px rgba(40,20,90,.7); gap: 20px; overflow: hidden; }
+.metodo { background: radial-gradient(60% 80% at 100% 0%, rgba(139,92,246,.22), transparent 62%), linear-gradient(165deg, #261e32, #17121f 70%); }
+.mkt > *, .metodo > * { position: relative; z-index: 1; }
+.mkt-voci li, .metodo-tappe li { border-radius: var(--scheda-r); background: var(--scheda-fondo); border: 1px solid var(--scheda-bordo); padding: 18px 18px 20px; }
+.metodo-tappe li:last-child { border-color: rgba(203,182,255,.5); background: linear-gradient(160deg, rgba(60,36,120,.9), rgba(20,14,32,.94)); }
+.mkt-prezzo { background: rgba(14,10,20,.92); border-color: var(--scheda-bordo); border-radius: var(--scheda-r); }
+.garanzia { border-radius: var(--box-r); border: 1px solid rgba(255,255,255,.22); padding: 18px var(--box-pad); }
+.pac-prezzo { border-radius: var(--box-r); }
+.mkt-voci strong, .metodo-tappe h4 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
+.mkt-voci li > span:last-child, .mt-desc { font-size: 15px; line-height: 1.5; color: rgba(255,255,255,.94); font-weight: 500; }
+.mt-dett dd { color: rgba(255,255,255,.94); }
+.mkt-titolo, .mkt h3 { text-shadow: 0 2px 18px rgba(10,6,20,.55); }
+.mkt p { color: rgba(255,255,255,.96); }
+
+/* sezioni più compatte, meno vuoto tra carosello e servizi */
+.carosello { padding-bottom: 4px; }
+.sez-servizi { padding-top: 14px; padding-bottom: clamp(28px, 3.2vw, 44px); }
+.sezione { padding: clamp(30px, 3.4vw, 46px) 0; }
+.chiusura-sez, .chiusura-sez.scura { padding: clamp(30px, 3.4vw, 46px) 0; }
+.sez-servizi .testa-sez { gap: 8px; }
+.srv-riga > summary { min-height: 80px; }
+.srv-corpo { padding-bottom: 22px; }
+.metodo-tappe li { gap: 8px; }
+.metodo-tappe li .mt-alto { margin-bottom: 2px; }
+.ponte i { top: -26px; height: 52px; background: radial-gradient(34% 44% at 50% 50%, rgba(139,92,246,.2), transparent 74%); }
+
+/* menu: sempre fisso, opaco abbastanza da non lasciar leggere il testo sotto, visibile anche sul nero */
+.menu-sito { z-index: 90; }
+.menu-pillola { background: rgba(10,8,14,.97); border-color: rgba(255,255,255,.34); box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 14px 34px -14px rgba(0,0,0,.85); }
+.menu-nome { height: 44px; }
+.menu-voci a { min-height: 36px; }
+@media (max-width: 760px), (hover: none) { .menu-voci a { min-height: 50px; } }
+
+/* menu solo nella home: dissolvenza quando l'apertura esce dallo schermo (anche inaccessibile da tastiera mentre è nascosto) */
+.menu-sito { transition: opacity .3s ease, transform .3s ease, visibility 0s linear 0s; }
+.menu-sito.nascosto { opacity: 0; transform: translateY(-10px); visibility: hidden; pointer-events: none; transition: opacity .3s ease, transform .3s ease, visibility 0s linear .3s; }
+@media (prefers-reduced-motion: reduce) { .menu-sito, .menu-sito.nascosto { transition: none; } }
+html { scroll-padding-top: 12px; }

@@ -137,6 +137,7 @@
   }
 
   function fotogramma(ms) {
+    if (document.documentElement.getAttribute('data-v') === 'ed') { ctx.clearRect(0, 0, cv.width, cv.height); return; }   // nella versione Editoriale gli anelli sono quelli del suo sfondo
     T.clearRect(0, 0, metà.width, metà.height);
     mobile ? disegnaTel(ms / 1000) : disegnaPC(ms / 1000);
     ctx.clearRect(0, 0, cv.width, cv.height);

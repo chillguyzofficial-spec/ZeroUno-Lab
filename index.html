@@ -18,26 +18,40 @@
 <link rel="preload" href="assets/font/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/font/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('ap-ingresso')}catch(e){}</script>
-<link rel="stylesheet" href="css/stile.css?v=158">
+<script>try{var q=new URLSearchParams(location.search).get("v"),s=localStorage.getItem("zul-versione");var v=q||s;if(q)localStorage.setItem("zul-versione",q);if(v==="ed"||v==="editoriale")document.documentElement.setAttribute("data-v","ed")}catch(e){}</script>
+<link rel="stylesheet" href="css/stile.css?v=169">
+<link rel="stylesheet" href="css/editoriale.css?v=13">
 </head>
 <body>
 <a class="salta" href="#modulo" data-apri-modulo>Apri il modulo</a>
 
 <!-- 1 · Apertura (11/11: direzione Claude Design «titolo centrato + lavori a scorrimento», sfondo attuale) -->
+<nav class="menu-sito" aria-label="Menu del sito">
+  <div class="menu-pillola">
+    <button type="button" class="menu-nome" id="menu-nome" aria-expanded="false" aria-controls="menu-voci" aria-label="Menu: Zero Uno Lab"><img src="assets/img/logo-bianco.webp" width="240" height="30" alt="Zero Uno Lab"><span class="menu-freccia" aria-hidden="true"></span></button>
+    <ul class="menu-voci" id="menu-voci">
+      <li><a href="#lavori-vetrina">Lavori</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#pacchetto">Pacchetto</a></li>
+      <li><a href="#domande">Domande</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="ap-scena">
 <section class="apertura ap2" aria-label="Apertura">
   <div class="contenitore">
     <header class="testata">
-      <span class="logo"><img class="logo-scuro" src="assets/img/logo-bianco.webp" alt="Zero Uno Lab" width="240" height="30"><img class="logo-chiaro" src="assets/img/logo-nero.webp" alt="" width="240" height="30"></span>
       <div class="testata-destra">
         <a class="link-wa" href="https://wa.me/393454517186?text=Ciao%2C%20ho%20visto%20la%20promo%20di%20Zero%20Uno%20Lab%20e%20vorrei%20parlarvi%20di%20un%20progetto." target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp"><svg class="wa-icona" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.6 18.6z"/><path d="M9.3 8.6c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2 0 .4-.1.6l-.4.5c-.1.1-.1.3 0 .5.5.9 1.3 1.6 2.2 2.1.2.1.4.1.5 0l.5-.5c.2-.2.4-.2.6-.1l1.4.6c.2.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.5.3-1.2.5-1.9.3-2.2-.6-4.2-2.5-4.9-4.7-.2-.7 0-1.3.3-1.8z"/></svg><span class="wa-testo">Contattaci su WhatsApp</span></a>
       </div>
     </header>
     <div class="ap2-corpo">
       <p class="ap2-riga-tech mono" aria-hidden="true"><span class="ap2-scritto" data-scrivi="siti · app · marketing"></span><span class="ap2-cursore"></span></p>
-      <h1>Il sito che i tuoi clienti<br> <span class="corsivo">ricorderanno</span>.</h1>
+      <h1><span class="h1-a">Il sito che i tuoi clienti</span><br> <span class="corsivo">ricorderanno</span>.</h1>
       <p class="apertura-riga">Siti, app e pubblicità pensati insieme per portarti più contatti, prenotazioni e vendite. Parli direttamente con chi li&nbsp;costruisce.</p>
-      <div class="promo-card">
+      <div class="promo-card solo-cl">
         <span class="promo-etichetta">Promo a tempo</span>
         <p class="promo-prezzo"><span class="da">a partire da</span><strong>499<span class="eur">€</span></strong></p>
         <div class="promo-lato">
@@ -45,13 +59,16 @@
           <p class="promo-scade">Valida fino al <span data-promo-data>31 dicembre 2026</span></p>
         </div>
       </div>
-      <button type="button" class="cta-apertura" data-apri-modulo aria-haspopup="dialog" aria-controls="modulo">Parlaci del tuo progetto <span aria-hidden="true">→</span></button>
+      <div class="ed-promo solo-ed"><span>Sito di una pagina · fino a 6 blocchi</span><strong>da 499 €</strong><span>Fino al <span data-promo-data>31 dicembre 2026</span></span></div>
+      <button type="button" class="cta-apertura" data-apri-modulo aria-haspopup="dialog" aria-controls="modulo">Parlaci del tuo progetto <span aria-hidden="true">↗</span></button>
+      <p class="ed-nota solo-ed">Bozza gratuita. Paghi il 50% quando la approvi.</p>
     </div>
   </div>
 </section>
 
 <!-- 1b · Lavori a scorrimento: passaggio dall'apertura scura alla sezione chiara. Frecce, tastiera e trascinamento; mai da soli -->
-<section class="carosello" aria-roledescription="carosello" aria-label="Progetti" data-carosello>
+<section class="carosello" id="lavori-vetrina" aria-roledescription="carosello" aria-label="Progetti" data-carosello>
+  <div class="ed-testa solo-ed"><span class="ed-occhiello">Lavori selezionati</span><h2 class="ed-titolo">Il lavoro prende <em>forma.</em></h2><p class="ed-sotto">Siti, app e strumenti per attività diverse.</p></div>
   <div class="car-vista" tabindex="0" aria-label="Progetti: usa le frecce per scorrere">
     <ul class="car-traccia">
       <li class="car-scheda" data-nome="Hedoné" data-apri="0"><button type="button" class="car-bottone"><span class="car-cornice"><img src="assets/img/lavoro-hedone-pc.webp" width="960" height="600" alt="Hedoné, la pagina d’apertura sul computer" draggable="false" loading="eager" decoding="async"><span class="car-stato cliente">Cliente</span><span class="car-apri" aria-hidden="true">Apri il progetto <i>↗</i></span></span></button><div class="car-info"><div class="car-riga"><span class="car-num">01 / 08</span><p class="car-nome">Hedoné</p><p class="car-cat">Sito web <span aria-hidden="true">/</span> Ristorazione · Vimodrone</p></div><p class="car-desc">Ristorante e lounge bar sul Naviglio Martesana: il menù con gli ingredienti a un tocco e la prenotazione già aperta.</p><ul class="car-tag"><li>Menù a un tocco</li><li>Prenotazione</li><li>Online da settembre 2026</li></ul></div></li>
@@ -74,46 +91,63 @@
 </div>
 
 <main>
+<div class="ponte" aria-hidden="true"><i></i></div>
 <!-- 2 · Cosa facciamo -->
-<section class="sezione chiara sez-servizi" aria-labelledby="t-oltre">
+<section class="sezione chiara sez-servizi" id="servizi" aria-labelledby="t-oltre">
   <div class="contenitore pila">
     <div class="testa-sez">
       <h2 class="titolo" id="t-oltre">Cosa possiamo <span class="corsivo">fare</span> per te.</h2>
       <p class="sottotitolo">Siti, negozi online, gestionali e app, e il marketing che ti porta clienti.</p>
     </div>
-    <div class="srv-griglia">
-      <article class="srv">
-        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M6.5 6h.01M9 6h.01M7 12h6M7 15.5h10"/></svg></span><span class="srv-num">01</span></div>
-        <h3>Sito vetrina</h3>
-        <p class="srv-desc">Le pagine della tua attività, fatte per farti trovare e contattare.</p>
-        <ul><li>Chi sei, cosa offri, dove trovarti</li><li>Prenotazione, WhatsApp e chiamata a&nbsp;un&nbsp;tocco</li><li>Ricerca locale su Google</li></ul>
-        <div class="srv-prezzo"><strong>da 499 €</strong><span>da 2 settimane</span></div>
-        <p class="srv-es">Esempio: Hedoné</p>
-      </article>
-      <article class="srv">
-        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span><span class="srv-num">02</span></div>
-        <h3>Negozio online</h3>
-        <p class="srv-desc">Catalogo, carrello e pagamenti, su misura o su Shopify.</p>
-        <ul><li>Schede prodotto con i dati di legge</li><li>Sconti, spedizioni e confezione regalo</li><li>Pagamenti con Stripe o Shopify</li></ul>
-        <div class="srv-prezzo"><strong>da 799 €</strong></div>
-        <p class="srv-es">Esempio: Michelangelo Beauty</p>
-      </article>
-      <article class="srv">
-        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg></span><span class="srv-num">03</span></div>
-        <h3>Gestionale</h3>
-        <p class="srv-desc">Clienti, prenotazioni e numeri della tua attività in un solo pannello.</p>
-        <ul><li>I dati arrivano da soli, senza ricopiarli a mano</li><li>Confronto con il mese o l’anno prima</li><li>Accessi per te e per chi lavora con te</li></ul>
-        <div class="srv-prezzo"><strong>Su preventivo</strong></div>
-        <p class="srv-es">Esempio: Home Unity</p>
-      </article>
-      <article class="srv">
-        <div class="srv-alto"><span class="srv-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span class="srv-num">04</span></div>
-        <h3>App</h3>
-        <p class="srv-desc">Dal browser oppure su App Store e Google Play.</p>
-        <ul><li>Funziona anche senza rete</li><li>Stesso account da computer e telefono</li><li>Prenotazioni, notifiche e promemoria</li></ul>
-        <div class="srv-prezzo"><strong>Su preventivo</strong></div>
-        <p class="srv-es">Esempi: Cento Respiri, Carico</p>
-      </article>
+    <div class="srv-lista">
+      <details class="srv-riga srv-vetrina" name="servizi" open>
+        <summary><span class="srv-n">01</span><span class="srv-tit">Sito vetrina</span><span class="srv-breve">Le pagine della tua attività, fatte per farti trovare e contattare.</span><span class="srv-chip">da 499 €</span><span class="srv-piu" aria-hidden="true"></span></summary>
+        <div class="srv-corpo">
+          <div class="srv-vista" aria-hidden="true"><svg viewBox="0 0 240 104" fill="none" aria-hidden="true"><rect x="22" y="12" width="196" height="82" rx="9" fill="rgba(255,255,255,.06)" stroke="#CBB6FF" stroke-opacity=".7"/><path d="M22 30h196" stroke="#CBB6FF" stroke-opacity=".45"/><circle cx="34" cy="21" r="3" fill="#CBB6FF"/><circle cx="44" cy="21" r="3" fill="#CBB6FF" fill-opacity=".6"/><circle cx="54" cy="21" r="3" fill="#CBB6FF" fill-opacity=".35"/><rect x="36" y="42" width="78" height="9" rx="4.5" fill="#fff" fill-opacity=".9"/><rect x="36" y="57" width="58" height="6" rx="3" fill="#CBB6FF" fill-opacity=".6"/><rect x="36" y="72" width="40" height="12" rx="6" fill="#8B5CF6"/><rect x="132" y="40" width="72" height="46" rx="6" fill="url(#gv)"/><defs><linearGradient id="gv" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A78BFA"/><stop offset="1" stop-color="#5B2FD0"/></linearGradient></defs><path d="M140 78l16-18 12 12 10-9 20 15z" fill="#fff" fill-opacity=".35"/></svg></div>
+          <div class="srv-testo">
+            <p class="srv-ideale"><b>Ideale per</b> Ristoranti, studi, professionisti e attività locali</p>
+            <p class="srv-desc">Le pagine della tua attività, fatte per farti trovare e contattare.</p>
+            <ul><li>Chi sei, cosa offri, dove trovarti</li><li>Prenotazione, WhatsApp e chiamata a&nbsp;un&nbsp;tocco</li><li>Scheda Google collegata e ricerca locale</li><li>Si legge bene dal telefono, da cui arrivano più persone</li></ul>
+          </div>
+          <dl class="srv-meta"><div class="srv-m-prezzo"><dt>Prezzo</dt><dd>da 499 €</dd></div><div><dt>Tempi</dt><dd>Online in circa 2 settimane</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Hedoné</dd></div></dl>
+        </div>
+      </details>
+      <details class="srv-riga srv-negozio" name="servizi">
+        <summary><span class="srv-n">02</span><span class="srv-tit">Negozio online</span><span class="srv-breve">Catalogo, carrello e pagamenti, su misura o su Shopify.</span><span class="srv-chip">da 799 €</span><span class="srv-piu" aria-hidden="true"></span></summary>
+        <div class="srv-corpo">
+          <div class="srv-vista" aria-hidden="true"><svg viewBox="0 0 240 104" fill="none" aria-hidden="true"><rect x="20" y="16" width="60" height="72" rx="8" fill="rgba(255,255,255,.06)" stroke="#CBB6FF" stroke-opacity=".7"/><rect x="26" y="22" width="48" height="34" rx="5" fill="url(#gn)"/><rect x="26" y="62" width="30" height="5" rx="2.5" fill="#fff" fill-opacity=".85"/><rect x="26" y="73" width="20" height="5" rx="2.5" fill="#CBB6FF" fill-opacity=".6"/><rect x="90" y="16" width="60" height="72" rx="8" fill="rgba(255,255,255,.06)" stroke="#CBB6FF" stroke-opacity=".45"/><rect x="96" y="22" width="48" height="34" rx="5" fill="#CBB6FF" fill-opacity=".35"/><rect x="96" y="62" width="30" height="5" rx="2.5" fill="#fff" fill-opacity=".7"/><rect x="96" y="73" width="20" height="5" rx="2.5" fill="#CBB6FF" fill-opacity=".5"/><circle cx="198" cy="40" r="22" fill="#8B5CF6"/><path d="M188 34h4l3 11h11l3-8h-17M196 51a1.6 1.6 0 100 .1M207 51a1.6 1.6 0 100 .1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="164" y="68" width="60" height="20" rx="10" fill="#fff" fill-opacity=".92"/><rect x="172" y="76" width="30" height="4" rx="2" fill="#5B2FD0"/><defs><linearGradient id="gn" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#A78BFA"/><stop offset="1" stop-color="#5B2FD0"/></linearGradient></defs></svg></div>
+          <div class="srv-testo">
+            <p class="srv-ideale"><b>Ideale per</b> Chi vende prodotti e vuole incassare online</p>
+            <p class="srv-desc">Catalogo, carrello e pagamenti, su misura o su Shopify.</p>
+            <ul><li>Schede prodotto con i dati di legge</li><li>Sconti, spedizioni e confezione regalo</li><li>Pagamenti con Stripe o Shopify</li><li>Percorso d’acquisto provato con controlli automatici</li></ul>
+          </div>
+          <dl class="srv-meta"><div class="srv-m-prezzo"><dt>Prezzo</dt><dd>da 799 €</dd></div><div><dt>Tempi</dt><dd>Fissati nel preventivo</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Michelangelo Beauty</dd></div></dl>
+        </div>
+      </details>
+      <details class="srv-riga srv-gestionale" name="servizi">
+        <summary><span class="srv-n">03</span><span class="srv-tit">Gestionale</span><span class="srv-breve">Clienti, prenotazioni e numeri della tua attività in un solo pannello.</span><span class="srv-chip">Su preventivo</span><span class="srv-piu" aria-hidden="true"></span></summary>
+        <div class="srv-corpo">
+          <div class="srv-vista" aria-hidden="true"><svg viewBox="0 0 240 104" fill="none" aria-hidden="true"><rect x="16" y="10" width="208" height="84" rx="9" fill="rgba(255,255,255,.06)" stroke="#CBB6FF" stroke-opacity=".7"/><rect x="26" y="20" width="44" height="24" rx="5" fill="#fff" fill-opacity=".1"/><rect x="32" y="26" width="18" height="4" rx="2" fill="#CBB6FF"/><rect x="32" y="34" width="28" height="6" rx="3" fill="#fff"/><rect x="76" y="20" width="44" height="24" rx="5" fill="#fff" fill-opacity=".1"/><rect x="82" y="26" width="18" height="4" rx="2" fill="#CBB6FF"/><rect x="82" y="34" width="24" height="6" rx="3" fill="#fff"/><g fill="#8B5CF6"><rect x="30" y="64" width="12" height="22" rx="3" fill-opacity=".45"/><rect x="48" y="56" width="12" height="30" rx="3" fill-opacity=".6"/><rect x="66" y="60" width="12" height="26" rx="3" fill-opacity=".45"/><rect x="84" y="48" width="12" height="38" rx="3"/><rect x="102" y="54" width="12" height="32" rx="3" fill-opacity=".7"/></g><path d="M134 76l22-14 18 8 28-24" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="202" cy="46" r="4.5" fill="#fff"/><circle cx="196" cy="24" r="4" fill="#4ADE80"/><circle cx="208" cy="24" r="4" fill="#FACC15"/></svg></div>
+          <div class="srv-testo">
+            <p class="srv-ideale"><b>Ideale per</b> Chi ha tanti dati da tenere sotto controllo</p>
+            <p class="srv-desc">Clienti, prenotazioni e numeri della tua attività in un solo pannello.</p>
+            <ul><li>I dati arrivano da soli, senza ricopiarli a mano</li><li>Confronto con il mese o l’anno prima</li><li>Segnali che ti mostrano cosa non va</li><li>Accessi per te e per chi lavora con te</li></ul>
+          </div>
+          <dl class="srv-meta"><div class="srv-m-prezzo"><dt>Prezzo</dt><dd>Su preventivo</dd></div><div><dt>Tempi</dt><dd>Fissati nel preventivo</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Home Unity</dd></div></dl>
+        </div>
+      </details>
+      <details class="srv-riga srv-app" name="servizi">
+        <summary><span class="srv-n">04</span><span class="srv-tit">App</span><span class="srv-breve">Dal browser oppure su App Store e Google Play.</span><span class="srv-chip">Su preventivo</span><span class="srv-piu" aria-hidden="true"></span></summary>
+        <div class="srv-corpo">
+          <div class="srv-vista" aria-hidden="true"><svg viewBox="0 0 240 104" fill="none" aria-hidden="true"><rect x="86" y="4" width="68" height="104" rx="13" fill="rgba(255,255,255,.07)" stroke="#CBB6FF" stroke-opacity=".8" stroke-width="1.5"/><rect x="108" y="10" width="24" height="4" rx="2" fill="#CBB6FF" fill-opacity=".6"/><rect x="94" y="24" width="52" height="14" rx="5" fill="#8B5CF6"/><rect x="94" y="44" width="52" height="11" rx="5" fill="#fff" fill-opacity=".14"/><rect x="94" y="60" width="52" height="11" rx="5" fill="#fff" fill-opacity=".14"/><rect x="94" y="76" width="34" height="11" rx="5" fill="#fff" fill-opacity=".14"/><rect x="20" y="22" width="56" height="26" rx="8" fill="#fff" fill-opacity=".92"/><rect x="27" y="29" width="34" height="4" rx="2" fill="#5B2FD0"/><rect x="27" y="37" width="22" height="4" rx="2" fill="#A78BFA"/><rect x="164" y="54" width="58" height="26" rx="8" fill="#8B5CF6"/><path d="M178 67l6 6 12-12" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="srv-testo">
+            <p class="srv-ideale"><b>Ideale per</b> Studi, palestre e attività con clienti che tornano</p>
+            <p class="srv-desc">Dal browser oppure su App Store e Google Play.</p>
+            <ul><li>Funziona anche senza rete</li><li>Stesso account da computer e telefono</li><li>Prenotazioni, notifiche e promemoria</li><li>Un pannello per chi gestisce l’attività</li></ul>
+          </div>
+          <dl class="srv-meta"><div class="srv-m-prezzo"><dt>Prezzo</dt><dd>Su preventivo</dd></div><div><dt>Tempi</dt><dd>Fissati nel preventivo</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Cento Respiri, Carico</dd></div></dl>
+        </div>
+      </details>
     </div>
     <div class="mkt">
       <div class="mkt-testa">
@@ -123,7 +157,7 @@
           <h3>Il sito porta clienti se qualcuno lo <span class="corsivo">trova</span>.</h3>
           <p>Annuncio e pagina li prepariamo insieme, con le stesse parole: chi clicca trova quello che gli è stato promesso e ti contatta.</p>
         </div>
-        <span class="mkt-prezzo">Su preventivo<small>il budget delle inserzioni lo paghi direttamente a Meta o&nbsp;Google, non&nbsp;a&nbsp;noi</small></span>
+        <span class="mkt-prezzo">Su preventivo<small>la nostra gestione è nel preventivo. Il budget delle inserzioni lo paghi direttamente a Meta o&nbsp;Google, non&nbsp;a&nbsp;noi</small></span>
       </div>
       <ul class="mkt-voci fila-scorre" id="fila-mkt" tabindex="0" aria-label="Cosa facciamo nel marketing">
         <li><span class="mkt-v-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span><strong>Campagne Instagram e Facebook</strong><span>Inserzioni che portano le persone giuste sul tuo sito, con il budget che decidi tu.</span></li>
@@ -137,8 +171,9 @@
   </div>
 </section>
 
+<div class="ponte" aria-hidden="true"><i></i></div>
 <!-- 3 · Chi siamo (modello grafico di Francesco, 05/11) -->
-<section class="sezione scura team" aria-labelledby="t-chi">
+<section class="sezione scura team" id="team" aria-labelledby="t-chi">
   <div class="contenitore">
     <div class="team-intesta">
       <div>
@@ -197,10 +232,11 @@
 
 
 
+<div class="ponte" aria-hidden="true"><i></i></div>
 <!-- 2 · La promo -->
-<section class="sezione chiara" aria-labelledby="t-promo">
+<section class="sezione chiara" id="pacchetto" aria-labelledby="t-promo">
   <div class="contenitore pila">
-    <div class="pac-testa">
+    <div class="pac-testa solo-cl">
       <div>
         <span class="prog-etichetta scura-e">Sito su misura</span>
         <h2 class="titolo" id="t-promo">Cosa c’è nel <span class="corsivo">pacchetto</span>.</h2>
@@ -213,24 +249,41 @@
         <p class="dopo">Dal 1° gennaio 2027 costerà 800&nbsp;€, con gli stessi&nbsp;contenuti.</p>
       </div>
     </div>
-    <div class="pac-giostra">
+    <div class="pac-giostra solo-cl">
       <ul class="pac-fila" tabindex="0" aria-label="Cosa è incluso nel pacchetto">
-        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 13h4M7 16h7"/></svg></span><span class="ps-num">0b0001</span></div><strong>Sito di una pagina scritto da zero, fino a 6 sezioni</strong><p>Progettato sulla tua attività, non adattato da un modello già pronto.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M7 13h4M7 16h7"/></svg></span><span class="ps-num">0b0001</span></div><strong>Un sito di una pagina, fino a 6 blocchi</strong><p>Per esempio: presentazione, servizi, foto e contatti. Scritto da zero sulla tua attività, non adattato da un modello già pronto.</p></li>
         <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="m14 7 3 3"/></svg></span><span class="ps-num">0b0010</span></div><strong>Testi scritti con te</strong><p>Ci racconti cosa fai, noi lo scriviamo in modo chiaro per chi ti cerca.</p></li>
         <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5"/><path d="M6 18h6M9 14v4"/><rect x="17" y="9" width="5" height="11" rx="1"/></svg></span><span class="ps-num">0b0011</span></div><strong>Versione per telefono, tablet e computer</strong><p>Si legge bene ovunque, a partire dal telefono da cui arriva la maggior parte delle persone.</p></li>
-        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span><span class="ps-num">0b0100</span></div><strong>Modulo contatti, WhatsApp e chiamata a un tocco</strong><p>Chi ti trova ti contatta subito, senza cercare il numero.</p></li>
-        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12.2c0-.6 0-1.2-.2-1.7H12v3.3h4.5a4 4 0 0 1-1.7 2.6v2.1h2.7c1.6-1.5 2.5-3.7 2.5-6.3z"/><path d="M12 20.5c2.3 0 4.2-.8 5.5-2l-2.7-2.1c-.8.5-1.7.8-2.8.8a4.9 4.9 0 0 1-4.6-3.4H4.6v2.2A8.5 8.5 0 0 0 12 20.5z"/><path d="M7.4 13.8a5 5 0 0 1 0-3.2V8.4H4.6a8.5 8.5 0 0 0 0 7.6z"/><path d="M12 6.9c1.3 0 2.4.4 3.3 1.3l2.4-2.4A8.5 8.5 0 0 0 4.6 8.4l2.8 2.2A4.9 4.9 0 0 1 12 6.9z"/></svg></span><span class="ps-num">0b0101</span></div><strong>Scheda Google collegata e ricerca locale di base</strong><p>Compari su Google Maps e nelle ricerche della tua zona.</p></li>
-        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></span><span class="ps-num">0b0110</span></div><strong>Pronto per la pubblicità su Instagram, Facebook e Google</strong><p>Chi arriva da un’inserzione trova subito cosa offri e come contattarti.</p></li>
-        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="ps-num">0b0111</span></div><strong>Informativa privacy</strong><p>Il testo sulla privacy collegato al sito, come chiede la legge.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span><span class="ps-num">0b0100</span></div><strong>Ti contattano dal sito, su WhatsApp o con una chiamata</strong><p>Numero e pulsanti sono subito a disposizione.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12.2c0-.6 0-1.2-.2-1.7H12v3.3h4.5a4 4 0 0 1-1.7 2.6v2.1h2.7c1.6-1.5 2.5-3.7 2.5-6.3z"/><path d="M12 20.5c2.3 0 4.2-.8 5.5-2l-2.7-2.1c-.8.5-1.7.8-2.8.8a4.9 4.9 0 0 1-4.6-3.4H4.6v2.2A8.5 8.5 0 0 0 12 20.5z"/><path d="M7.4 13.8a5 5 0 0 1 0-3.2V8.4H4.6a8.5 8.5 0 0 0 0 7.6z"/><path d="M12 6.9c1.3 0 2.4.4 3.3 1.3l2.4-2.4A8.5 8.5 0 0 0 4.6 8.4l2.8 2.2A4.9 4.9 0 0 1 12 6.9z"/></svg></span><span class="ps-num">0b0101</span></div><strong>Scheda Google e ricerche nella tua zona</strong><p>Colleghiamo la tua scheda Google e prepariamo il sito per le ricerche nella tua zona.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></span><span class="ps-num">0b0110</span></div><strong>Pensato anche per chi arriva dalle inserzioni</strong><p>Chi clicca trova cosa offri e come contattarti. La gestione delle campagne è un servizio a parte, su preventivo.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="ps-num">0b0111</span></div><strong>Informativa sulla privacy inclusa</strong><p>Il testo sulla privacy collegato al sito.</p></li>
         <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1-1 1.5-3 1.5h-2"/></svg></span><span class="ps-num">0b1000</span></div><strong>30 giorni di assistenza</strong><p>Per un mese dopo la messa online correggiamo gratis ogni problema.</p></li>
-        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><span class="ps-num">0b1001</span></div><strong>Codice e file tuoi</strong><p>Alla consegna ricevi tutti i file: il sito è tuo, non di una piattaforma.</p></li>
+        <li class="pac-scheda"><span class="ps-bit" aria-hidden="true"></span><span class="ps-barra" aria-hidden="true"><i></i><i></i><i></i></span><div class="ps-alto"><span class="ps-icona" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><span class="ps-num">0b1001</span></div><strong>Il sito è tuo: ti consegniamo tutti i file</strong><p>Puoi cambiare fornitore quando vuoi.</p></li>
       </ul>
+    </div>
+    <div class="ed-pac solo-ed">
+      <div class="ed-pac-testa">
+        <div class="ed-pac-titoli">
+          <h2 class="ed-titolo" id="t-promo-ed">Il tuo sito, tutto <em>chiaro.</em></h2>
+          <p class="ed-sotto">Una pagina su misura, con fino a 6 blocchi.</p>
+        </div>
+        <div class="ed-pac-prezzo"><span>Promo</span><strong>499 €</strong><em>Fino al <span data-promo-data>31 dicembre 2026</span></em><p>Dal 1° gennaio 2027: 800 €</p></div>
+      </div>
+      <div class="ed-gruppi">
+        <section class="ed-gruppo"><h3><span class="ed-n">01</span><span class="ed-gt">Il sito</span></h3>
+          <ul><li><strong>Un sito di una pagina, fino a 6 blocchi</strong><span>Per esempio: presentazione, servizi, foto e contatti. Scritto da zero sulla tua attività.</span></li><li><strong>Testi scritti con te</strong><span>Ci racconti cosa fai, noi lo scriviamo in modo chiaro per chi ti cerca.</span></li><li><strong>Versione per telefono, tablet e computer</strong><span>Si legge bene ovunque, a partire dal telefono da cui arriva la maggior parte delle persone.</span></li></ul></section>
+        <section class="ed-gruppo"><h3><span class="ed-n">02</span><span class="ed-gt">Contatti e visibilità</span></h3>
+          <ul><li><strong>Ti contattano dal sito, su WhatsApp o con una chiamata</strong><span>Numero e pulsanti sono subito a disposizione.</span></li><li><strong>Scheda Google e ricerche nella tua zona</strong><span>Colleghiamo la tua scheda Google e prepariamo il sito per le ricerche nella tua zona.</span></li><li><strong>Pensato anche per chi arriva dalle inserzioni</strong><span>Chi clicca trova cosa offri e come contattarti. La gestione delle campagne è un servizio a parte, su preventivo.</span></li></ul></section>
+        <section class="ed-gruppo"><h3><span class="ed-n">03</span><span class="ed-gt">Consegna e assistenza</span></h3>
+          <ul><li><strong>Informativa sulla privacy inclusa</strong><span>Il testo sulla privacy collegato al sito.</span></li><li><strong>30 giorni di assistenza</strong><span>Per un mese dopo la messa online correggiamo gratis ogni problema.</span></li><li><strong>Il sito è tuo: ti consegniamo tutti i file</strong><span>Puoi cambiare fornitore quando vuoi.</span></li></ul></section>
+      </div>
     </div>
     <div class="garanzia">
       <span class="garanzia-icona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
-      <div class="gar-testo"><strong>Prima vedi, poi decidi.</strong><span>La bozza è gratuita: se non ti convince, non paghi niente. Paghi il primo 50% solo quando la approvi, il resto alla consegna.</span></div>
+      <div class="gar-testo"><strong>Prima vedi, poi decidi.</strong><span>Bozza e preventivo sono gratuiti: se non ti convincono, non paghi niente. Se vai avanti, paghi il 50% all’approvazione e il restante 50% alla consegna.</span></div>
       <ul class="gar-fatti">
-        <li>Non compreso: dominio e spazio web a tuo nome (poche decine di euro l’anno). Pagine in più, negozio e gestionali su preventivo.</li>
+        <li>Non compreso: l’indirizzo del sito e il servizio che lo tiene online (dominio e spazio web), a tuo nome: poche decine di euro l’anno. Pagine in più, negozio e gestionali su preventivo.</li>
       </ul>
     </div>
     <div class="metodo">
@@ -247,8 +300,9 @@
 
 
 
+<div class="ponte" aria-hidden="true"><i></i></div>
 <!-- 7 · Domande frequenti -->
-<section class="sezione scura" aria-labelledby="t-domande">
+<section class="sezione scura" id="domande" aria-labelledby="t-domande">
   <div class="contenitore domande-griglia impilate">
     <div class="testa-sez">
       <h2 class="titolo" id="t-domande">Domande <span class="corsivo">frequenti</span>.</h2>
@@ -274,9 +328,10 @@
   </div>
 </section>
 
+<div class="ponte" aria-hidden="true"><i></i></div>
 <!-- Perché noi: confronto con le alternative (dalla vecchia landing, al plurale) -->
-<section class="sezione chiara" aria-labelledby="t-perche">
-  <div class="contenitore pila">
+<section class="sezione chiara" id="perche" aria-labelledby="t-perche">
+  <div class="contenitore pila solo-cl">
     <div class="testa-sez">
       <h2 class="titolo" id="t-perche">Hai tre alternative. Ecco perché scegliere la <span class="corsivo">quarta</span>.</h2>
       <p class="sottotitolo">Cosa trovi di solito, con cifre indicative di mercato. Nessun nome: ogni offerta è diversa, leggine sempre le condizioni.</p>
@@ -301,14 +356,28 @@
       </div>
     </div>
   </div>
+  <div class="contenitore ed-perche solo-ed">
+    <div class="ed-testa-c">
+      <h2 class="ed-titolo" id="t-perche-ed">Sai con chi lavori.<br>E cosa <em>aspettarti.</em></h2>
+      <p class="ed-sotto">Quattro impegni concreti, dall’inizio alla consegna.</p>
+    </div>
+    <div class="ed-impegni">
+      <article class="ed-imp"><span class="ed-n">01</span><i class="ed-tratto" aria-hidden="true"></i><h3>Parli con chi realizza il progetto</h3><p>Francesco segue lo sviluppo. Alex segue il marketing, se lo richiedi. Il confronto sul lavoro avviene direttamente con loro.</p></article>
+      <article class="ed-imp"><span class="ed-n">02</span><i class="ed-tratto" aria-hidden="true"></i><h3>Il prezzo è scritto prima di iniziare</h3><p>Bozza e preventivo prima dell’impegno. Gli extra si concordano.</p></article>
+      <article class="ed-imp"><span class="ed-n">03</span><i class="ed-tratto" aria-hidden="true"></i><h3>Il sito resta tuo</h3><p>Dominio e spazio web a tuo nome. Alla consegna ricevi tutti i file.</p></article>
+      <article class="ed-imp"><span class="ed-n">04</span><i class="ed-tratto" aria-hidden="true"></i><h3>Sai come funziona l’assistenza</h3><p>30 giorni inclusi. Poi interventi concordati, senza abbonamenti obbligatori.</p></article>
+    </div>
+    
+  </div>
 </section>
 
 
 
 
 
+<div class="ponte" aria-hidden="true"><i></i></div>
 <!-- 8 · Chiusura -->
-<section class="sezione scura chiusura-sez" aria-label="Contatti">
+<section class="sezione scura chiusura-sez" id="contatti" aria-label="Contatti">
   <div class="contenitore">
     <div class="chiusura">
       <div class="chiusura-dentro">
@@ -316,6 +385,7 @@
           <span class="prog-etichetta">Parliamone</span>
           <h2 class="titolo">Da dove <span class="corsivo">partiamo</span>?</h2>
           <p>Un sito nuovo, un negozio online, un gestionale, un’app o le campagne per farti trovare. Raccontaci cosa ti serve: entro 24 ore ti rispondiamo per fissare la prima chiamata.</p>
+          <p class="ed-wa solo-ed"><a href="https://wa.me/393454517186?text=Ciao%2C%20ho%20visto%20la%20promo%20di%20Zero%20Uno%20Lab%20e%20vorrei%20parlarvi%20di%20un%20progetto." target="_blank" rel="noopener">Oppure scrivici su WhatsApp <span aria-hidden="true">↗</span></a></p>
           <ul class="chiusura-punti"><li>Prima chiamata gratuita</li><li>Prezzo fisso scritto</li><li>Promo fino al <span data-promo-data>31 dicembre 2026</span></li></ul>
         </div>
         <div class="chiusura-azioni modulo-casa" id="richiesta">
@@ -501,7 +571,11 @@
 <dialog class="finestra" id="modulo" aria-labelledby="t-modulo">
 </dialog>
 
-<script src="js/main.js?v=108" defer></script>
-<script src="js/anelli.js?v=9" defer></script>
+<div class="cambia-versione" role="group" aria-label="Versione del sito">
+  <button type="button" data-versione="cl" aria-pressed="true">Classica</button>
+  <button type="button" data-versione="ed" aria-pressed="false">Due forze</button>
+</div>
+<script src="js/main.js?v=112" defer></script>
+<script src="js/anelli.js?v=10" defer></script>
 </body>
 </html>

@@ -272,7 +272,7 @@
     const conta = car.querySelector('.car-conta');
     const annuncio = car.querySelector('.car-annuncio');
     const n = schede.length;
-    let i = Math.max(0, schede.findIndex(s => s.hasAttribute('data-inizio')));
+    let i = document.documentElement.getAttribute('data-v') === 'ed' ? 0 : Math.max(0, schede.findIndex(s => s.hasAttribute('data-inizio')));
     const due = x => String(x).padStart(2, '0');
     const segniBox = conta.querySelector('.car-segni');
     const segni = schede.map(() => segniBox.appendChild(document.createElement('i')));
@@ -505,4 +505,42 @@
     invia.innerHTML = 'Invia la richiesta <span aria-hidden="true">→</span>';
     form.nome.focus();
   });
+})();
+
+
+// ── Menu in alto a sinistra: il nome si allarga col mouse (CSS); col tocco o con Invio apre/chiude le voci ──
+(() => {
+  const menu = document.querySelector('.menu-sito'); if (!menu) return;
+  const bott = menu.querySelector('.menu-nome');
+  const imposta = (v) => { menu.classList.toggle('aperto', v); bott.setAttribute('aria-expanded', String(v)); };
+  bott.addEventListener('click', (e) => { e.stopPropagation(); imposta(!menu.classList.contains('aperto')); });
+  menu.querySelectorAll('.menu-voci a').forEach(a => a.addEventListener('click', () => imposta(false)));
+  document.addEventListener('click', (e) => { if (!menu.contains(e.target)) imposta(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.classList.contains('aperto')) { imposta(false); bott.focus(); } });
+})();
+
+// ── Il menu c'è solo nella home: sparisce (dissolvenza) quando si scorre oltre l'apertura e torna risalendo ──
+(() => {
+  const menu = document.querySelector('.menu-sito'), ap = document.querySelector('.apertura');
+  if (!menu || !ap || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(es => {
+    const visibile = es[0].isIntersecting;
+    menu.classList.toggle('nascosto', !visibile);
+    if (!visibile) { menu.classList.remove('aperto'); const b = menu.querySelector('.menu-nome'); if (b) b.setAttribute('aria-expanded', 'false'); }
+  }, { threshold: 0, rootMargin: '-60px 0px 0px 0px' }).observe(ap);
+})();
+
+// ── Interruttore di versione: Classica / Editoriale (si ricorda la scelta; ?v=ed o ?v=cl nell'indirizzo la impone) ──
+(() => {
+  const box = document.querySelector('.cambia-versione'); if (!box) return;
+  const root = document.documentElement;
+  const mostra = () => { const ed = root.getAttribute('data-v') === 'ed'; box.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String((b.dataset.versione === 'ed') === ed))); };
+  box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    const ed = b.dataset.versione === 'ed';
+    if (ed) root.setAttribute('data-v', 'ed'); else root.removeAttribute('data-v');
+    try { localStorage.setItem('zul-versione', ed ? 'ed' : 'cl'); } catch (e) {}
+    mostra();
+    window.dispatchEvent(new Event('resize'));
+  }));
+  mostra();
 })();
