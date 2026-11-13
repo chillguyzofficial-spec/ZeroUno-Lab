@@ -55,35 +55,35 @@ html[data-v="ed"] .ed-nota { margin: clamp(8px, 1.6vh, 14px) 0 0; font-size: 15p
 @media (max-height: 640px) and (min-width: 700px) { html[data-v="ed"] .ap2 .apertura-riga { display: none; } html[data-v="ed"] .ap2 h1 { font-size: clamp(36px, 10vh, 80px); } }
 
 /* ═══ 02 · LAVORI — parte alta prugna con seta, schermata grande che attraversa il raccordo, informazioni su avorio ═══ */
-html[data-v="ed"] .carosello { position: relative; isolation: isolate; overflow-x: clip; padding: clamp(30px, 4.4vw, 60px) 0 clamp(28px, 3.6vw, 48px); background: var(--df-prugna); }
-html[data-v="ed"] .carosello::before { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; top: clamp(300px, 34vw, 480px); background: var(--df-avorio); border-radius: 0; }
-html[data-v="ed"] .carosello::after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; top: 0; height: var(--df-edge); background: url(../assets/img/df-interno-scuro-pc.webp) center top / 100% auto no-repeat; -webkit-mask-image: linear-gradient(#000 45%, transparent); mask-image: linear-gradient(#000 45%, transparent); pointer-events: none; }
-@media (max-width: 767px) { html[data-v="ed"] .carosello::after { background-image: url(../assets/img/df-interno-scuro-mobile.webp); } html[data-v="ed"] .carosello::before { top: clamp(280px, 80vw, 380px); } }
-html[data-v="ed"] .ed-testa { text-align: left; padding: 0 var(--gutter); max-width: var(--max); margin: 0 auto clamp(20px, 3vw, 34px); }
-html[data-v="ed"] .ed-occhiello { display: block; margin-bottom: 14px; font: 600 13px/1 'Manrope', system-ui, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--df-chiaro-testo); }
-html[data-v="ed"] .ed-titolo { margin: 0; font: 800 clamp(34px, 4.8vw, 66px)/1.04 'Manrope', system-ui, sans-serif; letter-spacing: -0.045em; color: #fff; }
-html[data-v="ed"] .ed-titolo em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.1em; letter-spacing: -0.01em; color: var(--df-lav); }
-html[data-v="ed"] .ed-sotto { margin: 10px 0 0; font-size: clamp(16px, 1.5vw, 21px); font-weight: 500; color: var(--df-chiaro-testo); }
-html[data-v="ed"] .car-cornice, html[data-v="ed"] .car-scheda.attiva .car-cornice { border-radius: 14px; border: 0; box-shadow: 0 34px 60px -30px rgba(33,17,39,.75), 0 0 0 1px rgba(255,255,255,.08); }
-html[data-v="ed"] .car-cornice::after { box-shadow: none; border: 0; }
-html[data-v="ed"] .car-info, html[data-v="ed"] .car-scheda .car-info { position: static; padding: 18px 4px 0; border-radius: 0; background: none; color: var(--df-testo); pointer-events: auto; }
-html[data-v="ed"] .car-riga { flex-wrap: wrap; align-items: center; gap: 8px 16px; }
-html[data-v="ed"] .car-num { display: none; }
-html[data-v="ed"] .car-nome { order: 1; font: 800 clamp(30px, 3.4vw, 48px)/1.02 'Manrope', system-ui, sans-serif; letter-spacing: -0.04em; color: var(--df-testo); }
-html[data-v="ed"] .car-cat { order: 2; color: #4B2E48; font: 500 clamp(14.5px, 1.2vw, 17px)/1.3 'Manrope', system-ui, sans-serif; letter-spacing: 0; text-transform: none; }
-html[data-v="ed"] .car-cat span { color: rgba(50,21,41,.4); margin: 0 4px; }
-html[data-v="ed"] .car-desc { display: block; margin-top: 10px; max-width: 62ch; color: #3E2238; font-size: clamp(16px, 1.3vw, 19px); font-weight: 500; }
-html[data-v="ed"] .car-tag { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
-html[data-v="ed"] .car-tag li { padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(50,21,41,.45); background: none; color: var(--df-testo); font-size: 14px; font-weight: 500; }
-html[data-v="ed"] .car-scheda { opacity: .5; } html[data-v="ed"] .car-scheda.attiva { opacity: 1; }
-html[data-v="ed"] .car-comandi, html[data-v="ed"] html[data-tema="chiaro"] .car-comandi { position: static; display: flex; align-items: center; justify-content: center; gap: clamp(14px, 3vw, 30px); width: auto; margin: clamp(18px, 2.6vw, 30px) auto 0; transform: none; pointer-events: auto; }
-html[data-v="ed"] .car-comandi .car-freccia { order: 0; width: 52px; height: 52px; background: none; border: 1.5px solid var(--df-testo); color: var(--df-testo); box-shadow: none; opacity: 1 !important; pointer-events: auto !important; }
-html[data-v="ed"] .car-comandi .car-freccia:hover { background: var(--df-testo); color: var(--df-avorio); }
-html[data-v="ed"] .car-comandi .car-freccia[data-car="1"] { order: 2; }
-html[data-v="ed"] .car-conta { display: inline-flex; order: 1; gap: 8px; font: 600 17px/1 'Manrope', system-ui, sans-serif; letter-spacing: .1em; color: var(--df-testo); }
-html[data-v="ed"] .car-conta .car-segni { display: none; }
-html[data-v="ed"] .car-conta b { font-weight: 600; }
-html[data-v="ed"] .car-conta b:first-child::after { content: ' / '; opacity: .55; }
+html:is([data-v="ed"], :not([data-v="ed"])) .carosello { position: relative; isolation: isolate; overflow-x: clip; padding: clamp(30px, 4.4vw, 60px) 0 clamp(28px, 3.6vw, 48px); background: var(--df-prugna); }
+html:is([data-v="ed"], :not([data-v="ed"])) .carosello::before { content: ''; position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; top: clamp(300px, 34vw, 480px); background: var(--df-avorio); border-radius: 0; }
+html:is([data-v="ed"], :not([data-v="ed"])) .carosello::after { content: ''; position: absolute; z-index: -1; left: 0; right: 0; top: 0; height: var(--df-edge); background: url(../assets/img/df-interno-scuro-pc.webp) center top / 100% auto no-repeat; -webkit-mask-image: linear-gradient(#000 45%, transparent); mask-image: linear-gradient(#000 45%, transparent); pointer-events: none; }
+@media (max-width: 767px) { html:is([data-v="ed"], :not([data-v="ed"])) .carosello::after { background-image: url(../assets/img/df-interno-scuro-mobile.webp); } html:is([data-v="ed"], :not([data-v="ed"])) .carosello::before { top: clamp(280px, 80vw, 380px); } }
+html:is([data-v="ed"], :not([data-v="ed"])) .ed-testa { text-align: left; padding: 0 var(--gutter); max-width: var(--max); margin: 0 auto clamp(20px, 3vw, 34px); }
+html:is([data-v="ed"], :not([data-v="ed"])) .ed-occhiello { display: block; margin-bottom: 14px; font: 600 13px/1 'Manrope', system-ui, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--df-chiaro-testo); }
+html:is([data-v="ed"], :not([data-v="ed"])) .ed-titolo { margin: 0; font: 800 clamp(34px, 4.8vw, 66px)/1.04 'Manrope', system-ui, sans-serif; letter-spacing: -0.045em; color: #fff; }
+html:is([data-v="ed"], :not([data-v="ed"])) .ed-titolo em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.1em; letter-spacing: -0.01em; color: var(--df-lav); }
+html:is([data-v="ed"], :not([data-v="ed"])) .ed-sotto { margin: 10px 0 0; font-size: clamp(16px, 1.5vw, 21px); font-weight: 500; color: var(--df-chiaro-testo); }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-cornice, html:is([data-v="ed"], :not([data-v="ed"])) .car-scheda.attiva .car-cornice { border-radius: 14px; border: 0; box-shadow: 0 34px 60px -30px rgba(33,17,39,.75), 0 0 0 1px rgba(255,255,255,.08); }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-cornice::after { box-shadow: none; border: 0; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-info, html:is([data-v="ed"], :not([data-v="ed"])) .car-scheda .car-info { position: static; padding: 18px 4px 0; border-radius: 0; background: none; color: var(--df-testo); pointer-events: auto; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-riga { flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-num { display: none; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-nome { order: 1; font: 800 clamp(30px, 3.4vw, 48px)/1.02 'Manrope', system-ui, sans-serif; letter-spacing: -0.04em; color: var(--df-testo); }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-cat { order: 2; color: #4B2E48; font: 500 clamp(14.5px, 1.2vw, 17px)/1.3 'Manrope', system-ui, sans-serif; letter-spacing: 0; text-transform: none; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-cat span { color: rgba(50,21,41,.4); margin: 0 4px; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-desc { display: block; margin-top: 10px; max-width: 62ch; color: #3E2238; font-size: clamp(16px, 1.3vw, 19px); font-weight: 500; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-tag { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-tag li { padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(50,21,41,.45); background: none; color: var(--df-testo); font-size: 14px; font-weight: 500; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-scheda { opacity: .5; } html:is([data-v="ed"], :not([data-v="ed"])) .car-scheda.attiva { opacity: 1; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-comandi, html:is([data-v="ed"], :not([data-v="ed"])) html[data-tema="chiaro"] .car-comandi { position: static; display: flex; align-items: center; justify-content: center; gap: clamp(14px, 3vw, 30px); width: auto; margin: clamp(18px, 2.6vw, 30px) auto 0; transform: none; pointer-events: auto; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-comandi .car-freccia { order: 0; width: 52px; height: 52px; background: none; border: 1.5px solid var(--df-testo); color: var(--df-testo); box-shadow: none; opacity: 1 !important; pointer-events: auto !important; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-comandi .car-freccia:hover { background: var(--df-testo); color: var(--df-avorio); }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-comandi .car-freccia[data-car="1"] { order: 2; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-conta { display: inline-flex; order: 1; gap: 8px; font: 600 17px/1 'Manrope', system-ui, sans-serif; letter-spacing: .1em; color: var(--df-testo); }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-conta .car-segni { display: none; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-conta b { font-weight: 600; }
+html:is([data-v="ed"], :not([data-v="ed"])) .car-conta b:first-child::after { content: ' / '; opacity: .55; }
 
 /* ═══ Sezioni interne: fondo piatto + SETA agli angoli (due livelli ancorati in alto e in basso, centro che cresce coi contenuti) ═══ */
 html[data-v="ed"] .sezione, html[data-v="ed"] .sez-servizi { position: relative; isolation: isolate; overflow: hidden; }
@@ -231,7 +231,7 @@ html[data-v="ed"] .ed-wa a { min-height: 44px; }
 html[data-v="ed"] { --df-sfuma: clamp(70px, 8vw, 120px); }
 html[data-v="ed"] .apertura.ap2 { background-image: linear-gradient(180deg, rgba(33,17,39,0) calc(100% - var(--df-sfuma) * 1.6), #211127 100%), url(../assets/img/df-home-pc.webp); background-size: 100% 100%, cover; background-position: center, center; background-repeat: no-repeat; }
 @media (max-width: 767px) { html[data-v="ed"] .apertura.ap2 { background-image: linear-gradient(180deg, rgba(33,17,39,0) calc(100% - var(--df-sfuma) * 1.4), #211127 100%), url(../assets/img/df-home-mobile.webp); background-position: center, center bottom; } }
-html[data-v="ed"] .carosello::before { background: linear-gradient(180deg, rgba(245,242,236,0) 0, #F5F2EC clamp(120px, 14vw, 200px)); }
+html:is([data-v="ed"], :not([data-v="ed"])) .carosello::before { background: linear-gradient(180deg, rgba(245,242,236,0) 0, #F5F2EC clamp(120px, 14vw, 200px)); }
 html[data-v="ed"] .sezione, html[data-v="ed"] .sez-servizi { padding-bottom: clamp(70px, 8vw, 110px); }
 html[data-v="ed"] .sez-servizi { background-image: linear-gradient(180deg, #F5F2EC calc(100% - var(--df-sfuma)), #211127 100%); }
 html[data-v="ed"] .team { background-image: linear-gradient(180deg, #211127 calc(100% - var(--df-sfuma)), #F5F2EC 100%); }
@@ -245,9 +245,55 @@ html[data-v="ed"] .chiusura-sez { background-image: linear-gradient(180deg, #211
   html[data-v="ed"] .ed-promo { display: inline-flex !important; flex-direction: row !important; flex-wrap: nowrap !important; width: auto !important; }
   html[data-v="ed"] .ed-promo > span, html[data-v="ed"] .ed-promo > strong { white-space: nowrap; }
 }
-html[data-v="ed"] .carosello::after { top: 0; height: calc(var(--df-edge) * 1.3); -webkit-mask-image: linear-gradient(transparent 0, #000 30%, #000 50%, transparent 100%); mask-image: linear-gradient(transparent 0, #000 30%, #000 50%, transparent 100%); }
+html:is([data-v="ed"], :not([data-v="ed"])) .carosello::after { top: 0; height: calc(var(--df-edge) * 1.3); -webkit-mask-image: linear-gradient(transparent 0, #000 30%, #000 50%, transparent 100%); mask-image: linear-gradient(transparent 0, #000 30%, #000 50%, transparent 100%); }
 /* i livelli in alto delle sezioni interne sfumano anche all'inizio, così non c'è bordo dove una sezione attacca all'altra */
 html[data-v="ed"] :is(.sez-servizi, #pacchetto, #perche, .team, #domande, .chiusura-sez)::before { -webkit-mask-image: linear-gradient(transparent 0, #000 25%, #000 45%, transparent 100%); mask-image: linear-gradient(transparent 0, #000 25%, #000 45%, transparent 100%); }
 html[data-v="ed"] :is(.sez-servizi, #pacchetto, #perche, .team, #domande, .chiusura-sez)::after { -webkit-mask-image: linear-gradient(transparent 0, #000 45%, #000 75%, transparent 100%); mask-image: linear-gradient(transparent 0, #000 45%, #000 75%, transparent 100%); }
 html[data-v="ed"] { --df-sfuma: clamp(120px, 13vw, 200px); }
 html[data-v="ed"] .sezione, html[data-v="ed"] .sez-servizi { padding-bottom: clamp(100px, 11vw, 160px); }
+
+/* ═══ 13/11 · La sezione LAVORI è uguale in Classica e in Due forze (richiesta di Francesco: «tutto uguale»).
+   Le regole sopra (carosello, titolo, schede, frecce) valgono per entrambe: qui solo i colori e il raccordo col nero della Classica. ═══ */
+html:not([data-v="ed"]) { --df-prugna: #211127; --df-avorio: #F5F2EC; --df-testo: #321529; --df-lav: #BEA0FF; --df-chiaro-testo: #FFF8F1; --df-edge: clamp(150px, 16vw, 260px); }
+@media (max-width: 767px) { html:not([data-v="ed"]) { --df-edge: clamp(90px, 28vw, 160px); } }
+/* sfondo della Classica come prima (nero con gli anelli): niente fondo prugna né seta; resta solo la fascia chiara sotto le schede */
+html:not([data-v="ed"]) .carosello { background: none; }
+html:not([data-v="ed"]) .carosello::after { content: none; }
+
+/* ═══ 13/11 · APERTURA CLASSICA: qualche particolare sul fondo (luci viola che sfumano verso il centro (niente griglia: bocciata), mai sotto il titolo)
+   e testi più fusi con lo sfondo (velo meno nero, riquadri come vetro). Solo statico, niente che segue il mouse. Due forze non cambia. ═══ */
+html:not([data-v="ed"]) .apertura.ap2 > .contenitore { z-index: 1; }
+html:not([data-v="ed"]) .apertura.ap2::after {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 46% at 13% 84%, rgba(112,70,219,.34), transparent 70%),
+    radial-gradient(ellipse 34% 42% at 91% 12%, rgba(112,70,219,.26), transparent 70%),
+    radial-gradient(ellipse 72% 32% at 50% 110%, rgba(139,92,246,.34), transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 58% at 50% 44%, transparent 30%, #000 84%), linear-gradient(#000 62%, transparent 99%); -webkit-mask-composite: source-in;
+  mask-image: radial-gradient(ellipse 50% 58% at 50% 44%, transparent 30%, #000 84%), linear-gradient(#000 62%, transparent 99%); mask-composite: intersect;
+}
+@media (max-width: 767px) {
+  html:not([data-v="ed"]) .apertura.ap2::after { -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 42%, transparent 25%, #000 90%), linear-gradient(#000 62%, transparent 99%); mask-image: radial-gradient(ellipse 80% 50% at 50% 42%, transparent 25%, #000 90%), linear-gradient(#000 62%, transparent 99%); }
+}
+html:not([data-v="ed"]) .apertura.ap2::before { background: radial-gradient(ellipse 48% 62% at 50% 52%, rgba(8,4,16,.62), rgba(8,4,16,.34) 62%, rgba(8,4,16,0) 100%); }
+@media (max-width: 767px) { html:not([data-v="ed"]) .apertura.ap2::before { background: radial-gradient(ellipse 80% 58% at 50% 50%, rgba(8,4,16,.6), rgba(8,4,16,.34) 62%, rgba(8,4,16,0) 100%); } }
+html:not([data-v="ed"]) .ap2 h1 { text-shadow: 0 0 56px rgba(124,92,255,.30); }
+html:not([data-v="ed"]) .ap2 .apertura-riga { color: #D9D0E6; text-shadow: 0 0 26px rgba(8,4,16,.85); }
+html:not([data-v="ed"]) .ap2 .promo-card { background: rgba(48,34,88,.30); border-color: rgba(199,179,255,.22); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+html:not([data-v="ed"]) .ap2 .ap2-riga-tech { background: rgba(48,34,88,.28); border-color: rgba(199,179,255,.24); }
+
+/* ═══ 13/11 · Menu in alto SENZA riquadro (solo il titolo del sito con le due lineette, grandezza di prima) e pulsante WhatsApp un po' più piccolo (44 px).
+   Il menu compare solo sull'apertura scura: senza fondo si legge, con una leggera ombra dove passano le cifre degli anelli. ═══ */
+html .menu-pillola, html .menu-sito.aperto .menu-pillola, html .menu-pillola:hover, html .menu-pillola:focus-within { background: none; border: 0; box-shadow: none; }
+html .menu-nome { padding-left: 0; box-shadow: none; background: none; }
+html .menu-nome img { height: 25px; filter: drop-shadow(0 0 6px rgba(0,0,0,1)) drop-shadow(0 0 3px rgba(0,0,0,.95)) drop-shadow(0 0 1px rgba(0,0,0,.9)); }
+/* con il mouse la larghezza resta libera: al passaggio compare la scritta e il pulsante si allarga; larghezza fissa solo su touch */
+html .ap2 .link-wa { min-width: 46px; min-height: 46px; padding: 0 9px; }
+@media (max-width: 760px), (hover: none) { html .ap2 .link-wa { width: 46px; padding: 0; } }
+html .ap2 .link-wa .wa-icona { width: 25px; height: 25px; }
+
+/* 14/11 · interruttore: due link alle versioni Nero e Bianco della home Corona */
+.cambia-versione a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; color: rgba(255,255,255,.82); font: 600 13.5px/1 'Manrope', system-ui, sans-serif; letter-spacing: .02em; }
+.cambia-versione a:hover { color: #fff; }
+.cambia-versione a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 440px) { .cambia-versione button, .cambia-versione a { padding: 0 10px; font-size: 12.5px; } .cambia-versione { left: 8px; } }
