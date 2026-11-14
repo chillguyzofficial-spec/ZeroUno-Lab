@@ -16,3 +16,43 @@ header.nav .menu-voci a { font-size: 14.5px; font-weight: 400; min-height: 40px;
 header.nav .menu-voci a.att, header.nav .menu-voci a:hover, header.nav .menu-voci a:focus-visible { opacity: 1; }
 header.nav .nav-prev { min-height: 38px; padding: 0 24px; font-size: 12.5px; font-weight: 400; letter-spacing: .08em; }
 @media (max-width: 899px) { header.nav { height: 56px !important; --nlat: 16px; } header.nav .logo img { height: 19px !important; } header.nav .nav-prev { min-height: 36px; padding: 0 16px; font-size: 12px; } }
+
+/* controllo mobile 15/11: testi non sotto i 12 px, voci del sottomenu da 44 px */
+.srv-carta .srv-chip em { font-size: 12px; }
+.srv-carta .srv-chip u { font-size: 12px; }
+.mini .mini-k s { font-size: 12px; }
+.tm-cors-chi i { font-size: 12.5px; }
+.vs-num small, .vs-c li small { font-size: 12px; }
+@media (max-width: 899px) { header.nav .menu .sottomenu a { min-height: 44px; padding: 8px 12px; justify-content: center; } }
+/* interruttore di versione: su telefono compatto in basso a sinistra, non una barra intera che copre il testo */
+@media (max-width: 899px) { .cambia-tema { left: 10px; right: auto; bottom: 10px; width: auto; justify-content: flex-start; } .cambia-tema a, .cambia-tema button { padding: 0 14px; } }
+
+/* firma in corsivo nel piede (serve anche alla home, che non carica servizi.css) */
+.piede-marca .logo { display: inline-block; }
+.firma-piede { position: relative; display: inline-block; padding: 0 .12em .16em 0; font-family: 'Firma Atelier', 'Great Vibes', cursive; font-style: normal; font-size: clamp(34px, 3vw, 44px); line-height: 1.05; color: var(--ink); transform: rotate(-4deg); transform-origin: left bottom; white-space: nowrap; }
+.fp-testo { display: block; -webkit-text-stroke: .35px currentColor; }
+.fp-tratto { position: absolute; left: -2%; width: 104%; bottom: .02em; height: .3em; overflow: visible; }
+.fp-tratto path { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.piede .piede-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 0 22px; min-height: 44px; border: 0; border-radius: 999px; background: #0A0A0A; color: #fff; font: 600 14.5px/1 var(--sans); text-decoration: none; cursor: pointer; }
+
+/* barra più sottile: il pulsante Preventivo era ciò che la faceva alta e larga */
+:root { --nav-h: 58px; }
+@media (max-width: 899px) { :root { --nav-h: 52px; } }
+header.nav { height: var(--nav-h) !important; }
+header.nav .nav-prev { position: relative; min-height: 34px; padding: 0 18px; font-size: 12px; letter-spacing: .07em; }
+header.nav .nav-prev::after { content: ''; position: absolute; inset: -6px -4px; }
+header.nav .menu-voci a { min-height: 36px; }
+header.nav .logo img { height: 19px !important; }
+@media (max-width: 899px) { header.nav .nav-prev { min-height: 32px; padding: 0 13px; font-size: 12px; letter-spacing: .05em; } header.nav .logo img { height: 17px !important; } }
+
+/* aperture a schermo intero: la barra ora occupa spazio (non galleggia più sopra), quindi ogni apertura è alta quanto lo schermo MENO la barra, e il padding che faceva spazio al menu si riduce */
+@media (min-width: 900px) {
+  .stage { height: calc(100svh - var(--nav-h)) !important; min-height: 560px; }
+  .centro { padding-top: clamp(10px, 2svh, 26px) !important; padding-bottom: clamp(14px, 3svh, 32px) !important; }
+  .sv-hero, .hv-centro, .hv-negozio, .hv-pila { min-height: calc(100svh - var(--nav-h)) !important; padding-top: clamp(16px, 3svh, 36px) !important; }
+  .mk-r__hero { height: calc(100svh - var(--nav-h)) !important; padding-top: clamp(16px, 3svh, 36px) !important; }
+  .hv-open, .sc-intro, .sc-scena { min-height: calc(100svh - var(--nav-h)) !important; }
+  .ap-hero { padding-top: clamp(20px, 3svh, 36px) !important; }
+  .gz-hero { padding-top: clamp(20px, 3svh, 40px) !important; }
+}
+@media (min-width: 900px) and (min-height: 1000px) { .sv-hero { min-height: min(calc(100svh - var(--nav-h)), 1000px) !important; } }
