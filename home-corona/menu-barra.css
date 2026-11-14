@@ -88,3 +88,80 @@ header.nav .logo img { height: 19px !important; }
 @media (max-width: 899px) { .sopra { margin-top: 12px; } }
 @media (max-width: 899px) and (max-height: 640px) { .stage .freccia-s, .stage .car-freccia { display: none; } .sopra { margin-top: 16px; } .riga { max-height: 2.8em; } }
 @media (max-width: 899px) and (max-height: 640px) { .banda-alta { height: 134px; } .sopra { margin-top: 10px; } .settore { min-height: 44px; padding-block: 6px; } }
+
+/* ===== Aperture da telefono: ogni apertura è alta quanto lo schermo, titoli centrati e con lo stesso carattere ===== */
+@media (max-width: 899px) {
+  :root { --av: calc(100svh - var(--nav-h, 52px)); }
+
+  /* un solo carattere, un solo respiro per tutti i titoli di apertura */
+  .gz-hero h1, .ap-hero h1, .sv-hero h1, .hv-fronte h1, .sc-intro .sc-h, .mk-r__hero h1, .tm-ponte h1 {
+    font-family: var(--serif) !important; font-weight: 400 !important; letter-spacing: -.015em !important;
+    line-height: 1.04 !important; text-align: center !important; text-wrap: balance; margin-inline: auto;
+  }
+  .gz-hero h1, .ap-hero h1, .sv-hero h1, .hv-fronte h1, .sc-intro .sc-h, .mk-r__hero h1 { font-size: clamp(34px, 9.4vw, 44px) !important; }
+  .apertura h1, .apertura .sopra { letter-spacing: -.015em !important; }
+
+  /* testi e pulsanti centrati */
+  .gz-testo, .ap-testo, .sv-hero-testo, .hv-fronte, .sc-intro-in, .mk-r__hero > div:first-child { text-align: center !important; justify-items: center; align-items: center; }
+  .gz-hero p, .ap-hero p, .sv-hero p, .hv-fronte p, .sc-intro p, .mk-r__hero p { margin-inline: auto !important; text-align: center !important; }
+  .gz-hero .sv-az, .ap-hero .sv-az, .sv-hero .sv-az, .sc-intro .sv-az, .hv-fronte .sv-az { justify-content: center; width: 100%; }
+  .lav-occhiello, .mk-r__eyebrow { text-align: center; display: block; letter-spacing: .14em; }
+  .gz-hero .lav-occhiello, .ap-hero .lav-occhiello, .sv-hero .lav-occhiello, .sc-intro .lav-occhiello, .hv-fronte .lav-occhiello { text-align: center; }
+  .sv-riga-prezzo, .sc-prezzo { text-align: center; justify-content: center; }
+
+  /* tre righe di fatti e link secondari: restano più sotto nella pagina, non nella prima schermata */
+  .gz-fatti, .ap-fatti, .mk-r__facts { display: none !important; }
+
+  /* altezza = schermo meno la barra */
+  .gz-hero, .ap-hero, .sv-hero, .mk-r__hero { min-height: var(--av) !important; padding-top: 14px !important; padding-bottom: 14px !important; box-sizing: border-box; }
+  .gz-hero-in, .ap-hero-in { min-height: calc(var(--av) - 28px); align-content: center; gap: 14px !important; }
+  .hv-open, .sc-intro { height: var(--av) !important; min-height: 0 !important; max-height: var(--av); overflow: hidden; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  .hv-open .hv-fronte, .sc-intro .sc-intro-in { margin: 0 auto; width: 100%; padding-inline: 20px; box-sizing: border-box; }
+  .sc-cascata { opacity: .42; }
+
+  /* Landing: testo sopra, l'immagine riempie lo spazio che resta */
+  .sv-hero-in { min-height: calc(var(--av) - 28px); grid-template-rows: auto minmax(0, 1fr) !important; gap: 14px !important; }
+  .sv-hero .sfondo-pagina-mobile { width: 100%; height: 100% !important; min-height: 0; object-fit: cover; object-position: 50% 30%; border-radius: 18px; }
+
+  /* Marketing: post e telefono sotto al testo, senza coprirlo */
+  .mk-r__hero { display: flex !important; flex-direction: column; justify-content: center; gap: 16px !important; }
+  .mk-r__hero-visual { margin-top: 44px; }
+
+  /* Gestionale: il pannello occupa lo spazio rimasto */
+  .gz-scena { min-height: 0 !important; height: auto; }
+}
+@media (max-width: 899px) and (max-height: 640px) {
+  .gz-hero h1, .ap-hero h1, .sv-hero h1, .hv-fronte h1, .sc-intro .sc-h, .mk-r__hero h1 { font-size: clamp(30px, 8.6vw, 38px) !important; }
+}
+
+/* Home da telefono: un'unica schermata, senza la seconda fascia di dispositivi che spuntava sotto */
+@media (max-width: 780px) {
+  section.apertura { height: var(--av) !important; min-height: 0 !important; max-height: var(--av); overflow: hidden !important; display: flex !important; flex-direction: column; box-sizing: border-box; }
+  section.apertura .banda-bassa { display: none !important; }
+  section.apertura .stage { flex: 1 1 auto; min-height: 0; height: auto !important; }
+  section.apertura .centro { height: 100%; justify-content: space-evenly; }
+}
+
+/* Landing: l'immagine sotto al testo prende lo spazio che resta (batte la regola dell'apertura «pagina fisica») */
+@media (max-width: 899px) {
+  html[data-tema] .sv-hero.pagina-fisica .sv-hero-in { height: calc(var(--av) - 28px); overflow: hidden; }
+  html[data-tema] .sv-hero.pagina-fisica .sfondo-pagina-mobile { height: 100% !important; max-width: none !important; margin: 0 !important; min-height: 0; object-fit: cover; object-position: 50% 28%; border-radius: 16px; }
+  /* i due pulsanti fissi compaiono dopo la prima schermata: non coprono più i pulsanti dell'apertura */
+  html:not(.oltre) .cambia-tema, html:not(.oltre) .wa-fisso { opacity: 0; visibility: hidden; pointer-events: none; }
+  .cambia-tema, .wa-fisso { transition: opacity .25s ease, visibility .25s; }
+}
+
+/* Menu aperto da telefono: voci dei servizi allineate a sinistra, solo il nome (niente descrizione lunga che esce dal pannello) */
+@media (max-width: 899px) {
+  header.nav .menu .sottomenu a { justify-content: flex-start !important; text-align: left !important; white-space: normal !important; }
+  header.nav .menu .sottomenu a span, header.nav .menu .sottomenu a small { display: none !important; }
+  header.nav .menu .sottomenu a b { display: block; font-weight: 500; }
+  header.nav .menu-voci { max-width: calc(100vw - 20px); overflow-x: hidden; box-sizing: border-box; }
+}
+
+/* Scheda finale da telefono: il paragrafo era scuro su nero (vuoto enorme): ora bianco, e tutto il testo centrato */
+@media (max-width: 899px) {
+  html[data-tema] .carta-fin .cf-testo .lav-sotto { color: #fff !important; opacity: .86; display: block; text-align: center; }
+  .carta-fin .cf-testo { align-items: center; text-align: center; }
+  .carta-fin .chiusura-az { justify-content: center; }
+}

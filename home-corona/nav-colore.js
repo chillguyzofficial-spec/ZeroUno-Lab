@@ -27,3 +27,37 @@
     if (h.toLowerCase() === f) a.classList.add('att');
   });
 })();
+
+/* Aperture da telefono: la composizione di immagini si rimpicciolisce quanto serve per stare nella prima schermata */
+(function () {
+  var MQ = matchMedia('(max-width: 899px)');
+  var P = [['.ap-hero', '.ap-scena'], ['.mk-r__hero', '.mk-r__hero-visual'], ['.gz-hero', '.gz-scena']];
+  function av() {
+    var t = document.createElement('div'); t.style.cssText = 'position:fixed;left:0;top:0;height:100svh;width:1px;visibility:hidden;pointer-events:none';
+    document.body.appendChild(t); var h = t.getBoundingClientRect().height; t.remove();
+    var n = document.querySelector('header.nav'); return h - (n ? n.getBoundingClientRect().height : 52);
+  }
+  function fit() {
+    P.forEach(function (p) {
+      var hero = document.querySelector(p[0]), vis = hero && hero.querySelector(p[1]); if (!vis) return;
+      vis.style.transform = ''; vis.style.marginBottom = ''; vis.style.transformOrigin = '';
+      if (!MQ.matches) return;
+      var A = av(), vh = vis.offsetHeight, H = hero.scrollHeight, rest = H - vh, disp = A - rest - 8;
+      if (vh > 0 && disp < vh) {
+        var s = Math.max(.42, disp / vh);
+        vis.style.transformOrigin = '50% 0'; vis.style.transform = 'scale(' + s.toFixed(3) + ')'; vis.style.marginBottom = (-(vh * (1 - s))).toFixed(0) + 'px';
+      }
+    });
+  }
+  var t; var go = function () { clearTimeout(t); t = setTimeout(fit, 60); };
+  addEventListener('resize', go); addEventListener('orientationchange', go); addEventListener('load', function () { fit(); setTimeout(fit, 500); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  document.addEventListener('DOMContentLoaded', fit);
+})();
+
+/* pulsanti fissi (tema e WhatsApp): visibili solo dopo aver lasciato la prima schermata */
+(function () {
+  var r = document.documentElement;
+  function s() { r.classList.toggle('oltre', scrollY > innerHeight * .45); }
+  addEventListener('scroll', s, { passive: true }); addEventListener('resize', s); s();
+})();
