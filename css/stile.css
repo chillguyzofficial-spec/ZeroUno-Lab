@@ -245,7 +245,7 @@ details[open] .segno::before { content: '−'; }
 .legale h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; margin: 40px 0 24px; }
 .legale h2 { font-size: 22px; font-weight: 600; margin: 40px 0 12px; }
 .legale p, .legale li { font-size: 16px; line-height: 1.65; color: var(--grigio-2); }
-.legale .torna { font-weight: 600; }
+.legale .torna { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 
 /* Schermi bassi (portatili): il modulo intero nella prima schermata */
 @media (min-width: 900px) and (max-height: 860px) {

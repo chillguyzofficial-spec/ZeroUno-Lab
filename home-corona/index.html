@@ -2,47 +2,56 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<script>try{var q=new URLSearchParams(location.search).get("tema"),s=localStorage.getItem("corona-tema"),t=q||s||"bianco";if(q)localStorage.setItem("corona-tema",q);document.documentElement.setAttribute("data-tema",t==="bn"?"bn":"bianco")}catch(e){document.documentElement.setAttribute("data-tema","bianco")}</script>
+<script>try{var q=new URLSearchParams(location.search).get("tema"),s=localStorage.getItem("corona-tema"),t="bn";if(q)localStorage.setItem("corona-tema",q);document.documentElement.setAttribute("data-tema","bn")}catch(e){document.documentElement.setAttribute("data-tema","bn")}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zero Uno Lab — Siti, app e marketing per la tua attività</title>
-<meta name="description" content="Zero Uno Lab realizza siti, app e marketing per attività piccole e medie in Italia. Scegli il tuo settore e guarda cosa facciamo per te.">
+<meta name="description" content="Zero Uno Lab realizza siti, app e marketing su misura, scritti da zero. Scegli il tuo settore e guarda cosa facciamo per te.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../assets/img/icona-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/icona-180.png">
-<link rel="preload" as="image" href="../assets/img/corona/ristorante-L1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/trainer-L1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/moda-L1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/studio-L1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/immobiliare-L1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/shop-L1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/fitness-P1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/shop-P1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/trainer-P1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/immobiliare-P1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/ristorante-P1.webp" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/img/corona/moda-P1.webp" fetchpriority="high">
-<link rel="stylesheet" href="corona.css?v=30">
+<link rel="preload" as="image" href="../assets/img/corona/ristorante-L1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/trainer-L1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/moda-L1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/studio-L1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/immobiliare-L1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/shop-L1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/fitness-P1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/shop-P1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/trainer-P1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/immobiliare-P1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/ristorante-P1.webp?v=20261113b" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/corona/moda-P1.webp?v=20261113b" fetchpriority="high">
+<link rel="stylesheet" href="corona.css?v=284">
+<link rel="stylesheet" href="menu-barra.css?v=291">
 </head>
 <body>
 
-<div class="promo">
-  <span class="promo-punto" aria-hidden="true"></span>
-  <span>Promo a tempo: <strong>il tuo sito da 499&nbsp;€</strong> · valida fino al <span data-promo-data>31 dicembre 2026</span> · bozza gratuita, paghi il 50% solo quando la approvi</span>
+<div class="promo-pop" data-promo-pop role="dialog" aria-modal="true" aria-labelledby="promo-pop-t" hidden>
+  <div class="promo-pop-vel" data-promo-chiudi></div>
+  <div class="promo-pop-box">
+    <button type="button" class="promo-pop-x" data-promo-chiudi aria-label="Chiudi">×</button>
+    <p class="lav-occhiello"><span class="promo-punto" aria-hidden="true"></span> Promo a tempo</p>
+    <h2 id="promo-pop-t">La tua landing page a <em>299&nbsp;€</em></h2>
+    <p class="promo-pop-t">In promo fino al <span data-promo-data>31 dicembre 2026</span>, a prezzi di partenza: sito vetrina da 499&nbsp;€ e negozio online da 699&nbsp;€: risparmi da 100 a 300&nbsp;€. La bozza è gratuita: paghi il 50% solo quando la approvi, il resto alla consegna.</p>
+    <button type="button" class="cta cta-pieno" data-apri-contatto data-promo-chiudi><span>Parlaci del tuo progetto</span> <span aria-hidden="true">→</span></button>
+    <button type="button" class="promo-pop-no" data-promo-chiudi>No, grazie</button>
+  </div>
 </div>
 
 <header class="nav">
   <div class="menu" data-menu>
-    <a class="logo" href="#" aria-label="Zero Uno Lab, vai in cima"><img class="logo-n" src="../assets/img/logo-nero.webp" width="240" height="30" alt="Zero Uno Lab"><img class="logo-b" src="../assets/img/logo-bianco.webp" width="240" height="30" alt="" aria-hidden="true"></a>
+    <a class="logo" href="#" aria-label="Zero Uno Lab, vai in cima"><span class="firma-piede" aria-hidden="true"><span class="fp-testo">Zero Uno Lab</span><svg class="fp-tratto" viewBox="0 0 260 34" preserveAspectRatio="none" focusable="false"><path d="M6 24 C 48 6, 104 5, 158 15 S 232 27, 254 9" pathLength="1"/></svg></span></a>
     <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-voci" aria-label="Apri il menu"><span></span><span></span></button>
     <nav class="menu-voci" id="menu-voci" aria-label="Principale">
+      <a href="index.html">Home</a>
       <a href="#lavori">Lavori</a>
-      <a href="#servizi">Servizi</a>
-      <a href="#pacchetto">Pacchetto</a>
-      <a href="#domande">Domande</a>
+      <div class="voce-sotto"><a class="voce-sotto-t" href="#servizi" aria-haspopup="true">Servizi</a><ul class="sottomenu"><li><a href="landing-page.html"><b>Landing page</b><span>Una pagina per farti contattare</span></a></li><li><a href="sito-vetrina.html"><b>Sito vetrina</b><span>Tutta l’attività, in poche pagine</span></a></li><li><a href="negozio-online.html"><b>Negozio online</b><span>Catalogo, carrello e pagamenti</span></a></li><li><a href="gestionale.html"><b>Gestionale</b><span>Clienti e prenotazioni in un posto</span></a></li><li><a href="app.html"><b>App</b><span>Per chi torna da te</span></a></li><li><a href="marketing.html"><b>Marketing</b><span>Farsi trovare online</span></a></li></ul></div>
+      <a href="team.html">Team</a>
       <a href="#contatti">Contatti</a>
     </nav>
   </div>
+  <button type="button" class="nav-prev" data-apri-contatto>Preventivo</button>
 </header>
 
 <main>
@@ -52,6 +61,7 @@
     <div class="orbita" aria-hidden="true" data-orbita></div>
     <div class="centro">
       <div class="titolo-box">
+        <p class="sopra"><span>Il sito che i tuoi clienti <em>ricorderanno</em>.</span></p>
         <h1 id="titolo"><span class="t-dim">Che</span> <em>attività</em><br>hai?</h1>
         <!-- Firma di Zero Uno Lab: a mano, nello spazio a destra di «hai?»; il tratto sotto si disegna una volta sola -->
         <span class="firma" aria-hidden="true">
@@ -59,7 +69,7 @@
           <svg class="firma-tratto" viewBox="0 0 260 34" preserveAspectRatio="none" focusable="false"><path d="M6 24 C 48 6, 104 5, 158 15 S 232 27, 254 9" pathLength="1"/></svg>
         </span>
       </div>
-      <p class="riga" id="riga" aria-live="polite"><b>Siti, app e marketing</b> per attività piccole e medie in Italia. <b>Tocca il tuo settore</b> e ti mostriamo cosa facciamo per te.</p>
+      <p class="riga" id="riga" aria-live="polite"><b>Siti, app e marketing</b> su misura, progettati e scritti da zero. <b>Tocca il tuo settore</b> e ti mostriamo cosa facciamo per te.</p>
       <div class="settori-box">
         <ul class="fila-scorre" id="fila-settori" tabindex="0" aria-label="Settore della tua attività">
           <li><button type="button" class="settore" data-s="ristorante" aria-pressed="false"><span class="s-n" aria-hidden="true">01</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Ristorante</strong><small>menù e prenotazioni</small></span></button></li>
@@ -89,7 +99,7 @@
   <div class="lav-testa">
     <span class="lav-occhiello">Lavori selezionati</span>
     <h2 id="t-lavori">Il lavoro prende <em>forma.</em></h2>
-    <p class="lav-sotto">Siti, app e strumenti per attività diverse.</p>
+    <p class="lav-sotto">Siti, app e strumenti per attività diverse. I lavori «Dimostrativo» sono progetti nostri, fatti per mostrare cosa sappiamo costruire; gli altri sono online per clienti veri.</p>
   </div>
   <div class="car-vista" data-car-vista tabindex="0" aria-label="Progetti: usa le frecce per scorrere">
     <ul class="car-traccia" data-car-traccia></ul>
@@ -105,137 +115,58 @@
 
 <section class="sz" id="servizi" aria-labelledby="t-servizi">
   <div class="sz-in">
-    <header class="sz-testa"><span class="lav-occhiello">Servizi</span><h2 id="t-servizi">Cosa possiamo <em>fare</em> per te.</h2><p class="lav-sotto">Siti, negozi online, gestionali e app, e il marketing che ti porta clienti.</p></header>
-    <div class="srv-lista">
-      <details class="srv" name="servizi" open>
-        <summary><span class="srv-n">01</span><span class="srv-tit">Sito vetrina</span><span class="srv-breve">Le pagine della tua attività, fatte per farti trovare e contattare.</span><span class="srv-chip">da 499&nbsp;€</span><span class="srv-piu" aria-hidden="true"></span></summary>
-        <div class="srv-corpo">
-          <div class="srv-testo"><p class="srv-ideale"><b>Ideale per</b> Ristoranti, studi, professionisti e attività locali</p><ul><li>Chi sei, cosa offri, dove trovarti</li><li>Prenotazione, WhatsApp e chiamata a un tocco</li><li>Scheda Google collegata e ricerca locale</li><li>Si legge bene dal telefono, da cui arrivano più persone</li></ul></div>
-          <dl class="srv-meta"><div><dt>Prezzo</dt><dd>da 499&nbsp;€</dd></div><div><dt>Tempi</dt><dd>Online in circa 2 settimane</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Hedoné</dd></div></dl>
-        </div>
-      </details>
-      <details class="srv" name="servizi">
-        <summary><span class="srv-n">02</span><span class="srv-tit">Negozio online</span><span class="srv-breve">Catalogo, carrello e pagamenti, su misura o su Shopify.</span><span class="srv-chip">da 799&nbsp;€</span><span class="srv-piu" aria-hidden="true"></span></summary>
-        <div class="srv-corpo">
-          <div class="srv-testo"><p class="srv-ideale"><b>Ideale per</b> Chi vende prodotti e vuole incassare online</p><ul><li>Schede prodotto con i dati di legge</li><li>Sconti, spedizioni e confezione regalo</li><li>Pagamenti con Stripe o Shopify</li><li>Percorso d’acquisto provato con controlli automatici</li></ul></div>
-          <dl class="srv-meta"><div><dt>Prezzo</dt><dd>da 799&nbsp;€</dd></div><div><dt>Tempi</dt><dd>Fissati nel preventivo</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Michelangelo Beauty</dd></div></dl>
-        </div>
-      </details>
-      <details class="srv" name="servizi">
-        <summary><span class="srv-n">03</span><span class="srv-tit">Gestionale</span><span class="srv-breve">Clienti, prenotazioni e numeri della tua attività in un solo pannello.</span><span class="srv-chip">Su preventivo</span><span class="srv-piu" aria-hidden="true"></span></summary>
-        <div class="srv-corpo">
-          <div class="srv-testo"><p class="srv-ideale"><b>Ideale per</b> Chi ha tanti dati da tenere sotto controllo</p><ul><li>I dati arrivano da soli, senza ricopiarli a mano</li><li>Confronto con il mese o l’anno prima</li><li>Segnali che ti mostrano cosa non va</li><li>Accessi per te e per chi lavora con te</li></ul></div>
-          <dl class="srv-meta"><div><dt>Prezzo</dt><dd>Su preventivo</dd></div><div><dt>Tempi</dt><dd>Fissati nel preventivo</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Home Unity</dd></div></dl>
-        </div>
-      </details>
-      <details class="srv" name="servizi">
-        <summary><span class="srv-n">04</span><span class="srv-tit">App</span><span class="srv-breve">Dal browser oppure su App Store e Google Play.</span><span class="srv-chip">Su preventivo</span><span class="srv-piu" aria-hidden="true"></span></summary>
-        <div class="srv-corpo">
-          <div class="srv-testo"><p class="srv-ideale"><b>Ideale per</b> Studi, palestre e attività con clienti che tornano</p><ul><li>Funziona anche senza rete</li><li>Stesso account da computer e telefono</li><li>Prenotazioni, notifiche e promemoria</li><li>Un pannello per chi gestisce l’attività</li></ul></div>
-          <dl class="srv-meta"><div><dt>Prezzo</dt><dd>Su preventivo</dd></div><div><dt>Tempi</dt><dd>Fissati nel preventivo</dd></div><div><dt>Lo abbiamo fatto per</dt><dd>Cento Respiri, Carico</dd></div></dl>
-        </div>
-      </details>
+    <header class="sz-testa"><span class="lav-occhiello">Servizi</span><h2 id="t-servizi">Cosa possiamo <em>fare</em> per te.</h2><p class="lav-sotto">Tocca un servizio: vedi come funziona, cosa include e quanto costa.</p></header>
+    <ul class="srv-griglia">
+      <li><a class="srv-carta" href="landing-page.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/ristorante-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/ristorante-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/ristorante-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/ristorante-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">01</span><span class="srv-chip"><em>In promo · da</em><b>299&nbsp;€</b><i>poi da 399&nbsp;€</i><u>Risparmi 100&nbsp;€</u></span></span><b class="srv-tit">Landing page</b><span class="srv-breve">Una sola pagina per un solo obiettivo: farti contattare. Per promuovere un’offerta o un servizio.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="sito-vetrina.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/studio-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/studio-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/studio-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/studio-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">02</span><span class="srv-chip"><em>In promo · da</em><b>499&nbsp;€</b><i>poi da 699&nbsp;€</i><u>Risparmi 200&nbsp;€</u></span></span><b class="srv-tit">Sito vetrina</b><span class="srv-breve">Più pagine collegate dal menu, per presentare tutta l’attività: chi sei, cosa fai, dove trovarti.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="negozio-online.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/shop-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/shop-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/shop-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/shop-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">03</span><span class="srv-chip"><em>In promo · da</em><b>699&nbsp;€</b><i>poi da 999&nbsp;€</i><u>Risparmi 300&nbsp;€</u></span></span><b class="srv-tit">Negozio online</b><span class="srv-breve">Catalogo, carrello e pagamenti.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="gestionale.html"><span class="srv-vis"><span class="ogg-sim"><span class="ogg-g"><img src="../assets/img/oggetti/simbolo-gestionale-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span><span class="ogg-p"><img src="../assets/img/oggetti/simbolo-gestionale.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">04</span><span class="srv-chip">Su preventivo</span></span><b class="srv-tit">Gestionale</b><span class="srv-breve">Clienti, prenotazioni e numeri in un solo posto.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="app.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/fitness-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/fitness-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/fitness-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/fitness-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">05</span><span class="srv-chip">Su preventivo</span></span><b class="srv-tit">App</b><span class="srv-breve">Dal browser o sul telefono, per chi torna da te.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="marketing.html"><span class="srv-vis"><span class="ogg-sim"><span class="ogg-g"><img src="../assets/img/oggetti/simbolo-marketing-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span><span class="ogg-p"><img src="../assets/img/oggetti/simbolo-marketing.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">06</span><span class="srv-chip">Su preventivo</span></span><b class="srv-tit">Marketing</b><span class="srv-breve">Inserzioni e strategia per farti trovare.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+    </ul>
+    <div class="promo-nota">
+      <p class="pn-et"><span class="promo-punto" aria-hidden="true"></span>Promo a tempo</p>
+      <p class="pn-prezzo"><b>Landing da 299&nbsp;€ · Sito vetrina da 499&nbsp;€ · Negozio da 699&nbsp;€</b> <span class="pn-poi">(poi da 399, 699 e 999&nbsp;€: risparmi fino a 300&nbsp;€)</span></p>
+      <p class="pn-scade">Valida fino al <span data-promo-data>31 dicembre 2026</span></p>
+      <p class="pn-testo">Sono prezzi di partenza, in promo fino a quella data: prima ti ascoltiamo, poi ti mandiamo un preventivo scritto a prezzo fisso.</p>
     </div>
-    <div class="mkt">
-      <div class="mkt-testa"><span class="lav-occhiello">Marketing · con Alex</span><h3>Il sito porta clienti se qualcuno lo <em>trova</em>.</h3><p>Annuncio e pagina li prepariamo insieme, con le stesse parole: chi clicca trova quello che gli è stato promesso e ti contatta.</p><p class="mkt-nota"><b>Su preventivo:</b> la nostra gestione è nel preventivo. Il budget delle inserzioni lo paghi direttamente a Meta o Google, non a noi.</p></div>
-      <ul class="mkt-voci"><li><strong>Campagne Instagram e Facebook</strong><span>Inserzioni che portano le persone giuste sul tuo sito, con il budget che decidi tu.</span></li><li><strong>Google Ads e ricerca locale</strong><span>Ti fai trovare quando qualcuno cerca quello che fai, nella tua zona.</span></li><li><strong>Strategia e consulenza</strong><span>A chi parli, cosa offri e perché sceglierti: prima di spendere, un piano chiaro.</span></li><li><strong>Risultati misurati</strong><span>Quanti contatti arrivano e quanto ti costa ognuno, spiegato in parole semplici.</span></li></ul>
-    </div>
-    <p class="sz-nota">Sono prezzi di partenza: prima ti ascoltiamo, poi ti mandiamo un preventivo scritto a prezzo fisso. Budget stretto? Partiamo dall’essenziale e aggiungiamo il resto dopo, senza rifare niente.</p>
+    <ol class="passi-tre" aria-label="Come si procede">
+      <li><span class="pt-n" aria-hidden="true">1</span><b>Ti ascoltiamo</b><span>Una breve chiamata per capire cosa ti serve, senza impegno.</span></li>
+      <li><span class="pt-n" aria-hidden="true">2</span><b>Ti mostriamo la bozza</b><span>Gratuita, insieme al preventivo scritto a prezzo fisso.</span></li>
+      <li><span class="pt-n" aria-hidden="true">3</span><b>Paghi solo se ti piace</b><span>50% quando approvi, 50% alla consegna.</span></li>
+    </ol>
   </div>
 </section>
 
-<div class="ponte p-su" aria-hidden="true"></div>
 
-<section class="sz inv" id="team" aria-labelledby="t-team">
-  <div class="sz-in">
-    <header class="sz-testa"><span class="lav-occhiello">Il team</span><h2 id="t-team">Due mestieri, un solo <em>progetto</em>.</h2><p class="lav-sotto">Francesco costruisce il sito, Alex cura il marketing, se lo vuoi.</p></header>
-    <div class="team-schede">
-      <article class="membro">
-        <img src="../assets/img/francesco-800.webp" srcset="../assets/img/francesco-480.webp 480w, ../assets/img/francesco-800.webp 800w" sizes="(max-width: 700px) 70vw, 340px" width="800" height="800" alt="Francesco Mascolo, in bianco e nero con occhiali e maglietta bianca" loading="lazy" decoding="async">
-        <div><h3>Francesco Mascolo</h3><span class="ruolo">Sviluppo</span><p>Da oltre 10 anni scrive software per grandi aziende, in sistemi dove un errore costa caro. Scrive da zero siti e app in HTML, CSS e JavaScript, e anche la parte che non si vede: database, accessi e pagamenti online. Lavora ogni giorno con l’intelligenza artificiale: per questo un sito su misura è pronto in settimane, non in mesi. Prima della consegna ogni sito passa prove automatiche su telefono, tablet e&nbsp;computer.</p></div>
-      </article>
-      <article class="membro">
-        <img src="../assets/img/alex-800.webp" srcset="../assets/img/alex-480.webp 480w, ../assets/img/alex-800.webp 800w" sizes="(max-width: 700px) 70vw, 340px" width="800" height="800" alt="Alex Iancu, in bianco e nero a braccia conserte con maglietta bianca" loading="lazy" decoding="async">
-        <div><h3>Alex Iancu</h3><span class="ruolo">Marketing</span><p>Da 10 anni cura la pubblicità di piccole e medie imprese: decide a chi parlare, cosa dire e quanto può costare ogni contatto, prima di spendere un euro.</p>
-          <div class="alex-brand"><span class="mono">Ha curato il marketing di</span><ul><li><img src="../assets/img/logo-valcolatte.webp" width="480" height="160" alt="Caseificio Valcolatte" loading="lazy" decoding="async"></li><li><img src="../assets/img/logo-bedogni.webp" width="480" height="160" alt="Bedogni Egidio" loading="lazy" decoding="async"></li><li><img src="../assets/img/logo-absolute.webp" width="480" height="160" alt="Absolute Yachts" loading="lazy" decoding="async"></li><li><img src="../assets/img/logo-porada.webp" width="480" height="160" alt="Porada" loading="lazy" decoding="async"></li><li><img src="../assets/img/logo-homeunity.webp" width="480" height="160" alt="Home Unity" loading="lazy" decoding="async"></li></ul></div>
-        </div>
-      </article>
-    </div>
-    <figure class="recensione">
-      <blockquote>«Sono rimasto stupito da tutto, segue il cliente passo passo, testo dopo testo e fotografia dopo fotografia.»</blockquote>
-      <figcaption><strong>Thomas Arduini</strong><span>Titolare del ristorante Hedoné, Vimodrone</span><small>Messaggio arrivato su WhatsApp, riportato come l’ha scritto: pubblichiamo solo recensioni di clienti veri, con nome e screenshot.</small><a href="../assets/img/recensione-thomas.webp" target="_blank" rel="noopener">Il messaggio originale ↗</a></figcaption>
-    </figure>
-    <ul class="numeri"><li><strong>8</strong><span>lavori in 7 settori diversi</span></li><li><strong>100/100</strong><span>accessibilità su Lighthouse, il test di Google</span></li><li><strong>24 h</strong><span>per risponderti, con una persona vera</span></li><li><strong>30 giorni</strong><span>di assistenza inclusa dopo la messa online</span></li></ul>
-  </div>
-</section>
 
-<div class="ponte p-giu" aria-hidden="true"></div>
-
-<section class="sz" id="pacchetto" aria-labelledby="t-pacchetto">
-  <div class="sz-in">
-    <header class="sz-testa"><span class="lav-occhiello">Il pacchetto</span><h2 id="t-pacchetto">Il tuo sito, tutto <em>chiaro</em>.</h2><p class="lav-sotto">Una pagina su misura, con fino a 6 blocchi. Tutto quello che serve per essere online e ricevere contatti, senza costi a sorpresa.</p></header>
-    <div class="promo-box"><div class="promo-prezzo"><span class="lav-occhiello">Promo</span><strong>499&nbsp;€</strong></div><p>Fino al <span data-promo-data>31 dicembre 2026</span>. Dal 1° gennaio 2027 costerà 800&nbsp;€, con gli stessi contenuti.</p></div>
-    <div class="pack">
-      <section class="pack-g"><h3><span>01</span>Il sito</h3><ul><li><b>Un sito di una pagina, fino a 6 blocchi</b><span>Per esempio: presentazione, servizi, foto e contatti. Scritto da zero sulla tua attività, non adattato da un modello già pronto.</span></li><li><b>Testi scritti con te</b><span>Ci racconti cosa fai, noi lo scriviamo in modo chiaro per chi ti cerca.</span></li><li><b>Versione per telefono, tablet e computer</b><span>Si legge bene ovunque, a partire dal telefono da cui arriva la maggior parte delle persone.</span></li></ul></section>
-      <section class="pack-g"><h3><span>02</span>Contatti e visibilità</h3><ul><li><b>Ti contattano dal sito, su WhatsApp o con una chiamata</b><span>Numero e pulsanti sono subito a disposizione.</span></li><li><b>Scheda Google e ricerche nella tua zona</b><span>Colleghiamo la tua scheda Google e prepariamo il sito per le ricerche nella tua zona.</span></li><li><b>Pensato anche per chi arriva dalle inserzioni</b><span>Chi clicca trova cosa offri e come contattarti. La gestione delle campagne è un servizio a parte, su preventivo.</span></li></ul></section>
-      <section class="pack-g"><h3><span>03</span>Consegna e assistenza</h3><ul><li><b>Informativa sulla privacy inclusa</b><span>Il testo sulla privacy collegato al sito.</span></li><li><b>30 giorni di assistenza</b><span>Per un mese dopo la messa online correggiamo gratis ogni problema.</span></li><li><b>Il sito è tuo: ti consegniamo tutti i file</b><span>Puoi cambiare fornitore quando vuoi.</span></li></ul></section>
-    </div>
-    <p class="sz-nota"><b>Prima vedi, poi decidi.</b> Bozza e preventivo sono gratuiti: se non ti convincono, non paghi niente. Se vai avanti, paghi il 50% all’approvazione e il restante 50% alla consegna.<br><span>Non compreso: l’indirizzo del sito e il servizio che lo tiene online (dominio e spazio web), a tuo nome: poche decine di euro l’anno. Pagine in più, negozio e gestionali su preventivo.</span></p>
-    <div class="metodo" id="metodo">
-      <header class="sz-testa"><span class="lav-occhiello">Come lavoriamo</span><h3>Dalla prima chiamata al sito online, in circa <em>2 settimane</em>.</h3><p class="lav-sotto">Contando da quando abbiamo testi e foto.</p></header>
-      <ol class="passi"><li><span class="passo-n">01</span><span class="passo-g">Giorno 1</span><h4>Ci sentiamo</h4><p>Chiamata gratuita e senza impegno: ci racconti l’attività e chi deve usare il sito.</p><dl><div><dt>Noi</dt><dd>Ti ascoltiamo e capiamo cosa serve davvero.</dd></div><div><dt>Tu</dt><dd>Ci racconti cosa fai, a chi ti rivolgi e cosa vuoi ottenere.</dd></div></dl></li><li><span class="passo-n">02</span><span class="passo-g">Giorni 2–4</span><h4>Bozza e preventivo</h4><p>Vedi la bozza prima di decidere e la cambiamo finché non ti convince.</p><dl><div><dt>Noi</dt><dd>Prepariamo la bozza e il preventivo con il prezzo finale.</dd></div><div><dt>Tu</dt><dd>Ci mandi logo e foto che hai già.</dd></div></dl></li><li><span class="passo-n">03</span><span class="passo-g">Giorni 5–12</span><h4>Costruiamo il sito</h4><p>Lo provi sul tuo telefono da un indirizzo privato mentre lo facciamo.</p><dl><div><dt>Noi</dt><dd>Lo realizziamo e lo controlliamo su telefono, tablet e computer.</dd></div><div><dt>Tu</dt><dd>Lo provi e ci dici cosa cambiare.</dd></div></dl></li><li><span class="passo-n">04</span><span class="passo-g">Giorni 13–14</span><h4>Online</h4><p>Lo pubblichiamo sul tuo dominio e controlliamo che tutto funzioni.</p><dl><div><dt>Noi</dt><dd>Lo mettiamo online e per 30 giorni correggiamo gratis ogni problema.</dd></div><div><dt>Tu</dt><dd>Hai dominio e spazio web a tuo nome.</dd></div></dl></li></ol>
-    </div>
-  </div>
-</section>
-
-<div class="ponte p-su" aria-hidden="true"></div>
-
-<section class="sz inv" id="domande" aria-labelledby="t-domande">
+<section class="sz" id="domande" aria-labelledby="t-domande">
   <div class="sz-in">
     <header class="sz-testa"><span class="lav-occhiello">Domande</span><h2 id="t-domande">Domande <em>frequenti</em>.</h2><p class="lav-sotto">Le cose che ci chiedono prima di partire.</p></header>
-    <div class="faq"><details><summary>La promo è davvero a 499 €?<span class="segno" aria-hidden="true"></span></summary><p>Sì, per il sito di una pagina descritto qui sopra, se ci scrivi entro il <span data-promo-data>31 dicembre 2026</span>. Se ti serve di più te lo diciamo nel preventivo, prima di iniziare, e decidi tu.</p></details>
+    <div class="faq"><details><summary>Le promo sono vere?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Sono prezzi di partenza, in promo fino al 31 dicembre 2026: landing page da 299 € (poi da 399 €, risparmi 100 €), sito vetrina da 499 € (poi da 699 €, risparmi 200 €), negozio online da 699 € (poi da 999 €, risparmi 300 €). Valgono se ci scrivi entro quella data. Se ti serve di più te lo diciamo nel preventivo, prima di iniziare, e decidi tu.</p></details>
 <details><summary>Perché costate meno di un’agenzia?<span class="segno" aria-hidden="true"></span></summary><p>Siamo in due e il lavoro lo facciamo noi: niente commerciali né passaggi di mano da pagare. Scriviamo il codice da zero, senza temi a pagamento né canoni di piattaforme.</p></details>
-<details><summary>Quanto tempo ci vuole?<span class="segno" aria-hidden="true"></span></summary><p>Per il sito della promo circa 2 settimane dalla prima chiamata. Il conto parte da quando abbiamo testi e foto: se arrivano a pezzi, i tempi si allungano. Per un sito più grande, un negozio o un gestionale, li fissiamo insieme nel preventivo.</p></details>
+<details><summary>Quanto tempo ci vuole?<span class="segno" aria-hidden="true"></span></summary><p>Per il sito della promo circa 2 settimane da quando abbiamo testi e foto: se arrivano a pezzi, i tempi si allungano. Per un sito più grande, un negozio o un gestionale, li fissiamo insieme nel preventivo.</p></details>
 <details><summary>Ci sono costi dopo la consegna?<span class="segno" aria-hidden="true"></span></summary><p>Solo dominio e spazio web, intestati a te e pagati direttamente al fornitore: di solito poche decine di euro l’anno. Nessun abbonamento obbligatorio. Dopo i 30 giorni di assistenza, le modifiche le chiedi quando servono con un piccolo preventivo, oppure con un’assistenza mensile facoltativa, che puoi disdire con 30 giorni di preavviso.</p></details>
-<details><summary>Testi e foto chi li prepara?<span class="segno" aria-hidden="true"></span></summary><p>Tu conosci la tua attività meglio di noi: ci dai le informazioni e le foto che hai, i testi li scriviamo insieme e ti diciamo quali immagini servono e in che formato.</p></details>
-<details><summary>Posso aggiornare io il sito?<span class="segno" aria-hidden="true"></span></summary><p>Per orari, menù o foto basta un messaggio su WhatsApp e lo aggiorniamo noi: gratis nei 30 giorni di assistenza, poi con un piccolo preventivo. Se devi cambiare spesso da solo, per esempio un catalogo o le notizie, lo diciamo all’inizio e scegliamo una soluzione con pannello di gestione.</p></details>
-<details><summary>Ho già un sito: potete seguire solo il marketing?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Partiamo da quello che hai: guardiamo il sito e i canali che usi, e se serve ti diciamo cosa sistemare perché le campagne rendano. Il sito nuovo non è obbligatorio.</p></details>
-<details><summary>Come funziona il pagamento?<span class="segno" aria-hidden="true"></span></summary><p>50% quando approvi bozza e preventivo, 50% alla consegna. Prima di quel momento non paghi niente.</p></details>
-<details><summary>Il sito sarà mio?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Dominio e spazio web li scegliamo e configuriamo insieme, ma sono intestati a te. Alla consegna ricevi tutti i file: se un giorno cambi fornitore, ti porti via tutto.</p></details></div>
+<details><summary>Testi e foto chi li prepara?<span class="segno" aria-hidden="true"></span></summary><p>Tu conosci la tua attività meglio di noi: ci dai le informazioni e le foto che hai, i testi li scriviamo insieme e ti diciamo quali immagini servono e in che formato.</p></details></div>
   </div>
 </section>
 
-<div class="ponte p-giu" aria-hidden="true"></div>
-
-<section class="sz" id="perche" aria-labelledby="t-perche">
+<section class="sz chiusura" id="contatti" aria-labelledby="t-contatti">
   <div class="sz-in">
-    <header class="sz-testa"><span class="lav-occhiello">Perché noi</span><h2 id="t-perche">Hai tre alternative. Ecco perché scegliere la <em>quarta</em>.</h2><p class="lav-sotto">Cosa trovi di solito, con cifre indicative di mercato. Nessun nome: ogni offerta è diversa, leggine sempre le condizioni.</p></header>
-    <div class="vs">
-      <article class="vs-c"><h3>Agenzia</h3><div class="vs-num"><div><small>Prezzo</small><strong>Spesso oltre 2.000&nbsp;€</strong></div><div><small>Tempi</small><strong>1–3 mesi</strong></div></div><ul><li><small>Con chi parli</small><span>Un commerciale, poi un responsabile di progetto</span></li><li><small>Come è fatto</small><span>Spesso un tema già pronto con molti plugin</span></li><li><small>Di chi è il sito</small><span>Dominio a volte a nome loro</span></li><li><small>Dopo la consegna</small><span>Modifiche a preventivo o canone mensile</span></li></ul></article>
-      <article class="vs-c"><h3>Fai da te</h3><div class="vs-num"><div><small>Prezzo</small><strong>12–30&nbsp;€ al mese</strong></div><div><small>Tempi</small><strong>Serate e weekend</strong></div></div><ul><li><small>Con chi parli</small><span>Assistenza generica della piattaforma, non sul tuo caso</span></li><li><small>Come è fatto</small><span>Un modello simile a migliaia di altri</span></li><li><small>Di chi è il sito</small><span>Resta sulla piattaforma: non puoi portarlo via</span></li><li><small>Dopo la consegna</small><span>Lo aggiorni tu, quando riesci</span></li></ul></article>
-      <article class="vs-c"><h3>Un conoscente che se la cava</h3><div class="vs-num"><div><small>Prezzo</small><strong>Un favore, o poco più</strong></div><div><small>Tempi</small><strong>Nessuna data fissata</strong></div></div><ul><li><small>Con chi parli</small><span>Una persona che lo fa nel tempo libero, tra altri impegni</span></li><li><small>Come è fatto</small><span>Di solito un tema già pronto, adattato al volo</span></li><li><small>Di chi è il sito</small><span>Dominio e accessi spesso intestati a lui: senza di lui non entri nel tuo sito</span></li><li><small>Dopo la consegna</small><span>Nessun impegno scritto: se ha da fare o cambia lavoro, resti senza assistenza</span></li></ul></article>
-      <article class="vs-c noi"><h3><i>01</i>Zero Uno Lab</h3><div class="vs-num"><div><small>Prezzo</small><strong>da 499&nbsp;€</strong></div><div><small>Tempi</small><strong>2 settimane</strong></div></div><ul><li><small>Con chi parli</small><span>Direttamente Francesco, che scrive il codice, e Alex per il marketing, se lo vuoi</span></li><li><small>Come è fatto</small><span>Scritto da zero per la tua attività, veloce sul telefono</span></li><li><small>Di chi è il sito</small><span>Codice e dominio a tuo nome, li ricevi alla consegna</span></li><li><small>Dopo la consegna</small><span>30 giorni di assistenza gratis, poi su richiesta</span></li></ul></article>
-    </div>
-    <div class="impegni">
-      <header class="sz-testa"><h3>Sai con chi lavori. E cosa <em>aspettarti</em>.</h3><p class="lav-sotto">Quattro impegni concreti, dall’inizio alla consegna.</p></header>
-      <ol><li><span class="passo-n">01</span><h4>Parli con chi realizza il progetto</h4><p>Francesco segue lo sviluppo. Alex segue il marketing, se lo richiedi. Il confronto sul lavoro avviene direttamente con loro.</p></li><li><span class="passo-n">02</span><h4>Il prezzo è scritto prima di iniziare</h4><p>Bozza e preventivo prima dell’impegno. Gli extra si concordano.</p></li><li><span class="passo-n">03</span><h4>Il sito resta tuo</h4><p>Dominio e spazio web a tuo nome. Alla consegna ricevi tutti i file.</p></li><li><span class="passo-n">04</span><h4>Sai come funziona l’assistenza</h4><p>30 giorni inclusi. Poi interventi concordati, senza abbonamenti obbligatori.</p></li></ol>
-    </div>
-  </div>
-</section>
-
-<div class="ponte p-su" aria-hidden="true"></div>
-
-<section class="sz inv chiusura" id="contatti" aria-labelledby="t-contatti">
-  <div class="sz-in">
-    <span class="lav-occhiello">Parliamone</span>
+    <div class="carta-fin" id="carta-fin"><div class="cf-vis" aria-hidden="true"><span class="cf-bg cf-pc" style="aspect-ratio:2000/667"><img src="../assets/img/oggetti/scheda-finale-v3-pc.webp?v=20261113c" alt="" width="2000" height="667" loading="lazy" decoding="async" style="display:block;width:100%;height:100%"></span><span class="cf-bg cf-mob" style="aspect-ratio:1000/1100"><img src="../assets/img/oggetti/scheda-finale-v3-mobile.webp?v=20261113c" alt="" width="1000" height="1100" loading="lazy" decoding="async" style="display:block;width:100%;height:100%"></span></div><div class="cf-testo"><span class="lav-occhiello">Parliamone</span>
     <h2 id="t-contatti">Da dove <em>partiamo</em>?</h2>
-    <p class="lav-sotto">Un sito nuovo, un negozio online, un gestionale, un’app o le campagne per farti trovare. Raccontaci cosa ti serve: entro 24 ore ti rispondiamo per fissare la prima chiamata.</p>
-    <div class="chiusura-az"><button type="button" class="cta cta-pieno" data-apri-contatto><span>Parlaci del tuo progetto</span> <span aria-hidden="true">→</span></button><a class="chiusura-wa" href="https://wa.me/393454517186" target="_blank" rel="noopener">Oppure scrivici su WhatsApp ↗</a></div>
-    <ul class="chiusura-punti"><li>Prima chiamata gratuita</li><li>Prezzo fisso scritto</li><li>Promo fino al <span data-promo-data>31 dicembre 2026</span></li></ul>
+    <p class="lav-sotto">Un sito, un negozio online, un gestionale, un’app o le campagne per farti trovare. Raccontaci cosa ti serve: entro 24 ore ti rispondiamo per fissare la prima chiamata.</p>
+    <div class="chiusura-az"><button type="button" class="cta cta-pieno" data-apri-contatto><span>Parlaci del tuo progetto</span> <span aria-hidden="true">→</span></button><a class="chiusura-wa" href="https://wa.me/393454517186" target="_blank" rel="noopener">Oppure scrivici su WhatsApp ↗</a></div></div></div>
   </div>
 </section>
 
-<footer class="piede"><div class="piede-in"><span>© 2026 Zero Uno Lab · Francesco Mascolo e Alex Iancu</span><nav aria-label="Note legali"><a href="../privacy.html">Privacy</a><a href="../privacy.html#cookie">Cookie</a></nav></div></footer>
+<footer class="piede"><div class="piede-in">
+  <div class="piede-marca"><a class="logo" href="#apertura" aria-label="Zero Uno Lab, torna in cima"><img class="logo-n" src="../assets/img/logo-nero.webp" width="240" height="30" alt="Zero Uno Lab"><img class="logo-b" src="../assets/img/logo-bianco.webp" width="240" height="30" alt="" aria-hidden="true"></a><p>Siti, app e marketing su misura. Francesco Mascolo sviluppa, Alex Iancu cura il marketing.</p><button type="button" class="piede-cta" data-apri-contatto>Prepara il tuo preventivo <span aria-hidden="true">→</span></button></div>
+  <nav class="piede-col" aria-label="Servizi"><h4>Servizi</h4><ul><li><a href="landing-page.html">Landing page</a></li><li><a href="sito-vetrina.html">Sito vetrina</a></li><li><a href="negozio-online.html">Negozio online</a></li><li><a href="gestionale.html">Gestionale</a></li><li><a href="app.html">App</a></li><li><a href="marketing.html">Marketing</a></li></ul></nav>
+  <nav class="piede-col" aria-label="Il sito"><h4>Zero Uno Lab</h4><ul><li><a href="#lavori">Lavori</a></li><li><a href="#team">Team</a></li><li><a href="#domande">Domande</a></li><li><a href="#contatti" data-apri-contatto>Preventivo</a></li></ul></nav>
+  <nav class="piede-col" aria-label="Contatti"><h4>Contatti</h4><ul><li><a href="https://wa.me/393454517186" target="_blank" rel="noopener">WhatsApp ↗</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="../privacy.html#cookie">Cookie</a></li></ul></nav>
+  <div class="piede-fondo"><span>© 2026 Zero Uno Lab · Francesco Mascolo e Alex Iancu</span><span>Risposta entro 24 ore</span></div>
+</div></footer>
 <!--/SEZ-->
 </main>
 
@@ -258,36 +189,71 @@
       </div>
       <div class="ct-piede">
         <a class="ct-wa" href="https://wa.me/393454517186" target="_blank" rel="noopener">Preferisci scriverci subito? <span>WhatsApp ↗</span></a>
-        <p class="ct-promo">Promo a tempo: <b>sito da 499&nbsp;€</b> fino al <span data-promo-data>31 dicembre 2026</span></p>
+        <p class="ct-promo">Promo a tempo: <b>landing da 299&nbsp;€, vetrina da 499&nbsp;€, negozio da 699&nbsp;€</b> (prezzi di partenza) fino al <span data-promo-data>31 dicembre 2026</span></p>
       </div>
     </aside>
 
     <div class="ct-modulo">
       <button type="button" class="chiudi solo-desk" data-chiudi-contatto>Chiudi</button>
-      <form class="contatto-form" data-form novalidate>
-        <fieldset class="ct-sett">
-          <legend>Di che attività si tratta?</legend>
-          <div class="ct-chip" role="group" aria-label="Settore">
-            <button type="button" data-chip="Ristorante" aria-pressed="false">Ristorante</button>
-            <button type="button" data-chip="Moda e negozio" aria-pressed="false">Moda e negozio</button>
-            <button type="button" data-chip="Immobiliare" aria-pressed="false">Immobiliare</button>
-            <button type="button" data-chip="Studio professionale" aria-pressed="false">Studio professionale</button>
-            <button type="button" data-chip="Negozio online" aria-pressed="false">Negozio online</button>
-            <button type="button" data-chip="Fitness e app" aria-pressed="false">Fitness e app</button>
-            <button type="button" data-chip="Personal trainer" aria-pressed="false">Personal trainer</button>
+      <form class="contatto-form quiz" data-form novalidate>
+        <div class="qz-testa"><span class="qz-n" data-qz-n>Passo 1 di 4</span><div class="qz-barra" aria-hidden="true"><i data-qz-barra></i></div></div>
+
+        <section class="qz-passo" data-passo="1">
+          <h3 class="qz-dom">Cosa ti serve?</h3>
+          <div class="qz-carte" role="group" aria-label="Servizio">
+            <button type="button" class="qz-carta" data-servizio="Landing page" aria-pressed="false"><b>Landing page</b><span>Una pagina per un solo obiettivo</span></button>
+            <button type="button" class="qz-carta" data-servizio="Sito vetrina" aria-pressed="false"><b>Sito vetrina</b><span>Più pagine per presentare l’attività</span></button>
+            <button type="button" class="qz-carta" data-servizio="Negozio online" aria-pressed="false"><b>Negozio online</b><span>Catalogo, carrello e pagamenti</span></button>
+            <button type="button" class="qz-carta" data-servizio="Gestionale" aria-pressed="false"><b>Gestionale</b><span>Clienti, prenotazioni e numeri</span></button>
+            <button type="button" class="qz-carta" data-servizio="App" aria-pressed="false"><b>App</b><span>Dal browser o sul telefono</span></button>
+            <button type="button" class="qz-carta" data-servizio="Marketing" aria-pressed="false"><b>Marketing</b><span>Inserzioni e strategia</span></button>
+            <button type="button" class="qz-carta qz-carta-larga" data-servizio="Non lo so ancora" aria-pressed="false"><b>Non lo so ancora</b><span>Ne parliamo nella prima chiamata, gratuita</span></button>
           </div>
-          <input name="settore" autocomplete="off" placeholder="Oppure scrivilo: es. palestra, studio legale" aria-label="Settore">
-        </fieldset>
-        <div class="ct-coppia">
-          <label><span>Nome</span><input name="nome" autocomplete="name" placeholder="Come ti chiami" required></label>
-          <label><span>Email o telefono</span><input name="contatto" autocomplete="email" placeholder="Dove ti ricontattiamo" required></label>
-        </div>
-        <label><span>Due righe sul progetto <i>(facoltativo)</i></span><textarea name="msg" rows="4" placeholder="Cosa ti serve, a chi ti rivolgi, se hai già un sito…"></textarea></label>
-        <p class="errore" data-errore role="alert" hidden>Scrivi almeno il tuo nome e un modo per ricontattarti.</p>
-        <div class="ct-invio">
-          <button type="submit" class="invia">Invia la richiesta <span aria-hidden="true">→</span></button>
+        </section>
+
+        <section class="qz-passo" data-passo="2" hidden>
+          <h3 class="qz-dom">Di che attività si tratta?</h3>
+          <fieldset class="ct-sett">
+            <legend class="solo-lettori">Settore</legend>
+            <div class="ct-chip" role="group" aria-label="Settore">
+              <button type="button" class="con-ogg" data-chip="Ristorante" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-cloche-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-cloche.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Ristorante</button>
+              <button type="button" class="con-ogg" data-chip="Moda e negozio" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-abito-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-abito.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Moda e negozio</button>
+              <button type="button" class="con-ogg" data-chip="Immobiliare" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-casa-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-casa.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Immobiliare</button>
+              <button type="button" class="con-ogg" data-chip="Studio professionale" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-clienti-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-clienti.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Studio professionale</button>
+              <button type="button" data-chip="Negozio online" aria-pressed="false">Negozio online</button>
+              <button type="button" class="con-ogg" data-chip="Fitness e app" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-tappetino-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-tappetino.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Fitness e app</button>
+              <button type="button" class="con-ogg" data-chip="Personal trainer" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-kettlebell-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-kettlebell.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Personal trainer</button>
+            </div>
+            <input name="settore" autocomplete="off" placeholder="Oppure scrivilo: es. palestra, studio legale" aria-label="Settore">
+          </fieldset>
+          <div class="qz-az"><button type="button" class="qz-ind" data-qz-indietro>← Indietro</button><button type="button" class="invia" data-qz-avanti>Avanti <span aria-hidden="true">→</span></button></div>
+        </section>
+
+        <section class="qz-passo" data-passo="3" hidden>
+          <h3 class="qz-dom">Quando ti serve?</h3>
+          <div class="qz-carte" role="group" aria-label="Tempi">
+            <button type="button" class="qz-carta" data-tempi="Il prima possibile" aria-pressed="false"><b>Il prima possibile</b><span>Partiamo subito</span></button>
+            <button type="button" class="qz-carta" data-tempi="Entro un mese" aria-pressed="false"><b>Entro un mese</b><span>Con un po’ di margine</span></button>
+            <button type="button" class="qz-carta" data-tempi="Entro 2–3 mesi" aria-pressed="false"><b>Entro 2–3 mesi</b><span>Senza fretta</span></button>
+            <button type="button" class="qz-carta" data-tempi="Sto solo valutando" aria-pressed="false"><b>Sto solo valutando</b><span>Mi basta un’idea</span></button>
+          </div>
+          <div class="qz-az"><button type="button" class="qz-ind" data-qz-indietro>← Indietro</button></div>
+        </section>
+
+        <section class="qz-passo" data-passo="4" hidden>
+          <h3 class="qz-dom">Come ti ricontattiamo?</h3>
+          <div class="ct-coppia">
+            <label><span>Nome</span><input name="nome" autocomplete="name" placeholder="Come ti chiami" required></label>
+            <label><span>Email o telefono</span><input name="contatto" autocomplete="email" placeholder="Dove ti ricontattiamo" required></label>
+          </div>
+          <label><span>Due righe sul progetto <i>(facoltativo)</i></span><textarea name="msg" rows="3" placeholder="Cosa ti serve, a chi ti rivolgi, se hai già un sito…"></textarea></label>
+          <p class="errore" data-errore role="alert" hidden>Scrivi almeno il tuo nome e un modo per ricontattarti.</p>
+          <div class="ct-invio">
+            <button type="submit" class="invia">Invia la richiesta <span aria-hidden="true">→</span></button>
+            <button type="button" class="qz-ind" data-qz-indietro>← Indietro</button>
+          </div>
           <p class="nota">Si apre WhatsApp con il messaggio già scritto: ti basta premere invio. Nessuna newsletter, nessuno spam.</p>
-        </div>
+        </section>
       </form>
 
       <div class="contatto-grazie" data-grazie hidden>
@@ -325,14 +291,14 @@
   </div>
 </dialog>
 
+<a class="wa-fisso" href="https://wa.me/393454517186?text=Ciao%2C%20vorrei%20un%20preventivo" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.2c.3 2.6 3.2 5.5 5.8 5.8l1.3-1.3-2-1-.9.8c-.9-.4-1.8-1.3-2.2-2.2l.8-.9-1-2z" fill="currentColor"/></svg><span>Scrivici</span></a>
 <div class="cambia-tema" role="group" aria-label="Versione del sito">
   <a href="../index.html?v=cl">Classica</a>
-  <a href="../index.html?v=ed">Due forze</a>
-  <button type="button" data-tema-btn="bn" aria-pressed="false">Nero</button>
-  <button type="button" data-tema-btn="bianco" aria-pressed="true">Bianco</button>
+  <button type="button" data-tema-btn="bn" aria-pressed="true">Nero</button>
 </div>
 
 <script src="hq-meta.js"></script>
-<script src="corona.js?v=31" defer></script>
+<script src="corona.js?v=90" defer></script>
+<script src="nav-colore.js?v=291" defer></script>
 </body>
 </html>

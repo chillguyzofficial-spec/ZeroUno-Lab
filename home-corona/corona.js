@@ -29,7 +29,7 @@
       riga: 'La tua app per gli atleti e il gestionale per il coach: <b>programmi, allenamenti, check-in</b>. Pronti in <b>6-8 settimane</b>.' }
   };
   // Prima della scelta: mockup misti, ognuno con la schermata d'apertura del suo sito (6 computer + 6 telefoni, tutti diversi)
-  const MISTI = { L: ['ristorante', 'trainer', 'moda', 'studio', 'immobiliare', 'shop'], P: ['fitness', 'shop', 'trainer', 'immobiliare', 'ristorante', 'moda'] };
+  const MISTI = { L: ['ristorante', 'trainer', 'moda', 'studio', 'immobiliare', 'shop'], P: ['moda', 'studio', 'immobiliare', 'shop', 'ristorante', 'trainer'] };
   const TESSERE = '../assets/img/corona/';
   const IMGL = '../assets/img/lavoro-';
 
@@ -38,12 +38,12 @@
   const HQ = '../assets/img/hq/', META = window.HQ_META || {};
   const std = (id, ysL, ysP) => ({ L: { hq: id, viste: ysL, mappa: [0, 1, 2, 3, 4, 5] }, P: { hq: id, viste: ysP, mappa: [0, 1, 2, 3, 4, 5] } });
   const SITI = {
-    ristorante:  { nome: 'Hedoné', cat: 'Ristorante e lounge bar', url: 'https://www.hedonevimodrone.it/', ...std('hedone', [0, 1250, 2650, 4030, 600, 3300], [0, 820, 2050, 2740, 1400, 2450]) },
-    moda:        { nome: 'Ossidiana', cat: 'Alta moda · sito dimostrativo', url: 'https://chillguyzofficial-spec.github.io/ossidiana/', ...std('ossidiana', [0, 600, 1700, 3000, 1150, 2380], [0, 800, 1650, 2300, 1200, 2700]) },
-    immobiliare: { nome: 'Home Unity', cat: 'Immobiliare · Milano e Firenze', url: 'https://homeunity.it/', ...std('homeunity-sito', [0, 780, 1650, 3050, 420, 2520], [0, 2000, 4000, 5780, 1000, 4900]) },
-    studio:      { nome: 'Studio Lumea', cat: 'Studio dentistico · sito dimostrativo', url: 'https://chillguyzofficial-spec.github.io/StudioLumea_Dentistico/', ...std('lumea', [0, 760, 1760, 2960, 1260, 2380], [0, 1400, 2150, 2740, 800, 1800]) },
-    shop:        { nome: 'Michelangelo Beauty', cat: 'Negozio online · sito dimostrativo', url: 'https://chillguyzofficial-spec.github.io/MichelangeloBeauty/', ...std('michelangelo', [0, 600, 1560, 2400, 1000, 2950], [0, 1050, 1800, 2400, 500, 2700]) },
-    fitness:     { nome: 'Cento Respiri', cat: 'Pilates · sito e app dimostrativi', url: 'https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/', ...std('centorespiri', [0, 1000, 2380, 3000, 450, 1650], [0, 800, 1450, 2350, 300, 2700]) },
+    ristorante:  { nome: 'Hedoné', cat: 'Ristorante e lounge bar', url: 'https://www.hedonevimodrone.it/', ...std('hedone', [0, 1275, 2660, 4020, 600, 3290], [0, 845, 2095, 2785, 1390, 2485]) },
+    moda:        { nome: 'Ossidiana', cat: 'Alta moda · sito dimostrativo', url: 'https://chillguyzofficial-spec.github.io/ossidiana/', ...std('ossidiana', [0, 580, 1715, 3045, 1140, 2370], [0, 835, 1625, 2335, 1195, 2725]) },
+    immobiliare: { nome: 'Home Unity', cat: 'Immobiliare · Milano e Firenze', url: 'https://homeunity.it/', ...std('homeunity-sito', [17, 795, 1655, 3090, 460, 2525], [0, 2010, 3970, 5750, 1005, 4875]) },
+    studio:      { nome: 'Studio Lumea', cat: 'Studio dentistico · sito dimostrativo', url: 'https://chillguyzofficial-spec.github.io/StudioLumea_Dentistico/', ...std('lumea', [0, 725, 1760, 2930, 1265, 2380], [0, 1410, 2170, 2785, 755, 1770]) },
+    shop:        { nome: 'Michelangelo Beauty', cat: 'Negozio online · sito dimostrativo', url: 'https://chillguyzofficial-spec.github.io/MichelangeloBeauty/', ...std('michelangelo', [0, 565, 1560, 2400, 1005, 2955], [5, 1050, 1810, 2405, 480, 2710]) },
+    fitness:     { nome: 'Cento Respiri', cat: 'Pilates · sito e app dimostrativi', url: 'https://chillguyzofficial-spec.github.io/Studio-Pilates-APP-e-SITO/', ...std('centorespiri', [5, 985, 2355, 2955, 425, 1670], [45, 805, 1460, 2340, 340, 2675]) },
     trainer: {
       nome: 'Carico', cat: 'App per personal trainer · dimostrativo', url: 'https://chillguyzofficial-spec.github.io/Carico/',
       L: { viste: [{ hq: 'carico', y: 0 }, { src: `${TESSERE}trainer-coach.webp`, y: 0 }], mappa: [0, 1, 1, 1, 1, 1] },
@@ -75,22 +75,26 @@
   /* ── Disposizione dei mockup ── */
   const L = 'L', P = 'P';
   const DISP = {
-    orbita: [   // 10 mockup, computer e telefono alternati e ben distanziati (nessuna sovrapposizione): 5 computer + 5 telefoni
-      { t: L, w: 270, r: -5, o: 1 }, { t: P, w: 96, r: 5, o: 1 },
-      { t: L, w: 250, r: 4, o: 1 },  { t: P, w: 100, r: -6, o: 1 },
-      { t: L, w: 280, r: -3, o: 1 }, { t: P, w: 92, r: 6, o: 1 },
-      { t: L, w: 255, r: 5, o: 1 },  { t: P, w: 104, r: -5, o: 1 },
-      { t: L, w: 265, r: -4, o: 1 }, { t: P, w: 98, r: 4, o: 1 }
+    // 12 mockup (6 computer + 6 telefoni), alternati. «s» = il sito mostrato prima della scelta del settore: due progetti uguali stanno sempre
+    // a 5 posti di distanza (uno computer, uno telefono), quindi quelli accanto sono sempre diversi.
+    orbita: [
+      { t: L, s: 'ristorante',  w: 250, r: -5, o: 1 }, { t: P, s: 'fitness',     w: 92,  r: 5,  o: 1 },
+      { t: L, s: 'moda',        w: 235, r: 4,  o: 1 }, { t: P, s: 'trainer',     w: 96,  r: -6, o: 1 },
+      { t: L, s: 'studio',      w: 258, r: -3, o: 1 }, { t: P, s: 'immobiliare', w: 90,  r: 6,  o: 1 },
+      { t: L, s: 'shop',        w: 240, r: 5,  o: 1 }, { t: P, s: 'ristorante', v: 3,  w: 98,  r: -5, o: 1 },
+      { t: L, s: 'trainer', v: 3,     w: 248, r: -4, o: 1 }, { t: P, s: 'moda', v: 3,        w: 94,  r: 4,  o: 1 },
+      { t: L, s: 'immobiliare', v: 3, w: 242, r: 3,  o: 1 }, { t: P, s: 'studio', v: 3,      w: 96,  r: -4, o: 1 }
     ],
+    // fasce dei telefoni: sei siti diversi, nessun doppione (l'ordine è in MISTI)
     alta: [
-      { t: P, left: '3%', top: '14%', w: 78, r: -9, o: 1 },
-      { t: L, left: '22%', top: '18%', w: 220, r: -4, o: 1 },
-      { t: P, right: '3%', top: '6%', w: 76, r: 8, o: 1 }
+      { t: P, s: 'fitness', left: '3%', top: '14%', w: 78, r: -9, o: 1 },
+      { t: L, s: 'ristorante', left: '22%', top: '18%', w: 220, r: -4, o: 1 },
+      { t: P, s: 'moda', right: '3%', top: '6%', w: 76, r: 8, o: 1 }
     ],
     bassa: [
-      { t: L, left: '4%', top: '22%', w: 200, r: 5, o: 1 },
-      { t: P, right: '20%', top: '10%', w: 84, r: -6, o: 1 },
-      { t: P, right: '2%', top: '30%', w: 66, r: 9, o: 1 }
+      { t: L, s: 'trainer', left: '4%', top: '22%', w: 200, r: 5, o: 1 },
+      { t: P, s: 'shop', right: '20%', top: '10%', w: 84, r: -6, o: 1 },
+      { t: P, s: 'studio', right: '2%', top: '30%', w: 66, r: 9, o: 1 }
     ]
   };
 
@@ -98,7 +102,8 @@
   const stato = { sel: null, mostrato: null, esce: false };
   let mock = [];
   let ultimo = 0, raf = 0, visibile = true, contattoAperto = false, scalaOrb = 0;
-  const W0 = (Math.PI * 2) / 140;                 // deriva di base: un giro ogni 140 s
+  const W0 = (Math.PI * 2) / 95;                  // deriva di base: un giro ogni 95 s (era 140)
+  let verso = 1;                                  // verso della deriva: segue l'ultimo gesto (se giri a sinistra, continua a sinistra)
   let ang = 0, omega = W0 * 6;                    // angolo dell'orbita e sua velocità (rad/s): parte già in movimento
   let trascina = null, rxAtt = 500, ryAtt = 300, sullaScelta = false, filaMossa = false;
   const offBanda = { alta: 0, bassa: 0 };         // telefono: di quanto sono ruotate le due fasce
@@ -126,9 +131,9 @@
   }
   function riempi(o) {
     const n = o.n + (o.banda ? offBanda[o.banda] : 0);
-    o.sid = settoreDi(o.d.t, n);
-    o.tile = stato.mostrato ? mod(n, 6) : 0;     // prima della scelta: la schermata d'apertura; dopo: 6 punti diversi dello stesso sito
-    $('img', o.inner).src = `${TESSERE}${o.sid}-${o.d.t}${o.tile + 1}.webp`;
+    o.sid = (o.orb && !stato.mostrato && o.d.s) ? o.d.s : settoreDi(o.d.t, n);
+    o.tile = stato.mostrato ? mod(n, 6) : (o.d.v || 0);     // prima della scelta: la schermata d'apertura; dopo: 6 punti diversi dello stesso sito
+    $('img', o.inner).src = `${TESSERE}${o.sid}-${o.d.t}${o.tile + 1}.webp?v=20261113c`;
   }
   // Uscita/ingresso dei mockup (cambio settore, avvio)
   function posa(o, esce) {
@@ -180,14 +185,14 @@
   }
   const t0 = performance.now();
   let fattore = 1;
-  const ATTRITO = 2.2;   // più alto = si smorza prima dopo un gesto; più basso = scivola più a lungo
+  const ATTRITO = 1.9;   // più alto = si smorza prima dopo un gesto; più basso = scivola più a lungo
   function tick(now) {
     const dt = Math.min(now - (ultimo || now), 50) / 1000; ultimo = now;
     const puoi = !riduci.matches && !stretto.matches && visibile && !contattoAperto && !document.hidden && !vetAperta();
     if (puoi && !trascina) {
       // sopra la fila dei settori l'orbita rallenta un poco (mai si ferma); all'avvio c'è una breve spinta
       const spinta = 1 + 7 * Math.exp(-(now - t0) / 1800);
-      omega += (W0 * spinta - omega) * (1 - Math.exp(-dt * ATTRITO));
+      omega += (W0 * spinta * verso - omega) * (1 - Math.exp(-dt * ATTRITO));
       ang += omega * dt;
       posaOrbita();
     }
@@ -248,17 +253,19 @@
     const tap = e && e.type === 'pointerup' && trascina.mosso < 6 && performance.now() - trascina.t0 < 600 && !trascina.centro;
     const ferma = performance.now() - trascina.t > 90;          // se il dito era fermo prima di staccarsi, niente slancio
     const v = ferma ? 0 : trascina.v; trascina = null; stage.classList.remove('sta-trascinando');
-    omega = riduci.matches ? 0 : Math.max(-2.8, Math.min(2.8, v));   // lo slancio del gesto continua e poi si smorza da solo
+    omega = riduci.matches ? 0 : Math.max(-2.8, Math.min(2.8, v));
+    if (Math.abs(v) > 0.04) verso = v > 0 ? 1 : -1;   // lo slancio del gesto continua e poi si smorza da solo
     if (tap) { const m = daPunto(e.clientX, e.clientY); if (m) apriVetrina(m.sid, m.tipo, m.tile); }
   };
   stage.addEventListener('pointerup', finisci); stage.addEventListener('pointercancel', finisci);
   stage.addEventListener('wheel', e => {
     if (stretto.matches || e.target.closest('.settori-box')) return;   // sopra la fila dei settori scorre la fila, non l'orbita
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.2 && Math.abs(e.deltaX) > 1) { e.preventDefault(); gira(-e.deltaX / rxAtt * 0.9); }
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.2 && Math.abs(e.deltaX) > 1) { e.preventDefault(); gira(-e.deltaX / rxAtt * 0.9); verso = e.deltaX < 0 ? 1 : -1; }
   }, { passive: false });
   // frecce: una spinta che fa scorrere di un mockup con la stessa inerzia del gesto; più clic = più slancio
   $$('[data-giro]').forEach(b => b.addEventListener('click', () => {
     const dir = Number(b.dataset.giro), passo = (Math.PI * 2) / (mock.length || 12);
+    verso = dir > 0 ? 1 : -1;
     if (riduci.matches) { ang += dir * passo; posaOrbita(); } else omega += dir * passo * ATTRITO;
   }));
 
@@ -337,34 +344,60 @@
     fila.addEventListener('click', e => { if (mosso) { e.preventDefault(); e.stopPropagation(); mosso = false; } }, true);   // dopo un trascinamento il «clic» non sceglie un settore
   })();
 
-  /* ───────────────────────── Contatto ───────────────────────── */
+  /* ───────────────────────── Preventivo guidato (finestra di contatto a 4 passi) ───────────────────────── */
   const dlg = $('[data-contatto]'), form = $('[data-form]'), grazie = $('[data-grazie]'), errore = $('[data-errore]');
   const WA = '393454517186';
-  function apriContatto() {
+  const passi = $$('[data-passo]', form), nTxt = $('[data-qz-n]'), barra = $('[data-qz-barra]');
+  const Q = { servizio: '', tempi: '' };
+  const SERV = { landing: 'Landing page', vetrina: 'Sito vetrina', negozio: 'Negozio online', gestionale: 'Gestionale', app: 'App', marketing: 'Marketing' };
+  let passo = 1;
+  const campoSett = form.elements.settore, chips = $$('[data-chip]');
+  const segna = (attr, val) => $$('[' + attr + ']', form).forEach(b => b.setAttribute('aria-pressed', String(b.getAttribute(attr) === val)));
+  const segnaChip = () => chips.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.chip === campoSett.value.trim())));
+  function vaiPasso(n, fuoco = true) {
+    passo = Math.max(1, Math.min(4, n));
+    passi.forEach(s => { s.hidden = Number(s.dataset.passo) !== passo; });
+    nTxt.textContent = 'Passo ' + passo + ' di 4';
+    barra.style.width = (passo * 25) + '%';
+    errore.hidden = true;
+    if (fuoco) { const el = passi[passo - 1].querySelector(passo === 4 ? 'input[name="nome"]' : passo === 2 ? 'input[name="settore"]' : 'button'); if (el) el.focus({ preventScroll: true }); }
+  }
+  function apriContatto(opz = {}) {
     form.hidden = false; grazie.hidden = true; errore.hidden = true;
-    if (stato.sel) form.elements.settore.value = SETTORI[stato.sel].label;
-    segnaChip();
+    Q.servizio = opz.servizio || ''; Q.tempi = '';
+    campoSett.value = opz.settore || (stato.sel ? SETTORI[stato.sel].label : '');
+    segna('data-servizio', Q.servizio); segna('data-tempi', ''); segnaChip();
     contattoAperto = true;
     if (!dlg.open) dlg.showModal();
-    form.elements[stato.sel ? 'nome' : 'settore'].focus();
+    vaiPasso(Q.servizio ? (campoSett.value ? 3 : 2) : 1);
   }
-  $$('[data-apri-contatto]').forEach(b => b.addEventListener('click', apriContatto));
+  $$('[data-apri-contatto]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); apriContatto({ servizio: b.dataset.servizio ? SERV[b.dataset.servizio] : '' }); }));
   $$('[data-chiudi-contatto]').forEach(b => b.addEventListener('click', () => { if (dlg.open) dlg.close(); }));
-  // i settori come «chip»: un tocco compila il campo; se scrivi altro nel campo si spengono
-  const chips = $$('[data-chip]'), campoSett = form.elements.settore;
-  const segnaChip = () => chips.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.chip === campoSett.value.trim())));
+  dlg.addEventListener('close', () => { contattoAperto = false; });
+  // passo 1 e 3: una scelta e si va avanti da soli
+  $$('[data-servizio]', form).forEach(b => b.addEventListener('click', () => { Q.servizio = b.dataset.servizio; segna('data-servizio', Q.servizio); setTimeout(() => vaiPasso(2), riduci.matches ? 0 : 200); }));
+  $$('[data-tempi]', form).forEach(b => b.addEventListener('click', () => { Q.tempi = b.dataset.tempi; segna('data-tempi', Q.tempi); setTimeout(() => vaiPasso(4), riduci.matches ? 0 : 200); }));
+  // passo 2: i settori come «chip», o scritto a mano
   chips.forEach(b => b.addEventListener('click', () => { campoSett.value = b.dataset.chip; segnaChip(); }));
   campoSett.addEventListener('input', segnaChip);
-  dlg.addEventListener('close', () => { contattoAperto = false; });
+  $('[data-qz-avanti]', form).addEventListener('click', () => vaiPasso(3));
+  $$('[data-qz-indietro]', form).forEach(b => b.addEventListener('click', () => vaiPasso(passo - 1)));
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const f = form.elements, nome = f.nome.value.trim(), contatto = f.contatto.value.trim();
+    const f = form.elements, nome = f.nome.value.trim(), contatto = f.contatto.value.trim(), sett = campoSett.value.trim();
     if (!nome || !contatto) { errore.hidden = false; (nome ? f.contatto : f.nome).focus(); return; }
     errore.hidden = true;
-    const righe = ['Ciao, sono ' + nome + '.', f.settore.value.trim() && ('Settore: ' + f.settore.value.trim() + '.'), f.msg.value.trim() && ('Il progetto: ' + f.msg.value.trim()), 'Mi trovi qui: ' + contatto + '.', '(dalla promo da 499 €)'].filter(Boolean);
+    const righe = ['Ciao, sono ' + nome + '.', Q.servizio && ('Mi serve: ' + Q.servizio + '.'), sett && ('Attività: ' + sett + '.'), Q.tempi && ('Tempi: ' + Q.tempi + '.'), f.msg.value.trim() && ('Il progetto: ' + f.msg.value.trim().replace(/[.!?]+$/, '') + '.'), 'Mi trovi qui: ' + contatto + '.', Q.servizio === 'Landing page' && '(dalla promo da 499 €)'].filter(Boolean);
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(righe.join(' ')), '_blank', 'noopener');
     form.hidden = true; grazie.hidden = false;
   });
+  // arrivo da una pagina dei servizi: ?preventivo=landing (e, se c'è, &settore=Ristorante) apre il preventivo già impostato
+  (() => {
+    const q = new URLSearchParams(location.search), p = q.get('preventivo');
+    if (p === null) return;
+    history.replaceState(null, '', location.pathname + (q.get('tema') ? '?tema=' + q.get('tema') : '') + location.hash);
+    setTimeout(() => apriContatto({ servizio: SERV[p] || '', settore: q.get('settore') || '' }), 350);
+  })();
 
   /* ───────────────────────── Vetrina: la pagina intera del sito, da scorrere ───────────────────────── */
   const vet = $('[data-vetrina]'), vSc = $('[data-v-scorri]'), vPag = $('[data-v-pagina]'), vCorpo = $('[data-v-corpo]');
@@ -471,8 +504,13 @@
       if (!su) for (const s of invertite) { const r = s.getBoundingClientRect(); if (r.top <= 38 && r.bottom > 38) { su = true; break; } }
       nav.classList.toggle('su-lavori', su);
     };
-    addEventListener('scroll', () => { if (!attesa) { attesa = true; requestAnimationFrame(aggiorna); } }, { passive: true });
-    addEventListener('resize', aggiorna); aggiorna();
+    const nascondi = () => {            // il menu c'è solo in cima: appena si scorre scompare (e si chiude), tornando in cima ricompare
+      const lontano = scrollY > 80;
+      if (lontano && menu.classList.contains('aperto')) imposta(false);
+      nav.classList.toggle('nascosto', lontano);
+    };
+    addEventListener('scroll', () => { nascondi(); if (!attesa) { attesa = true; requestAnimationFrame(aggiorna); } }, { passive: true });
+    addEventListener('resize', aggiorna); aggiorna(); nascondi();
   })();
 
   /* ───────────────────────── Tema (provvisorio, per confrontare) ───────────────────────── */
@@ -492,4 +530,29 @@
   addEventListener('resize', () => { misura(); if (!stretto.matches) posaOrbita(); });
   if ('IntersectionObserver' in window) new IntersectionObserver(es => { visibile = es[0].isIntersecting; }, { threshold: 0 }).observe($('[data-stage]'));
   raf = requestAnimationFrame(tick);
+
+  /* data-ang-scala · dispositivi con schermate in prospettiva: disegnati a larghezza fissa, scalati alla larghezza reale */
+  const angoli = [...document.querySelectorAll('.ang')];
+  if (angoli.length) {
+    const adatta = a => a.style.setProperty('--s', (a.getBoundingClientRect().width / (+a.dataset.w || 2000)).toFixed(5));
+    angoli.forEach(adatta);
+    if ('ResizeObserver' in window) { const ro = new ResizeObserver(es => es.forEach(x => adatta(x.target))); angoli.forEach(a => ro.observe(a)); }
+    else addEventListener('resize', () => angoli.forEach(adatta));
+  }
+
+  // Promo a tempo: finestra una volta per visita (non più la striscia in cima). Parte dopo 1,6 s, mai sopra al modulo di contatto o a un arrivo da pagina servizio.
+  (function () {
+    const pop = $('[data-promo-pop]'); if (!pop) return;
+    let visto = false; try { visto = sessionStorage.getItem('zul-promo') === '1'; } catch (e) {}
+    const q = new URLSearchParams(location.search);
+    const chiudi = () => { if (pop.hidden) return; pop.hidden = true; document.documentElement.style.overflow = ''; try { sessionStorage.setItem('zul-promo', '1'); } catch (e) {} };
+    $$('[data-promo-chiudi]', pop).forEach(b => b.addEventListener('click', chiudi));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudi(); });
+    if (visto || q.has('preventivo')) return;
+    setTimeout(() => {
+      if (dlg && dlg.open) return;
+      pop.hidden = false; document.documentElement.style.overflow = 'hidden';
+      const c = $('.cta', pop); if (c) c.focus({ preventScroll: true });
+    }, 1600);
+  })();
 })();

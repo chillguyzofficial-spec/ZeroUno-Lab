@@ -1,0 +1,18 @@
+/* ═══ Menù a barra piena (14/11): logo a sinistra, voci al centro, Preventivo a destra; si adatta chiaro/scuro ═══ */
+header.nav { --nci: #0A0A0A; --ncb: #FAFAFA; --nlat: clamp(20px, 4vw, 64px); position: sticky !important; top: 0 !important; height: 72px !important; margin: 0 !important; padding: 0 var(--nlat) !important; border: 0 !important; border-radius: 0 !important; background: var(--ncb) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: none !important; transition: background .3s, transform .4s cubic-bezier(.2,.7,.2,1), opacity .3s; }
+header.nav.nav-sc { --nci: #FFFFFF; --ncb: #000000; }
+header.nav::after { content: ''; position: absolute; left: var(--nlat); right: var(--nlat); bottom: 0; height: 1px; background: color-mix(in srgb, var(--nci) 16%, transparent); pointer-events: none; }
+header.nav .logo img, html[data-tema] header.nav .logo img { filter: none !important; }
+header.nav .menu-voci a { font-weight: 500; opacity: .72; transition: opacity .2s; }
+header.nav .menu-voci a:hover, header.nav .menu-voci a:focus-visible { opacity: 1; }
+header.nav .nav-prev { background: var(--nci) !important; color: var(--ncb) !important; min-height: 46px; padding: 0 28px; border-radius: 999px; font-size: 14px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; box-shadow: none !important; filter: none; }
+@media (min-width: 900px) { header.nav .menu-voci { justify-self: center; } header.nav .menu-voci a { padding: 0 16px; } }
+@media (max-width: 899px) { header.nav { height: 60px !important; --nlat: 16px; } header.nav .nav-prev { min-height: 40px; padding: 0 18px; font-size: 13px; } }
+
+/* taglia più piccola, come il riferimento (15/11): barra 64 px, logo e pulsante più piccoli, voci leggere, la pagina attuale in evidenza */
+header.nav { --nlat: clamp(20px, 5.8vw, 96px); height: 64px !important; }
+header.nav .logo img { height: 21px !important; width: auto !important; }
+header.nav .menu-voci a { font-size: 14.5px; font-weight: 400; min-height: 40px; padding: 0 15px; opacity: .6; letter-spacing: .005em; }
+header.nav .menu-voci a.att, header.nav .menu-voci a:hover, header.nav .menu-voci a:focus-visible { opacity: 1; }
+header.nav .nav-prev { min-height: 38px; padding: 0 24px; font-size: 12.5px; font-weight: 400; letter-spacing: .08em; }
+@media (max-width: 899px) { header.nav { height: 56px !important; --nlat: 16px; } header.nav .logo img { height: 19px !important; } header.nav .nav-prev { min-height: 36px; padding: 0 16px; font-size: 12px; } }
