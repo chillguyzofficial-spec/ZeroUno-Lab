@@ -281,3 +281,7 @@ html[data-tema="bn"] .mk-r__raccordo { background:#0A0A0A; }
 
 /* la sezione nera finisce con la sua curva e subito il bianco: niente fascia grigia in mezzo */
 html[data-tema="bn"] .mk-r__raccordo path { fill: #fff; }
+
+/* Apertura: post (immagine di Codex) intero, con il telefono che lo sfiora ma non copre didascalia e pulsante */
+.mk-r__hero-ad{width:64%}.mk-r__hero-phone{width:38%}
+@media(max-width:900px){.mk-r__hero-ad{width:66%}.mk-r__hero-phone{width:38%;right:12px}}
