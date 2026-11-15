@@ -71,6 +71,9 @@
     { nome: 'Cento Respiri', cat: 'Sito + app / Pilates · Torino', stato: 'Dimostrativo', img: 'hq/centorespiri-pc', riga: 'Sito, area clienti e app da installare con un solo account: lista d’attesa, carnet e buoni regalo.', tag: ['Un solo account', 'Lista d’attesa', 'QR all’ingresso'], sito: 'fitness' },
     { nome: 'Carico', cat: 'App + gestionale / Personal trainer', stato: 'Dimostrativo', img: 'hq/carico-pc', riga: 'L’app per l’atleta con la scheda dell’allenamento e i progressi; il gestionale del coach da computer, collegato all’app.', tag: ['Scheda allenamento', 'Video della tecnica', 'Gestionale del coach'], sito: 'trainer' }
   ];
+  // Apertura 01: Hedoné (il primo) sta al centro del carosello, con tre progetti per lato
+  window.zulRuotato = document.documentElement.dataset.home === '01';
+  if (window.zulRuotato) LAVORI.unshift(...LAVORI.splice(-4));
 
   /* ── Disposizione dei mockup ── */
   const L = 'L', P = 'P';
@@ -446,7 +449,7 @@
     traccia.innerHTML = LAVORI.map((w, i) =>
       `<li class="car-scheda" data-i="${i}"><button type="button" class="car-bottone" aria-label="${w.nome}, ${w.cat.replace(' / ', ', ')}: apri il progetto"><span class="car-cornice"><img src="${w.img.startsWith('hq/') ? '../assets/img/' : IMGL}${w.img}.webp" width="${w.w || 1920}" height="${w.h || 1200}" alt="${w.nome}, la pagina d’apertura sul computer" draggable="false" loading="lazy" decoding="async"><span class="car-stato">${w.stato}</span><span class="car-apri" aria-hidden="true">Apri il progetto <i>↗</i></span></span></button><div class="car-info"><div class="car-riga"><p class="car-nome">${w.nome}</p><p class="car-cat">${w.cat.replace(' / ', ' <span aria-hidden="true">/</span> ')}</p></div><p class="car-desc">${w.riga}</p><ul class="car-tag">${w.tag.map(t => `<li>${t}</li>`).join('')}</ul></div></li>`).join('');
     const schede = $$('.car-scheda', traccia);
-    let ia = 0, base = 0, trascinando = null, mossa = false, tRuota = 0;
+    let ia = document.documentElement.dataset.home === '01' ? Math.floor(LAVORI.length / 2) : 0, base = 0, trascinando = null, mossa = false, tRuota = 0;
     function posiziona(extra = 0) {
       const sw = schede[0].offsetWidth, gap = parseFloat(getComputedStyle(traccia).columnGap) || 24;
       base = (vista.clientWidth - sw) / 2 - ia * (sw + gap);
@@ -458,6 +461,7 @@
       posiziona();
     }
     function vai(n) { ia = mod(n, LAVORI.length); aggiorna(); }
+    window.zulLavoriMezzo = () => { traccia.style.transition = 'none'; ia = Math.floor(LAVORI.length / 2); aggiorna(); traccia.offsetHeight; traccia.style.transition = ''; };   // Apertura 01: i progetti partono dalla slide di mezzo, con le vicine ai lati
     $('[data-lav-prec]').addEventListener('click', () => vai(ia - 1));
     $('[data-lav-succ]').addEventListener('click', () => vai(ia + 1));
     vista.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { vai(ia + 1); e.preventDefault(); } else if (e.key === 'ArrowLeft') { vai(ia - 1); e.preventDefault(); } });

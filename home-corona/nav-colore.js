@@ -66,5 +66,5 @@
 (function () {
   if (!('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('fuori', !e.isIntersecting); }); }, { rootMargin: '80px' });
-  ['.hv-open', '.sc-intro', '.ap-hero', '.gz-hero', '.sv-hero', '.apertura', '.mk-r__hero', '.hv-marq', '.sv-strip', '.ap-nastro'].forEach(function (s) { document.querySelectorAll(s).forEach(function (el) { io.observe(el); }); });
+  ['.hv-open', '.sc-intro', '.ap-hero', '.gz-hero', '.sv-hero', '.apertura', '.mk-r__hero', '.lavori', '.hv-marq', '.sv-strip', '.ap-nastro'].forEach(function (s) { document.querySelectorAll(s).forEach(function (el) { io.observe(el); }); });
 })();
