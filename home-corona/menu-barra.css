@@ -165,3 +165,38 @@ header.nav .logo img { height: 19px !important; }
   .carta-fin .cf-testo { align-items: center; text-align: center; }
   .carta-fin .chiusura-az { justify-content: center; }
 }
+
+/* MENU da telefono: toccando «Servizi» scattava la regola del PC (focus-within / hover) che sposta il sottomenu del 50% a sinistra e lo taglia. Qui resta sempre in colonna, dentro il pannello. */
+@media (max-width: 899px) {
+  header.nav .menu .voce-sotto .sottomenu, header.nav .menu .voce-sotto:hover .sottomenu, header.nav .menu .voce-sotto:focus-within .sottomenu {
+    position: static !important; left: auto !important; top: auto !important; transform: none !important; opacity: 1 !important; visibility: visible !important;
+    min-width: 0 !important; width: auto !important; margin: 0 !important; padding: 0 0 6px 14px !important; background: none !important; box-shadow: none !important; transition: none !important;
+  }
+  header.nav .menu-voci { max-height: calc(100svh - var(--nav-h, 52px) - 24px); overflow-y: auto !important; overscroll-behavior: contain; }
+}
+
+/* SFONDI A TUTTO SCHERMO da telefono (niente riquadri con margini): Landing e Team */
+@media (max-width: 899px) {
+  /* Landing: l'immagine è lo sfondo dell'intera apertura, il testo sta sopra su una sfumatura scura */
+  html[data-tema] .sv-hero.pagina-fisica { padding: 0 !important; }
+  html[data-tema] .sv-hero.pagina-fisica .sv-hero-in { position: static; height: var(--av); min-height: var(--av); align-content: start; padding: 22px 20px 0; box-sizing: border-box; overflow: visible; }
+  html[data-tema] .sv-hero.pagina-fisica .sfondo-pagina-mobile {
+    position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; max-width: none !important; margin: 0 !important;
+    object-fit: cover; object-position: 62% 100%; border-radius: 0 !important; z-index: -2; grid-column: auto;
+  }
+  html[data-tema] .sv-hero.pagina-fisica::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(to bottom, #09090B 0%, #09090B 34%, rgba(9,9,11,.78) 50%, rgba(9,9,11,.18) 72%, rgba(9,9,11,0) 100%); }
+  html[data-tema] .sv-hero.pagina-fisica .sv-hero-testo { position: relative; z-index: 1; }
+
+  /* Team: il ponte occupa tutta la larghezza dello schermo, solo titolo e testi hanno i margini */
+  .tm-ponte-in { padding-inline: 0 !important; }
+  .tm-ponte h1, .tm-ponte-intro { padding-inline: 20px; box-sizing: border-box; }
+  .tm-ponte-scena { margin-inline: 0; width: 100%; }
+  .tm-ponte-scena img { width: 100%; object-fit: cover; }
+}
+@media (max-width: 899px) {
+  html[data-tema] .sv-hero.pagina-fisica { background: #09090B !important; }
+  html[data-tema] .sv-hero.pagina-fisica .sfondo-pagina-mobile { object-fit: contain; object-position: 50% 100%; }
+  html[data-tema] .sv-hero.pagina-fisica::after { background: linear-gradient(to bottom, #09090B 0%, #09090B 36%, rgba(9,9,11,.7) 50%, rgba(9,9,11,0) 66%); }
+  html[data-tema] .sv-hero.pagina-fisica .sv-hero-in { padding-top: 16px; }
+}

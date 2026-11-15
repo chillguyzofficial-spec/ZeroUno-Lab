@@ -1111,3 +1111,7 @@ html[data-tema] main > section.tm-ponte { background: #0B0B0D !important; color:
 @media(max-width:760px){.gl-corpo{grid-template-columns:1fr;min-height:0}.gl-nav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid #e8e6e1;padding:8px}.gl-nav button{flex:none;gap:6px;padding:0 14px}.gl-ic{display:none}.gl-ks{grid-template-columns:1fr}.gl-als{grid-template-columns:1fr}.gl-srch-t,.gl-srch kbd,.gl-bar-h{display:none}.hm{display:none}.gl-plot{height:190px;margin-left:34px}.gl-dr{width:100%;top:auto;max-height:80%;border-left:0;border-top:1px solid #e4e2dd;border-radius:18px 18px 0 0}.gl-top h3{font-size:30px}.gl-toasts{left:14px;justify-items:stretch}}
 @media(prefers-reduced-motion:reduce){.gl-bar,.gl-dr,.gl-toast,.gl-live i{animation:none}}
 @media(max-width:760px){.gl-plot.dens .gl-col:nth-child(even) em{display:none}.gl-col em{font-size:12px}.gl-srch,.gl-bell,.gl-av{flex:none}.gl-srch{min-width:40px;justify-content:center}.gl-seg-s button,.gl-nav button{min-height:40px}}
+
+/* mosaici: mai riquadri bianchi vuoti mentre le immagini arrivano */
+.hv-sl,.hv-sl img,.sc-deriva img{background:#ECEAE4}
+.hv-sl img,.sc-deriva img{min-height:1px}
