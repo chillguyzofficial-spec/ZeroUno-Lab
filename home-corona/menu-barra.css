@@ -222,3 +222,10 @@ html[data-tema="bn"] .sv-hero.pagina-fisica .sv-hero-testo { animation: none !im
   .hv-open .hv-vel { background: linear-gradient(to bottom, var(--paper) 0, color-mix(in srgb, var(--paper) 80%, transparent) 60px, transparent 120px), radial-gradient(ellipse 140% 31% at 50% 50%, var(--paper) 0%, color-mix(in srgb, var(--paper) 96%, transparent) 55%, color-mix(in srgb, var(--paper) 55%, transparent) 82%, transparent 100%) !important; }
   .hv-open .hv-fronte h1, .hv-open .hv-fronte .lav-occhiello { text-shadow: 0 0 10px var(--paper), 0 0 22px var(--paper); }
 }
+
+/* Mosaico da telefono: livelli già sulla scheda grafica e senza sfarfallii di Safari/Chrome iOS (immagini ruotate in movimento) */
+@media (max-width: 899px) {
+  .hv-bg { transform: rotate(-7deg) scale(1.08) translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+  .hv-arch2 .hv-nastro, .hv-arch2 .hv-sl, .hv-arch2 .hv-sl img { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+  .hv-arch2 .hv-sl img { image-rendering: auto; }
+}
