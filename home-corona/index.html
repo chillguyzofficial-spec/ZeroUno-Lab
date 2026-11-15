@@ -146,6 +146,9 @@ html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 58px) - clam
   html[data-home="01"] .ap01-riga { margin-top: 22px; font-size: 19.5px !important; line-height: 1.5 !important; padding: 0 8px; }
   html[data-tema] .ap01-riga { font-weight: 500 !important; color: #fff !important; letter-spacing: 0 !important; text-shadow: 0 0 2px #000, 0 0 8px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.8) !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
   html[data-home="01"] .ap01-riga strong { font-weight: 800; color: #fff; }
+  html[data-home="01"][data-tema] .ap01-tech { font-size: 13.5px !important; font-weight: 800 !important; letter-spacing: .24em !important; color: #E4D6FF !important; text-shadow: 0 0 2px #000, 0 0 10px rgba(0,0,0,.95), 0 0 20px rgba(0,0,0,.8); -webkit-font-smoothing: antialiased; gap: 10px; }
+  html[data-home="01"][data-tema] .ap01-tech::before, html[data-home="01"][data-tema] .ap01-tech::after { width: 22px; height: 1.5px; background: linear-gradient(90deg, transparent, #C9A8FF); }
+  html[data-home="01"][data-tema] .ap01-tech::after { background: linear-gradient(90deg, #C9A8FF, transparent); }
   html[data-home="01"] .ap01-pr { margin-top: auto; }
   html[data-home="01"] .ap01-cta { margin-top: 14px; }
   html[data-home="01"] .ap01 h1 { font-size: clamp(44px, 12.6vw, 60px) !important; }
