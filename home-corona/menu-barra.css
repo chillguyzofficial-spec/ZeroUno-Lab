@@ -216,3 +216,9 @@ html[data-tema="bn"] .sv-hero.pagina-fisica .sv-hero-testo { animation: none !im
 }
 /* il pulsante WhatsApp resta fermo (era un'animazione continua, poco sobria e pesante durante lo scorrimento) */
 .wa-fisso, a.wa-fisso, html body a.wa-fisso.wa-fisso.wa-fisso { animation: none !important; }
+
+/* Aperture con mosaico (Sito vetrina, Negozio): da telefono il testo si legge, il velo copre tutta la larghezza dietro il blocco di testo e le schede non lo attraversano */
+@media (max-width: 899px) {
+  .hv-open .hv-vel { background: linear-gradient(to bottom, var(--paper) 0, color-mix(in srgb, var(--paper) 80%, transparent) 60px, transparent 120px), radial-gradient(ellipse 140% 31% at 50% 50%, var(--paper) 0%, color-mix(in srgb, var(--paper) 96%, transparent) 55%, color-mix(in srgb, var(--paper) 55%, transparent) 82%, transparent 100%) !important; }
+  .hv-open .hv-fronte h1, .hv-open .hv-fronte .lav-occhiello { text-shadow: 0 0 10px var(--paper), 0 0 22px var(--paper); }
+}
