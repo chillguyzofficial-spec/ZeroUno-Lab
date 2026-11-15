@@ -61,3 +61,10 @@
   function s() { r.classList.toggle('oltre', scrollY > innerHeight * .45); }
   addEventListener('scroll', s, { passive: true }); addEventListener('resize', s); s();
 })();
+
+/* animazioni infinite in pausa quando l'apertura (o la fascia che scorre) è fuori dallo schermo */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('fuori', !e.isIntersecting); }); }, { rootMargin: '80px' });
+  ['.hv-open', '.sc-intro', '.ap-hero', '.gz-hero', '.sv-hero', '.apertura', '.mk-r__hero', '.hv-marq', '.sv-strip', '.ap-nastro'].forEach(function (s) { document.querySelectorAll(s).forEach(function (el) { io.observe(el); }); });
+})();
