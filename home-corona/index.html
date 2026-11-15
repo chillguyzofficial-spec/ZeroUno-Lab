@@ -140,7 +140,13 @@ html[data-home="01"] .ap01-scena { margin-bottom: -1px; }
 html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 58px) - clamp(70px, 11svh, 110px)) !important; padding-bottom: 8px; }
 @media (max-width: 899px) {
   html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 52px) - 118px) !important; height: calc(100svh - var(--nav-h, 52px) - 118px); place-items: stretch center; padding: 12px 20px 22px; }
-  html[data-home="01"] .ap01-corpo { justify-content: space-evenly; gap: 0; }
+  html[data-home="01"] .ap01-corpo { justify-content: flex-start; gap: 0; }
+  html[data-home="01"] .ap01-tech { margin-top: auto; }
+  html[data-home="01"] .ap01 h1 { margin-top: auto; }
+  html[data-home="01"] .ap01-riga { margin-top: 22px; font-size: 19.5px !important; line-height: 1.5 !important; padding: 0 8px; }
+  html[data-home="01"] .ap01-riga strong { font-weight: 700; color: #fff; }
+  html[data-home="01"] .ap01-pr { margin-top: auto; }
+  html[data-home="01"] .ap01-cta { margin-top: 14px; }
   html[data-home="01"] .ap01 h1 { font-size: clamp(44px, 12.6vw, 60px) !important; }
 }
 /* Apertura 01 · da telefono la descrizione si legge sopra le cifre: più grande, più chiara, con alone scuro e margini che stanno lontani dalle colonne di 0/1 */
@@ -300,7 +306,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
   <div class="ap01-corpo">
     <p class="ap01-tech">Siti · App · Marketing</p>
     <h1>Il sito che i tuoi clienti <em>ricorderanno</em>.</h1>
-    <p class="ap01-riga">Siti, app e pubblicità pensati insieme per portarti più contatti, prenotazioni e vendite. Parli direttamente con chi li&nbsp;costruisce.</p>
+    <p class="ap01-riga"><strong>Siti, app e pubblicità</strong> pensati insieme per portarti <strong>più contatti, prenotazioni e vendite</strong>. <strong>Parli direttamente</strong> con chi li&nbsp;costruisce.</p>
     <div class="ap01-pr" role="status" aria-label="Promozione in corso"><span class="ap01-pr-e"><i aria-hidden="true"></i>Promo fino al 31 dicembre</span><span class="ap01-pr-r" aria-live="off"><span class="ap01-pr-t"><span><b>Landing page</b> da <strong>299€</strong></span><span><b>Sito vetrina</b> da <strong>499€</strong></span><span><b>Negozio online</b> da <strong>699€</strong></span><span><b>Landing page</b> da <strong>299€</strong></span></span></span></div>
     <button type="button" class="ap01-cta" data-apri-contatto><span>Parlaci del tuo progetto</span><span aria-hidden="true">↗</span></button>
   </div>
