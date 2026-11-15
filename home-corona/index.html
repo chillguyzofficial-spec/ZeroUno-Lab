@@ -138,7 +138,9 @@ html[data-home="01"] .ap01-scena { margin-bottom: -1px; }
 
 /* Apertura 01 · l'apertura lascia intravedere la prima slide: i progetti sembrano la sua continuazione */
 html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 58px) - clamp(70px, 11svh, 110px)) !important; padding-bottom: 8px; }
-@media (max-width: 899px) { html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 52px) - 150px) !important; padding-top: 6px; } }
+@media (max-width: 899px) { html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 52px)) !important; padding-top: 18px; padding-bottom: 18px; } }
+/* Apertura 01 · da telefono la descrizione si legge sopra le cifre: più grande, più chiara, con alone scuro e margini che stanno lontani dalle colonne di 0/1 */
+@media (max-width: 899px) { html[data-tema] .ap01-riga { font-size: 17.5px !important; font-weight: 400 !important; line-height: 1.55 !important; color: #F1EEFA !important; padding: 0 14px; text-shadow: 0 0 6px #000, 0 0 14px #000, 0 0 26px #000; text-wrap: balance; } }
 
 /* Apertura 01 · sfondo sotto i progetti: aloni viola, punti sottili e un filo di luce */
 html[data-home="01"] .lavori { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(70% 55% at 12% 22%, rgba(111, 85, 219, .26), transparent 70%), radial-gradient(60% 50% at 90% 66%, rgba(140, 95, 240, .2), transparent 70%), radial-gradient(90% 40% at 50% 112%, rgba(111, 85, 219, .22), transparent 70%), #05030F !important; }
