@@ -94,21 +94,22 @@
     nastri = { yMin: 140, yMax: 1105, righe: 9, pit: 19 };
   }
   function disegnaTel(tempo) {
-    const { yMin, yMax, righe, pit } = nastri, L = yMax - yMin, per = Math.floor(L / pit);
+    const { yMin, yMax, righe, pit } = nastri, LO = yMax - yMin, L = RH, per = Math.floor(L / pit);   // L = altezza reale; la forma (bordo) resta quella disegnata in LO
     {
       const dir = 1;
       for (let k = 0; k < righe; k++) {
         const t = (k + 1) / righe;
         const off = (k % 3) * 4.3 + hash(k, 3) % 6;
         for (let j = 0; j < per; j++) {
-          let y = yMin + (((j * pit + off + dir * tempo * 26) % L) + L) % L;
-          const xo = bordo(y);
+          let y = (((j * pit + off + dir * tempo * 26) % L) + L) % L;
+          const yo = yMin + y / L * LO;
+          const xo = bordo(yo);
           if (xo < 3) continue;
           let x = xo * (0.1 + 0.9 * t);
-          const f = Math.min(1, (y - yMin) / 70, (yMax - y) / 70);
+          const f = Math.min(1, y / 70, (L - y) / 70);
           const larg = xo / 137;
           const liv = Math.max(1, Math.min(LIVELLI, Math.round(1 + larg * 3.2 + t * 2)));
-          const centro = Math.exp(-Math.pow((y - 700) / 170, 2));
+          const centro = Math.exp(-Math.pow((yo - 700) / 170, 2));
           const h = hash(j, k + 40);
           let tinta = t < 0.4 ? 2 : 0, al = (0.45 + 0.55 * t) * f;
           if (centro > 0.35 && t > 0.7) { tinta = 1; al = (0.9) * f; }
@@ -124,6 +125,7 @@
     mobile = window.innerWidth < 768;
     RW = mobile ? 852 : 1672; RH = mobile ? 1846 : 941;
     const w = Math.min(scena.clientWidth || window.innerWidth, mobile ? 767 : 1700);
+    if (mobile && scena.clientHeight > 200) RH = RW * scena.clientHeight / w;   // telefono: le fasce coprono tutta l'altezza reale dell'apertura
     dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 1);
     const h = w * RH / RW;
     cv.style.width = w + 'px'; cv.style.height = h + 'px';
