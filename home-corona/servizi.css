@@ -1292,10 +1292,6 @@ html[data-tema] main > section.tm-ponte { background: #0B0B0D !important; color:
 }
 @media (max-width: 760px) { .lp-foglio .lp-esempio { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 88%, transparent 100%), linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%) !important; mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 88%, transparent 100%), linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%) !important; -webkit-mask-composite: source-in !important; mask-composite: intersect !important; } .lp-foglio .lp-esempio img { object-fit: cover !important; } }
 
-/* Angolo vero: il foglio sotto è intero (angolo non tagliato) e si vede dove il foglio sopra è piegato; la sua piega compare solo quando passa in cima */
-.lp-foglio.lp-sotto-pila { clip-path: none !important; }
-.lp-foglio.lp-sotto-pila .lp-piega { display: none !important; }
-.lp-hero { background: #12100E; }
 /* telefono: l'esempio sta in basso */
 @media (max-width: 760px) { .lp-foglio .lp-esempio { top: auto !important; bottom: 44px !important; height: 40% !important; } }
 /* sfumatura più leggera: l'esempio resta nitido */
