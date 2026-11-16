@@ -1297,3 +1297,33 @@ html[data-tema] main > section.tm-ponte { background: #0B0B0D !important; color:
 /* sfumatura più leggera: l'esempio resta nitido */
 @media (min-width: 761px) { .lp-foglio .lp-esempio { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 94%, transparent 100%), linear-gradient(180deg, transparent 0, #000 4%, #000 96%, transparent 100%) !important; mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 94%, transparent 100%), linear-gradient(180deg, transparent 0, #000 4%, #000 96%, transparent 100%) !important; } }
 @media (max-width: 760px) { .lp-foglio .lp-esempio { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 10%, #000 94%, transparent 100%), linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%) !important; mask-image: linear-gradient(180deg, transparent 0, #000 10%, #000 94%, transparent 100%), linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%) !important; } }
+
+/* Landing: niente barra «Cambia colore»; telefono a schermo intero (apertura = schermo - barra), esempio in basso */
+.lp-colori { display: none !important; }
+@media (max-width: 760px) {
+  .lp-hero, .lp-pila { min-height: 0 !important; height: calc(100svh - var(--nav-h, 52px)) !important; }
+  .lp-foglio .lp-stampa { padding-top: clamp(12px, 2.4svh, 22px); }
+  .lp-hero .lp-foglio h1, .lp-hero .lp-foglio .lp-h1 { font-size: clamp(32px, min(9.2vw, 5.4svh), 42px); margin-top: 8px; }
+  .lp-foglio .lp-freccia { font-size: clamp(28px, 4.6svh, 40px); margin: 0 0 2px; }
+  .lp-foglio .lp-sotto > p { font-size: clamp(14px, 2.1svh, 16px); margin-bottom: 10px; }
+  .lp-foglio .lp-cta { min-height: clamp(42px, 6svh, 48px); }
+  .lp-foglio .lp-esempio { bottom: 0 !important; height: 41% !important; }
+  .lp-foglio .lp-piega { --pg: 54px; }
+}
+
+/* L'esempio è una zona a sé, di un tono diverso dal foglio: l'attenzione resta sul testo */
+.lp-foglio { --t: #E3DDD1; }
+.lp-foglio.lp-c1 { --t: #3B183B; }
+.lp-foglio.lp-c2 { --t: #221F1B; }
+.lp-foglio.lp-c3 { --t: #B8A7C2; }
+@media (min-width: 761px) {
+  .lp-foglio::before { content: ""; position: absolute; z-index: 0; right: 0; top: 0; bottom: 0; width: 52%; background: var(--t); pointer-events: none; }
+  .lp-foglio .lp-esempio { top: 8% !important; height: 84% !important; width: 52% !important; }
+}
+@media (max-width: 760px) {
+  /* telefono: il testo in alto, poi subito l'esempio su fondo di tono diverso, a riempire il resto */
+  .lp-foglio .lp-stampa, .lp-foglio .lp-sotto { flex: none; }
+  .lp-foglio .lp-esempio { position: relative !important; order: 5; flex: 1 1 auto; min-height: 0; margin-top: 14px; bottom: auto !important; left: auto !important; right: auto !important; top: auto !important; width: 100% !important; height: auto !important; background: var(--t) !important; -webkit-mask-image: none !important; mask-image: none !important; }
+  .lp-foglio .lp-esempio img { object-fit: cover !important; object-position: center top; }
+  .lp-foglio .lp-sotto { padding-bottom: 0; }
+}
