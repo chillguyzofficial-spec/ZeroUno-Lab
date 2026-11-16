@@ -4,6 +4,19 @@
 (function () {
   var root = document.getElementById('gzlive');
   if (!root) return;
+  /* da telefono il pannello parte chiuso: si apre con «Provalo» (non appesantisce la pagina) */
+  var sez = document.getElementById('pannello'), apri = document.getElementById('gzapri'), mq = matchMedia('(max-width: 760px)');
+  if (sez && apri) {
+    var imposta = function () { sez.classList.toggle('gz-comprimi', mq.matches); if (!mq.matches) root.classList.remove('gz-aperto'); };
+    imposta();
+    if (mq.addEventListener) mq.addEventListener('change', imposta);
+    apri.addEventListener('click', function () {
+      var on = !root.classList.contains('gz-aperto');
+      root.classList.toggle('gz-aperto', on); apri.setAttribute('aria-expanded', String(on));
+      apri.firstElementChild.textContent = on ? 'Chiudi' : 'Provalo';
+      if (on) { dispatchEvent(new Event('resize')); setTimeout(function () { apri.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, 60); }
+    });
+  }
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (s, c) { return (c || root).querySelector(s); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };

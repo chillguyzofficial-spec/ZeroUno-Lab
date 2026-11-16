@@ -229,3 +229,14 @@ html[data-tema="bn"] .sv-hero.pagina-fisica .sv-hero-testo { animation: none !im
   .hv-arch2 .hv-nastro, .hv-arch2 .hv-sl, .hv-arch2 .hv-sl img { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
   .hv-arch2 .hv-sl img { image-rendering: auto; }
 }
+
+/* Scheda finale «Da dove partiamo?»: blocco di testo centrato nella colonna; il paragrafo era nero su nero */
+.carta-fin .cf-testo { align-items: center; text-align: center; }
+.carta-fin .cf-testo .lav-sotto { color: #fff !important; opacity: .88; max-width: 40ch; margin-inline: auto; }
+.carta-fin .chiusura-az { justify-content: center; align-items: center; flex-direction: column; text-align: center; gap: 14px; }
+
+/* Comparse allo scorrimento (nav-colore.js): salgono piano, una volta */
+.rv-p { opacity: 0; transform: translateY(26px); }
+.rv-in { animation: rv-in .75s cubic-bezier(.2, .7, .2, 1) var(--rv-d, 0ms) backwards; }
+@keyframes rv-in { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rv-p { opacity: 1; transform: none; } .rv-in { animation: none; } }

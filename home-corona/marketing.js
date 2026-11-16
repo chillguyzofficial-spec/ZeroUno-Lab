@@ -9,6 +9,7 @@
     document.querySelectorAll('[data-sector]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sector === id)));
     q('img').src = s.immagine + V; q('tel').src = s.screenshot + V;
     q('ad').textContent = s.ad; q('cta').textContent = s.cta; q('msg').textContent = s.msg;
+    if (s.didPagina) q('pg').textContent = s.didPagina;
     q('img').alt = 'Visual illustrativo: ' + s.nome; q('tel').alt = 'Schermata del sito, esempio ' + s.nome;
   };
   document.querySelectorAll('[data-sector]').forEach(b => b.addEventListener('click', () => scegli(b.dataset.sector)));

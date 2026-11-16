@@ -68,3 +68,50 @@
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('fuori', !e.isIntersecting); }); }, { rootMargin: '80px' });
   ['.hv-open', '.sc-intro', '.ap-hero', '.gz-hero', '.sv-hero', '.apertura', '.mk-r__hero', '.lavori', '.hv-marq', '.sv-strip', '.ap-nastro'].forEach(function (s) { document.querySelectorAll(s).forEach(function (el) { io.observe(el); }); });
 })();
+
+/* ── Comparse allo scorrimento (tutto il sito): i blocchi sotto la prima schermata salgono piano quando entrano in vista.
+   Solo opacità + piccolo spostamento, una volta sola, niente sfocature; spente con «riduci movimento».
+   Non tocca ciò che ha già la sua entrata ([data-in]), la prima apertura, il piè di pagina, finestre e carosello. ── */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var VH = innerHeight, tutti = [];
+  var ESCLUDI = '[data-in],[data-in] *,dialog,dialog *,.piede,.piede *,.ponte,.mk-r__raccordo,.menu,.nav,header.barra,#apertura,#apertura *,.ap01-scena,.ap-scena,.car-vista,.carosello,.gz-live,.gz-live *,.wa-fisso,.cambia-tema,[hidden]';
+  function candidato(el) {
+    if (!el || el.nodeType !== 1 || el.matches(ESCLUDI)) return false;
+    var r = el.getBoundingClientRect();
+    return r.height > 20 && r.top > VH * 0.9; /* solo ciò che parte fuori schermo */
+  }
+  function figli(box) {
+    var out = [], k = box.children;
+    for (var i = 0; i < k.length; i++) {
+      var c = k[i], cs = getComputedStyle(c), n = c.children.length;
+      if (/^(SCRIPT|STYLE|SVG|BR)$/i.test(c.tagName) || cs.position === 'fixed' || cs.position === 'absolute' || cs.display === 'none') continue;
+      /* griglie e righe di schede/elenchi: si animano i singoli elementi, a cascata */
+      if ((cs.display === 'grid' || cs.display === 'flex' || /^(UL|OL)$/.test(c.tagName)) && n >= 2 && n <= 12 && !c.matches('[class*="carosello"],[class*="-vista"],[class*="-binario"]')) out.push({ el: c, kids: true });
+      else out.push({ el: c, kids: false });
+    }
+    return out;
+  }
+  function marca(el, d) { if (!candidato(el)) return; el.classList.add('rv-p'); el.style.setProperty('--rv-d', d + 'ms'); tutti.push(el); }
+  var sezioni = document.querySelectorAll('main > section, main > div > section, body > section');
+  Array.prototype.forEach.call(sezioni, function (s) {
+    if (s.matches(ESCLUDI)) return;
+    var box = s.querySelector(':scope > [class*="-in"], :scope > .sz-in, :scope > div') || s;
+    figli(box).forEach(function (f) {
+      if (f.kids) { Array.prototype.forEach.call(f.el.children, function (k, i) { marca(k, Math.min(i, 6) * 80); }); }
+      else marca(f.el, 0);
+    });
+  });
+  if (!tutti.length) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var t = e.target; io.unobserve(t);
+      t.classList.remove('rv-p'); t.classList.add('rv-in');
+      setTimeout(function () { t.classList.remove('rv-in'); t.style.removeProperty('--rv-d'); }, 1200);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+  tutti.forEach(function (el) { io.observe(el); });
+  /* rete di sicurezza: se per qualunque motivo qualcosa resta nascosto, dopo 6 secondi dalla comparsa del documento viene mostrato quando è in vista */
+  addEventListener('hashchange', function () { tutti.forEach(function (el) { el.classList.remove('rv-p'); }); });
+})();
