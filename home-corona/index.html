@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<script>try{var hq=new URLSearchParams(location.search).get("home"),hs=localStorage.getItem("zul-home"),hv="01";document.documentElement.setAttribute("data-home",hv)}catch(e){document.documentElement.setAttribute("data-home","01")}</script>
+<script>try{var q=new URLSearchParams(location.search).get("tema"),s=localStorage.getItem("corona-tema"),t="bn";if(q)localStorage.setItem("corona-tema",q);document.documentElement.setAttribute("data-tema","bn")}catch(e){document.documentElement.setAttribute("data-tema","bn")}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Uno Lab — Siti, app e marketing per la tua attività</title>
+<meta name="description" content="Zero Uno Lab realizza siti, app e marketing su misura, scritti da zero. Scegli il tuo settore e guarda cosa facciamo per te.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="../assets/img/icona-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/img/icona-180.png">
+<link rel="stylesheet" href="corona.css?v=353">
+<link rel="stylesheet" href="menu-barra.css?v=356">
+<style id="ap01-css">
+@font-face { font-family: "Manrope"; src: url(../assets/font/manrope.woff2) format("woff2"); font-weight: 200 800; font-display: swap; }
+.ap01-scena { position: relative; background: #000; isolation: isolate; overflow: hidden; }
+.ap01-scena::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url(../assets/img/orbita-pc.webp) center top / cover no-repeat; filter: saturate(1.9) hue-rotate(-8deg) brightness(1.08); pointer-events: none; }
+.ap01-scena.anelli-attivi::before { opacity: 0; }
+.ap01-scena .anelli { position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 0; pointer-events: none; display: block; }
+.ap01 { position: relative; z-index: 1; min-height: calc(100svh - var(--nav-h, 58px)); display: grid; place-items: center; padding: 28px 20px; box-sizing: border-box; color: #fff; font-family: "Manrope", var(--sans), sans-serif; }
+.ap01-corpo { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(14px, 2.6svh, 26px); max-width: 960px; }
+.ap01-tech { margin: 0; padding: 12px 22px; border: 1px solid rgba(190,160,255,.35); border-radius: 10px; background: rgba(12,10,24,.7); font: 500 13px/1 var(--mono, "JetBrains Mono", monospace); letter-spacing: .2em; text-transform: uppercase; color: #CDB7FF; }
+.ap01-tech b { font-weight: 500; color: #8f72f0; margin-right: 8px; }
+.ap01 h1 { margin: 0; font-family: "Manrope", sans-serif; font-weight: 700; font-size: clamp(38px, 6.2vw, 86px); line-height: 1.04; letter-spacing: -.035em; color: #fff; text-wrap: balance; }
+.ap01 h1 em { font-style: italic; color: #C9B5FF; }
+.ap01-riga { margin: 0; max-width: 52ch; font-size: clamp(16px, 1.45vw, 21px); line-height: 1.55; color: #D6D0E6; }
+.ap01-cta { display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 32px; border: 0; border-radius: 14px; background: #6D4DF2; color: #fff; font: 700 18px/1 "Manrope", sans-serif; cursor: pointer; box-shadow: 0 12px 40px -10px rgba(109,77,242,.8); transition: transform .2s, background .2s; }
+.ap01-cta:hover { transform: translateY(-2px); background: #7c5eff; }
+@media (max-width: 899px) {
+  .ap01-scena::before { background-image: url(../assets/img/orbita-mobile.webp); background-position: center; }
+  .ap01 { min-height: calc(100svh - var(--nav-h, 52px)); padding: 18px 20px; }
+  .ap01 h1 { font-size: clamp(34px, 10.2vw, 46px); }
+  .ap01-tech { font-size: 12px; padding: 10px 16px; letter-spacing: .16em; }
+  .ap01-cta { width: 100%; justify-content: center; }
+}
+@media (max-width: 899px) and (max-height: 700px) { .ap01-riga { display: none; } }
+html[data-tema] .ap01-scena { background: #000 !important; }
+html[data-tema] .ap01-scena .ap01 { background: transparent !important; color: #fff !important; }
+html[data-tema] .ap01 h1 { color: #fff !important; } html[data-tema] .ap01 h1 em { color: #C9B5FF !important; }
+html[data-tema] .ap01-riga { color: #D6D0E6 !important; } html[data-tema] .ap01-tech { color: #CDB7FF !important; }
+html[data-tema] .ap01 h1, html[data-tema] .ap01 h1 * { text-shadow: none !important; }
+html[data-tema] .ap01 h1 em { font-family: "Manrope", sans-serif !important; font-style: italic; font-weight: 600; letter-spacing: -.035em; }
+@media (max-width: 899px) { .ap01-scena .anelli { width: 100% !important; height: 100% !important; object-fit: cover; object-position: center; left: 0; transform: none; } }
+
+/* Apertura 01 · testo più elegante, firma diversa dall'altra versione, raccordo morbido con la sezione sotto */
+.ap01-scena { border-radius: 0 0 clamp(26px, 4.4vw, 64px) clamp(26px, 4.4vw, 64px); box-shadow: 0 34px 70px -34px rgba(120, 90, 235, .55); }
+.ap01-scena::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 0; height: 1px; z-index: 2; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(190, 160, 255, .75), transparent); box-shadow: 0 0 24px 2px rgba(150, 110, 255, .45); }
+html[data-tema] .ap01 h1 { font-family: "Instrument Serif", Georgia, serif !important; font-weight: 400 !important; font-size: clamp(44px, 6.3vw, 98px) !important; line-height: 1.0 !important; letter-spacing: -.022em !important; }
+html[data-tema] .ap01 h1 em { font-family: "Instrument Serif", Georgia, serif !important; font-style: italic; font-weight: 400 !important; letter-spacing: -.02em !important; color: #BFA6FF !important; }
+html[data-tema] .ap01-riga { font-weight: 300; font-size: clamp(16px, 1.4vw, 20px); letter-spacing: .01em; line-height: 1.65; color: #CFC8E6 !important; max-width: 50ch; }
+html[data-tema] .ap01-tech { font-size: 11.5px; letter-spacing: .26em; padding: 10px 20px; border-color: rgba(190, 160, 255, .28); border-radius: 999px; }
+html[data-tema] .ap01-cta { border-radius: 999px; font-weight: 600; font-size: 17px; letter-spacing: .01em; }
+@media (max-width: 899px) {
+  html[data-tema] .ap01 h1 { font-size: clamp(40px, 11.6vw, 54px) !important; }
+    .ap01-scena { border-radius: 0 0 28px 28px; }
+}
+
+/* Apertura 01 · viola più acceso */
+.ap01-scena::before { filter: saturate(3) hue-rotate(-12deg) brightness(1.25) contrast(1.1); }
+html[data-tema] .ap01 h1 em { color: #A66BFF !important; }
+html[data-tema] .ap01-tech { color: #B98CFF !important; border-color: rgba(166, 107, 255, .5); }
+html[data-tema] .ap01-tech b { color: #A66BFF; }
+html[data-tema] .ap01-cta { background: #7C4DFF !important; box-shadow: 0 14px 46px -8px rgba(140, 80, 255, .95), 0 0 0 1px rgba(190, 150, 255, .35) inset; }
+html[data-tema] .ap01-cta:hover { background: #8d63ff !important; }
+.ap01-scena::after { background: linear-gradient(90deg, transparent, #A66BFF, transparent); box-shadow: 0 0 30px 3px rgba(150, 80, 255, .7); }
+.ap01-scena { box-shadow: 0 34px 80px -30px rgba(140, 70, 255, .8); }
+
+/* Apertura 01 · prezzi in promo che scorrono */
+
+/* Apertura 01 · raccordo con la sezione sotto: bordo dritto e pulito, le cifre sfumano prima del fondo (niente angoli, niente bagliore) */
+.ap01-scena { border-radius: 0 !important; box-shadow: none !important; }
+.ap01-scena::after { display: none !important; }
+.ap01-scena::before, .ap01-scena .anelli { -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 64%, transparent 97%); mask-image: linear-gradient(to bottom, #000 0, #000 64%, transparent 97%); }
+
+/* Apertura 01 · riquadro promo: più elegante, deciso e marcato */
+@media (max-width: 899px) {
+}
+
+/* Apertura 01 · etichetta in alto: niente riquadro, scritta spaziata con due filetti */
+html[data-tema] .ap01-tech { display: flex; align-items: center; gap: 18px; padding: 0 !important; border: 0 !important; background: none !important; border-radius: 0 !important; font: 600 12px/1 "Manrope", sans-serif !important; letter-spacing: .34em !important; text-transform: uppercase; color: #BE9CFF !important; }
+html[data-tema] .ap01-tech::before, html[data-tema] .ap01-tech::after { content: ""; width: clamp(34px, 6vw, 84px); height: 1px; background: linear-gradient(90deg, transparent, rgba(176, 124, 255, .85)); }
+html[data-tema] .ap01-tech::after { background: linear-gradient(90deg, rgba(176, 124, 255, .85), transparent); }
+@media (max-width: 899px) { html[data-tema] .ap01-tech { font-size: 11px !important; letter-spacing: .26em !important; gap: 12px; } html[data-tema] .ap01-tech::before, html[data-tema] .ap01-tech::after { width: 26px; } }
+
+/* Apertura 01 · riquadro promo rimesso in squadra (spazi uguali, niente tagli) e viola a un tono più morbido */
+@media (max-width: 899px) {
+}
+/* viola più morbido */
+.ap01-scena::before { filter: saturate(2.1) hue-rotate(-8deg) brightness(1.1) !important; }
+html[data-tema] .ap01 h1 em { color: #9D80EE !important; }
+html[data-tema] .ap01-tech { color: #AB92EE !important; }
+html[data-tema] .ap01-tech::before { background: linear-gradient(90deg, transparent, rgba(150, 120, 232, .8)) !important; }
+html[data-tema] .ap01-tech::after { background: linear-gradient(90deg, rgba(150, 120, 232, .8), transparent) !important; }
+html[data-tema] .ap01-cta { background: #6F55DB !important; box-shadow: 0 12px 36px -12px rgba(111, 85, 219, .75), 0 0 0 1px rgba(190, 170, 250, .25) inset !important; }
+html[data-tema] .ap01-cta:hover { background: #7e66e8 !important; }
+
+/* Apertura 01 · promo: capsula sottile su una riga, prezzi che scorrono verso l'alto come un contatore */
+.ap01-pr { display: inline-flex; align-items: center; height: 46px; border: 1px solid rgba(140, 112, 225, .55); border-radius: 999px; background: rgba(14, 10, 38, .78); overflow: hidden; font-family: "Manrope", sans-serif; box-shadow: 0 10px 30px -16px rgba(111, 85, 219, .7); }
+.ap01-pr-e { display: inline-flex; align-items: center; gap: 9px; height: 100%; padding: 0 18px 0 16px; font: 700 11px/1 "Manrope", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #B7A0F0; border-right: 1px solid rgba(140, 112, 225, .4); white-space: nowrap; }
+.ap01-pr-e i { width: 7px; height: 7px; border-radius: 50%; background: #9C7DF0; box-shadow: 0 0 0 0 rgba(156, 125, 240, .6); animation: ap01-pulsa 2.2s ease-out infinite; }
+@keyframes ap01-pulsa { 0% { box-shadow: 0 0 0 0 rgba(156, 125, 240, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(156, 125, 240, 0); } }
+.ap01-pr-r { display: block; height: 46px; overflow: hidden; padding: 0 22px; min-width: 250px; }
+.ap01-pr-t { display: block; transition: transform .6s cubic-bezier(.65, 0, .25, 1); }
+.ap01-pr-t > span { display: flex; align-items: center; justify-content: center; gap: 8px; height: 46px; white-space: nowrap; font-size: 15px; color: #CFC7E8; }
+.ap01-pr-t b { font-weight: 600; color: #fff; }
+.ap01-pr-t strong { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 25px; line-height: 1; color: #fff; letter-spacing: -.01em; }
+@media (max-width: 899px) { .ap01-pr { height: 44px; max-width: 100%; } .ap01-pr-e { padding: 0 12px; font-size: 10px; letter-spacing: .14em; } .ap01-pr-r { height: 44px; min-width: 0; padding: 0 14px; } .ap01-pr-t > span { height: 44px; font-size: 14px; gap: 6px; } .ap01-pr-t strong { font-size: 22px; } }
+@media (prefers-reduced-motion: reduce) { .ap01-pr-t { transition: none; } .ap01-pr-e i { animation: none; } }
+
+/* Apertura 01 · pulsante: contorno sottile, freccia in un cerchio pieno */
+html[data-tema] .ap01-cta { background: rgba(255, 255, 255, .05) !important; border: 1px solid rgba(190, 172, 250, .6) !important; color: #fff !important; height: 58px; min-height: 58px; padding: 0 9px 0 32px !important; gap: 22px !important; font: 600 16.5px/1 "Manrope", sans-serif !important; letter-spacing: .03em; box-shadow: none !important; transition: background .25s, color .25s, border-color .25s, transform .2s; }
+html[data-tema] .ap01-cta span:last-child { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #0B0820; font-size: 17px; line-height: 1; transition: background .25s, color .25s, transform .25s; }
+html[data-tema] .ap01-cta:hover { background: #fff !important; color: #0B0820 !important; border-color: #fff !important; transform: none; }
+html[data-tema] .ap01-cta:hover span:last-child { background: #6F55DB; color: #fff; transform: rotate(45deg); }
+@media (max-width: 899px) { html[data-tema] .ap01-cta { width: 100%; justify-content: space-between; padding: 0 9px 0 26px !important; } }
+/* capsula promo sul telefono: mai più larga dello schermo */
+@media (max-width: 899px) {
+  .ap01-corpo { width: 100%; min-width: 0; }
+  .ap01-pr { display: flex; width: 100%; box-sizing: border-box; }
+  .ap01-pr-e { flex: none; padding: 0 10px; font-size: 9.5px; letter-spacing: .1em; gap: 7px; }
+  .ap01-pr-r { flex: 1 1 auto; min-width: 0; padding: 0 8px; }
+  .ap01-pr-t > span { font-size: 13.5px; gap: 5px; } .ap01-pr-t strong { font-size: 21px; }
+}
+
+/* Apertura 01 · i progetti si collegano direttamente sotto l'apertura: niente titolo, stesso nero, stesse slide e stesso funzionamento */
+html[data-home="01"] .lavori { background: #000 !important; color: #fff !important; --ink: #fff; --ink-soft: #BDB6D6; --line: rgba(255, 255, 255, .14); --line-2: rgba(255, 255, 255, .18); --paper-3: #0E0B1C; padding-top: 0; padding-bottom: clamp(48px, 5.5vw, 84px); }
+html[data-home="01"] .lavori .lav-testa { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+html[data-home="01"] .lavori .car-vista { padding-top: 0; }
+html[data-home="01"] .lavori .car-nome, html[data-home="01"] .lavori .car-desc, html[data-home="01"] .lavori .car-tag { color: #fff; }
+html[data-home="01"] .lavori .car-cat, html[data-home="01"] .lavori .car-desc { color: #BDB6D6; }
+html[data-home="01"] .lavori .car-cornice { box-shadow: 0 0 0 1px rgba(255, 255, 255, .14), 0 30px 70px -30px rgba(111, 85, 219, .5); }
+html[data-home="01"] .lavori .car-freccia { border-color: rgba(255, 255, 255, .55); color: #fff; }
+html[data-home="01"] .lavori .car-freccia:hover { background: #fff; color: #000; }
+html[data-home="01"] .lavori .car-conta { color: #BDB6D6; }
+html[data-home="01"] .ap01-scena { margin-bottom: -1px; }
+
+/* Apertura 01 · l'apertura lascia intravedere la prima slide: i progetti sembrano la sua continuazione */
+html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 58px) - clamp(70px, 11svh, 110px)) !important; padding-bottom: 8px; }
+@media (max-width: 899px) {
+  html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 52px) - 118px) !important; height: calc(100svh - var(--nav-h, 52px) - 118px); place-items: stretch center; padding: 12px 20px 22px; }
+  html[data-home="01"] .ap01-corpo { justify-content: flex-start; gap: 0; }
+  html[data-home="01"] .ap01-tech { margin-top: auto; }
+  html[data-home="01"] .ap01 h1 { margin-top: auto; }
+  html[data-home="01"] .ap01-riga { margin-top: 22px; font-size: 19.5px !important; line-height: 1.5 !important; padding: 0 8px; }
+  html[data-tema] .ap01-riga { font-weight: 500 !important; color: #fff !important; letter-spacing: 0 !important; text-shadow: 0 0 2px #000, 0 0 8px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.8) !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  html[data-home="01"] .ap01-riga strong { font-weight: 800; color: #fff; }
+  html[data-home="01"][data-tema] .ap01-tech { font-size: 13.5px !important; font-weight: 800 !important; letter-spacing: .24em !important; color: #E4D6FF !important; text-shadow: 0 0 2px #000, 0 0 10px rgba(0,0,0,.95), 0 0 20px rgba(0,0,0,.8); -webkit-font-smoothing: antialiased; gap: 10px; }
+  html[data-home="01"][data-tema] .ap01-tech::before, html[data-home="01"][data-tema] .ap01-tech::after { width: 22px; height: 1.5px; background: linear-gradient(90deg, transparent, #C9A8FF); }
+  html[data-home="01"][data-tema] .ap01-tech::after { background: linear-gradient(90deg, #C9A8FF, transparent); }
+  html[data-home="01"] .ap01-pr { margin-top: auto; }
+  html[data-home="01"] .ap01-cta { margin-top: 14px; }
+  html[data-home="01"] .ap01 h1 { font-size: clamp(44px, 12.6vw, 60px) !important; }
+}
+/* Apertura 01 · da telefono la descrizione si legge sopra le cifre: più grande, più chiara, con alone scuro e margini che stanno lontani dalle colonne di 0/1 */
+@media (max-width: 899px) { html[data-tema] .ap01-riga { font-size: 17.5px !important; font-weight: 400 !important; line-height: 1.55 !important; color: #F1EEFA !important; padding: 0 14px; text-shadow: 0 0 6px #000, 0 0 14px #000, 0 0 26px #000; text-wrap: balance; } }
+
+/* Apertura 01 · sfondo sotto i progetti: aloni viola, punti sottili e un filo di luce */
+html[data-home="01"] .lavori { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(70% 55% at 12% 22%, rgba(111, 85, 219, .26), transparent 70%), radial-gradient(60% 50% at 90% 66%, rgba(140, 95, 240, .2), transparent 70%), radial-gradient(90% 40% at 50% 112%, rgba(111, 85, 219, .22), transparent 70%), #05030F !important; }
+html[data-home="01"] .lavori::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: radial-gradient(rgba(190, 170, 255, .28) 1px, transparent 1.6px); background-size: 30px 30px; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 74%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 74%, transparent 100%); opacity: .5; }
+html[data-home="01"] .lavori::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; z-index: -1; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(150, 120, 235, .7), transparent); }
+html[data-home="01"] .lavori .car-scheda.attiva .car-cornice { box-shadow: 0 0 0 1px rgba(190, 170, 255, .28), 0 40px 90px -30px rgba(111, 85, 219, .75); }
+
+/* Apertura 01 · raccordo: le cifre del vortice sfumano nel nero e il nero sfuma nel viola dei progetti (niente linea di taglio) */
+.ap01-scena::before, .ap01-scena .anelli { -webkit-mask-image: none !important; mask-image: none !important; }
+.ap01-scena::after { display: block !important; content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38%; z-index: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .55) 45%, #000 96%) !important; box-shadow: none !important; }
+html[data-home="01"] .lavori { background: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) clamp(150px, 22vw, 300px)), radial-gradient(70% 55% at 12% 22%, rgba(111, 85, 219, .3), transparent 70%), radial-gradient(60% 50% at 90% 66%, rgba(140, 95, 240, .2), transparent 70%), radial-gradient(90% 40% at 50% 112%, rgba(111, 85, 219, .22), transparent 70%), #05030F !important; }
+html[data-home="01"] .lavori::before { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 74%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 74%, transparent 100%); }
+
+/* Apertura 01 · sfondo dei progetti rifatto: faro viola dietro la slide centrale, anelli concentrici (eco del vortice), fasci di luce e un tocco di magenta */
+html[data-home="01"] .lavori { background:
+  linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) clamp(150px, 22vw, 300px)),
+  linear-gradient(112deg, transparent 36%, rgba(160, 130, 255, .07) 44%, transparent 52%),
+  linear-gradient(112deg, transparent 58%, rgba(190, 110, 240, .06) 65%, transparent 72%),
+  radial-gradient(44% 36% at 50% 38%, rgba(124, 92, 240, .42), transparent 72%),
+  radial-gradient(38% 52% at 4% 68%, rgba(84, 58, 205, .42), transparent 70%),
+  radial-gradient(36% 46% at 98% 28%, rgba(184, 92, 232, .3), transparent 70%),
+  linear-gradient(180deg, #07041b 0%, #0b0726 52%, #130a3d 100%) !important; }
+html[data-home="01"] .lavori::before { background-image: repeating-radial-gradient(circle at 50% 40%, rgba(170, 140, 255, 0) 0 86px, rgba(170, 140, 255, .2) 86px 87px); background-size: auto; opacity: .75; -webkit-mask-image: radial-gradient(62% 72% at 50% 40%, #000 0, rgba(0, 0, 0, .55) 45%, transparent 82%); mask-image: radial-gradient(62% 72% at 50% 40%, #000 0, rgba(0, 0, 0, .55) 45%, transparent 82%); }
+html[data-home="01"] .lavori::after { height: 2px; background: linear-gradient(90deg, transparent, rgba(160, 130, 255, .9), rgba(210, 130, 245, .8), transparent); box-shadow: 0 0 22px 2px rgba(140, 100, 245, .55); }
+
+html[data-home="01"] .lavori { background-image:
+  linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) clamp(110px, 15vw, 210px)),
+  linear-gradient(112deg, transparent 36%, rgba(160, 130, 255, .08) 44%, transparent 52%),
+  linear-gradient(112deg, transparent 58%, rgba(190, 110, 240, .07) 65%, transparent 72%),
+  radial-gradient(44% 36% at 50% 38%, rgba(124, 92, 240, .45), transparent 72%),
+  radial-gradient(38% 52% at 4% 68%, rgba(84, 58, 205, .45), transparent 70%),
+  radial-gradient(36% 46% at 98% 28%, rgba(184, 92, 232, .32), transparent 70%),
+  linear-gradient(180deg, #07041b 0%, #0b0726 52%, #130a3d 100%) !important; }
+html[data-home="01"] .lavori::before { background-image: repeating-radial-gradient(circle at 50% 40%, rgba(170, 140, 255, 0) 0 86px, rgba(170, 140, 255, .3) 86px 87.5px); opacity: .8; }
+
+/* Apertura 01 · sfondo progetti più vicino all'apertura (nero con il viola delle cifre) e chiusura ad arco verso la sezione dei servizi */
+html[data-home="01"] .lavori { background-image:
+  linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) clamp(110px, 15vw, 210px)),
+  linear-gradient(112deg, transparent 38%, rgba(156, 124, 238, .06) 46%, transparent 54%),
+  radial-gradient(46% 38% at 50% 40%, rgba(111, 85, 219, .34), transparent 72%),
+  radial-gradient(34% 48% at 3% 72%, rgba(100, 72, 214, .3), transparent 70%),
+  radial-gradient(34% 44% at 98% 32%, rgba(140, 100, 232, .22), transparent 70%),
+  linear-gradient(180deg, #020106 0%, #06030F 55%, #0B0618 100%) !important;
+  border-radius: 0 0 50% 50% / 0 0 clamp(70px, 10vw, 160px) clamp(70px, 10vw, 160px);
+  border-bottom: 2px solid rgba(156, 124, 238, .55); padding-bottom: clamp(70px, 9vw, 130px) !important; }
+html[data-home="01"] .lavori::before { background-image: repeating-radial-gradient(circle at 50% 40%, rgba(156, 124, 238, 0) 0 86px, rgba(156, 124, 238, .24) 86px 87.5px); }
+html[data-home="01"] .lavori::after { display: none; }
+html[data-home="01"] #servizi { padding-top: clamp(40px, 5.5vw, 84px); }
+
+/* Apertura 01 · chiusura ad arco di cerchio, ampio e basso, con filo luminoso che segue la curva */
+html[data-home="01"] .lavori { border-radius: 0 !important; border-bottom: 0 !important; clip-path: ellipse(115% 100% at 50% 0%); padding-bottom: clamp(56px, 7vw, 104px) !important; }
+html[data-home="01"] .lavori::after { display: block !important; content: ""; position: absolute; inset: 0; height: auto; z-index: 1; pointer-events: none; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%239C7CEE' stop-opacity='0'/><stop offset='.5' stop-color='%23B49CFF'/><stop offset='1' stop-color='%239C7CEE' stop-opacity='0'/></linearGradient></defs><path d='M0 92.89 A135 100 0 0 0 100 92.89' fill='none' stroke='url(%23g)' stroke-width='3' vector-effect='non-scaling-stroke'/></svg>") no-repeat 0 0 / 100% 100%; box-shadow: none; }
+@media (max-width: 899px) { html[data-home="01"] .lavori { clip-path: ellipse(150% 100% at 50% 0%); } html[data-home="01"] .lavori::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%239C7CEE' stop-opacity='0'/><stop offset='.5' stop-color='%23B49CFF'/><stop offset='1' stop-color='%239C7CEE' stop-opacity='0'/></linearGradient></defs><path d='M0 95.30 A165 100 0 0 0 100 95.30' fill='none' stroke='url(%23g)' stroke-width='3' vector-effect='non-scaling-stroke'/></svg>"); } }
+
+/* Apertura 01 · meno spazio tra progetti e servizi */
+html[data-home="01"] .lavori { padding-bottom: clamp(26px, 3.4vw, 52px) !important; clip-path: ellipse(135% 100% at 50% 0%); }
+html[data-home="01"] .lavori .car-comandi { margin-top: 12px; }
+html[data-home="01"] .lavori .car-info { padding-top: 14px; }
+html[data-home="01"] #servizi { padding-top: clamp(14px, 2vw, 30px) !important; }
+@media (max-width: 899px) { html[data-home="01"] .lavori { clip-path: ellipse(165% 100% at 50% 0%); padding-bottom: 30px !important; } }
+
+/* Apertura 01 · sfondo progetti: via l'alone ellittico e gli anelli; due fasci di luce verticali e griglia di punti */
+html[data-home="01"] .lavori { background-image:
+  linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) clamp(110px, 15vw, 210px)),
+  linear-gradient(90deg, transparent 0, transparent 21%, rgba(130, 100, 235, .17) 24%, transparent 27%, transparent 73%, rgba(130, 100, 235, .17) 76%, transparent 79%, transparent 100%),
+  linear-gradient(180deg, #020106 0%, #06030F 55%, #0B0618 100%) !important; }
+html[data-home="01"] .lavori::before { background-image: radial-gradient(rgba(176, 146, 248, .5) 1px, transparent 1.7px) !important; background-size: 34px 34px !important; opacity: .5 !important; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 70%, transparent 100%) !important; mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 70%, transparent 100%) !important; }
+@media (max-width: 899px) { html[data-home="01"] .lavori { background-image: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) 110px), linear-gradient(90deg, transparent 0, transparent 6%, rgba(130, 100, 235, .15) 10%, transparent 14%, transparent 86%, rgba(130, 100, 235, .15) 90%, transparent 94%, transparent 100%), linear-gradient(180deg, #020106 0%, #06030F 55%, #0B0618 100%) !important; } }
+
+/* Apertura 01 · sfondo progetti: nero liscio con un grande «01» a contorno, dietro le slide */
+html[data-home="01"] .lavori { background-image: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) clamp(110px, 15vw, 210px)), linear-gradient(180deg, #020106 0%, #05030C 100%) !important; }
+html[data-home="01"] .lavori::before { content: "01" !important; display: grid !important; place-items: center; inset: 0 !important; background: none !important; opacity: 1 !important; font: 400 clamp(380px, 52vw, 820px)/1 "Instrument Serif", Georgia, serif; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px rgba(156, 124, 238, .32); text-shadow: none; -webkit-mask-image: linear-gradient(to bottom, transparent 4%, #000 30%, #000 74%, transparent 100%) !important; mask-image: linear-gradient(to bottom, transparent 4%, #000 30%, #000 74%, transparent 100%) !important; overflow: hidden; }
+@media (max-width: 899px) { html[data-home="01"] .lavori { background-image: linear-gradient(to bottom, #000 0, rgba(0, 0, 0, 0) 110px), linear-gradient(180deg, #020106 0%, #05030C 100%) !important; } html[data-home="01"] .lavori::before { font-size: 118vw; -webkit-text-stroke-width: 1.2px; } }
+
+/* Apertura 01 · uno «0» a sinistra e un «1» a destra, grandi, a contorno, tagliati dai bordi dello schermo */
+html[data-home="01"] .lavori::before { content: "0 1" !important; display: block !important; position: absolute !important; top: 0 !important; bottom: 0 !important; left: -7vw !important; right: -7vw !important; inset: 0 -7vw !important; width: auto !important; text-align: justify !important; text-align-last: justify !important; white-space: normal; font: 400 clamp(440px, 50vw, 860px)/1 "Instrument Serif", Georgia, serif !important; letter-spacing: 0 !important; color: transparent !important; -webkit-text-stroke: 1.6px rgba(156, 124, 238, .42); display: flex !important; align-items: center; justify-content: space-between; word-spacing: 0; -webkit-mask-image: linear-gradient(to bottom, transparent 3%, #000 24%, #000 76%, transparent 97%) !important; mask-image: linear-gradient(to bottom, transparent 3%, #000 24%, #000 76%, transparent 97%) !important; }
+@media (max-width: 899px) { html[data-home="01"] .lavori::before { font-size: 96vw !important; left: -26vw !important; right: -26vw !important; inset: 0 -26vw !important; -webkit-text-stroke-width: 1.3px; } }
+html[data-home="01"] .lavori::before { display: grid !important; align-content: center !important; justify-content: stretch !important; text-align: justify !important; text-align-last: justify !important; }
+
+/* Apertura 01 · «0» a sinistra e «1» a destra: due elementi separati, ancorati ai bordi e tagliati dallo schermo */
+html[data-home="01"] .lavori::before { display: none !important; }
+html[data-home="01"] .lavori .car-vista::before, html[data-home="01"] .lavori .car-vista::after { position: absolute; top: 50%; z-index: 0; pointer-events: none; font: 400 clamp(420px, 46vw, 780px)/1 "Instrument Serif", Georgia, serif; color: transparent; -webkit-text-stroke: 1.6px rgba(156, 124, 238, .45); -webkit-mask-image: linear-gradient(to bottom, transparent 2%, #000 22%, #000 78%, transparent 98%); mask-image: linear-gradient(to bottom, transparent 2%, #000 22%, #000 78%, transparent 98%); }
+html[data-home="01"] .lavori .car-vista::before { content: "0"; left: -9vw; transform: translateY(-50%); }
+html[data-home="01"] .lavori .car-vista::after { content: "1"; right: -6vw; transform: translateY(-50%); }
+html[data-home="01"] .lavori .car-traccia { position: relative; z-index: 1; }
+@media (max-width: 899px) { html[data-home="01"] .lavori .car-vista::before, html[data-home="01"] .lavori .car-vista::after { font-size: 78vw; -webkit-text-stroke-width: 1.3px; } html[data-home="01"] .lavori .car-vista::before { left: -30vw; } html[data-home="01"] .lavori .car-vista::after { right: -22vw; } }
+
+/* Apertura 01 · «0» e «1» più piccoli, negli angoli in basso a sinistra e a destra, tagliati dai bordi */
+html[data-home="01"] .lavori .car-vista::before, html[data-home="01"] .lavori .car-vista::after { content: none !important; }
+html[data-home="01"] .lavori .car-comandi { position: static; }
+html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { position: absolute; bottom: clamp(-60px, -3vw, -24px); z-index: 0; pointer-events: none; font: 400 clamp(220px, 24vw, 380px)/1 "Instrument Serif", Georgia, serif; color: transparent; -webkit-text-stroke: 1.5px rgba(156, 124, 238, .5); }
+html[data-home="01"] .lavori .car-comandi::before { content: "0"; left: -3vw; }
+html[data-home="01"] .lavori .car-comandi::after { content: "1"; right: -1vw; }
+html[data-home="01"] .lavori .car-comandi > * { position: relative; z-index: 1; }
+@media (max-width: 899px) { html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { font-size: 50vw; bottom: -30px; -webkit-text-stroke-width: 1.2px; } html[data-home="01"] .lavori .car-comandi::before { left: -9vw; } html[data-home="01"] .lavori .car-comandi::after { right: -7vw; } }
+html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { -webkit-text-stroke: 2.2px rgba(170, 140, 250, .78); }
+@media (max-width: 899px) { html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { -webkit-text-stroke-width: 1.8px; } }
+
+/* Apertura 01 · le cifre degli angoli sono composte interamente da piccoli 0 e 1 */
+html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { font: 800 clamp(230px, 25vw, 400px)/1 "Schibsted Grotesk", "Manrope", sans-serif !important; -webkit-text-stroke: 0 !important; color: transparent !important; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><g font-family='JetBrains Mono,ui-monospace,monospace' font-size='11' font-weight='500' fill='%23B79CFF'><text x='6' y='10' text-anchor='middle'>1</text><text x='18' y='10' text-anchor='middle'>0</text><text x='30' y='10' text-anchor='middle'>1</text><text x='42' y='10' text-anchor='middle'>1</text><text x='54' y='10' text-anchor='middle'>1</text><text x='66' y='10' text-anchor='middle'>1</text><text x='78' y='10' text-anchor='middle'>1</text><text x='90' y='10' text-anchor='middle'>1</text><text x='102' y='10' text-anchor='middle'>0</text><text x='114' y='10' text-anchor='middle'>1</text><text x='6' y='22' text-anchor='middle'>0</text><text x='18' y='22' text-anchor='middle'>0</text><text x='30' y='22' text-anchor='middle'>1</text><text x='42' y='22' text-anchor='middle'>0</text><text x='54' y='22' text-anchor='middle'>0</text><text x='66' y='22' text-anchor='middle'>0</text><text x='78' y='22' text-anchor='middle'>0</text><text x='90' y='22' text-anchor='middle'>1</text><text x='102' y='22' text-anchor='middle'>1</text><text x='114' y='22' text-anchor='middle'>1</text><text x='6' y='34' text-anchor='middle'>1</text><text x='18' y='34' text-anchor='middle'>0</text><text x='30' y='34' text-anchor='middle'>1</text><text x='42' y='34' text-anchor='middle'>0</text><text x='54' y='34' text-anchor='middle'>0</text><text x='66' y='34' text-anchor='middle'>1</text><text x='78' y='34' text-anchor='middle'>0</text><text x='90' y='34' text-anchor='middle'>1</text><text x='102' y='34' text-anchor='middle'>0</text><text x='114' y='34' text-anchor='middle'>0</text><text x='6' y='46' text-anchor='middle'>1</text><text x='18' y='46' text-anchor='middle'>1</text><text x='30' y='46' text-anchor='middle'>1</text><text x='42' y='46' text-anchor='middle'>1</text><text x='54' y='46' text-anchor='middle'>1</text><text x='66' y='46' text-anchor='middle'>1</text><text x='78' y='46' text-anchor='middle'>0</text><text x='90' y='46' text-anchor='middle'>0</text><text x='102' y='46' text-anchor='middle'>0</text><text x='114' y='46' text-anchor='middle'>1</text><text x='6' y='58' text-anchor='middle'>0</text><text x='18' y='58' text-anchor='middle'>0</text><text x='30' y='58' text-anchor='middle'>1</text><text x='42' y='58' text-anchor='middle'>0</text><text x='54' y='58' text-anchor='middle'>1</text><text x='66' y='58' text-anchor='middle'>1</text><text x='78' y='58' text-anchor='middle'>0</text><text x='90' y='58' text-anchor='middle'>0</text><text x='102' y='58' text-anchor='middle'>1</text><text x='114' y='58' text-anchor='middle'>0</text><text x='6' y='70' text-anchor='middle'>0</text><text x='18' y='70' text-anchor='middle'>1</text><text x='30' y='70' text-anchor='middle'>1</text><text x='42' y='70' text-anchor='middle'>0</text><text x='54' y='70' text-anchor='middle'>1</text><text x='66' y='70' text-anchor='middle'>1</text><text x='78' y='70' text-anchor='middle'>0</text><text x='90' y='70' text-anchor='middle'>1</text><text x='102' y='70' text-anchor='middle'>0</text><text x='114' y='70' text-anchor='middle'>0</text><text x='6' y='82' text-anchor='middle'>1</text><text x='18' y='82' text-anchor='middle'>1</text><text x='30' y='82' text-anchor='middle'>0</text><text x='42' y='82' text-anchor='middle'>0</text><text x='54' y='82' text-anchor='middle'>0</text><text x='66' y='82' text-anchor='middle'>0</text><text x='78' y='82' text-anchor='middle'>1</text><text x='90' y='82' text-anchor='middle'>0</text><text x='102' y='82' text-anchor='middle'>0</text><text x='114' y='82' text-anchor='middle'>1</text><text x='6' y='94' text-anchor='middle'>1</text><text x='18' y='94' text-anchor='middle'>1</text><text x='30' y='94' text-anchor='middle'>1</text><text x='42' y='94' text-anchor='middle'>0</text><text x='54' y='94' text-anchor='middle'>0</text><text x='66' y='94' text-anchor='middle'>0</text><text x='78' y='94' text-anchor='middle'>1</text><text x='90' y='94' text-anchor='middle'>1</text><text x='102' y='94' text-anchor='middle'>0</text><text x='114' y='94' text-anchor='middle'>0</text><text x='6' y='106' text-anchor='middle'>1</text><text x='18' y='106' text-anchor='middle'>0</text><text x='30' y='106' text-anchor='middle'>0</text><text x='42' y='106' text-anchor='middle'>1</text><text x='54' y='106' text-anchor='middle'>1</text><text x='66' y='106' text-anchor='middle'>0</text><text x='78' y='106' text-anchor='middle'>0</text><text x='90' y='106' text-anchor='middle'>1</text><text x='102' y='106' text-anchor='middle'>0</text><text x='114' y='106' text-anchor='middle'>0</text><text x='6' y='118' text-anchor='middle'>1</text><text x='18' y='118' text-anchor='middle'>0</text><text x='30' y='118' text-anchor='middle'>1</text><text x='42' y='118' text-anchor='middle'>0</text><text x='54' y='118' text-anchor='middle'>1</text><text x='66' y='118' text-anchor='middle'>1</text><text x='78' y='118' text-anchor='middle'>0</text><text x='90' y='118' text-anchor='middle'>0</text><text x='102' y='118' text-anchor='middle'>1</text><text x='114' y='118' text-anchor='middle'>0</text></g></svg>"); background-size: 120px 120px; -webkit-background-clip: text; background-clip: text; opacity: .85; }
+html[data-home="01"] .lavori .car-comandi::before { left: -2vw; }
+html[data-home="01"] .lavori .car-comandi::after { right: 0; }
+@media (max-width: 899px) { html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { font-size: 56vw !important; background-size: 90px 90px; } html[data-home="01"] .lavori .car-comandi::before { left: -8vw; } html[data-home="01"] .lavori .car-comandi::after { right: -7vw; } }
+
+/* Apertura 01 · cifre degli angoli con gli stessi colori degli anelli della home; più tenui su telefono */
+html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><g font-family='JetBrains Mono,ui-monospace,monospace' font-size='11' font-weight='500'><text x='6' y='10' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='18' y='10' text-anchor='middle' fill='%237C5AE4'>0</text><text x='30' y='10' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='42' y='10' text-anchor='middle' fill='%237C5AE4'>1</text><text x='54' y='10' text-anchor='middle' fill='%239C7CEE'>1</text><text x='66' y='10' text-anchor='middle' fill='%237C5AE4'>0</text><text x='78' y='10' text-anchor='middle' fill='%237C5AE4'>0</text><text x='90' y='10' text-anchor='middle' fill='%237C5AE4'>1</text><text x='102' y='10' text-anchor='middle' fill='%239C7CEE'>1</text><text x='114' y='10' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='6' y='22' text-anchor='middle' fill='%237C5AE4'>1</text><text x='18' y='22' text-anchor='middle' fill='%239C7CEE'>1</text><text x='30' y='22' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='42' y='22' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='54' y='22' text-anchor='middle' fill='%239C7CEE'>1</text><text x='66' y='22' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='78' y='22' text-anchor='middle' fill='%239C7CEE'>0</text><text x='90' y='22' text-anchor='middle' fill='%237C5AE4'>1</text><text x='102' y='22' text-anchor='middle' fill='%239C7CEE'>0</text><text x='114' y='22' text-anchor='middle' fill='%239C7CEE'>1</text><text x='6' y='34' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='18' y='34' text-anchor='middle' fill='%239C7CEE'>0</text><text x='30' y='34' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='42' y='34' text-anchor='middle' fill='%239C7CEE'>0</text><text x='54' y='34' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='66' y='34' text-anchor='middle' fill='%237C5AE4'>1</text><text x='78' y='34' text-anchor='middle' fill='%237C5AE4'>1</text><text x='90' y='34' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='102' y='34' text-anchor='middle' fill='%239C7CEE'>0</text><text x='114' y='34' text-anchor='middle' fill='%239C7CEE'>0</text><text x='6' y='46' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='18' y='46' text-anchor='middle' fill='%237C5AE4'>0</text><text x='30' y='46' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='42' y='46' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='54' y='46' text-anchor='middle' fill='%239C7CEE'>1</text><text x='66' y='46' text-anchor='middle' fill='%239C7CEE'>1</text><text x='78' y='46' text-anchor='middle' fill='%239C7CEE'>1</text><text x='90' y='46' text-anchor='middle' fill='%239C7CEE'>0</text><text x='102' y='46' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='114' y='46' text-anchor='middle' fill='%239C7CEE'>1</text><text x='6' y='58' text-anchor='middle' fill='%237C5AE4'>1</text><text x='18' y='58' text-anchor='middle' fill='%237C5AE4'>0</text><text x='30' y='58' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='42' y='58' text-anchor='middle' fill='%237C5AE4'>1</text><text x='54' y='58' text-anchor='middle' fill='%237C5AE4'>0</text><text x='66' y='58' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='78' y='58' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='90' y='58' text-anchor='middle' fill='%237C5AE4'>0</text><text x='102' y='58' text-anchor='middle' fill='%237C5AE4'>1</text><text x='114' y='58' text-anchor='middle' fill='%237C5AE4'>0</text><text x='6' y='70' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='18' y='70' text-anchor='middle' fill='%237C5AE4'>0</text><text x='30' y='70' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='42' y='70' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='54' y='70' text-anchor='middle' fill='%237C5AE4'>1</text><text x='66' y='70' text-anchor='middle' fill='%239C7CEE'>1</text><text x='78' y='70' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='90' y='70' text-anchor='middle' fill='%239C7CEE'>1</text><text x='102' y='70' text-anchor='middle' fill='%239C7CEE'>1</text><text x='114' y='70' text-anchor='middle' fill='%239C7CEE'>0</text><text x='6' y='82' text-anchor='middle' fill='%239C7CEE'>0</text><text x='18' y='82' text-anchor='middle' fill='%239C7CEE'>0</text><text x='30' y='82' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='42' y='82' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='54' y='82' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='66' y='82' text-anchor='middle' fill='%239C7CEE'>0</text><text x='78' y='82' text-anchor='middle' fill='%237C5AE4'>0</text><text x='90' y='82' text-anchor='middle' fill='%237C5AE4'>1</text><text x='102' y='82' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='114' y='82' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='6' y='94' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='18' y='94' text-anchor='middle' fill='%239C7CEE'>0</text><text x='30' y='94' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='42' y='94' text-anchor='middle' fill='%239C7CEE'>1</text><text x='54' y='94' text-anchor='middle' fill='%237C5AE4'>1</text><text x='66' y='94' text-anchor='middle' fill='%239C7CEE'>0</text><text x='78' y='94' text-anchor='middle' fill='%237C5AE4'>0</text><text x='90' y='94' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='102' y='94' text-anchor='middle' fill='%239C7CEE'>1</text><text x='114' y='94' text-anchor='middle' fill='%237C5AE4'>1</text><text x='6' y='106' text-anchor='middle' fill='%237C5AE4'>1</text><text x='18' y='106' text-anchor='middle' fill='%237C5AE4'>1</text><text x='30' y='106' text-anchor='middle' fill='%237C5AE4'>0</text><text x='42' y='106' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='54' y='106' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='66' y='106' text-anchor='middle' fill='%23C4ACF8'>0</text><text x='78' y='106' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='90' y='106' text-anchor='middle' fill='%239C7CEE'>1</text><text x='102' y='106' text-anchor='middle' fill='%237C5AE4'>0</text><text x='114' y='106' text-anchor='middle' fill='%239C7CEE'>0</text><text x='6' y='118' text-anchor='middle' fill='%239C7CEE'>0</text><text x='18' y='118' text-anchor='middle' fill='%237C5AE4'>1</text><text x='30' y='118' text-anchor='middle' fill='%239C7CEE'>1</text><text x='42' y='118' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='54' y='118' text-anchor='middle' fill='%237C5AE4'>0</text><text x='66' y='118' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='78' y='118' text-anchor='middle' fill='%237C5AE4'>1</text><text x='90' y='118' text-anchor='middle' fill='%239C7CEE'>0</text><text x='102' y='118' text-anchor='middle' fill='%23C4ACF8'>1</text><text x='114' y='118' text-anchor='middle' fill='%237C5AE4'>0</text></g></svg>") !important; opacity: .95; }
+@media (max-width: 899px) { html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { font-size: 44vw !important; opacity: .5; bottom: -20px; } html[data-home="01"] .lavori .car-comandi::before { left: -6vw; } html[data-home="01"] .lavori .car-comandi::after { right: -5vw; } }
+
+/* Apertura 01 · cifre degli angoli in movimento (come gli anelli): salgono a sinistra, scendono a destra; ferme fuori schermo e con «riduci movimento» */
+@keyframes ap01-su { from { background-position: 0 0; } to { background-position: 0 -120px; } }
+@keyframes ap01-giu { from { background-position: 0 0; } to { background-position: 0 120px; } }
+html[data-home="01"] .lavori .car-comandi::before { animation: ap01-su 7s linear infinite; }
+html[data-home="01"] .lavori .car-comandi::after { animation: ap01-giu 9s linear infinite; }
+html[data-home="01"] .lavori.fuori .car-comandi::before, html[data-home="01"] .lavori.fuori .car-comandi::after { animation-play-state: paused; }
+@media (max-width: 899px) { @keyframes ap01-su { from { background-position: 0 0; } to { background-position: 0 -90px; } } @keyframes ap01-giu { from { background-position: 0 0; } to { background-position: 0 90px; } } }
+@media (prefers-reduced-motion: reduce) { html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { animation: none; } }
+html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { opacity: .68; filter: saturate(.8); }
+@media (max-width: 899px) { html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori .car-comandi::after { opacity: .42; } }
+</style>
+<style id="ap01-switch">html[data-home="01"] section.apertura { display: none !important; } html:not([data-home="01"]) .ap01-scena { display: none !important; }</style>
+</head>
+<body>
+
+<div class="promo-pop" data-promo-pop role="dialog" aria-modal="true" aria-labelledby="promo-pop-t" hidden>
+  <div class="promo-pop-vel" data-promo-chiudi></div>
+  <div class="promo-pop-box">
+    <button type="button" class="promo-pop-x" data-promo-chiudi aria-label="Chiudi">×</button>
+    <p class="lav-occhiello"><span class="promo-punto" aria-hidden="true"></span> Promo a tempo</p>
+    <h2 id="promo-pop-t">La tua landing page a <em>299&nbsp;€</em></h2>
+    <p class="promo-pop-t">In promo fino al <span data-promo-data>31 dicembre 2026</span>, a prezzi di partenza: sito vetrina da 499&nbsp;€ e negozio online da 699&nbsp;€: risparmi da 100 a 300&nbsp;€. La bozza è gratuita: paghi il 50% solo quando la approvi, il resto alla consegna.</p>
+    <button type="button" class="cta cta-pieno" data-apri-contatto data-promo-chiudi><span>Parlaci del tuo progetto</span> <span aria-hidden="true">→</span></button>
+    <button type="button" class="promo-pop-no" data-promo-chiudi>No, grazie</button>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="menu" data-menu>
+    <a class="logo" href="#" aria-label="Zero Uno Lab, vai in cima"><img class="logo-n" src="../assets/img/logo-nero.webp" width="240" height="30" alt="Zero Uno Lab"><img class="logo-b" src="../assets/img/logo-bianco.webp" width="240" height="30" alt="" aria-hidden="true"></a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-voci" aria-label="Apri il menu"><span></span><span></span></button>
+    <nav class="menu-voci" id="menu-voci" aria-label="Principale">
+      <a href="index.html">Home</a>
+      <a href="#lavori">Lavori</a>
+      <div class="voce-sotto"><a class="voce-sotto-t" href="#servizi" aria-haspopup="true">Servizi</a><ul class="sottomenu"><li><a href="landing-page.html"><b>Landing page</b><span>Una pagina per farti contattare</span></a></li><li><a href="sito-vetrina.html"><b>Sito vetrina</b><span>Tutta l’attività, in poche pagine</span></a></li><li><a href="negozio-online.html"><b>Negozio online</b><span>Catalogo, carrello e pagamenti</span></a></li><li><a href="gestionale.html"><b>Gestionale</b><span>Clienti e prenotazioni in un posto</span></a></li><li><a href="app.html"><b>App</b><span>Per chi torna da te</span></a></li><li><a href="marketing.html"><b>Marketing</b><span>Farsi trovare online</span></a></li></ul></div>
+      <a href="team.html">Team</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+  <button type="button" class="nav-prev" data-apri-contatto>Preventivo</button>
+</header>
+
+<main>
+<div class="ap-scena ap01-scena"><section class="ap01" id="apertura-01" aria-label="Apertura (prova)">
+  <div class="ap01-corpo">
+    <p class="ap01-tech">Siti · App · Marketing</p>
+    <h1>Il sito che i tuoi clienti <em>ricorderanno</em>.</h1>
+    <p class="ap01-riga"><strong>Siti, app e pubblicità</strong> pensati insieme per portarti <strong>più contatti, prenotazioni e vendite</strong>. <strong>Parli direttamente</strong> con chi li&nbsp;costruisce.</p>
+    <div class="ap01-pr" role="status" aria-label="Promozione in corso"><span class="ap01-pr-e"><i aria-hidden="true"></i>Promo fino al 31 dicembre</span><span class="ap01-pr-r" aria-live="off"><span class="ap01-pr-t"><span><b>Landing page</b> da <strong>299€</strong></span><span><b>Sito vetrina</b> da <strong>499€</strong></span><span><b>Negozio online</b> da <strong>699€</strong></span><span><b>Landing page</b> da <strong>299€</strong></span></span></span></div>
+    <button type="button" class="ap01-cta" data-apri-contatto><span>Parlaci del tuo progetto</span><span aria-hidden="true">↗</span></button>
+  </div>
+</section></div>
+<section class="apertura" id="apertura" aria-labelledby="titolo">
+  <div class="banda banda-alta" aria-hidden="true" data-banda="alta"></div>
+  <div class="stage" data-stage>
+    <div class="orbita" aria-hidden="true" data-orbita></div>
+    <div class="centro">
+      <div class="titolo-box">
+        <p class="sopra"><span>Il sito che i tuoi clienti <em>ricorderanno</em>.</span></p>
+        <h1 id="titolo"><span class="t-dim">Che</span> <em>attività</em><br>hai?</h1>
+        <!-- Firma di Zero Uno Lab: a mano, nello spazio a destra di «hai?»; il tratto sotto si disegna una volta sola -->
+        <span class="firma" aria-hidden="true">
+          <span class="firma-testo">Zero Uno Lab</span>
+          <svg class="firma-tratto" viewBox="0 0 260 34" preserveAspectRatio="none" focusable="false"><path d="M6 24 C 48 6, 104 5, 158 15 S 232 27, 254 9" pathLength="1"/></svg>
+        </span>
+      </div>
+      <p class="riga" id="riga" aria-live="polite"><b>Siti, app e marketing</b> su misura, progettati e scritti da zero. <b>Tocca il tuo settore</b> e ti mostriamo cosa facciamo per te.</p>
+      <div class="settori-box">
+        <ul class="fila-scorre" id="fila-settori" tabindex="0" aria-label="Settore della tua attività">
+          <li><button type="button" class="settore" data-s="ristorante" aria-pressed="false"><span class="s-n" aria-hidden="true">01</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Ristorante</strong><small>menù e prenotazioni</small></span></button></li>
+          <li><button type="button" class="settore" data-s="moda" aria-pressed="false"><span class="s-n" aria-hidden="true">02</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Moda e negozio</strong><small>lookbook e catalogo</small></span></button></li>
+          <li><button type="button" class="settore" data-s="immobiliare" aria-pressed="false"><span class="s-n" aria-hidden="true">03</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Immobiliare</strong><small>annunci e visite</small></span></button></li>
+          <li><button type="button" class="settore" data-s="studio" aria-pressed="false"><span class="s-n" aria-hidden="true">04</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Studio professionale</strong><small>servizi e appuntamenti</small></span></button></li>
+          <li><button type="button" class="settore" data-s="shop" aria-pressed="false"><span class="s-n" aria-hidden="true">05</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Negozio online</strong><small>catalogo e pagamenti</small></span></button></li>
+          <li><button type="button" class="settore" data-s="fitness" aria-pressed="false"><span class="s-n" aria-hidden="true">06</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Fitness e app</strong><small>corsi e abbonamenti</small></span></button></li>
+          <li><button type="button" class="settore" data-s="trainer" aria-pressed="false"><span class="s-n" aria-hidden="true">07</span><span class="s-f" aria-hidden="true">↗</span><span class="s-t"><strong>Personal trainer</strong><small>app per atleti e coach</small></span></button></li>
+        </ul>
+        <div class="fila-comandi"><div class="fila-barra" aria-hidden="true"><span data-fila-barra></span></div><div class="fila-frecce"><button type="button" data-fila-dir="-1" aria-label="Settori precedenti">←</button><button type="button" data-fila-dir="1" aria-label="Settori successivi">→</button></div></div>
+      </div>
+      <button type="button" class="cta" data-apri-contatto><span data-cta>Parlaci del tuo progetto</span> <span aria-hidden="true">→</span></button>
+    </div>
+    <div class="giro" role="group" aria-label="Scorri i siti">
+      <button type="button" class="freccia-s" data-giro="-1" aria-label="Siti precedenti">←</button>
+      <button type="button" class="freccia-s" data-giro="1" aria-label="Siti successivi">→</button>
+    </div>
+  </div>
+  <div class="banda banda-bassa" aria-hidden="true" data-banda="bassa"></div>
+</section>
+
+<!-- Passaggio morbido tra apertura e lavori: niente taglio netto. I mockup scendono dall'orbita e fanno da ponte tra i due argomenti -->
+<div class="ponte" aria-hidden="true" data-ponte></div>
+
+<section class="lavori" id="lavori" aria-roledescription="carosello" aria-labelledby="t-lavori">
+  <div class="lav-testa">
+    <span class="lav-occhiello">Lavori selezionati</span>
+    <h2 id="t-lavori">Il lavoro prende <em>forma.</em></h2>
+    <p class="lav-sotto">Siti, app e strumenti per attività diverse. I lavori «Dimostrativo» sono progetti nostri, fatti per mostrare cosa sappiamo costruire; gli altri sono online per clienti veri.</p>
+  </div>
+  <div class="car-vista" data-car-vista tabindex="0" aria-label="Progetti: usa le frecce per scorrere">
+    <ul class="car-traccia" data-car-traccia></ul>
+  </div>
+  <div class="car-comandi">
+    <button type="button" class="car-freccia" data-lav-prec aria-label="Progetto precedente"><span aria-hidden="true">←</span></button>
+    <span class="car-conta" data-lav-conta aria-live="polite">01 / 08</span>
+    <button type="button" class="car-freccia" data-lav-succ aria-label="Progetto successivo"><span aria-hidden="true">→</span></button>
+  </div>
+</section>
+<!--SEZ-->
+<div class="ponte p-giu" aria-hidden="true"></div>
+
+<section class="sz" id="servizi" aria-labelledby="t-servizi">
+  <div class="sz-in">
+    <header class="sz-testa"><span class="lav-occhiello">Servizi</span><h2 id="t-servizi">Cosa possiamo <em>fare</em> per te.</h2><p class="lav-sotto">Tocca un servizio: vedi come funziona, cosa include e quanto costa.</p></header>
+    <ul class="srv-griglia">
+      <li><a class="srv-carta" href="landing-page.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/ristorante-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/ristorante-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/ristorante-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/ristorante-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">01</span><span class="srv-chip"><em>In promo · da</em><b>299&nbsp;€</b><i>poi da 399&nbsp;€</i><u>Risparmi 100&nbsp;€</u></span></span><b class="srv-tit">Landing page</b><span class="srv-breve">Una sola pagina per un solo obiettivo: farti contattare. Per promuovere un’offerta o un servizio.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="sito-vetrina.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/studio-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/studio-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/studio-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/studio-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">02</span><span class="srv-chip"><em>In promo · da</em><b>499&nbsp;€</b><i>poi da 699&nbsp;€</i><u>Risparmi 200&nbsp;€</u></span></span><b class="srv-tit">Sito vetrina</b><span class="srv-breve">Più pagine collegate dal menu, per presentare tutta l’attività: chi sei, cosa fai, dove trovarti.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="negozio-online.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/shop-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/shop-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/shop-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/shop-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">03</span><span class="srv-chip"><em>In promo · da</em><b>699&nbsp;€</b><i>poi da 999&nbsp;€</i><u>Risparmi 300&nbsp;€</u></span></span><b class="srv-tit">Negozio online</b><span class="srv-breve">Catalogo, carrello e pagamenti.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="gestionale.html"><span class="srv-vis"><span class="ogg-sim"><span class="ogg-g"><img src="../assets/img/oggetti/simbolo-gestionale-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span><span class="ogg-p"><img src="../assets/img/oggetti/simbolo-gestionale.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">04</span><span class="srv-chip">Su preventivo</span></span><b class="srv-tit">Gestionale</b><span class="srv-breve">Clienti, prenotazioni e numeri in un solo posto.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="app.html"><span class="srv-vis"><span class="dev"><span class="dev-pc"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.557%;top:5.927%;width:76.886%;height:57.867%;border-radius:0.427% / 0.770%"><img src="../assets/img/corona/fitness-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-laptop.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:11.446%;top:5.839%;width:77.109%;height:57.982%;border-radius:0.427% / 0.771%"><img src="../assets/img/corona/fitness-L1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="dev-tel"><span class="dev-v ogg-g"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.799%;top:3.597%;width:84.489%;height:92.845%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/fitness-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span><span class="dev-v ogg-p"><img class="dev-o" src="../assets/img/oggetti/dispositivo-smartphone.webp?v=20261113c" alt="" loading="lazy" decoding="async"><span class="dev-sc" style="left:7.703%;top:3.603%;width:84.684%;height:93.060%;border-radius:7.583% / 3.526%"><img src="../assets/img/corona/fitness-P1.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">05</span><span class="srv-chip">Su preventivo</span></span><b class="srv-tit">App</b><span class="srv-breve">Dal browser o sul telefono, per chi torna da te.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+      <li><a class="srv-carta" href="marketing.html"><span class="srv-vis"><span class="ogg-sim"><span class="ogg-g"><img src="../assets/img/oggetti/simbolo-marketing-scuro.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span><span class="ogg-p"><img src="../assets/img/oggetti/simbolo-marketing.webp?v=20261113c" alt="" loading="lazy" decoding="async"></span></span></span><span class="srv-corpo-c"><span class="srv-riga"><span class="srv-n">06</span><span class="srv-chip">Su preventivo</span></span><b class="srv-tit">Marketing</b><span class="srv-breve">Inserzioni e strategia per farti trovare.</span><span class="srv-vai-f">Scopri <i aria-hidden="true">→</i></span></span></a></li>
+    </ul>
+    <div class="promo-nota">
+      <p class="pn-et"><span class="promo-punto" aria-hidden="true"></span>Promo a tempo</p>
+      <p class="pn-prezzo"><b>Landing da 299&nbsp;€ · Sito vetrina da 499&nbsp;€ · Negozio da 699&nbsp;€</b> <span class="pn-poi">(poi da 399, 699 e 999&nbsp;€: risparmi fino a 300&nbsp;€)</span></p>
+      <p class="pn-scade">Valida fino al <span data-promo-data>31 dicembre 2026</span></p>
+      <p class="pn-testo">Sono prezzi di partenza, in promo fino a quella data: prima ti ascoltiamo, poi ti mandiamo un preventivo scritto a prezzo fisso.</p>
+    </div>
+    <ol class="passi-tre" aria-label="Come si procede">
+      <li><span class="pt-n" aria-hidden="true">1</span><b>Ti ascoltiamo</b><span>Una breve chiamata per capire cosa ti serve, senza impegno.</span></li>
+      <li><span class="pt-n" aria-hidden="true">2</span><b>Ti mostriamo la bozza</b><span>Gratuita, insieme al preventivo scritto a prezzo fisso.</span></li>
+      <li><span class="pt-n" aria-hidden="true">3</span><b>Paghi solo se ti piace</b><span>50% quando approvi, 50% alla consegna.</span></li>
+    </ol>
+  </div>
+</section>
+
+
+
+<section class="sz" id="domande" aria-labelledby="t-domande">
+  <div class="sz-in">
+    <header class="sz-testa"><span class="lav-occhiello">Domande</span><h2 id="t-domande">Domande <em>frequenti</em>.</h2><p class="lav-sotto">Le cose che ci chiedono prima di partire.</p></header>
+    <div class="faq"><details><summary>Le promo sono vere?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Sono prezzi di partenza, in promo fino al 31 dicembre 2026: landing page da 299 € (poi da 399 €, risparmi 100 €), sito vetrina da 499 € (poi da 699 €, risparmi 200 €), negozio online da 699 € (poi da 999 €, risparmi 300 €). Valgono se ci scrivi entro quella data. Se ti serve di più te lo diciamo nel preventivo, prima di iniziare, e decidi tu.</p></details>
+<details><summary>Perché costate meno di un’agenzia?<span class="segno" aria-hidden="true"></span></summary><p>Siamo in due e il lavoro lo facciamo noi: niente commerciali né passaggi di mano da pagare. Scriviamo il codice da zero, senza temi a pagamento né canoni di piattaforme.</p></details>
+<details><summary>Quanto tempo ci vuole?<span class="segno" aria-hidden="true"></span></summary><p>Per il sito della promo circa 2 settimane da quando abbiamo testi e foto: se arrivano a pezzi, i tempi si allungano. Per un sito più grande, un negozio o un gestionale, li fissiamo insieme nel preventivo.</p></details>
+<details><summary>Ci sono costi dopo la consegna?<span class="segno" aria-hidden="true"></span></summary><p>Solo dominio e spazio web, intestati a te e pagati direttamente al fornitore: di solito poche decine di euro l’anno. Nessun abbonamento obbligatorio. Dopo i 30 giorni di assistenza, le modifiche le chiedi quando servono con un piccolo preventivo, oppure con un’assistenza mensile facoltativa, che puoi disdire con 30 giorni di preavviso.</p></details>
+<details><summary>Testi e foto chi li prepara?<span class="segno" aria-hidden="true"></span></summary><p>Tu conosci la tua attività meglio di noi: ci dai le informazioni e le foto che hai, i testi li scriviamo insieme e ti diciamo quali immagini servono e in che formato.</p></details></div>
+  </div>
+</section>
+
+<section class="sz chiusura" id="contatti" aria-labelledby="t-contatti">
+  <div class="sz-in">
+    <div class="carta-fin" id="carta-fin"><div class="cf-vis" aria-hidden="true"><span class="cf-bg cf-pc" style="aspect-ratio:2000/667"><img src="../assets/img/oggetti/scheda-finale-v3-pc.webp?v=20261113c" alt="" width="2000" height="667" loading="lazy" decoding="async" style="display:block;width:100%;height:100%"></span><span class="cf-bg cf-mob" style="aspect-ratio:1000/1100"><img src="../assets/img/oggetti/scheda-finale-v3-mobile.webp?v=20261113c" alt="" width="1000" height="1100" loading="lazy" decoding="async" style="display:block;width:100%;height:100%"></span></div><div class="cf-testo"><span class="lav-occhiello">Parliamone</span>
+    <h2 id="t-contatti">Da dove <em>partiamo</em>?</h2>
+    <p class="lav-sotto">Un sito, un negozio online, un gestionale, un’app o le campagne per farti trovare. Raccontaci cosa ti serve: entro 24 ore ti rispondiamo per fissare la prima chiamata.</p>
+    <div class="chiusura-az"><button type="button" class="cta cta-pieno" data-apri-contatto><span>Parlaci del tuo progetto</span> <span aria-hidden="true">→</span></button><a class="chiusura-wa" href="https://wa.me/393454517186" target="_blank" rel="noopener">Oppure scrivici su WhatsApp ↗</a></div></div></div>
+  </div>
+</section>
+
+<footer class="piede"><div class="piede-in">
+  <div class="piede-marca"><a class="logo" href="#apertura" aria-label="Zero Uno Lab, torna in cima"><span class="firma-piede" aria-hidden="true"><span class="fp-testo">Zero Uno Lab</span><svg class="fp-tratto" viewBox="0 0 260 34" preserveAspectRatio="none" focusable="false"><path d="M6 24 C 48 6, 104 5, 158 15 S 232 27, 254 9" pathLength="1"/></svg></span></a><p>Siti, app e marketing su misura. Francesco Mascolo sviluppa, Alex Iancu cura il marketing.</p><button type="button" class="piede-cta" data-apri-contatto>Prepara il tuo preventivo <span aria-hidden="true">→</span></button></div>
+  <nav class="piede-col" aria-label="Servizi"><h4>Servizi</h4><ul><li><a href="landing-page.html">Landing page</a></li><li><a href="sito-vetrina.html">Sito vetrina</a></li><li><a href="negozio-online.html">Negozio online</a></li><li><a href="gestionale.html">Gestionale</a></li><li><a href="app.html">App</a></li><li><a href="marketing.html">Marketing</a></li></ul></nav>
+  <nav class="piede-col" aria-label="Il sito"><h4>Zero Uno Lab</h4><ul><li><a href="#lavori">Lavori</a></li><li><a href="#team">Team</a></li><li><a href="#domande">Domande</a></li><li><a href="#contatti" data-apri-contatto>Preventivo</a></li></ul></nav>
+  <nav class="piede-col" aria-label="Contatti"><h4>Contatti</h4><ul><li><a href="https://wa.me/393454517186" target="_blank" rel="noopener">WhatsApp ↗</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="../privacy.html#cookie">Cookie</a></li></ul></nav>
+  <div class="piede-fondo"><span>© 2026 Zero Uno Lab · Francesco Mascolo e Alex Iancu</span><span>Risposta entro 24 ore</span></div>
+</div></footer>
+<!--/SEZ-->
+</main>
+
+<dialog class="contatto" aria-labelledby="t-contatto" data-contatto>
+  <div class="ct">
+    <aside class="ct-lato">
+      <div class="ct-testa">
+        <img class="ct-logo" src="../assets/img/logo-nero.webp" width="240" height="30" alt="Zero Uno Lab">
+        <button type="button" class="chiudi solo-mob" data-chiudi-contatto>Chiudi</button>
+      </div>
+      <div class="ct-testo">
+        <span class="lav-occhiello">Contatto</span>
+        <h2 id="t-contatto">Parlaci del tuo <em>progetto</em></h2>
+        <p class="ct-intro">Due righe bastano. Ti rispondiamo noi, di persona, entro 24 ore.</p>
+        <ol class="ct-passi">
+          <li><b>Ti ascoltiamo.</b> Una breve chiamata per capire cosa ti serve, senza impegno.</li>
+          <li><b>Ti mostriamo la bozza.</b> Gratuita, insieme al preventivo scritto a prezzo fisso.</li>
+          <li><b>Paghi solo se ti piace.</b> 50% quando approvi, 50% alla consegna.</li>
+        </ol>
+      </div>
+      <div class="ct-piede">
+        <a class="ct-wa" href="https://wa.me/393454517186" target="_blank" rel="noopener">Preferisci scriverci subito? <span>WhatsApp ↗</span></a>
+        <p class="ct-promo">Promo a tempo: <b>landing da 299&nbsp;€, vetrina da 499&nbsp;€, negozio da 699&nbsp;€</b> (prezzi di partenza) fino al <span data-promo-data>31 dicembre 2026</span></p>
+      </div>
+    </aside>
+
+    <div class="ct-modulo">
+      <button type="button" class="chiudi solo-desk" data-chiudi-contatto>Chiudi</button>
+      <form class="contatto-form quiz" data-form novalidate>
+        <div class="qz-testa"><span class="qz-n" data-qz-n>Passo 1 di 4</span><div class="qz-barra" aria-hidden="true"><i data-qz-barra></i></div></div>
+
+        <section class="qz-passo" data-passo="1">
+          <h3 class="qz-dom">Cosa ti serve?</h3>
+          <div class="qz-carte" role="group" aria-label="Servizio">
+            <button type="button" class="qz-carta" data-servizio="Landing page" aria-pressed="false"><b>Landing page</b><span>Una pagina per un solo obiettivo</span></button>
+            <button type="button" class="qz-carta" data-servizio="Sito vetrina" aria-pressed="false"><b>Sito vetrina</b><span>Più pagine per presentare l’attività</span></button>
+            <button type="button" class="qz-carta" data-servizio="Negozio online" aria-pressed="false"><b>Negozio online</b><span>Catalogo, carrello e pagamenti</span></button>
+            <button type="button" class="qz-carta" data-servizio="Gestionale" aria-pressed="false"><b>Gestionale</b><span>Clienti, prenotazioni e numeri</span></button>
+            <button type="button" class="qz-carta" data-servizio="App" aria-pressed="false"><b>App</b><span>Dal browser o sul telefono</span></button>
+            <button type="button" class="qz-carta" data-servizio="Marketing" aria-pressed="false"><b>Marketing</b><span>Inserzioni e strategia</span></button>
+            <button type="button" class="qz-carta qz-carta-larga" data-servizio="Non lo so ancora" aria-pressed="false"><b>Non lo so ancora</b><span>Ne parliamo nella prima chiamata, gratuita</span></button>
+          </div>
+        </section>
+
+        <section class="qz-passo" data-passo="2" hidden>
+          <h3 class="qz-dom">Di che attività si tratta?</h3>
+          <fieldset class="ct-sett">
+            <legend class="solo-lettori">Settore</legend>
+            <div class="ct-chip" role="group" aria-label="Settore">
+              <button type="button" class="con-ogg" data-chip="Ristorante" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-cloche-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-cloche.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Ristorante</button>
+              <button type="button" class="con-ogg" data-chip="Moda e negozio" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-abito-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-abito.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Moda e negozio</button>
+              <button type="button" class="con-ogg" data-chip="Immobiliare" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-casa-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-casa.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Immobiliare</button>
+              <button type="button" class="con-ogg" data-chip="Studio professionale" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-clienti-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-clienti.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Studio professionale</button>
+              <button type="button" data-chip="Negozio online" aria-pressed="false">Negozio online</button>
+              <button type="button" class="con-ogg" data-chip="Fitness e app" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-tappetino-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-tappetino.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Fitness e app</button>
+              <button type="button" class="con-ogg" data-chip="Personal trainer" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-kettlebell-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-kettlebell.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Personal trainer</button>
+            </div>
+            <input name="settore" autocomplete="off" placeholder="Oppure scrivilo: es. palestra, studio legale" aria-label="Settore">
+          </fieldset>
+          <div class="qz-az"><button type="button" class="qz-ind" data-qz-indietro>← Indietro</button><button type="button" class="invia" data-qz-avanti>Avanti <span aria-hidden="true">→</span></button></div>
+        </section>
+
+        <section class="qz-passo" data-passo="3" hidden>
+          <h3 class="qz-dom">Quando ti serve?</h3>
+          <div class="qz-carte" role="group" aria-label="Tempi">
+            <button type="button" class="qz-carta" data-tempi="Il prima possibile" aria-pressed="false"><b>Il prima possibile</b><span>Partiamo subito</span></button>
+            <button type="button" class="qz-carta" data-tempi="Entro un mese" aria-pressed="false"><b>Entro un mese</b><span>Con un po’ di margine</span></button>
+            <button type="button" class="qz-carta" data-tempi="Entro 2–3 mesi" aria-pressed="false"><b>Entro 2–3 mesi</b><span>Senza fretta</span></button>
+            <button type="button" class="qz-carta" data-tempi="Sto solo valutando" aria-pressed="false"><b>Sto solo valutando</b><span>Mi basta un’idea</span></button>
+          </div>
+          <div class="qz-az"><button type="button" class="qz-ind" data-qz-indietro>← Indietro</button></div>
+        </section>
+
+        <section class="qz-passo" data-passo="4" hidden>
+          <h3 class="qz-dom">Come ti ricontattiamo?</h3>
+          <div class="ct-coppia">
+            <label><span>Nome</span><input name="nome" autocomplete="name" placeholder="Come ti chiami" required></label>
+            <label><span>Email o telefono</span><input name="contatto" autocomplete="email" placeholder="Dove ti ricontattiamo" required></label>
+          </div>
+          <label><span>Due righe sul progetto <i>(facoltativo)</i></span><textarea name="msg" rows="3" placeholder="Cosa ti serve, a chi ti rivolgi, se hai già un sito…"></textarea></label>
+          <p class="errore" data-errore role="alert" hidden>Scrivi almeno il tuo nome e un modo per ricontattarti.</p>
+          <div class="ct-invio">
+            <button type="submit" class="invia">Invia la richiesta <span aria-hidden="true">→</span></button>
+            <button type="button" class="qz-ind" data-qz-indietro>← Indietro</button>
+          </div>
+          <p class="nota">Si apre WhatsApp con il messaggio già scritto: ti basta premere invio. Nessuna newsletter, nessuno spam.</p>
+        </section>
+      </form>
+
+      <div class="contatto-grazie" data-grazie hidden>
+        <span class="lav-occhiello">Richiesta pronta</span>
+        <h2>Grazie, <em>a presto</em>.</h2>
+        <p>Abbiamo ricevuto la tua richiesta. Ti ricontattiamo noi per fissare una chiamata.</p>
+        <button type="button" class="invia" data-chiudi-contatto>Torna al sito</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Finestra «Vetrina»: la pagina intera del sito, da scorrere, con il punto di partenza giusto (niente ritagli sbagliati) -->
+<dialog class="vetrina" aria-labelledby="v-nome" data-vetrina>
+  <div class="vetrina-in">
+    <div class="v-testa">
+      <div><span class="mono" data-v-cat></span><h3 id="v-nome" data-v-nome></h3></div>
+      <div class="v-az">
+        <div class="v-tipo" role="group" aria-label="Vista">
+          <button type="button" data-v-tipo="L" aria-pressed="true">Computer</button>
+          <button type="button" data-v-tipo="P" aria-pressed="false">Telefono</button>
+        </div>
+        <a class="v-vai" data-v-vai target="_blank" rel="noopener">Guarda il sito ↗</a>
+        <button type="button" class="chiudi" data-v-chiudi>Chiudi</button>
+      </div>
+    </div>
+    <div class="v-corpo L" data-v-corpo>
+      <div class="v-scorri" data-v-scorri tabindex="0" aria-label="Pagina del sito: scorri per vederla tutta"><div class="v-pagina" data-v-pagina></div></div>
+    </div>
+    <div class="v-pie">
+      <button type="button" class="freccia-s" data-v-prec aria-label="Sezione precedente">←</button>
+      <span class="mono" data-v-conta>01 / 06</span>
+      <button type="button" class="freccia-s" data-v-succ aria-label="Sezione successiva">→</button>
+    </div>
+  </div>
+</dialog>
+
+<a class="wa-fisso" href="https://wa.me/393454517186?text=Ciao%2C%20vorrei%20un%20preventivo" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.2c.3 2.6 3.2 5.5 5.8 5.8l1.3-1.3-2-1-.9.8c-.9-.4-1.8-1.3-2.2-2.2l.8-.9-1-2z" fill="currentColor"/></svg><span>Scrivici</span></a>
+
+<script>
+(function () {
+  var r = document.documentElement;
+  function carica() { if (window.__a01) return; window.__a01 = 1; var s = document.createElement('script'); s.src = 'anelli-01.js?v=348'; document.body.appendChild(s); }
+  function vai(v, salva) {
+    r.setAttribute('data-home', v);
+    try { if (salva) localStorage.setItem('zul-home', v); } catch (e) {}
+    document.querySelectorAll('[data-home-btn]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.homeBtn === v)); });
+    if (v === '01') carica();
+    if (salva && (v === '01') !== !!window.zulRuotato) { location.reload(); return; }
+    if (salva) scrollTo(0, 0); dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('[data-home-btn]').forEach(function (b) { b.addEventListener('click', function () { vai(b.dataset.homeBtn, true); }); });
+  vai(r.getAttribute('data-home') === '01' ? '01' : 'uff', false);
+})();
+</script>
+
+<script>
+/* Apertura 01: i prezzi in promo scorrono verso l'alto (Landing, Vetrina, Negozio). Fermi con «riduci movimento», a scheda nascosta o fuori schermo. */
+(function () {
+  var box = document.querySelector('.ap01-pr'); if (!box) return;
+  var t = box.querySelector('.ap01-pr-t'), n = t.children.length - 1, i = 0, vis = true, H = function () { return t.children[0].offsetHeight; };
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }, { threshold: .3 }).observe(box);
+  t.addEventListener('transitionend', function () { if (i === n) { t.style.transition = 'none'; i = 0; t.style.transform = 'translateY(0)'; t.offsetHeight; t.style.transition = ''; } });
+  setInterval(function () { if (!vis || document.hidden || document.documentElement.getAttribute('data-home') !== '01') return; i++; t.style.transform = 'translateY(' + (-i * H()) + 'px)'; }, 2800);
+})();
+</script>
+<script src="hq-meta.js"></script>
+<script src="corona.js?v=353" defer></script>
+<script src="nav-colore.js?v=353" defer></script>
+</body>
+</html>
