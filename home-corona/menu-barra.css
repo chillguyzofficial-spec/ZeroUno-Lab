@@ -385,3 +385,20 @@ html[data-tema="bn"] .team-pag .membro-piu { border-top-color: rgba(185, 140, 25
 html[data-tema="bn"] .team-pag .membro-btn { background: #B98CFF; color: #14102A; border-color: #B98CFF; }
 html[data-tema="bn"] .team-pag .membro-btn i { background: #14102A; color: #E2D0FF; }
 .tm-ruoli em { color: #E4D3FF !important; font-weight: 400; text-shadow: 0 0 14px rgba(185, 140, 255, .55); }
+
+/* Aperture da telefono: la composizione di immagini compare solo a misura definitiva (vedi nav-colore.js) */
+html.fit-attesa .ap-scena, html.fit-attesa .gz-scena, html.fit-attesa .mk-r__hero-visual { visibility: hidden; }
+html.fit-attesa .ap-scena *, html.fit-attesa .gz-scena *, html.fit-attesa .mk-r__hero-visual * { animation-play-state: paused !important; }
+
+/* App · file di schermate: sempre in loop ma trascinabili (la posizione la gestisce app-scorri.js) */
+.ap-nastro.ap-js { animation: none !important; will-change: transform; }
+.ap-banda.ap-trascina-ok { cursor: grab; touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+.ap-banda.ap-afferrata { cursor: grabbing; }
+.ap-banda img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+
+/* App da telefono: testo più compatto sopra la scena, così computer e telefoni restano grandi */
+@media (max-width: 899px) {
+  .ap-hero .ap-sotto { font-size: clamp(15px, 4vw, 17px); line-height: 1.35; }
+  .ap-hero .ap-fatti { display: none; }
+  .ap-hero .ap-scena { height: 360px; }
+}

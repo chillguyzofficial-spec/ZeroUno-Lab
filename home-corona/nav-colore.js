@@ -31,7 +31,7 @@
 /* Aperture da telefono: la composizione di immagini si rimpicciolisce quanto serve per stare nella prima schermata */
 (function () {
   var MQ = matchMedia('(max-width: 899px)');
-  var P = [['.ap-hero', '.ap-scena'], ['.mk-r__hero', '.mk-r__hero-visual'], ['.gz-hero', '.gz-scena']];
+  var P = [['.ap-hero', '.ap-scena', .8], ['.mk-r__hero', '.mk-r__hero-visual', .42], ['.gz-hero', '.gz-scena', .42]];   // il terzo valore è la scala minima: la scena App resta grande, anche se scende un po' sotto il bordo
   function av() {
     var t = document.createElement('div'); t.style.cssText = 'position:fixed;left:0;top:0;height:100svh;width:1px;visibility:hidden;pointer-events:none';
     document.body.appendChild(t); var h = t.getBoundingClientRect().height; t.remove();
@@ -44,14 +44,21 @@
       if (!MQ.matches) return;
       var A = av(), vh = vis.offsetHeight, H = hero.scrollHeight, rest = H - vh, disp = A - rest - 8;
       if (vh > 0 && disp < vh) {
-        var s = Math.max(.42, disp / vh);
+        var s = Math.max(p[2] || .42, disp / vh);
         vis.style.transformOrigin = '50% 0'; vis.style.transform = 'scale(' + s.toFixed(3) + ')'; vis.style.marginBottom = (-(vh * (1 - s))).toFixed(0) + 'px';
       }
     });
   }
+  /* la composizione resta nascosta finché la misura non è definitiva (font e pagina caricati): niente salti di grandezza visibili */
+  var root = document.documentElement, pronta = false;
+  function mostra() { if (pronta) return; pronta = true; fit(); requestAnimationFrame(function () { root.classList.remove('fit-attesa'); }); }
+  if (MQ.matches && document.querySelector('.ap-scena, .gz-scena, .mk-r__hero-visual')) root.classList.add('fit-attesa');
   var t; var go = function () { clearTimeout(t); t = setTimeout(fit, 60); };
-  addEventListener('resize', go); addEventListener('orientationchange', go); addEventListener('load', function () { fit(); setTimeout(fit, 500); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  addEventListener('resize', go); addEventListener('orientationchange', go);
+  var caricata = document.readyState === 'complete' ? Promise.resolve() : new Promise(function (r) { addEventListener('load', r); });
+  var fontPronti = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  Promise.all([caricata, fontPronti]).then(function () { fit(); mostra(); setTimeout(fit, 500); });
+  setTimeout(mostra, 1800);   /* sicurezza: se qualcosa tarda, si mostra comunque */
   document.addEventListener('DOMContentLoaded', fit);
 })();
 
