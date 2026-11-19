@@ -31,7 +31,7 @@
 /* Aperture da telefono: la composizione di immagini si rimpicciolisce quanto serve per stare nella prima schermata */
 (function () {
   var MQ = matchMedia('(max-width: 899px)');
-  var P = [['.ap-hero', '.ap-scena', .8], ['.mk-r__hero', '.mk-r__hero-visual', .42], ['.gz-hero', '.gz-scena', .42]];   // il terzo valore è la scala minima: la scena App resta grande, anche se scende un po' sotto il bordo
+  var P = [['.ap-hero', '.ap-scena', .9], ['.mk-r__hero', '.mk-r__hero-visual', .42], ['.gz-hero', '.gz-scena', .42]];   // il terzo valore è la scala minima: la scena App resta grande, anche se scende un po' sotto il bordo
   function av() {
     var t = document.createElement('div'); t.style.cssText = 'position:fixed;left:0;top:0;height:100svh;width:1px;visibility:hidden;pointer-events:none';
     document.body.appendChild(t); var h = t.getBoundingClientRect().height; t.remove();
