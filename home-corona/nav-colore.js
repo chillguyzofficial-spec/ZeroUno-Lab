@@ -53,11 +53,18 @@
   var root = document.documentElement, pronta = false;
   function mostra() { if (pronta) return; pronta = true; fit(); requestAnimationFrame(function () { root.classList.remove('fit-attesa'); }); }
   if (MQ.matches && document.querySelector('.ap-scena, .gz-scena, .mk-r__hero-visual')) root.classList.add('fit-attesa');
-  var t; var go = function () { clearTimeout(t); t = setTimeout(fit, 60); };
-  addEventListener('resize', go); addEventListener('orientationchange', go);
+  /* la grandezza si ricalcola solo se cambia la larghezza (ruotando il telefono): la barra degli indirizzi che si ritira scorrendo cambia solo l'altezza e non deve far crescere la scena */
+  var larg = innerWidth;
+  var t; var go = function () { if (Math.abs(innerWidth - larg) < 2) return; larg = innerWidth; clearTimeout(t); t = setTimeout(fit, 60); };
+  addEventListener('resize', go); addEventListener('orientationchange', function () { larg = -1; go(); });
   var caricata = document.readyState === 'complete' ? Promise.resolve() : new Promise(function (r) { addEventListener('load', r); });
   var fontPronti = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-  Promise.all([caricata, fontPronti]).then(function () { fit(); mostra(); setTimeout(fit, 500); });
+  function decodificate() {
+    var imgs = document.querySelectorAll('.ap-scena img, .gz-scena img, .mk-r__hero-visual img');
+    var tutte = Array.prototype.map.call(imgs, function (im) { return im.decode ? im.decode().catch(function () {}) : Promise.resolve(); });
+    return Promise.race([Promise.all(tutte), new Promise(function (r) { setTimeout(r, 1200); })]);
+  }
+  Promise.all([caricata, fontPronti]).then(function () { fit(); return decodificate(); }).then(function () { mostra(); setTimeout(fit, 500); });
   setTimeout(mostra, 1800);   /* sicurezza: se qualcosa tarda, si mostra comunque */
   document.addEventListener('DOMContentLoaded', fit);
 })();
