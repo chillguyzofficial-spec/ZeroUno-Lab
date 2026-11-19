@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("filo")</script>
 <script>try{var q=new URLSearchParams(location.search).get("tema"),s=localStorage.getItem("corona-tema"),t="bn";if(q)localStorage.setItem("corona-tema",q);document.documentElement.setAttribute("data-tema","bn")}catch(e){document.documentElement.setAttribute("data-tema","bn")}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Landing page — Zero Uno Lab</title>
@@ -12,7 +13,9 @@
 <link rel="apple-touch-icon" href="../assets/img/icona-180.png">
 <link rel="stylesheet" href="corona.css?v=353">
 <link rel="stylesheet" href="servizi.css?v=284427">
-<link rel="stylesheet" href="menu-barra.css?v=380">
+<link rel="stylesheet" href="menu-barra.css?v=411">
+<link rel="stylesheet" href="landing-diario.css?v=10">
+<link rel="stylesheet" href="landing-sfondo.css?v=2">
 </head>
 <body class="pag-servizio">
 
@@ -32,28 +35,28 @@
 </header>
 
 <main>
-<section class="lp-hero" aria-labelledby="t-hero">
-  <div class="lp-pila" id="lppila">
-    <article class="lp-foglio lp-c0">
-      <span class="lp-piega" aria-hidden="true"></span>
-      <div class="lp-stampa">
-        <span class="lp-etichetta">Servizi · Landing page</span>
-        <h1 id="t-hero">Una pagina.<br> Un obiettivo.<br> <em>Farti contattare.</em></h1>
-        <span class="lp-freccia" aria-hidden="true">→</span>
-      </div>
-      <picture class="lp-foto"><source media="(max-width:760px)" srcset="../assets/img/landing/materiali-studio-mobile.webp?v=20261116" width="920" height="400"><img src="../assets/img/landing/materiali-studio-pc.webp?v=20261116" alt="Campioni di colore viola, prove tipografiche e una stampa architettonica sul tavolo di uno studio" width="1536" height="512" fetchpriority="high" decoding="async"></picture>
-      <div class="lp-sotto">
-        <p>Chi la apre <b>prenota</b>, <b>chiama</b> o <b>scrive su WhatsApp</b>.</p>
-        <div class="lp-azioni">
-          <a class="lp-cta" href="index.html?preventivo=landing"><span>Prepara il tuo preventivo</span> <span aria-hidden="true">→</span></a>
-          <p class="lp-prezzo">In promo da 299 € · risparmi 100 €</p>
-          <a class="sv-link" href="#settori">Guarda come sarebbe per te ↓</a>
-        </div>
-      </div>
-      <span class="lp-tira" aria-hidden="true">Tira l’angolo ↘</span>
-    </article>
-    <button type="button" class="lp-maniglia" aria-label="Cambia colore della pagina"></button>
-    <div class="lp-colori" role="group" aria-label="Colore della pagina"><button type="button" data-c="0" aria-label="Bianco"></button><button type="button" data-c="1" aria-label="Viola"></button><button type="button" data-c="2" aria-label="Nero"></button><button type="button" data-c="3" aria-label="Lavanda"></button></div>
+<section class="dz dz-piatto" aria-labelledby="t-hero">
+  <div class="dz-spread">
+    <div class="dz-copy">
+      <span class="dz-kicker">Servizi · Landing page</span>
+      <h1 id="t-hero">Una pagina.<br>Un obiettivo.<br><em>Farti contattare.</em></h1>
+      <span class="dz-arrow" aria-hidden="true">→</span>
+      <p class="dz-summary">Chi la apre <b>prenota</b>, <b>chiama</b> o <b>scrive su WhatsApp</b>.</p>
+      <a class="dz-cta" href="index.html?preventivo=landing"><span>Prepara il tuo preventivo</span> <span aria-hidden="true">→</span></a>
+      <p class="dz-price"><span class="dz-promo">In promo</span><span class="dz-da">da <b>299 €</b></span><span class="dz-risp">risparmi 100 €</span></p>
+      <a class="dz-more" href="#settori"><span>Guarda come sarebbe per te</span><i aria-hidden="true">↓</i></a>
+    </div>
+    <span class="dz-cucitura" aria-hidden="true"></span>
+    <div class="dz-plate" id="dzplate">
+      <figure class="dz-sheet"><div class="dz-sample"><picture><source media="(max-width:760px)" srcset="../assets/img/landing/esempio-01-bianco-mobile.webp?v=20261119"><img src="../assets/img/landing/esempio-01-bianco-pc.webp?v=20261119" alt="Esempio di landing page per uno studio di architettura" width="1100" height="1000" decoding="async" fetchpriority="high"></picture></div><figcaption>Esempio di landing page · Forma / Studio</figcaption></figure>
+      <figure class="dz-sheet"><div class="dz-sample"><picture><source media="(max-width:760px)" srcset="../assets/img/landing/esempio-02-viola-mobile.webp?v=20261119"><img src="../assets/img/landing/esempio-02-viola-pc.webp?v=20261119" alt="Esempio di landing page per un jazz club" width="1100" height="1000" decoding="async" loading="lazy"></picture></div><figcaption>Esempio di landing page · Notturno</figcaption></figure>
+      <figure class="dz-sheet"><div class="dz-sample"><picture><source media="(max-width:760px)" srcset="../assets/img/landing/esempio-03-nero-mobile.webp?v=20261119"><img src="../assets/img/landing/esempio-03-nero-pc.webp?v=20261119" alt="Esempio di landing page per un atelier di sartoria" width="1100" height="1000" decoding="async" loading="lazy"></picture></div><figcaption>Esempio di landing page · Atelier</figcaption></figure>
+      <figure class="dz-sheet"><div class="dz-sample"><picture><source media="(max-width:760px)" srcset="../assets/img/landing/esempio-04-lavanda-mobile.webp?v=20261119"><img src="../assets/img/landing/esempio-04-lavanda-pc.webp?v=20261119" alt="Esempio di landing page per un marchio di skincare" width="1100" height="1000" decoding="async" loading="lazy"></picture></div><figcaption>Esempio di landing page · Lieve</figcaption></figure>
+      <div class="dz-flapw" aria-hidden="true"><div class="dz-flap"></div></div>
+      <button type="button" class="dz-corner" aria-label="Gira la pagina: mostra un altro esempio di landing"></button>
+      <span class="dz-hint" aria-hidden="true">Scorri la piega <i>verso il basso </i>↘</span>
+      <span class="dz-stato" id="dzstato" role="status" aria-live="polite"></span>
+    </div>
   </div>
 </section>
 <section class="sz lp-dati-s"><div class="sz-in"><ul class="sv-dati" aria-label="In breve"><li><strong>2 settimane</strong><span>dai testi alla messa online</span></li><li><strong>da 299&nbsp;€</strong><span>in promo, risparmi 100 €: poi da 399 €</span></li><li><strong>30 giorni</strong><span>di assistenza gratuita</span></li></ul></div></section>
@@ -150,7 +153,7 @@
 <a class="wa-fisso" href="https://wa.me/393454517186?text=Ciao%2C%20vorrei%20un%20preventivo" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.2c.3 2.6 3.2 5.5 5.8 5.8l1.3-1.3-2-1-.9.8c-.9-.4-1.8-1.3-2.2-2.2l.8-.9-1-2z" fill="currentColor"/></svg><span>Scrivici</span></a>
 <script src="servizi.js?v=353" defer></script>
 <script src="nav-colore.js?v=380" defer></script>
-<script src="landing-fogli.js?v=411" defer></script>
+<script src="landing-diario.js?v=6" defer></script>
 <script src="landing-anat.js?v=387" defer></script>
 </body>
 </html>

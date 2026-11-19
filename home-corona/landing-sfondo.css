@@ -1,0 +1,44 @@
+/* Landing · sfondo della pagina sinistra e separatore (Codex, 19/11): D «Filo continuo» (classe filo sull'elemento html), scelto da Francesco il 19/11. */
+/* Ogni direzione usa la stessa pagina e modifica carta e giunzione. */
+.dz.dz-piatto {
+  --seam: 24px;
+  --mobile-seam: 14px;
+  --paper: #F1EDE6;
+}
+.dz.dz-piatto .dz-copy { isolation:isolate; background-color:var(--paper); }
+.dz.dz-piatto .dz-copy::before {
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+}
+.dz.dz-piatto .dz-plate::before { display:none; }
+.dz.dz-piatto .dz-spread > .dz-cucitura {
+  position:absolute; z-index:5; pointer-events:none;
+  top:0; bottom:0; left:50%; width:var(--seam); transform:translateX(-50%);
+}
+
+/* D · Filo continuo: curve stampate sul margine che entrano nella cucitura. */
+.filo .dz.dz-piatto { --seam:32px; --mobile-seam:17px; }
+.filo .dz.dz-piatto .dz-copy {
+  background-image:var(--dz-grana),linear-gradient(155deg,#F7F2E9 15%,#EEE6DA 100%);
+}
+.filo .dz.dz-piatto .dz-copy::before {
+  background:url("../assets/img/landing/filo-continuo.svg") no-repeat right center / auto 100%;
+  mask-image:linear-gradient(90deg,transparent 47%,#0007 72%,#000 100%);
+}
+.filo .dz-cucitura {
+  background:
+    repeating-linear-gradient(155deg,transparent 0 8px,#554439 8px 9.5px,#C3AF94 10px 11px,transparent 12px 21px) center / 14px 100% no-repeat,
+    linear-gradient(90deg,transparent,#B5A18E80 34%,#5D4F41 49%,#F9EBD4 53%,#C9BAA55E 70%,transparent);
+}
+
+@media(max-width:760px){
+  .dz.dz-piatto .dz-spread > .dz-cucitura {
+    position:relative; inset:auto; width:100%; transform:none; flex:0 0 var(--mobile-seam);
+  }
+  .filo .dz.dz-piatto .dz-copy::before { background-size:auto 125%; background-position:right bottom; }
+  .filo .dz-cucitura {
+    background:
+      repeating-linear-gradient(125deg,transparent 0 8px,#554439 8px 9.5px,#C3AF94 10px 11px,transparent 12px 21px) center / 100% 10px no-repeat,
+      linear-gradient(180deg,#F1E7D9,#B5A18E80 34%,#5D4F41 49%,#F9EBD4 53%,#DAC9B3 70%,#F1EDE6);
+  }
+}
+

@@ -49,6 +49,7 @@
       L: { viste: [{ hq: 'carico', y: 0 }, { src: `${TESSERE}trainer-coach.webp`, y: 0 }], mappa: [0, 1, 1, 1, 1, 1] },
       P: { viste: ['oggi', 'allenamento', 'progressi', 'chat', 'guida'].map(n => ({ src: `${TESSERE}trainer-app-${n}.webp`, y: 0 })).concat([{ src: `${TESSERE}trainer-app-hero.webp`, y: 0 }]), mappa: [0, 1, 2, 3, 4, 5] }
     },
+    maro:        { nome: 'MARO', cat: 'Abbigliamento sportivo · Milano', url: 'https://www.shopmaro.it/', ...std('maro', [0, 600, 1200, 1640, 900, 2000], [0, 800, 1330, 1640, 2000, 1000]) },
     gestionale: {
       nome: 'Home Unity · gestionale', cat: 'Gestionale · area riservata', url: null,
       L: { viste: [{ src: `${IMGL}homeunity-pc.webp`, y: 0 }], mappa: [0] },
@@ -63,6 +64,7 @@
   // Le schede della slide: stessi testi del sito ufficiale
   const LAVORI = [
     { nome: 'Hedoné', cat: 'Sito web / Ristorazione · Vimodrone', stato: 'Cliente', img: 'hq/hedone-pc', riga: 'Ristorante e lounge bar sul Naviglio Martesana: il menù con gli ingredienti a un tocco e la prenotazione già aperta.', tag: ['Menù a un tocco', 'Prenotazione', 'Online da settembre 2026'], sito: 'ristorante' },
+    { nome: 'MARO', cat: 'Sito web / Abbigliamento sportivo · Milano', stato: 'Cliente', img: 'hq/maro-pc', riga: 'Il brand di abbigliamento sportivo ed elegante nato a Milano: il primo capo in vetrina e la prenotazione su WhatsApp.', tag: ['Online su shopmaro.it', 'Primo capo in vetrina', 'Prenota su WhatsApp'], sito: 'maro' },
     { nome: 'Ossidiana', cat: 'Sito vetrina / Moda e lusso · Milano', stato: 'Dimostrativo', img: 'hq/ossidiana-pc', riga: 'Una sartoria di alta moda inventata per mostrare un sito di lusso: foto grandi e poche parole.', tag: ['Foto a tutta pagina', 'Tre pagine', 'Computer e telefono'], sito: 'moda' },
     { nome: 'Home Unity', cat: 'Sito web / Real estate · Milano e Firenze', stato: 'Online', img: 'hq/homeunity-sito-pc', w: 1920, h: 1200, riga: 'Il sito di Home Unity: property management e operazioni immobiliari a Milano e Firenze.', tag: ['Online su homeunity.it', 'Metodo in quattro passi'], sito: 'immobiliare' },
     { nome: 'Home Unity', cat: 'Gestionale / Affitti brevi', stato: 'Area riservata', img: 'homeunity-pc', riga: 'I numeri di 108 appartamenti tra Milano, Firenze e lago di Garda in una sola schermata.', tag: ['Dati che arrivano da soli', 'Confronto con l’anno prima'], sito: 'gestionale' },
