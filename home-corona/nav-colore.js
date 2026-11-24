@@ -145,3 +145,15 @@
     });
   });
 })();
+
+/* apertura di un link (WhatsApp, social, segnalibro) o ricarica: la pagina parte sempre dall'inizio, non dall'ultima posizione ricordata dal browser. Il tasto «indietro» e i link con # restano com'erano. */
+(function () {
+  try {
+    var n = performance.getEntriesByType('navigation')[0], tipo = n && n.type;
+    if (tipo === 'back_forward' || location.hash) return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    var su = function () { if (!location.hash) scrollTo(0, 0); };
+    su(); addEventListener('load', su); addEventListener('pageshow', function (e) { if (!e.persisted) su(); });
+    setTimeout(su, 120);
+  } catch (e) {}
+})();
