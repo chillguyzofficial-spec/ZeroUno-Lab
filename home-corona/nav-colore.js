@@ -146,14 +146,19 @@
   });
 })();
 
-/* apertura di un link (WhatsApp, social, segnalibro) o ricarica: la pagina parte sempre dall'inizio, non dall'ultima posizione ricordata dal browser. Il tasto «indietro» e i link con # restano com'erano. */
+/* apertura di un link (WhatsApp, social, segnalibro, indirizzo copiato) o ricarica: la pagina parte sempre dall'inizio. Il «#sezione» in fondo all'indirizzo si toglie, a meno che arrivi da un'altra pagina del sito (menu → «Servizi») o dal tasto «indietro». */
 (function () {
   try {
     var n = performance.getEntriesByType('navigation')[0], tipo = n && n.type;
-    if (tipo === 'back_forward' || location.hash) return;
+    if (tipo === 'back_forward') return;
+    var dalSito = false;
+    try { dalSito = !!document.referrer && new URL(document.referrer).origin === location.origin && new URL(document.referrer).pathname !== location.pathname; } catch (e) {}
+    var tieni = !!location.hash && dalSito;
+    if (location.hash && !tieni) history.replaceState(null, '', location.pathname + location.search);
+    if (tieni) return;
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    var su = function () { if (!location.hash) scrollTo(0, 0); };
+    var su = function () { scrollTo(0, 0); };
     su(); addEventListener('load', su); addEventListener('pageshow', function (e) { if (!e.persisted) su(); });
-    setTimeout(su, 120);
+    setTimeout(su, 120); setTimeout(su, 600);
   } catch (e) {}
 })();

@@ -613,3 +613,8 @@ html.fit-attesa .ap-scena *, html.fit-attesa .gz-scena *, html.fit-attesa .mk-r_
   header.nav .menu .voce-sotto-t { min-height: 44px; padding-top: 0; padding-bottom: 0; }
   header.nav .menu .voce-sotto-t::after { bottom: 3px !important; }
 }
+/* «Servizi» da telefono: la riga sotto compare (con l'animazione) solo quando il sottomenu è aperto, uguale su tutte le pagine; non dipende più da hover o focus */
+@media (max-width: 899px) {
+  header.nav .menu .voce-sotto .voce-sotto-t::after { transform: scaleX(0) !important; transition: transform .3s; }
+  header.nav .menu .voce-sotto.aperto .voce-sotto-t::after { transform: scaleX(1) !important; }
+}
