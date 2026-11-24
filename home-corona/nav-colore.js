@@ -5,6 +5,9 @@
   const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return null; const [r, g, b, a = 1] = m.map(Number); if (a < 0.5) return null; return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255; };
   const dietro = () => {
     const x = Math.round(innerWidth / 2), y = 86;
+    /* apertura della home: la scena nera copre tutto lo schermo, la barra resta scura anche mentre si scorre veloce */
+    const sc = document.querySelector('.ap01-scena, .ap01 .ap-scena');
+    if (sc) { const r = sc.getBoundingClientRect(); if (r.top <= y && r.bottom >= y) { const l = lum(getComputedStyle(sc).backgroundColor); if (l !== null) return l; } }
     for (const el of document.elementsFromPoint(x, y)) {
       if (nav.contains(el) || el.closest('.wa-fisso, .cambia-tema, .promo-pop')) continue;
       for (let e = el; e && e !== document.documentElement; e = e.parentElement) { const l = lum(getComputedStyle(e).backgroundColor); if (l !== null) return l; }
@@ -128,4 +131,17 @@
   tutti.forEach(function (el) { io.observe(el); });
   /* rete di sicurezza: se per qualunque motivo qualcosa resta nascosto, dopo 6 secondi dalla comparsa del documento viene mostrato quando è in vista */
   addEventListener('hashchange', function () { tutti.forEach(function (el) { el.classList.remove('rv-p'); }); });
+})();
+
+/* menu da telefono: «Servizi» si espande e si richiude con un tocco */
+(function () {
+  document.querySelectorAll('.voce-sotto').forEach(function (v) {
+    var t = v.querySelector('.voce-sotto-t'); if (!t) return;
+    t.setAttribute('aria-expanded', 'false');
+    t.addEventListener('click', function (e) {
+      if (!matchMedia('(max-width: 899px)').matches) return;
+      e.preventDefault();
+      var a = v.classList.toggle('aperto'); t.setAttribute('aria-expanded', a ? 'true' : 'false');
+    });
+  });
 })();

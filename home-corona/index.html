@@ -21,7 +21,7 @@
 <link rel="icon" href="../assets/img/icona-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/icona-180.png">
 <link rel="stylesheet" href="corona.css?v=353">
-<link rel="stylesheet" href="menu-barra.css?v=411">
+<link rel="stylesheet" href="menu-barra.css?v=452">
 <style id="ap01-css">
 @font-face { font-family: "Manrope"; src: url(../assets/font/manrope.woff2) format("woff2"); font-weight: 200 800; font-display: swap; }
 .ap01-scena { position: relative; background: #000; isolation: isolate; overflow: hidden; }
@@ -159,14 +159,19 @@ html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 58px) - clam
   html[data-home="01"][data-tema] .ap01-tech { font-size: 13.5px !important; font-weight: 800 !important; letter-spacing: .24em !important; color: #E4D6FF !important; text-shadow: 0 0 2px #000, 0 0 10px rgba(0,0,0,.95), 0 0 20px rgba(0,0,0,.8); -webkit-font-smoothing: antialiased; gap: 10px; }
   html[data-home="01"][data-tema] .ap01-tech::before, html[data-home="01"][data-tema] .ap01-tech::after { width: 22px; height: 1.5px; background: linear-gradient(90deg, transparent, #C9A8FF); }
   html[data-home="01"][data-tema] .ap01-tech::after { background: linear-gradient(90deg, #C9A8FF, transparent); }
-  html[data-home="01"] .ap01-pr { margin-top: auto; margin-bottom: 14px; }
+  html[data-home="01"] .ap01-pr { margin-top: auto; margin-bottom: 14px; margin-inline: auto; width: calc(100% - 64px); border: 1.5px solid transparent; border-radius: 20px; background: linear-gradient(#0B0820, #0B0820) padding-box, linear-gradient(135deg, #D6C2FF 0%, rgba(124,77,255,.28) 38%, rgba(124,77,255,.28) 62%, #B89AF4 100%) border-box; box-shadow: 0 0 34px -8px rgba(124,77,255,.55), 0 14px 30px -18px rgba(0,0,0,.9); }
   /* promo su due righe: etichetta sopra, prezzo che scorre sotto, tutto a larghezza piena e mai tagliato */
   html[data-home="01"] .ap01-pr { flex-direction: column; height: auto; border-radius: 22px; align-items: stretch; }
-  html[data-home="01"] .ap01-pr-e { justify-content: center; height: 32px; padding: 0 12px; border-right: 0; border-bottom: 1px solid rgba(140, 112, 225, .4); font-size: 11.5px; }
-  html[data-home="01"] .ap01-pr-r { flex: none; width: 100%; height: 40px; padding: 0 10px; box-sizing: border-box; }
-  html[data-home="01"] .ap01-pr-t > span { height: 40px; font-size: 15px; gap: 7px; }
-  html[data-home="01"] .ap01-pr-t strong { font-size: 24px; }
+  html[data-home="01"] .ap01-pr-e { justify-content: center; height: 36px; padding: 0 12px; border-right: 0; border-bottom: 0; font-size: 12px; letter-spacing: .1em; }
+  html[data-home="01"] .ap01-pr-r { position: relative; }
+  html[data-home="01"] .ap01-pr-r::before { content: ""; position: absolute; top: 0; left: 18px; right: 18px; height: 1px; background: linear-gradient(90deg, transparent, rgba(190,160,255,.55), transparent); }
+  html[data-home="01"] .ap01-pr-r { flex: none; width: 100%; height: 46px; padding: 0 10px; box-sizing: border-box; }
+  html[data-home="01"] .ap01-pr-t > span { height: 46px; font-size: 16px; gap: 7px; }
+  html[data-home="01"] .ap01-pr-t strong { font-size: 27px; }
   html[data-home="01"] .ap01-cta { margin-top: 14px; }
+  /* invito principale da telefono: pieno, viola, con luce — diverso dal riquadro promo (scuro, contorno sfumato) */
+  html[data-home="01"][data-tema] .ap01-cta { height: 62px; min-height: 62px; border: 0 !important; background: linear-gradient(120deg, #8470D6 0%, #6F5BC4 55%, #5F4FB0 100%) !important; box-shadow: 0 14px 32px -14px rgba(111,91,196,.75), inset 0 1px 0 rgba(255,255,255,.28), inset 0 -10px 20px -12px rgba(30,10,90,.6) !important; font-size: 17.5px !important; font-weight: 700 !important; letter-spacing: .01em; padding: 0 9px 0 28px !important; }
+  html[data-home="01"][data-tema] .ap01-cta span:last-child { width: 44px; height: 44px; font-size: 18px; box-shadow: 0 6px 14px -4px rgba(20,0,80,.55); }
   html[data-home="01"] .ap01 h1 { font-size: clamp(44px, 12.6vw, 60px) !important; }
 }
 /* Apertura 01 · da telefono la descrizione si legge sopra le cifre: più grande, più chiara, con alone scuro e margini che stanno lontani dalle colonne di 0/1 */
@@ -307,7 +312,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
   </div>
 </div>
 
-<header class="nav">
+<header class="nav nav-sc">
   <div class="menu" data-menu>
     <a class="logo" href="#" aria-label="Zero Uno Lab, vai in cima"><img class="logo-n" src="../assets/img/logo-nero.webp" width="240" height="30" alt="Zero Uno Lab"><img class="logo-b" src="../assets/img/logo-bianco.webp" width="240" height="30" alt="" aria-hidden="true"></a>
     <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-voci" aria-label="Apri il menu"><span></span><span></span></button>
@@ -603,7 +608,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
 })();
 </script>
 <script src="hq-meta.js"></script>
-<script src="corona.js?v=356" defer></script>
-<script src="nav-colore.js?v=380" defer></script>
+<script src="corona.js?v=357" defer></script>
+<script src="nav-colore.js?v=390" defer></script>
 </body>
 </html>

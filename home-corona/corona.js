@@ -499,7 +499,8 @@
     const invertite = $$('.inv'), nav = $('.nav'), menu = $('[data-menu]'), btn = $('.menu-btn'), ponte = $('[data-ponte]'), lavori = $('#lavori');
     const imposta = v => { menu.classList.toggle('aperto', v); btn.setAttribute('aria-expanded', String(v)); btn.setAttribute('aria-label', v ? 'Chiudi il menu' : 'Apri il menu'); };
     btn.addEventListener('click', e => { e.stopPropagation(); imposta(!menu.classList.contains('aperto')); });
-    $$('.menu-voci a').forEach(a => a.addEventListener('click', () => imposta(false)));
+    $$('.menu-voci a:not(.voce-sotto-t)').forEach(a => a.addEventListener('click', () => imposta(false)));
+    $$('.voce-sotto-t').forEach(a => a.addEventListener('click', () => { if (!matchMedia('(max-width: 899px)').matches) imposta(false); }));
     document.addEventListener('click', e => { if (!menu.contains(e.target)) imposta(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('aperto')) { imposta(false); btn.focus(); } });
     let attesa = false;

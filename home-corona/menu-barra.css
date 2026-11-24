@@ -600,3 +600,16 @@ html.fit-attesa .ap-scena *, html.fit-attesa .gz-scena *, html.fit-attesa .mk-r_
   .tmr > summary { grid-template-columns: clamp(110px, 38vw, 170px) minmax(0, 1fr) 44px; }
   .tmr-fw { width: clamp(110px, 38vw, 170px); height: clamp(110px, 38vw, 170px); }
 }
+
+/* MENU da telefono: «Servizi» si apre e si chiude con un tocco, così il menu occupa meno spazio */
+@media (max-width: 899px) {
+  header.nav .menu .voce-sotto-t { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; padding-right: 34px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1.5 1.5 7 7l5.5-5.5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 10px center / 14px 9px; transition: background-position .2s; }
+  header.nav .menu .voce-sotto.aperto .voce-sotto-t { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1.5 7.5 7 2l5.5 5.5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+  header.nav .menu .voce-sotto .sottomenu { display: none !important; }
+  header.nav .menu .voce-sotto.aperto .sottomenu { display: block !important; }
+}
+/* «Servizi» aperto: la riga sotto la voce sta staccata dal testo */
+@media (max-width: 899px) {
+  header.nav .menu .voce-sotto-t { min-height: 44px; padding-top: 0; padding-bottom: 0; }
+  header.nav .menu .voce-sotto-t::after { bottom: 3px !important; }
+}
