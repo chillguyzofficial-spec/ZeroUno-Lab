@@ -66,7 +66,7 @@
     { nome: 'Hedoné', cat: 'Sito web / Ristorazione · Vimodrone', stato: 'Cliente', img: 'hq/hedone-pc', riga: 'Ristorante e lounge bar sul Naviglio Martesana: il menù con gli ingredienti a un tocco e la prenotazione già aperta.', tag: ['Menù a un tocco', 'Prenotazione', 'Online da settembre 2026'], sito: 'ristorante' },
     { nome: 'MARO', cat: 'Sito web / Abbigliamento sportivo · Milano', stato: 'Cliente', img: 'hq/maro-pc', riga: 'Il brand di abbigliamento sportivo ed elegante nato a Milano: il primo capo in vetrina e la prenotazione su WhatsApp.', tag: ['Online su shopmaro.it', 'Primo capo in vetrina', 'Prenota su WhatsApp'], sito: 'maro' },
     { nome: 'Ossidiana', cat: 'Sito vetrina / Moda e lusso · Milano', stato: 'Dimostrativo', img: 'hq/ossidiana-pc', riga: 'Una sartoria di alta moda inventata per mostrare un sito di lusso: foto grandi e poche parole.', tag: ['Foto a tutta pagina', 'Tre pagine', 'Computer e telefono'], sito: 'moda' },
-    { nome: 'Home Unity', cat: 'Sito web / Real estate · Milano e Firenze', stato: 'Online', img: 'hq/homeunity-sito-pc', w: 1920, h: 1200, riga: 'Il sito di Home Unity: property management e operazioni immobiliari a Milano e Firenze.', tag: ['Online su homeunity.it', 'Metodo in quattro passi'], sito: 'immobiliare' },
+    { nome: 'Home Unity', cat: 'Sito web / Immobiliare · Milano e Firenze', stato: 'Online', img: 'hq/homeunity-sito-pc', w: 1920, h: 1200, riga: 'Il sito di Home Unity: property management e operazioni immobiliari a Milano e Firenze.', tag: ['Online su homeunity.it', 'Metodo in quattro passi'], sito: 'immobiliare' },
     { nome: 'Home Unity', cat: 'Gestionale / Affitti brevi', stato: 'Area riservata', img: 'homeunity-pc', riga: 'I numeri di 108 appartamenti tra Milano, Firenze e lago di Garda in una sola schermata.', tag: ['Dati che arrivano da soli', 'Confronto con l’anno prima'], sito: 'gestionale' },
     { nome: 'Studio Lumea', cat: 'Sito web / Studio dentistico · Milano', stato: 'Dimostrativo', img: 'hq/lumea-pc', riga: 'Dodici pagine pensate per chi ha paura del dentista: una per trattamento, costi chiari e richiesta di appuntamento.', tag: ['Dodici pagine', 'Costi chiari', 'Appuntamento online'], sito: 'studio' },
     { nome: 'Michelangelo Beauty', cat: 'Negozio online / Cosmetica · Toscana', stato: 'Dimostrativo', img: 'hq/michelangelo-pc', riga: 'Un negozio di cosmetica con il carattere di una bottega: carrello, confezione regalo e pagamento in quattro passaggi.', tag: ['Carrello', 'Confezione regalo', 'Questionario prodotti'], sito: 'shop' },
@@ -392,7 +392,7 @@
     const f = form.elements, nome = f.nome.value.trim(), contatto = f.contatto.value.trim(), sett = campoSett.value.trim();
     if (!nome || !contatto) { errore.hidden = false; (nome ? f.contatto : f.nome).focus(); return; }
     errore.hidden = true;
-    const righe = ['Ciao, sono ' + nome + '.', Q.servizio && ('Mi serve: ' + Q.servizio + '.'), sett && ('Attività: ' + sett + '.'), Q.tempi && ('Tempi: ' + Q.tempi + '.'), f.msg.value.trim() && ('Il progetto: ' + f.msg.value.trim().replace(/[.!?]+$/, '') + '.'), 'Mi trovi qui: ' + contatto + '.', Q.servizio === 'Landing page' && '(dalla promo da 499 €)'].filter(Boolean);
+    const righe = ['Ciao, sono ' + nome + '.', Q.servizio && ('Mi serve: ' + Q.servizio + '.'), sett && ('Attività: ' + sett + '.'), Q.tempi && ('Tempi: ' + Q.tempi + '.'), f.msg.value.trim() && ('Il progetto: ' + f.msg.value.trim().replace(/[.!?]+$/, '') + '.'), 'Mi trovi qui: ' + contatto + '.', Q.servizio === 'Landing page' && '(dalla promo da 299 €)'].filter(Boolean);
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(righe.join(' ')), '_blank', 'noopener');
     form.hidden = true; grazie.hidden = false;
   });
@@ -554,11 +554,7 @@
     const chiudi = () => { if (pop.hidden) return; pop.hidden = true; document.documentElement.style.overflow = ''; try { sessionStorage.setItem('zul-promo', '1'); } catch (e) {} };
     $$('[data-promo-chiudi]', pop).forEach(b => b.addEventListener('click', chiudi));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudi(); });
-    if (visto || q.has('preventivo')) return;
-    setTimeout(() => {
-      if (dlg && dlg.open) return;
-      pop.hidden = false; document.documentElement.style.overflow = 'hidden';
-      const c = $('.cta', pop); if (c) c.focus({ preventScroll: true });
-    }, 1600);
+    // 24/11/2026: la finestra non si apre più da sola (interrompeva la scelta del settore); la promo è già visibile nell'apertura e nelle schede dei servizi.
+    return;
   })();
 })();

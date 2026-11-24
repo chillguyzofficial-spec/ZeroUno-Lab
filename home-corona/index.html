@@ -7,6 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zero Uno Lab — Siti, app e marketing per la tua attività</title>
 <meta name="description" content="Zero Uno Lab realizza siti, app e marketing su misura, scritti da zero. Scegli il tuo settore e guarda cosa facciamo per te.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Zero Uno Lab">
+<meta property="og:title" content="Zero Uno Lab — Siti, app e marketing per la tua attività">
+<meta property="og:description" content="Zero Uno Lab realizza siti, app e marketing su misura, scritti da zero. Scegli il tuo settore e guarda cosa facciamo per te.">
+<meta property="og:image" content="https://chillguyzofficial-spec.github.io/ZeroUno-Lab/assets/img/condivisione-01.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../assets/img/icona-32.png" sizes="32x32">
@@ -35,7 +44,7 @@
   .ap01-tech { font-size: 12px; padding: 10px 16px; letter-spacing: .16em; }
   .ap01-cta { width: 100%; justify-content: center; }
 }
-@media (max-width: 899px) and (max-height: 700px) { .ap01-riga { display: none; } }
+@media (max-width: 899px) and (max-height: 540px) { .ap01-riga { display: none; } }
 html[data-tema] .ap01-scena { background: #000 !important; }
 html[data-tema] .ap01-scena .ap01 { background: transparent !important; color: #fff !important; }
 html[data-tema] .ap01 h1 { color: #fff !important; } html[data-tema] .ap01 h1 em { color: #C9B5FF !important; }
@@ -49,7 +58,8 @@ html[data-tema] .ap01 h1 em { font-family: "Manrope", sans-serif !important; fon
 .ap01-scena::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 0; height: 1px; z-index: 2; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(190, 160, 255, .75), transparent); box-shadow: 0 0 24px 2px rgba(150, 110, 255, .45); }
 html[data-tema] .ap01 h1 { font-family: "Instrument Serif", Georgia, serif !important; font-weight: 400 !important; font-size: clamp(44px, 6.3vw, 98px) !important; line-height: 1.0 !important; letter-spacing: -.022em !important; }
 html[data-tema] .ap01 h1 em { font-family: "Instrument Serif", Georgia, serif !important; font-style: italic; font-weight: 400 !important; letter-spacing: -.02em !important; color: #BFA6FF !important; }
-html[data-tema] .ap01-riga { font-weight: 300; font-size: clamp(16px, 1.4vw, 20px); letter-spacing: .01em; line-height: 1.65; color: #CFC8E6 !important; max-width: 50ch; }
+html[data-tema] .ap01-riga { font-weight: 400; font-size: clamp(16px, 1.4vw, 20px); letter-spacing: .01em; line-height: 1.65; color: #CFC8E6 !important; max-width: 50ch; }
+html[data-tema] .ap01-riga strong { font-weight: 600; color: #F2EFFA; }
 html[data-tema] .ap01-tech { font-size: 11.5px; letter-spacing: .26em; padding: 10px 20px; border-color: rgba(190, 160, 255, .28); border-radius: 999px; }
 html[data-tema] .ap01-cta { border-radius: 999px; font-weight: 600; font-size: 17px; letter-spacing: .01em; }
 @media (max-width: 899px) {
@@ -98,7 +108,7 @@ html[data-tema] .ap01-cta:hover { background: #7e66e8 !important; }
 
 /* Apertura 01 · promo: capsula sottile su una riga, prezzi che scorrono verso l'alto come un contatore */
 .ap01-pr { display: inline-flex; align-items: center; height: 46px; border: 1px solid rgba(140, 112, 225, .55); border-radius: 999px; background: rgba(14, 10, 38, .78); overflow: hidden; font-family: "Manrope", sans-serif; box-shadow: 0 10px 30px -16px rgba(111, 85, 219, .7); }
-.ap01-pr-e { display: inline-flex; align-items: center; gap: 9px; height: 100%; padding: 0 18px 0 16px; font: 700 11px/1 "Manrope", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #B7A0F0; border-right: 1px solid rgba(140, 112, 225, .4); white-space: nowrap; }
+.ap01-pr-e { display: inline-flex; align-items: center; gap: 9px; height: 100%; padding: 0 18px 0 16px; font: 700 12px/1 "Manrope", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #B7A0F0; border-right: 1px solid rgba(140, 112, 225, .4); white-space: nowrap; }
 .ap01-pr-e i { width: 7px; height: 7px; border-radius: 50%; background: #9C7DF0; box-shadow: 0 0 0 0 rgba(156, 125, 240, .6); animation: ap01-pulsa 2.2s ease-out infinite; }
 @keyframes ap01-pulsa { 0% { box-shadow: 0 0 0 0 rgba(156, 125, 240, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(156, 125, 240, 0); } }
 .ap01-pr-r { display: block; height: 46px; overflow: hidden; padding: 0 22px; min-width: 250px; }
@@ -106,7 +116,7 @@ html[data-tema] .ap01-cta:hover { background: #7e66e8 !important; }
 .ap01-pr-t > span { display: flex; align-items: center; justify-content: center; gap: 8px; height: 46px; white-space: nowrap; font-size: 15px; color: #CFC7E8; }
 .ap01-pr-t b { font-weight: 600; color: #fff; }
 .ap01-pr-t strong { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 25px; line-height: 1; color: #fff; letter-spacing: -.01em; }
-@media (max-width: 899px) { .ap01-pr { height: 44px; max-width: 100%; } .ap01-pr-e { padding: 0 12px; font-size: 10px; letter-spacing: .14em; } .ap01-pr-r { height: 44px; min-width: 0; padding: 0 14px; } .ap01-pr-t > span { height: 44px; font-size: 14px; gap: 6px; } .ap01-pr-t strong { font-size: 22px; } }
+@media (max-width: 899px) { .ap01-pr { height: 44px; max-width: 100%; } .ap01-pr-e { padding: 0 12px; font-size: 12px; letter-spacing: .06em; } .ap01-pr-r { height: 44px; min-width: 0; padding: 0 14px; } .ap01-pr-t > span { height: 44px; font-size: 14px; gap: 6px; } .ap01-pr-t strong { font-size: 22px; } }
 @media (prefers-reduced-motion: reduce) { .ap01-pr-t { transition: none; } .ap01-pr-e i { animation: none; } }
 
 /* Apertura 01 · pulsante: contorno sottile, freccia in un cerchio pieno */
@@ -119,7 +129,7 @@ html[data-tema] .ap01-cta:hover span:last-child { background: #6F55DB; color: #f
 @media (max-width: 899px) {
   .ap01-corpo { width: 100%; min-width: 0; }
   .ap01-pr { display: flex; width: 100%; box-sizing: border-box; }
-  .ap01-pr-e { flex: none; padding: 0 10px; font-size: 9.5px; letter-spacing: .1em; gap: 7px; }
+  .ap01-pr-e { flex: none; padding: 0 10px; font-size: 12px; letter-spacing: .04em; gap: 7px; }
   .ap01-pr-r { flex: 1 1 auto; min-width: 0; padding: 0 8px; }
   .ap01-pr-t > span { font-size: 13.5px; gap: 5px; } .ap01-pr-t strong { font-size: 21px; }
 }
@@ -155,6 +165,7 @@ html[data-home="01"] .ap01 { min-height: calc(100svh - var(--nav-h, 58px) - clam
 }
 /* Apertura 01 · da telefono la descrizione si legge sopra le cifre: più grande, più chiara, con alone scuro e margini che stanno lontani dalle colonne di 0/1 */
 @media (max-width: 899px) { html[data-tema] .ap01-riga { font-size: 17.5px !important; font-weight: 400 !important; line-height: 1.55 !important; color: #F1EEFA !important; padding: 0 14px; text-shadow: 0 0 6px #000, 0 0 14px #000, 0 0 26px #000; text-wrap: balance; } }
+@media (max-width: 899px) and (max-height: 700px) { html[data-tema] .ap01-riga { display: block; font-size: 16px !important; line-height: 1.4 !important; margin-top: 12px !important; padding: 0 12px !important; } }
 
 /* Apertura 01 · sfondo sotto i progetti: aloni viola, punti sottili e un filo di luce */
 html[data-home="01"] .lavori { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(70% 55% at 12% 22%, rgba(111, 85, 219, .26), transparent 70%), radial-gradient(60% 50% at 90% 66%, rgba(140, 95, 240, .2), transparent 70%), radial-gradient(90% 40% at 50% 112%, rgba(111, 85, 219, .22), transparent 70%), #05030F !important; }
@@ -311,7 +322,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
     <p class="ap01-tech">Siti · App · Marketing</p>
     <h1>Il sito che i tuoi clienti <em>ricorderanno</em>.</h1>
     <p class="ap01-riga"><strong>Siti, app e pubblicità</strong> pensati insieme per portarti <strong>più contatti, prenotazioni e vendite</strong>. <strong>Parli direttamente</strong> con chi li&nbsp;costruisce.</p>
-    <div class="ap01-pr" role="status" aria-label="Promozione in corso"><span class="ap01-pr-e"><i aria-hidden="true"></i>Promo fino al 31 dicembre</span><span class="ap01-pr-r" aria-live="off"><span class="ap01-pr-t"><span><b>Landing page</b> da <strong>299€</strong></span><span><b>Sito vetrina</b> da <strong>499€</strong></span><span><b>Negozio online</b> da <strong>699€</strong></span><span><b>Landing page</b> da <strong>299€</strong></span></span></span></div>
+    <div class="ap01-pr" role="status" aria-label="Promozione in corso"><span class="ap01-pr-e"><i aria-hidden="true"></i>Promo fino al 31 dicembre</span><span class="ap01-pr-r" aria-live="off"><span class="ap01-pr-t"><span><b>Landing page</b> da <strong>299 €</strong></span><span><b>Sito vetrina</b> da <strong>499 €</strong></span><span><b>Negozio online</b> da <strong>699 €</strong></span><span><b>Landing page</b> da <strong>299 €</strong></span></span></span></div>
     <button type="button" class="ap01-cta" data-apri-contatto><span>Parlaci del tuo progetto</span><span aria-hidden="true">↗</span></button>
   </div>
 </section></div>
@@ -408,7 +419,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
   <div class="sz-in">
     <header class="sz-testa"><span class="lav-occhiello">Domande</span><h2 id="t-domande">Domande <em>frequenti</em>.</h2><p class="lav-sotto">Le cose che ci chiedono prima di partire.</p></header>
     <div class="faq"><details><summary>Le promo sono vere?<span class="segno" aria-hidden="true"></span></summary><p>Sì. Sono prezzi di partenza, in promo fino al 31 dicembre 2026: landing page da 299 € (poi da 399 €, risparmi 100 €), sito vetrina da 499 € (poi da 699 €, risparmi 200 €), negozio online da 699 € (poi da 999 €, risparmi 300 €). Valgono se ci scrivi entro quella data. Se ti serve di più te lo diciamo nel preventivo, prima di iniziare, e decidi tu.</p></details>
-<details><summary>Perché costate meno di un’agenzia?<span class="segno" aria-hidden="true"></span></summary><p>Siamo in due e il lavoro lo facciamo noi: niente commerciali né passaggi di mano da pagare. Scriviamo il codice da zero, senza temi a pagamento né canoni di piattaforme.</p></details>
+<details><summary>Perché i prezzi sono questi?<span class="segno" aria-hidden="true"></span></summary><p>Siamo in due e il lavoro lo facciamo noi: niente commerciali né passaggi di mano da pagare. Scriviamo il codice da zero, senza temi a pagamento né canoni di piattaforme.</p></details>
 <details><summary>Quanto tempo ci vuole?<span class="segno" aria-hidden="true"></span></summary><p>Per il sito della promo circa 2 settimane da quando abbiamo testi e foto: se arrivano a pezzi, i tempi si allungano. Per un sito più grande, un negozio o un gestionale, li fissiamo insieme nel preventivo.</p></details>
 <details><summary>Ci sono costi dopo la consegna?<span class="segno" aria-hidden="true"></span></summary><p>Solo dominio e spazio web, intestati a te e pagati direttamente al fornitore: di solito poche decine di euro l’anno. Nessun abbonamento obbligatorio. Dopo i 30 giorni di assistenza, le modifiche le chiedi quando servono con un piccolo preventivo, oppure con un’assistenza mensile facoltativa, che puoi disdire con 30 giorni di preavviso.</p></details>
 <details><summary>Testi e foto chi li prepara?<span class="segno" aria-hidden="true"></span></summary><p>Tu conosci la tua attività meglio di noi: ci dai le informazioni e le foto che hai, i testi li scriviamo insieme e ti diciamo quali immagini servono e in che formato.</p></details></div>
@@ -427,7 +438,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
 <footer class="piede"><div class="piede-in">
   <div class="piede-marca"><a class="logo" href="#apertura" aria-label="Zero Uno Lab, torna in cima"><span class="firma-piede" aria-hidden="true"><span class="fp-testo">Zero Uno Lab</span><svg class="fp-tratto" viewBox="0 0 260 34" preserveAspectRatio="none" focusable="false"><path d="M6 24 C 48 6, 104 5, 158 15 S 232 27, 254 9" pathLength="1"/></svg></span></a><p>Siti, app e marketing su misura. Francesco Mascolo sviluppa, Alex Iancu cura il marketing.</p><button type="button" class="piede-cta" data-apri-contatto>Prepara il tuo preventivo <span aria-hidden="true">→</span></button></div>
   <nav class="piede-col" aria-label="Servizi"><h4>Servizi</h4><ul><li><a href="landing-page.html">Landing page</a></li><li><a href="sito-vetrina.html">Sito vetrina</a></li><li><a href="negozio-online.html">Negozio online</a></li><li><a href="gestionale.html">Gestionale</a></li><li><a href="app.html">App</a></li><li><a href="marketing.html">Marketing</a></li></ul></nav>
-  <nav class="piede-col" aria-label="Il sito"><h4>Zero Uno Lab</h4><ul><li><a href="#lavori">Lavori</a></li><li><a href="#team">Team</a></li><li><a href="#domande">Domande</a></li><li><a href="#contatti" data-apri-contatto>Preventivo</a></li></ul></nav>
+  <nav class="piede-col" aria-label="Il sito"><h4>Zero Uno Lab</h4><ul><li><a href="#lavori">Lavori</a></li><li><a href="team.html">Team</a></li><li><a href="#domande">Domande</a></li><li><a href="#contatti" data-apri-contatto>Preventivo</a></li></ul></nav>
   <nav class="piede-col" aria-label="Contatti"><h4>Contatti</h4><ul><li><a href="https://wa.me/393454517186" target="_blank" rel="noopener">WhatsApp ↗</a></li><li><a href="../privacy.html">Privacy</a></li><li><a href="../privacy.html#cookie">Cookie</a></li></ul></nav>
   <div class="piede-fondo"><span>© 2026 Zero Uno Lab · Francesco Mascolo e Alex Iancu</span><span>Risposta entro 24 ore</span></div>
 </div></footer>
@@ -521,9 +532,9 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
       </form>
 
       <div class="contatto-grazie" data-grazie hidden>
-        <span class="lav-occhiello">Richiesta pronta</span>
-        <h2>Grazie, <em>a presto</em>.</h2>
-        <p>Abbiamo ricevuto la tua richiesta. Ti ricontattiamo noi per fissare una chiamata.</p>
+        <span class="lav-occhiello">Ultimo passo</span>
+        <h2>Invia il messaggio <em>su WhatsApp</em>.</h2>
+        <p>Si è aperta una chat con la tua richiesta già scritta: premi Invio per mandarcela. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
         <button type="button" class="invia" data-chiudi-contatto>Torna al sito</button>
       </div>
     </div>
@@ -586,7 +597,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
 })();
 </script>
 <script src="hq-meta.js"></script>
-<script src="corona.js?v=354" defer></script>
+<script src="corona.js?v=356" defer></script>
 <script src="nav-colore.js?v=380" defer></script>
 </body>
 </html>

@@ -676,3 +676,6 @@ html[data-tema="bn"] .mk-r__raccordo path { fill: #fff; }
 .mk-cap-tag { color: #00376b; }
 .mk-desk3 .mk-soc-cta .mk-esempio { display: none; }
 @media (max-width: 640px) { .mk-cr-h { font-size: 21px; } }
+
+/* Controllo 2026-11-24: il coperchio 3D del portatile chiuso sporgeva di 44 px a destra a 1280-1440 */
+.mk-r__demo { overflow-x: clip; }

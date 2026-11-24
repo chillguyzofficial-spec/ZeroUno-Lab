@@ -1327,3 +1327,21 @@ html[data-tema] main > section.tm-ponte { background: #0B0B0D !important; color:
   .lp-foglio .lp-esempio img { object-fit: cover !important; object-position: center top; }
   .lp-foglio .lp-sotto { padding-bottom: 0; }
 }
+
+/* Gestionale: la lista di sinistra e il riquadro finiscono alla stessa altezza (2026-11-24).
+   Tutti i pannelli stanno nella stessa cella: il riquadro ha sempre l'altezza del più alto e non salta tra una voce e l'altra. */
+@media (min-width: 900px) {
+  .gz-esplora { align-items: stretch; }
+  .gz-elenco { grid-auto-rows: 1fr; align-content: stretch; }
+  .gz-vetrina { display: grid; }
+  .gz-vetrina > .gz-pann { grid-area: 1 / 1; align-content: start; }
+  .gz-vetrina > .gz-pann[hidden] { display: grid; visibility: hidden; pointer-events: none; animation: none; }
+}
+
+/* Fila dei settori (telefono): scorre solo di lato, mai in verticale, e le pillole stanno tutte alla stessa altezza (2026-11-24) */
+@media (max-width: 899px) {
+  .sv-chips { align-items: center; overflow-y: hidden; overscroll-behavior: contain; touch-action: pan-x; }
+  .sv-chip { align-self: center; }
+}
+/* Le pillole dei settori non hanno l'effetto «compare scorrendo»: quelle fuori schermo nella fila restavano abbassate e tagliate (2026-11-24) */
+.sv-chips .sv-chip, .sv-chips[class*="rv-"], .sv-chips > * { animation: none !important; transform: none !important; opacity: 1 !important; }

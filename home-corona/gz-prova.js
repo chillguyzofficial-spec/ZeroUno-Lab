@@ -112,7 +112,7 @@
       return '<button type="button" class="gl-col' + (st.pin === i ? ' on' : '') + '" data-b="' + i + '" aria-label="' + x[0] + ': ' + fv(x[ix]) + '"><span class="gl-tip"><b>' + x[0] + '</b>' + fv(x[ix]) + '<small>' + (dl >= 0 ? '+' : '−') + Math.abs(dl) + '% sul periodo prima</small></span><span class="gl-bar" style="height:' + (x[ix] / top * 100) + '%"></span><em>' + x[0] + '</em></button>';
     }).join('');
     var line = d.b.map(function (x, i) { return ((i + .5) / n * 100).toFixed(2) + ',' + (100 - x[pv] / top * 100).toFixed(2); }).join(' ');
-    var sel = st.pin >= 0 ? '<b>' + d.b[st.pin][0] + '</b> · ' + fv(d.b[st.pin][ix]) + ' · periodo prima ' + fv(d.b[st.pin][pv]) : 'Passa o tocca una barra per il dettaglio. La linea tratteggiata è il periodo precedente.';
+    var sel = st.pin >= 0 ? '<b>' + d.b[st.pin][0] + '</b> · ' + fv(d.b[st.pin][ix]) + ' · periodo prima ' + fv(d.b[st.pin][pv]) : 'Passa il mouse o tocca una barra per il dettaglio. La linea tratteggiata è il periodo precedente.';
     var al = [['Tre arrivi senza pulizia assegnata, domani', 'Assegna'], ['L’occupazione di fine mese è sotto la media', 'Proponi offerta']].map(function (a, i) {
       return st.alert[i] ? '<div class="gl-al"><span class="gl-al-i">!</span><p>' + a[0] + '</p><button type="button" data-a="' + i + '">' + a[1] + '</button></div>' : '<div class="gl-al ok"><span class="gl-al-i">✓</span><p>Fatto: ' + a[0].toLowerCase() + '</p></div>';
     }).join('');

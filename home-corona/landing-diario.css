@@ -27,7 +27,7 @@
 .dz-sample { display: block; position: relative; width: min(100%, calc((100svh - var(--nav-h, 58px) - 72px - 2 * clamp(24px, 4vw, 64px) - 56px) * 1.1)); transform: rotate(-2deg); border: 9px solid #FCF7EE; box-shadow: 0 5px 10px #4D362E55; background: #FCF7EE; }
 .dz-sample img { display: block; width: 100%; height: auto; }
 .dz-sample::before { content: ""; position: absolute; z-index: 2; width: 25%; height: 22px; left: 37.5%; top: -22px; transform: rotate(3deg); background: #CBB797BB; }
-.dz-sheet figcaption { font: 600 11px/1.2 var(--mono, 'IBM Plex Mono', monospace); letter-spacing: .12em; text-transform: uppercase; color: #5b4a38; text-align: center; }
+.dz-sheet figcaption { font: 600 12px/1.2 var(--mono, 'IBM Plex Mono', monospace); letter-spacing: .12em; text-transform: uppercase; color: #5b4a38; text-align: center; }
 .dz-flapw { position: absolute; inset: 0; z-index: 6; pointer-events: none; filter: drop-shadow(-4px 6px 6px rgba(60, 40, 20, .35)); }
 .dz-flap { position: absolute; inset: 0; background: linear-gradient(125deg, #B69F82, #FAF3E6 49%, #DDD0BE 66%, #9D866B); clip-path: polygon(0 0, 0 0, 0 0); }
 .dz-corner { position: absolute; z-index: 8; top: 0; right: 0; width: 96px; height: 96px; padding: 0; border: 0; background: none; cursor: grab; touch-action: none; -webkit-tap-highlight-color: transparent; }
@@ -172,7 +172,7 @@
 .dz.dz-piatto .dz-sample::before { display: none; }
 .dz.dz-piatto .dz-sample picture { position: absolute; inset: 0; display: block; }
 .dz.dz-piatto .dz-sample img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: none; }
-.dz.dz-piatto .dz-sheet figcaption { position: absolute; z-index: 3; top: 16px; left: 50%; transform: translateX(-50%); background: #F7F1E4; color: #17151B; box-shadow: 0 0 0 1.5px #17151B; border-radius: 999px; padding: 8px 14px; font: 700 11px/1 var(--sans, 'Schibsted Grotesk', sans-serif); letter-spacing: .14em; white-space: nowrap; }
+.dz.dz-piatto .dz-sheet figcaption { position: absolute; z-index: 3; top: 16px; left: 50%; transform: translateX(-50%); background: #F7F1E4; color: #17151B; box-shadow: 0 0 0 1.5px #17151B; border-radius: 999px; padding: 8px 14px; font: 700 12px/1 var(--sans, 'Schibsted Grotesk', sans-serif); letter-spacing: .14em; white-space: nowrap; }
 .dz.dz-piatto .dz-flap { background: linear-gradient(125deg, #BDB4CF, #F7F3FB 49%, #DDD6EA 66%, #A89EC2); }
 @media (max-width: 760px) {
   .dz.dz-piatto .dz-spread { display: flex; flex-direction: column; height: calc(100svh - var(--nav-h, 52px)); min-height: 560px; }
@@ -191,7 +191,7 @@
 .dz-hint { transition: opacity .45s ease, transform .55s cubic-bezier(.2, .8, .2, 1); transform: translateX(14px); }
 .dz-plate.dz-suggerisci:not(.dz-usata) .dz-hint { transform: none; }
 @media (min-width: 761px) {
-  .dz-hint { top: 24px; right: calc(66px + 16px); font-size: 10.5px; padding: 8px 13px; }
+  .dz-hint { top: 24px; right: calc(66px + 16px); font-size: 12px; padding: 8px 13px; }
   .dz-hint i { display: none; }
   .dz.dz-piatto .dz-sheet figcaption { left: 20px; transform: none; }
 }
@@ -203,7 +203,7 @@
 
 /* v8 · prezzo come etichetta curata e link secondario con freccia */
 .dz .dz-price { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin: clamp(12px, 2svh, 18px) 0 clamp(8px, 1.4svh, 12px); padding: 0; border: 0; font-size: clamp(14px, 1.9svh, 16px); font-weight: 700; }
-.dz .dz-promo { padding: 5px 10px; border-radius: 999px; background: #17151B; color: #F1EDE6; font: 800 10.5px/1 var(--sans, 'Schibsted Grotesk', sans-serif); letter-spacing: .14em; text-transform: uppercase; }
+.dz .dz-promo { padding: 5px 10px; border-radius: 999px; background: #17151B; color: #F1EDE6; font: 800 12px/1 var(--sans, 'Schibsted Grotesk', sans-serif); letter-spacing: .14em; text-transform: uppercase; }
 .dz .dz-da { font-weight: 600; }
 .dz .dz-da b { font: 850 1.5em/1 var(--sans, 'Schibsted Grotesk', sans-serif); letter-spacing: -.045em; margin-left: 2px; }
 .dz .dz-risp { color: #5A32C8; font-weight: 800; padding-left: 12px; border-left: 2px solid #6540C6; }
@@ -212,3 +212,29 @@
 .dz .dz-more i { font-style: normal; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #17151B; color: #F1EDE6; font-size: 14px; line-height: 1; transition: transform .25s; }
 .dz .dz-more:hover i { transform: translateY(3px); }
 @media (max-width: 760px) { .dz .dz-price { margin: 10px 0 6px; font-size: 13.5px; } .dz .dz-promo { font-size: 9.5px; padding: 4px 8px; } .dz .dz-more { font-size: 13.5px; } .dz .dz-more i { width: 22px; height: 22px; font-size: 12px; } }
+
+/* Controllo 2026-11-24: nessun testo sotto i 12 px su telefono */
+@media (max-width: 760px) {
+  .dz .dz-kicker, .dz.dz-piatto .dz-kicker { font-size: 12px; }
+  .dz .dz-promo { font-size: 12px; padding: 5px 9px; }
+  .dz-sheet figcaption, .dz.dz-piatto .dz-sheet figcaption { font-size: 12px; letter-spacing: .03em; padding: 6px 10px; }
+  .dz-hint { font-size: 12px; }
+}
+.dz-pre-s { display: none; }
+@media (max-width: 760px) { .dz-pre { display: none; } .dz-pre-s { display: inline; } }
+
+/* «Scorri la piega» lampeggia finché non si usa la piega (richiesta di Francesco 2026-11-24); si ferma con «riduci movimento» */
+@keyframes dz-hint-lampo {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 1px #17151B, 0 0 0 0 rgba(109, 75, 216, .6); }
+  50% { opacity: .5; box-shadow: 0 0 0 1px #17151B, 0 0 0 11px rgba(109, 75, 216, 0); }
+}
+.dz-plate.dz-suggerisci:not(.dz-usata) .dz-hint { animation: dz-hint-lampo 1.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .dz-plate.dz-suggerisci:not(.dz-usata) .dz-hint { animation: none; } }
+
+/* Esempi con il testo vicino al margine sinistro: su PC l'immagine si ancora a sinistra, così la rilegatura non copre le parole (2026-11-24) */
+@media (min-width: 761px) {
+  .dz.dz-piatto .dz-sample img[src*="esempio-03-nero"] { object-position: 0% 50%; }
+}
+
+/* Etichetta «Esempio di landing page · …» tolta dalla vista (richiesta di Francesco 2026-11-24); il testo resta per lo stato letto dai lettori di schermo */
+.dz-sheet figcaption, .dz.dz-piatto .dz-sheet figcaption { display: none !important; }
