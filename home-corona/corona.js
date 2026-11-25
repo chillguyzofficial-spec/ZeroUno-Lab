@@ -52,8 +52,7 @@
     maro:        { nome: 'MARO', cat: 'Abbigliamento sportivo · Milano', url: 'https://www.shopmaro.it/', ...std('maro', [0, 600, 1200, 1640, 900, 2000], [0, 800, 1330, 1640, 2000, 1000]) },
     gestionale: {
       nome: 'Home Unity · gestionale', cat: 'Gestionale · area riservata', url: null,
-      L: { viste: [{ src: `${IMGL}homeunity-pc.webp`, y: 0 }], mappa: [0] },
-      P: { viste: [{ src: `${IMGL}homeunity-tel.webp`, y: 0 }], mappa: [0] }
+      L: { viste: [{ src: `${IMGL}homeunity-pc.webp`, y: 0 }, { src: '../assets/img/gestionale-reale/strutture.webp', y: 0 }, { src: '../assets/img/gestionale-reale/confronto.webp', y: 0 }], mappa: [0, 1, 2] },
     }
   };
   // le viste dei siti «standard» sono numeri (y); quelle di Carico e del gestionale sono oggetti. Questa funzione le rende uniformi
@@ -443,14 +442,15 @@
     const s = SITI[V.sito], d = s[V.tipo] || s.L, n = d.viste.length, v = vistaDi(d, mod(V.i, n));
     $('[data-v-cat]').textContent = s.cat;
     $('[data-v-nome]').textContent = s.nome;
-    const vai = $('[data-v-vai]'); vai.hidden = !s.url; if (s.url) vai.href = s.url;
+    const vai = $('[data-v-vai]'); vai.hidden = !s.url; vai.style.display = s.url ? '' : 'none'; if (s.url) vai.href = s.url;
+    const selTipo = $('[data-v-tipo]').parentElement; selTipo.style.display = s.P ? '' : 'none';   // senza versione telefono (gestionale) il selettore non serve
     vCorpo.className = 'v-corpo ' + V.tipo;
     $('[data-v-conta]').textContent = pad(mod(V.i, n) + 1) + ' / ' + pad(n);
     $$('[data-v-tipo]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vTipo === V.tipo)));
     const lista = immaginiDi(v, V.tipo), chiave = lista.join('|');
     if (chiave !== V.chiave) {                      // pagina diversa: si impilano i blocchi uno sotto l'altro
       V.chiave = chiave; vPag.innerHTML = '';
-      lista.forEach((src, k) => { const im = new Image(); im.alt = k ? '' : s.nome + ': pagina intera'; im.decoding = 'async'; if (k === 0) im.onload = () => vVai(v.y, false); im.src = src; vPag.appendChild(im); });
+      lista.forEach((src, k) => { const im = new Image(); im.alt = k ? '' : s.nome + (s.P ? ': pagina intera' : ': schermata'); im.decoding = 'async'; if (k === 0) im.onload = () => vVai(v.y, false); im.src = src; vPag.appendChild(im); });
       vVai(v.y, false);
     } else vVai(v.y, morbido);
   }
