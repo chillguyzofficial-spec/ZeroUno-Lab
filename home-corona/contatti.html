@@ -21,7 +21,7 @@
 <link rel="apple-touch-icon" href="../assets/img/icona-180.png">
 <link rel="stylesheet" href="corona.css?v=353">
 <link rel="stylesheet" href="servizi.css?v=284357">
-<link rel="stylesheet" href="contatti.css?v=3">
+<link rel="stylesheet" href="contatti.css?v=5">
 <link rel="stylesheet" href="menu-barra.css?v=453">
 </head>
 <body class="pag-servizio">
@@ -44,29 +44,36 @@
 <main>
 <section class="ct-pg" aria-labelledby="t-ct">
   <div class="ct-pg-in">
-    <span class="lav-occhiello">Contatti</span>
-    <h1 id="t-ct">Scrivici. <em>Ti rispondiamo noi.</em></h1>
-    <p class="lav-sotto">Entro 24 ore, di persona. La prima chiamata è gratuita e senza impegno.</p>
-    <div class="ct-pg-vie">
-      <a class="ct-pg-via ct-pg-pieno" href="index.html?preventivo=1">
-        <span class="ct-pg-et">Il più veloce</span>
-        <b>Prepara il tuo preventivo</b>
-        <span class="ct-pg-d">Quattro passi, un paio di minuti. Scegli se avere la risposta per email o su WhatsApp.</span>
-        <i aria-hidden="true">→</i>
-      </a>
-      <a class="ct-pg-via" href="https://wa.me/393454517186?text=Ciao%2C%20vorrei%20parlare%20di%20un%20progetto" target="_blank" rel="noopener">
-        <span class="ct-pg-et">WhatsApp</span>
-        <b class="ct-pg-dato">345 451 7186</b>
-        <span class="ct-pg-d">Scrivici due righe: rispondiamo entro 24 ore.</span>
-        <i aria-hidden="true">↗</i>
-      </a>
-      <a class="ct-pg-via" href="mailto:zero1labprogetti@gmail.com">
-        <span class="ct-pg-et">Email</span>
-        <b class="ct-pg-dato">zero1labprogetti@gmail.com</b>
-        <span class="ct-pg-d">Per chi preferisce scrivere con calma.</span>
-        <i aria-hidden="true">→</i>
-      </a>
+    <header class="ct-pg-testa">
+      <span class="lav-occhiello">Contatti</span>
+      <h1 id="t-ct">Scrivici. <em>Ti rispondiamo noi.</em></h1>
+      <p class="lav-sotto">Entro 24 ore, di persona. La prima chiamata è gratuita e senza impegno.</p>
+    </header>
+
+    <div class="ct-scena">
+      <picture class="ct-scena-img" aria-hidden="true">
+        <source media="(max-width: 899px)" srcset="../assets/img/oggetti/scheda-finale-v3-mobile.webp?v=20261113c" width="1000" height="1100">
+        <img src="../assets/img/oggetti/scheda-finale-v3-pc.webp?v=20261113c" alt="" width="2000" height="667" decoding="async">
+      </picture>
+      <div class="ct-scena-vie">
+        <a class="ct-riga ct-riga-pieno" href="index.html?preventivo=1">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+          <span class="ct-riga-t"><small>Il più veloce</small><b>Prepara il tuo preventivo</b><span>Quattro passi, un paio di minuti</span></span>
+          <i class="ct-freccia" aria-hidden="true">→</i>
+        </a>
+        <a class="ct-riga" href="https://wa.me/393454517186?text=Ciao%2C%20vorrei%20parlare%20di%20un%20progetto" target="_blank" rel="noopener">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5 5.8 15A8 8 0 1 1 9 18.2z"/><path d="M9.2 9.2c.3 1.9 2.4 4 4.4 4.5l1.1-1.1-1.7-1-.8.6a3.6 3.6 0 0 1-1.6-1.6l.6-.8-1-1.7z"/></svg></span>
+          <span class="ct-riga-t"><small>WhatsApp</small><b>345 451 7186</b><span>Scrivici due righe, rispondiamo entro 24 ore</span></span>
+          <i class="ct-freccia" aria-hidden="true">↗</i>
+        </a>
+        <a class="ct-riga" href="mailto:zero1labprogetti@gmail.com">
+          <span class="ct-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></span>
+          <span class="ct-riga-t"><small>Email</small><b>zero1labprogetti@gmail.com</b><span>Per chi preferisce scrivere con calma</span></span>
+          <i class="ct-freccia" aria-hidden="true">→</i>
+        </a>
+      </div>
     </div>
+
     <ul class="ct-pg-note">
       <li>Prima chiamata gratuita</li>
       <li>Bozza e preventivo gratuiti: paghi solo se ti piace</li>
