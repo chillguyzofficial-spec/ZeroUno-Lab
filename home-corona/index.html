@@ -510,7 +510,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
               <button type="button" class="con-ogg" data-chip="Fitness e app" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-tappetino-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-tappetino.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Fitness e app</button>
               <button type="button" class="con-ogg" data-chip="Personal trainer" aria-pressed="false"><span class="chip-ogg" aria-hidden="true"><img class="i-g" src="../assets/img/oggetti/settore-kettlebell-scuro.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"><img class="i-p" src="../assets/img/oggetti/settore-kettlebell.webp?v=20261113b" alt="" width="34" height="34" loading="lazy"></span>Personal trainer</button>
             </div>
-            <input name="settore" autocomplete="off" placeholder="Oppure scrivilo: es. palestra, studio legale" aria-label="Settore">
+            <input name="settore" required autocomplete="off" placeholder="Oppure scrivilo: es. palestra, studio legale" aria-label="Settore">
           </fieldset>
           <div class="qz-az"><button type="button" class="qz-ind" data-qz-indietro>← Indietro</button><button type="button" class="invia" data-qz-avanti>Avanti <span aria-hidden="true">→</span></button></div>
         </section>
@@ -528,12 +528,13 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
 
         <section class="qz-passo" data-passo="4" hidden>
           <h3 class="qz-dom">Come ti ricontattiamo?</h3>
+          <label><span>Nome e cognome</span><input name="nome" autocomplete="name" placeholder="Come ti chiami" required></label>
           <div class="ct-coppia">
-            <label><span>Nome</span><input name="nome" autocomplete="name" placeholder="Come ti chiami" required></label>
-            <label><span>Email o telefono</span><input name="contatto" autocomplete="email" placeholder="Dove ti ricontattiamo" required></label>
+            <label><span>Email</span><input name="email" type="email" inputmode="email" autocomplete="email" placeholder="nome@esempio.it" required></label>
+            <label><span>Telefono</span><input name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="Il tuo numero" required></label>
           </div>
-          <label><span>Due righe sul progetto <i>(facoltativo)</i></span><textarea name="msg" rows="3" placeholder="Cosa ti serve, a chi ti rivolgi, se hai già un sito…"></textarea></label>
-          <p class="errore" data-errore role="alert" hidden>Scrivi almeno il tuo nome e un modo per ricontattarti.</p>
+          <label><span>Due righe sul progetto</span><textarea name="msg" rows="3" placeholder="Cosa ti serve, a chi ti rivolgi, se hai già un sito…" required></textarea></label>
+          <p class="errore" data-errore role="alert" hidden>Compila tutti i campi per inviare la richiesta.</p>
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;width:1px;height:1px">
           <p class="ct-scelta-et">Come preferisci inviarla?</p>
           <div class="ct-scelta">

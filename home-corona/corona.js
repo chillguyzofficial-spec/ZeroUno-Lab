@@ -386,12 +386,15 @@
   // passo 2: i settori come «chip», o scritto a mano
   chips.forEach(b => b.addEventListener('click', () => { campoSett.value = b.dataset.chip; segnaChip(); }));
   campoSett.addEventListener('input', segnaChip);
-  $('[data-qz-avanti]', form).addEventListener('click', () => vaiPasso(3));
+  $('[data-qz-avanti]', form).addEventListener('click', () => { if (!campoSett.value.trim()) { campoSett.setCustomValidity('Scrivi che attività hai, oppure scegline una qui sotto.'); campoSett.reportValidity(); campoSett.focus(); return; } vaiPasso(3); });
+  campoSett.addEventListener('input', () => campoSett.setCustomValidity(''));
   $$('[data-qz-indietro]', form).forEach(b => b.addEventListener('click', () => vaiPasso(passo - 1)));
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const f = form.elements, nome = f.nome.value.trim(), contatto = f.contatto.value.trim(), sett = campoSett.value.trim();
-    if (!nome || !contatto) { errore.textContent = 'Scrivi almeno il tuo nome e un modo per ricontattarti.'; errore.hidden = false; (nome ? f.contatto : f.nome).focus(); return; }
+    const f = form.elements, nome = f.nome.value.trim(), email = f.email.value.trim(), tel = f.tel.value.trim(), msg = f.msg.value.trim(), contatto = email + ' · ' + tel, sett = campoSett.value.trim();
+    const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email), telOk = tel.replace(/[^0-9]/g, '').length >= 8;
+    const manca = !nome ? ['nome', 'scrivi il tuo nome'] : !email || !emailOk ? ['email', 'inserisci un indirizzo email valido'] : !telOk ? ['tel', 'inserisci un numero di telefono valido'] : !msg ? ['msg', 'scrivi due righe sul progetto'] : !sett ? ['settore', 'scrivi che attività hai'] : null;
+    if (manca) { errore.textContent = 'Compila tutti i campi: ' + manca[1] + '.'; errore.hidden = false; if (manca[0] === 'settore') vaiPasso(2); f[manca[0]].focus(); return; }
     errore.hidden = true;
     const via = (e.submitter && e.submitter.dataset.via) || 'wa';
     const mostraGrazie = tipo => { $('[data-grazie-email]').hidden = tipo !== 'email'; $('[data-grazie-wa]').hidden = tipo !== 'wa'; grazie.hidden = false; const ok = $('[data-chiudi-contatto]', grazie); if (ok) ok.focus({ preventScroll: true }); };
@@ -402,10 +405,10 @@
       const riep = nome + ' chiede ' + (Q.servizio ? 'un servizio «' + Q.servizio + '»' : 'un preventivo') + (sett ? " per un'attività di tipo «" + sett + '»' : '') + (Q.tempi ? ', con questi tempi: ' + Q.tempi : '') + '. Contatto: ' + contatto + '.';
       const dati = {
         access_key: WEB3FORMS_KEY, subject: 'Nuova richiesta di ' + nome + ' — ' + (Q.servizio || 'preventivo'), from_name: 'Sito Zero Uno Lab',
-        'RIEPILOGO': riep, '1. Nome': nome, '2. Email o telefono': contatto, '3. Servizio richiesto': Q.servizio || 'non indicato', '4. Attività o settore': sett || 'non indicato',
-        '5. Tempi desiderati': Q.tempi || 'non indicati', '6. Cosa scrive sul progetto': f.msg.value.trim() || 'nulla', 'Pagina da cui ha scritto': location.href.split('#')[0], botcheck: ''
+        'RIEPILOGO': riep, '1. Nome': nome, '2. Email': email, '3. Telefono': tel, '4. Servizio richiesto': Q.servizio || 'non indicato', '5. Attività o settore': sett || 'non indicato',
+        '6. Tempi desiderati': Q.tempi || 'non indicati', '7. Cosa scrive sul progetto': msg, 'Pagina da cui ha scritto': location.href.split('#')[0], botcheck: ''
       };
-      if (/^\S+@\S+\.\S+$/.test(contatto)) dati.replyto = contatto;   // «Rispondi» in Gmail va direttamente al cliente
+      dati.replyto = email;   // «Rispondi» in Gmail va direttamente al cliente
       fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(dati) })
         .then(r => r.json().then(j => ({ ok: r.ok && j.success }))).catch(() => ({ ok: false }))
         .then(({ ok }) => {
