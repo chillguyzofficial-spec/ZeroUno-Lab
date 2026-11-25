@@ -77,3 +77,13 @@
   .ct-riga-t b.ct-mail { font-size: 16px; }
 }
 @media (max-width: 380px) { .ct-riga-t b.ct-mail { font-size: 14.5px; } }
+
+/* al passaggio del mouse (o con la tastiera) il testo resta leggibile: bianco sulle righe scure, nero su quella bianca */
+a.ct-riga:hover, a.ct-riga:focus-visible, a.ct-riga:hover *, a.ct-riga:focus-visible * { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+a.ct-riga:hover .ct-ico, a.ct-riga:focus-visible .ct-ico { color: #E4D6FF !important; -webkit-text-fill-color: #E4D6FF !important; background: rgba(185, 140, 255, .32); }
+a.ct-riga:hover .ct-riga-t small, a.ct-riga:focus-visible .ct-riga-t small { opacity: .85; }
+a.ct-riga-pieno:hover, a.ct-riga-pieno:focus-visible, a.ct-riga-pieno:hover *, a.ct-riga-pieno:focus-visible * { color: #0A0A0A !important; -webkit-text-fill-color: #0A0A0A !important; }
+a.ct-riga-pieno:hover .ct-ico, a.ct-riga-pieno:focus-visible .ct-ico { color: #fff !important; -webkit-text-fill-color: #fff !important; background: #0A0A0A; }
+
+a.ct-riga:hover .ct-ico *, a.ct-riga:focus-visible .ct-ico * { color: #E4D6FF !important; -webkit-text-fill-color: #E4D6FF !important; }
+a.ct-riga-pieno:hover .ct-ico *, a.ct-riga-pieno:focus-visible .ct-ico * { color: #fff !important; -webkit-text-fill-color: #fff !important; }
