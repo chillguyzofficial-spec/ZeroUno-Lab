@@ -551,19 +551,20 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
         </section>
       </form>
 
-      <div class="contatto-grazie" data-grazie hidden>
-        <div data-grazie-email hidden>
-          <span class="ct-spunta" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
-          <span class="lav-occhiello">Richiesta inviata</span>
-          <h2>Grazie, <em>ti scriviamo noi</em>.</h2>
-          <p>Abbiamo ricevuto la tua richiesta. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
+      <div class="contatto-grazie" data-grazie hidden role="alertdialog" aria-live="assertive" aria-labelledby="gr-t-e gr-t-w">
+        <div class="gr-carta">
+          <div data-grazie-email hidden>
+            <span class="ct-spunta" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <h2 id="gr-t-e">Grazie, <em>ti scriviamo noi</em>.</h2>
+            <p>Abbiamo ricevuto la tua richiesta. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
+          </div>
+          <div data-grazie-wa hidden>
+            <span class="ct-spunta" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <h2 id="gr-t-w">Un ultimo passo: <em>invia su WhatsApp</em>.</h2>
+            <p>Si è aperta una chat con la tua richiesta già scritta: premi Invio per mandarcela. Ti rispondiamo entro 24 ore.</p>
+          </div>
+          <button type="button" class="invia" data-chiudi-contatto>Perfetto, chiudi</button>
         </div>
-        <div data-grazie-wa hidden>
-          <span class="lav-occhiello">Ultimo passo</span>
-          <h2>Invia il messaggio <em>su WhatsApp</em>.</h2>
-          <p>Si è aperta una chat con la tua richiesta già scritta: premi Invio per mandarcela. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
-        </div>
-        <button type="button" class="invia" data-chiudi-contatto>Torna al sito</button>
       </div>
     </div>
   </div>
