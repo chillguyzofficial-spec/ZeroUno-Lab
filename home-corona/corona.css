@@ -1355,3 +1355,7 @@ html[data-tema="bn"] .srv-carta .srv-chip u, html[data-tema="bn"] .sv-risp { bac
 .car-stato-on i { flex: none; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 0 rgba(74, 222, 128, .6); animation: car-on 2.2s ease-out infinite; }
 @keyframes car-on { 0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(74, 222, 128, 0); } }
 @media (prefers-reduced-motion: reduce) { .car-stato-on i { animation: none; } }
+
+/* «Online da…» / «Online su…»: in verde, in risalto sulle altre voci */
+.car-tag li.car-tag-on { display: inline-flex; align-items: center; color: #4ade80; font-weight: 700; }
+.car-tag li.car-tag-on::before { content: ''; flex: none; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px rgba(74, 222, 128, .75); }
