@@ -43,3 +43,37 @@
 @media (min-width: 900px) { .ct-scena-vie { margin-left: 52%; } }
 .ct-riga:not(.ct-riga-pieno) { background: rgba(12, 10, 24, .66); }
 .ct-riga:not(.ct-riga-pieno):hover, .ct-riga:not(.ct-riga-pieno):focus-visible { background: rgba(40, 28, 80, .78); }
+
+/* meno bianco: titolo vicino al menù, scena subito sotto, fondo più corto */
+.ct-pg { padding-top: clamp(86px, 7.4vw, 112px); padding-bottom: clamp(36px, 4.6vw, 64px); }
+.ct-pg h1 { font-size: clamp(44px, 6.4vw, 84px); margin-top: 10px; }
+.ct-pg .lav-sotto { margin-top: 10px; }
+.ct-scena { margin-top: clamp(22px, 2.8vw, 34px); }
+.ct-pg-note { margin-top: 22px; }
+@media (max-width: 899px) { .ct-pg { padding-top: 84px; } }
+
+.ct-pg { padding-top: clamp(64px, 5.4vw, 84px); }
+.ct-riga-t b.ct-mail { overflow-wrap: normal; word-break: normal; }
+@media (max-width: 899px) { .ct-pg { padding-top: 76px; } .ct-riga-t b.ct-mail { font-size: 16.5px; letter-spacing: -0.015em; } }
+@media (max-width: 380px) { .ct-riga-t b.ct-mail { font-size: 15px; } }
+
+/* niente foto: fondo grafico con il «01» del marchio e la luce viola */
+.ct-scena { background: radial-gradient(70% 120% at 18% 50%, rgba(120, 80, 235, .30), transparent 68%), #0A0A0A; }
+.ct-scena-img { display: none; }
+.ct-scena-01 { position: absolute; inset: 0 auto 0 0; z-index: 0; width: 48%; display: grid; place-items: center; pointer-events: none; overflow: hidden; }
+.ct-scena-01 span { font-family: var(--serif); font-weight: 400; font-size: clamp(200px, 27vw, 380px); line-height: .8; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1.6px rgba(190, 160, 255, .62); text-shadow: 0 0 60px rgba(138, 92, 255, .45); user-select: none; }
+@media (min-width: 900px) { .ct-scena-vie { padding-top: clamp(26px, 3vw, 40px); padding-bottom: clamp(26px, 3vw, 40px); } }
+@media (max-width: 899px) {
+  .ct-scena-01 { position: relative; inset: auto; width: 100%; height: 150px; }
+  .ct-scena-01 span { font-size: 190px; }
+  .ct-scena-vie { margin-top: 0; }
+}
+
+@media (max-width: 899px) {
+  .ct-scena-01 { height: 170px; align-items: end; }
+  .ct-scena-01 span { font-size: 168px; line-height: 1; transform: translateY(14px); }
+  .ct-riga { grid-template-columns: 46px minmax(0, 1fr); }
+  .ct-freccia { display: none; }
+  .ct-riga-t b.ct-mail { font-size: 16px; }
+}
+@media (max-width: 380px) { .ct-riga-t b.ct-mail { font-size: 14.5px; } }
