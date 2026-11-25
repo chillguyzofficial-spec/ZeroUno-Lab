@@ -351,7 +351,7 @@
   /* ───────────────────────── Preventivo guidato (finestra di contatto a 4 passi) ───────────────────────── */
   const dlg = $('[data-contatto]'), form = $('[data-form]'), grazie = $('[data-grazie]'), errore = $('[data-errore]');
   const WA = '393454517186';
-  const WEB3FORMS_KEY = 'e8d25bfd-d6ee-478a-903d-4a5da4eba9cb';   // chiave pubblica di Web3Forms (inoltra a ZeroUnoLabb@gmail.com)
+  const WEB3FORMS_KEY = 'e8d25bfd-d6ee-478a-903d-4a5da4eba9cb';   // chiave pubblica di Web3Forms (inoltra a zero1labprogetti@gmail.com)
   const passi = $$('[data-passo]', form), nTxt = $('[data-qz-n]'), barra = $('[data-qz-barra]');
   const Q = { servizio: '', tempi: '' };
   const SERV = { landing: 'Landing page', vetrina: 'Sito vetrina', negozio: 'Negozio online', gestionale: 'Gestionale', app: 'App', marketing: 'Marketing' };
