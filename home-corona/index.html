@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="../assets/img/icona-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/icona-180.png">
-<link rel="stylesheet" href="corona.css?v=353">
+<link rel="stylesheet" href="corona.css?v=355">
 <link rel="stylesheet" href="menu-barra.css?v=453">
 <style id="ap01-css">
 @font-face { font-family: "Manrope"; src: url(../assets/font/manrope.woff2) format("woff2"); font-weight: 200 800; font-display: swap; }
@@ -534,18 +534,35 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
           </div>
           <label><span>Due righe sul progetto <i>(facoltativo)</i></span><textarea name="msg" rows="3" placeholder="Cosa ti serve, a chi ti rivolgi, se hai già un sito…"></textarea></label>
           <p class="errore" data-errore role="alert" hidden>Scrivi almeno il tuo nome e un modo per ricontattarti.</p>
-          <div class="ct-invio">
-            <button type="submit" class="invia">Invia la richiesta <span aria-hidden="true">→</span></button>
-            <button type="button" class="qz-ind" data-qz-indietro>← Indietro</button>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;width:1px;height:1px">
+          <p class="ct-scelta-et">Come preferisci inviarla?</p>
+          <div class="ct-scelta">
+            <button type="submit" class="invia ct-via" data-via="email">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg>
+              <span class="ct-via-t"><b>Per email</b><small>Ti rispondiamo entro 24 ore</small></span>
+            </button>
+            <button type="submit" class="invia invia-wa ct-via" data-via="wa">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5 5.8 15A8 8 0 1 1 9 18.2z"/><path d="M9.2 9.2c.3 1.9 2.4 4 4.4 4.5l1.1-1.1-1.7-1-.8.6a3.6 3.6 0 0 1-1.6-1.6l.6-.8-1-1.7z"/></svg>
+              <span class="ct-via-t"><b>Su WhatsApp</b><small>Si apre la chat già scritta</small></span>
+            </button>
           </div>
-          <p class="nota">Si apre WhatsApp con il messaggio già scritto: ti basta premere invio. Nessuna newsletter, nessuno spam.</p>
+          <div class="ct-invio"><button type="button" class="qz-ind" data-qz-indietro>← Indietro</button></div>
+          <p class="nota">Nessuna newsletter, nessuno spam: usiamo i tuoi dati solo per risponderti.</p>
         </section>
       </form>
 
       <div class="contatto-grazie" data-grazie hidden>
-        <span class="lav-occhiello">Ultimo passo</span>
-        <h2>Invia il messaggio <em>su WhatsApp</em>.</h2>
-        <p>Si è aperta una chat con la tua richiesta già scritta: premi Invio per mandarcela. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
+        <div data-grazie-email hidden>
+          <span class="ct-spunta" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <span class="lav-occhiello">Richiesta inviata</span>
+          <h2>Grazie, <em>ti scriviamo noi</em>.</h2>
+          <p>Abbiamo ricevuto la tua richiesta. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
+        </div>
+        <div data-grazie-wa hidden>
+          <span class="lav-occhiello">Ultimo passo</span>
+          <h2>Invia il messaggio <em>su WhatsApp</em>.</h2>
+          <p>Si è aperta una chat con la tua richiesta già scritta: premi Invio per mandarcela. Ti rispondiamo entro 24 ore per fissare una chiamata.</p>
+        </div>
         <button type="button" class="invia" data-chiudi-contatto>Torna al sito</button>
       </div>
     </div>
@@ -608,7 +625,7 @@ html[data-home="01"] .lavori .car-comandi::before, html[data-home="01"] .lavori 
 })();
 </script>
 <script src="hq-meta.js"></script>
-<script src="corona.js?v=357" defer></script>
+<script src="corona.js?v=358" defer></script>
 <script src="nav-colore.js?v=392" defer></script>
 </body>
 </html>

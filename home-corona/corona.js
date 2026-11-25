@@ -352,6 +352,7 @@
   /* ───────────────────────── Preventivo guidato (finestra di contatto a 4 passi) ───────────────────────── */
   const dlg = $('[data-contatto]'), form = $('[data-form]'), grazie = $('[data-grazie]'), errore = $('[data-errore]');
   const WA = '393454517186';
+  const WEB3FORMS_KEY = 'e8d25bfd-d6ee-478a-903d-4a5da4eba9cb';   // chiave pubblica di Web3Forms (inoltra a ZeroUnoLabb@gmail.com)
   const passi = $$('[data-passo]', form), nTxt = $('[data-qz-n]'), barra = $('[data-qz-barra]');
   const Q = { servizio: '', tempi: '' };
   const SERV = { landing: 'Landing page', vetrina: 'Sito vetrina', negozio: 'Negozio online', gestionale: 'Gestionale', app: 'App', marketing: 'Marketing' };
@@ -390,11 +391,32 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
     const f = form.elements, nome = f.nome.value.trim(), contatto = f.contatto.value.trim(), sett = campoSett.value.trim();
-    if (!nome || !contatto) { errore.hidden = false; (nome ? f.contatto : f.nome).focus(); return; }
+    if (!nome || !contatto) { errore.textContent = 'Scrivi almeno il tuo nome e un modo per ricontattarti.'; errore.hidden = false; (nome ? f.contatto : f.nome).focus(); return; }
     errore.hidden = true;
+    const via = (e.submitter && e.submitter.dataset.via) || 'wa';
+    const mostraGrazie = tipo => { $('[data-grazie-email]').hidden = tipo !== 'email'; $('[data-grazie-wa]').hidden = tipo !== 'wa'; form.hidden = true; grazie.hidden = false; };
+    if (via === 'email') {
+      if (f.botcheck && f.botcheck.checked) { mostraGrazie('email'); return; }   // trappola anti-spam: i robot la spuntano, le persone no
+      const btn = e.submitter, testo = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Invio in corso…';
+      const dati = {
+        access_key: WEB3FORMS_KEY, subject: 'Nuova richiesta dal sito Zero Uno Lab — ' + (Q.servizio || 'preventivo'), from_name: 'Sito Zero Uno Lab',
+        Nome: nome, 'Email o telefono': contatto, Servizio: Q.servizio || '—', 'Attività / settore': sett || '—', Tempi: Q.tempi || '—', Progetto: f.msg.value.trim() || '—',
+        Pagina: location.href.split('#')[0], botcheck: ''
+      };
+      if (/^\S+@\S+\.\S+$/.test(contatto)) dati.replyto = contatto;   // «Rispondi» in Gmail va direttamente al cliente
+      fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(dati) })
+        .then(r => r.json().then(j => ({ ok: r.ok && j.success }))).catch(() => ({ ok: false }))
+        .then(({ ok }) => {
+          btn.disabled = false; btn.innerHTML = testo;
+          if (ok) mostraGrazie('email');
+          else { errore.textContent = 'Non siamo riusciti a inviare la richiesta. Riprova tra poco oppure scrivici su WhatsApp.'; errore.hidden = false; }
+        });
+      return;
+    }
     const righe = ['Ciao, sono ' + nome + '.', Q.servizio && ('Mi serve: ' + Q.servizio + '.'), sett && ('Attività: ' + sett + '.'), Q.tempi && ('Tempi: ' + Q.tempi + '.'), f.msg.value.trim() && ('Il progetto: ' + f.msg.value.trim().replace(/[.!?]+$/, '') + '.'), 'Mi trovi qui: ' + contatto + '.', Q.servizio === 'Landing page' && '(dalla promo da 299 €)'].filter(Boolean);
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(righe.join(' ')), '_blank', 'noopener');
-    form.hidden = true; grazie.hidden = false;
+    mostraGrazie('wa');
   });
   // arrivo da una pagina dei servizi: ?preventivo=landing (e, se c'è, &settore=Ristorante) apre il preventivo già impostato
   (() => {
