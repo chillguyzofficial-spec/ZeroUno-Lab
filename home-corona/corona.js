@@ -393,8 +393,8 @@
     e.preventDefault();
     const f = form.elements, nome = f.nome.value.trim(), email = f.email.value.trim(), tel = f.tel.value.trim(), msg = f.msg.value.trim(), contatto = email + ' · ' + tel, sett = campoSett.value.trim();
     const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email), telOk = tel.replace(/[^0-9]/g, '').length >= 8;
-    const manca = !nome ? ['nome', 'scrivi il tuo nome'] : !email || !emailOk ? ['email', 'inserisci un indirizzo email valido'] : !telOk ? ['tel', 'inserisci un numero di telefono valido'] : !msg ? ['msg', 'scrivi due righe sul progetto'] : !sett ? ['settore', 'scrivi che attività hai'] : null;
-    if (manca) { errore.textContent = 'Compila tutti i campi: ' + manca[1] + '.'; errore.hidden = false; if (manca[0] === 'settore') vaiPasso(2); f[manca[0]].focus(); return; }
+    const manca = !nome ? ['nome', 'scrivi il tuo nome'] : !email || !emailOk ? ['email', 'inserisci un indirizzo email valido'] : !telOk ? ['tel', 'inserisci un numero di telefono valido'] : !sett ? ['settore', 'scrivi che attività hai'] : null;
+    if (manca) { errore.textContent = 'Compila i campi obbligatori: ' + manca[1] + '.'; errore.hidden = false; if (manca[0] === 'settore') vaiPasso(2); f[manca[0]].focus(); return; }
     errore.hidden = true;
     const via = (e.submitter && e.submitter.dataset.via) || 'wa';
     const mostraGrazie = tipo => { $('[data-grazie-email]').hidden = tipo !== 'email'; $('[data-grazie-wa]').hidden = tipo !== 'wa'; grazie.hidden = false; const ok = $('[data-chiudi-contatto]', grazie); if (ok) ok.focus({ preventScroll: true }); };
@@ -406,7 +406,7 @@
       const dati = {
         access_key: WEB3FORMS_KEY, subject: 'Nuova richiesta di ' + nome + ' — ' + (Q.servizio || 'preventivo'), from_name: 'Sito Zero Uno Lab',
         'RIEPILOGO': riep, '1. Nome': nome, '2. Email': email, '3. Telefono': tel, '4. Servizio richiesto': Q.servizio || 'non indicato', '5. Attività o settore': sett || 'non indicato',
-        '6. Tempi desiderati': Q.tempi || 'non indicati', '7. Cosa scrive sul progetto': msg, 'Pagina da cui ha scritto': location.href.split('#')[0], botcheck: ''
+        '6. Tempi desiderati': Q.tempi || 'non indicati', '7. Cosa scrive sul progetto': msg || 'non ha scritto nulla', 'Pagina da cui ha scritto': location.href.split('#')[0], botcheck: ''
       };
       dati.replyto = email;   // «Rispondi» in Gmail va direttamente al cliente
       fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(dati) })
