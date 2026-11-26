@@ -139,7 +139,7 @@
   'use strict';
   const post = document.querySelector('#percorso .mk-soc-post'); if (!post || post.dataset.v) return; post.dataset.v = '1';
   const B = {
-    ristorante: { n: 'Hedoné', h: 'hedone_vimodrone', l: 'Vimodrone · Naviglio Martesana', t: 'LOUNGE BAR & RESTAURANT', tag: '#brace #vimodrone', foto: '../assets/img/marketing/hedone-hero0.jpg', pos: '30% 18%', cl: 'oro' },
+    ristorante: { n: 'Hedoné', h: 'hedone_vimodrone', l: 'Vimodrone · Naviglio Martesana', t: 'LOUNGE BAR & RESTAURANT', tag: '#brace #vimodrone', foto: 'assets/img/marketing/hedone-hero0.jpg', pos: '30% 18%', cl: 'oro' },
     studio: { n: 'Studio Lumea', h: 'studiolumea_milano', l: 'Milano · Zona Wagner', t: 'STUDIO DENTISTICO', tag: '#dentista #milano', cl: 'chiaro' },
     moda: { n: 'Ossidiana', h: 'ossidiana.atelier', l: 'Milano', t: 'ALTA SARTORIA · DAL 1928', tag: '#altasartoria #milano', cl: 'scuro' },
     immobiliare: { n: 'Home Unity', h: 'homeunity.re', l: 'Milano · Firenze', t: 'REAL ESTATE & HOSPITALITY', tag: '#immobiliare #milano', cl: 'rosso' },

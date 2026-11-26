@@ -44,7 +44,7 @@
     v.style.display = 'none';
     [1, 2, 3, 4].forEach(function (k) {
       var p = document.createElement('picture'); p.className = 'sc-qq';
-      p.innerHTML = '<source media="(max-width: 899px)" srcset="../assets/img/scena-negozio-4/mob-' + k + '.webp?v=20261114g"><img src="../assets/img/scena-negozio-4/pc-' + k + '.webp?v=20261114g" alt="" decoding="async">';
+      p.innerHTML = '<source media="(max-width: 899px)" srcset="assets/img/scena-negozio-4/mob-' + k + '.webp?v=20261114g"><img src="assets/img/scena-negozio-4/pc-' + k + '.webp?v=20261114g" alt="" decoding="async">';
       p.style.opacity = k === 1 ? '1' : '0';
       palco.insertBefore(p, v); imgs.push(p);
     });

@@ -5,12 +5,12 @@
    «bn» (nero: apertura scura, lavori chiari). Il tema «carta» (avorio + mattone) è stato tolto il 13/11 su richiesta di Francesco.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-@font-face { font-family: 'Schibsted Grotesk'; src: url(../assets/font/schibsted-grotesk.woff2) format('woff2'); font-weight: 400 900; font-display: swap; }
-@font-face { font-family: 'Instrument Serif'; src: url(../assets/font/instrument-serif.woff2) format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Instrument Serif'; src: url(../assets/font/instrument-serif-italic.woff2) format('woff2'); font-style: italic; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'IBM Plex Mono'; src: url(../assets/font/ibm-plex-mono-400.woff2) format('woff2'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'IBM Plex Mono'; src: url(../assets/font/ibm-plex-mono-500.woff2) format('woff2'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Firma'; src: url(../assets/font/great-vibes.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Schibsted Grotesk'; src: url(assets/font/schibsted-grotesk.woff2) format('woff2'); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: 'Instrument Serif'; src: url(assets/font/instrument-serif.woff2) format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Instrument Serif'; src: url(assets/font/instrument-serif-italic.woff2) format('woff2'); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(assets/font/ibm-plex-mono-400.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(assets/font/ibm-plex-mono-500.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Firma'; src: url(assets/font/great-vibes.woff2) format('woff2'); font-weight: 400; font-display: swap; }
 
 /* ── Colori: base = tema «carta»; gli altri temi ridefiniscono le stesse variabili ── */
 :root {
@@ -179,14 +179,14 @@ h1 em { font-size: 1em; letter-spacing: -0.02em; }
 html[data-tema="bianco"] .apertura .mk-frame { box-shadow: 0 16px 36px -20px rgba(0,0,0,.4); }
 
 /* ═══ Luce dell'apertura (tema bianco): un'area illuminata dietro il titolo che «respira»; si accende un attimo a ogni scelta ═══ */
-html[data-tema="bianco"] .apertura { background: #F4F4F1 url(../assets/img/corona/sfondo-bianco-01.webp) center top / cover no-repeat; }   /* sfondo di Codex: perla con grandi 0/1 grafite ai margini, centro libero (solo tema bianco) */
+html[data-tema="bianco"] .apertura { background: #F4F4F1 url(assets/img/corona/sfondo-bianco-01.webp) center top / cover no-repeat; }   /* sfondo di Codex: perla con grandi 0/1 grafite ai margini, centro libero (solo tema bianco) */
 @media (max-width: 899px) { html[data-tema="bianco"] .apertura { background-image: none; background-color: #F4F4F1; } }
 html[data-tema="bianco"] .stage::before { opacity: .6; content: ''; position: absolute; z-index: 0; left: 50%; top: 40%; width: min(1100px, 96vw); height: min(720px, 80%); translate: -50% -50%; pointer-events: none; background: radial-gradient(closest-side, #FFFFFF 0%, rgba(255,255,255,.9) 42%, rgba(255,255,255,0) 100%); animation: respira 10s ease-in-out infinite; }
 @keyframes respira { 0%, 100% { opacity: .8; scale: 1; } 50% { opacity: 1; scale: 1.05; } }
 html[data-tema="bianco"] .apertura.accende .stage::before { animation: accendi .9s ease-out; }
 @keyframes accendi { 0% { opacity: .35; scale: .88; } 100% { opacity: 1; scale: 1.06; } }
 /* tema nero: sfondo di Codex (nero ossidiana con grandi 0/1 grafite ai lati e centro libero). Solo PC; sul telefono resta nero pieno */
-html[data-tema="bn"] .apertura { background: #050505 url(../assets/img/corona/sfondo-nero-01.webp) center top / cover no-repeat; }
+html[data-tema="bn"] .apertura { background: #050505 url(assets/img/corona/sfondo-nero-01.webp) center top / cover no-repeat; }
 @media (max-width: 899px) { html[data-tema="bn"] .apertura { background-image: none; } }
 
 /* ═══ PONTE: nessun taglio netto tra apertura e lavori. Il colore passa con continuità e i mockup scendono a cavallo dei due argomenti ═══ */
@@ -236,7 +236,7 @@ html[data-tema="bn"] .apertura { background: #050505 url(../assets/img/corona/sf
 .contatto { overflow: auto; }
 .ct { min-height: 100%; display: grid; grid-template-columns: minmax(340px, 5fr) 7fr; }
 .ct-lato { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 36px; padding: clamp(32px, 4vw, 56px) clamp(28px, 4vw, 64px); background: #0A0A0A; color: #fff; overflow: hidden; }
-.ct-lato::before { content: ''; position: absolute; inset: 0; background: url(../assets/img/corona/sfondo-nero-01.webp) 18% 50% / cover no-repeat; opacity: .75; pointer-events: none; }
+.ct-lato::before { content: ''; position: absolute; inset: 0; background: url(assets/img/corona/sfondo-nero-01.webp) 18% 50% / cover no-repeat; opacity: .75; pointer-events: none; }
 .ct-lato > * { position: relative; }
 .ct-logo { display: block; height: 28px; width: auto; filter: invert(1) brightness(2); }
 .ct-testa { display: flex; justify-content: space-between; align-items: center; }
@@ -675,8 +675,8 @@ html[data-tema="bianco"] .sz.inv .ogg-sim .ogg-p, html[data-tema="bn"] :is(.sz:n
 .ponte.p-giu, .ponte.p-su { height: clamp(64px, 7vw, 104px); }
 .sz { padding: clamp(14px, 2vw, 30px) 0 clamp(28px, 3.4vw, 50px); }
 .sz.chiusura { padding-top: clamp(20px, 2.6vw, 38px); }
-html[data-tema="bianco"] .apertura { background: linear-gradient(to bottom, rgba(255,255,255,0) calc(100% - clamp(120px, 14vw, 200px)), #FFFFFF 100%), #F4F4F1 url(../assets/img/corona/sfondo-bianco-01.webp) center top / cover no-repeat; }
-html[data-tema="bn"] .apertura { background: linear-gradient(to bottom, rgba(5,5,5,0) calc(100% - clamp(120px, 14vw, 200px)), #050505 100%), #050505 url(../assets/img/corona/sfondo-nero-01.webp) center top / cover no-repeat; }
+html[data-tema="bianco"] .apertura { background: linear-gradient(to bottom, rgba(255,255,255,0) calc(100% - clamp(120px, 14vw, 200px)), #FFFFFF 100%), #F4F4F1 url(assets/img/corona/sfondo-bianco-01.webp) center top / cover no-repeat; }
+html[data-tema="bn"] .apertura { background: linear-gradient(to bottom, rgba(5,5,5,0) calc(100% - clamp(120px, 14vw, 200px)), #050505 100%), #050505 url(assets/img/corona/sfondo-nero-01.webp) center top / cover no-repeat; }
 @media (max-width: 899px) { html[data-tema="bianco"] .apertura { background: #F4F4F1; } html[data-tema="bn"] .apertura { background: #050505; } }
 
 .membro-testo > .membro-btn, .alex-brand + .membro-btn, .membro-piu + .membro-btn { margin-top: auto; }
@@ -907,7 +907,7 @@ html[data-tema="bn"] .wa-fisso { background: #fff; color: #0A0A0A; }
 @media (min-width: 1100px) { .cf-testo { gap: 10px; } .cf-testo .cta { height: 52px; } .cf-testo .lav-sotto { font-size: clamp(15.5px, 1.15vw, 18px); } }
 
 /* firma: vero corsivo calligrafico (Pinyon Script, stile atelier) — il precedente era solo un serif inclinato */
-@font-face { font-family: 'Firma Atelier'; src: url(../assets/font/firma-pinyon-script.woff2) format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Firma Atelier'; src: url(assets/font/firma-pinyon-script.woff2) format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 .firma { font-family: 'Firma Atelier', 'Great Vibes', cursive; font-style: normal; font-size: calc(var(--t) * .56); transform: rotate(-4deg); letter-spacing: 0; }
 .firma-testo { -webkit-text-stroke: .5px currentColor; }
 @media (max-width: 899px) { .firma { transform: rotate(-4deg); } }
@@ -999,8 +999,8 @@ html[data-tema="bn"] .nav-prev { color: #0A0A0A; }
 @media (max-width: 899px) { .riga { min-height: 5.6em !important; } }
 /* passaggio apertura → lavori: taglio netto e pulito, niente sfumatura */
 .ponte { height: 0 !important; background: none !important; }
-html[data-tema="bianco"] .apertura, html[data-tema="bn"] .apertura { background-image: url(../assets/img/corona/sfondo-bianco-01.webp) !important; }
-html[data-tema="bn"] .apertura { background-image: url(../assets/img/corona/sfondo-nero-01.webp) !important; }
+html[data-tema="bianco"] .apertura, html[data-tema="bn"] .apertura { background-image: url(assets/img/corona/sfondo-bianco-01.webp) !important; }
+html[data-tema="bn"] .apertura { background-image: url(assets/img/corona/sfondo-nero-01.webp) !important; }
 html[data-tema="bianco"] .apertura { background-color: #FFFFFF !important; background-size: cover; background-position: center top; }
 html[data-tema="bn"] .apertura { background-color: #0A0A0A !important; background-size: cover; background-position: center top; }
 @media (max-width: 899px) { html[data-tema="bianco"] .apertura, html[data-tema="bn"] .apertura { background-image: none !important; } }
@@ -1040,7 +1040,7 @@ html[data-tema="bn"] .tre > section:first-of-type .index { color: #3a3a3a; }
 html[data-tema="bn"] .tre > section:first-of-type .browser, html[data-tema="bn"] .tre > section:first-of-type .commerce-sheet { color: #0A0A0A; }
 .lavori { padding-top: clamp(48px, 6vw, 88px); } .lav-testa .lav-occhiello { display: block; margin-bottom: 14px; }
 /* versione Nero: sfondo viola scelto da Francesco (0 e 1 in viola su nero) solo nell'apertura della home */
-html[data-tema="bn"] .apertura { background-image: url(../assets/img/corona/sfondo-viola-01.webp) !important; background-color: #0A0A0A !important; background-size: cover; background-position: center top; }
+html[data-tema="bn"] .apertura { background-image: url(assets/img/corona/sfondo-viola-01.webp) !important; background-color: #0A0A0A !important; background-size: cover; background-position: center top; }
 @media (max-width: 899px) { html[data-tema="bn"] .apertura { background-image: none !important; } }
 /* riga sotto il titolo: un po' più piccola, regolare; in grassetto solo le parole chiave */
 .riga { font-size: clamp(19px, 1.6vw, 24px) !important; font-weight: 400 !important; line-height: 1.45; }
@@ -1049,7 +1049,7 @@ html[data-tema="bn"] .apertura { background-image: url(../assets/img/corona/sfon
 @media (min-width: 900px) and (max-height: 820px) { .riga { font-size: clamp(18px, 1.45vw, 21px) !important; } }
 /* versione Nero: nelle aperture delle pagine servizio e di Marketing, onde viola luminose (senza numeri) */
 @media (min-width: 900px) {
-  html[data-tema="bn"] :is(.sv-hero, .mk-r__hero) { background-image: url(../assets/img/corona/sfondo-viola-onde.webp?v=2); background-size: cover; background-position: center; background-color: #0A0A0A; }
+  html[data-tema="bn"] :is(.sv-hero, .mk-r__hero) { background-image: url(assets/img/corona/sfondo-viola-onde.webp?v=2); background-size: cover; background-position: center; background-color: #0A0A0A; }
 }
 @media (min-width: 900px) {
   html[data-tema="bn"] :is(.sv-hero, .mk-r__hero) { background-size: 100% auto; background-position: center top; background-repeat: no-repeat; }

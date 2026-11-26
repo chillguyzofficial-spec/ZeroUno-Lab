@@ -49,8 +49,8 @@
       const d = dati.find(x => x.id === id); if (!d) return;
       chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.set === id)));
       const applica = () => {
-        imgPc.src = '../assets/img/corona/' + id + '-L1.webp?v=20261113c'; imgTel.src = '../assets/img/corona/' + id + '-P1.webp?v=20261113c';
-        strip.forEach((im, k) => { im.src = '../assets/img/corona/' + id + '-P' + ((k % 6) + 1) + '.webp?v=20261114b'; });
+        imgPc.src = 'assets/img/corona/' + id + '-L1.webp?v=20261113c'; imgTel.src = 'assets/img/corona/' + id + '-P1.webp?v=20261113c';
+        strip.forEach((im, k) => { im.src = 'assets/img/corona/' + id + '-P' + ((k % 6) + 1) + '.webp?v=20261114b'; });
         $('[data-esempio]', vetrina).textContent = 'Un esempio: ' + d.esempio;
         $('[data-azione]', vetrina).textContent = d.azione;
         $('[data-punti]', vetrina).innerHTML = d.punti.map(p => '<li>' + p + '</li>').join('');
@@ -117,8 +117,8 @@
     const scegli = id => {
       const d = dati.sett.find(x => x.id === id); if (!d) return;
       $$('[data-mk]', mk).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mk === id)));
-      $('[data-mk-img-ad]', mk).src = '../assets/img/oggetti/settore-' + d.ogg + '.webp' + V;
-      $('[data-mk-img-tel]', mk).src = '../assets/img/corona/' + id + '-P1.webp' + V;
+      $('[data-mk-img-ad]', mk).src = 'assets/img/oggetti/settore-' + d.ogg + '.webp' + V;
+      $('[data-mk-img-tel]', mk).src = 'assets/img/corona/' + id + '-P1.webp' + V;
       $('[data-mk-ad]', mk).textContent = d.ad; $('[data-mk-sub]', mk).textContent = d.sub; $('[data-mk-cta]', mk).textContent = d.cta; $('[data-mk-msg]', mk).textContent = d.msg;
     };
     const passo = n => {

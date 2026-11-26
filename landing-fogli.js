@@ -23,8 +23,8 @@
   fogli.forEach(function (f, i) {
     var vecchio = f.querySelector('.lp-esempio'); if (vecchio) vecchio.remove();
     var pic = document.createElement('picture'); pic.className = 'lp-esempio'; pic.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
-    var s = document.createElement('source'); s.media = '(max-width:760px)'; s.srcset = '../assets/img/landing/esempio-' + NOMI[i] + '-mobile.webp?v=20261119';
-    var im = document.createElement('img'); im.src = '../assets/img/landing/esempio-' + NOMI[i] + '-pc.webp?v=20261119'; im.alt = i === 0 ? ALT[i] : ''; im.width = 1100; im.height = 1000; im.decoding = 'async'; 
+    var s = document.createElement('source'); s.media = '(max-width:760px)'; s.srcset = 'assets/img/landing/esempio-' + NOMI[i] + '-mobile.webp?v=20261119';
+    var im = document.createElement('img'); im.src = 'assets/img/landing/esempio-' + NOMI[i] + '-pc.webp?v=20261119'; im.alt = i === 0 ? ALT[i] : ''; im.width = 1100; im.height = 1000; im.decoding = 'async'; 
     pic.append(s, im); f.insertBefore(pic, f.firstChild);
   });
   var colori = pila.querySelectorAll('.lp-colori button');

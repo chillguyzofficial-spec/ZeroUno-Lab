@@ -30,12 +30,12 @@
   };
   // Prima della scelta: mockup misti, ognuno con la schermata d'apertura del suo sito (6 computer + 6 telefoni, tutti diversi)
   const MISTI = { L: ['ristorante', 'trainer', 'moda', 'studio', 'immobiliare', 'shop'], P: ['moda', 'studio', 'immobiliare', 'shop', 'ristorante', 'trainer'] };
-  const TESSERE = '../assets/img/corona/';
-  const IMGL = '../assets/img/lavoro-';
+  const TESSERE = 'assets/img/corona/';
+  const IMGL = 'assets/img/lavoro-';
 
   // Pagine intere per la finestra «Vetrina»: catture a qualità massima salvate a blocchi (HQ_META, scritto da _build/catture-corona.js).
   // Gli «y» sono gli stessi punti di partenza di _build/tessere-corona.js, in unità 960 (computer) e 360 (telefono).
-  const HQ = '../assets/img/hq/', META = window.HQ_META || {};
+  const HQ = 'assets/img/hq/', META = window.HQ_META || {};
   const std = (id, ysL, ysP) => ({ L: { hq: id, viste: ysL, mappa: [0, 1, 2, 3, 4, 5] }, P: { hq: id, viste: ysP, mappa: [0, 1, 2, 3, 4, 5] } });
   const SITI = {
     ristorante:  { nome: 'Hedoné', cat: 'Ristorante e lounge bar', url: 'https://www.hedonevimodrone.it/', ...std('hedone', [0, 1275, 2660, 4020, 600, 3290], [0, 845, 2095, 2785, 1390, 2485]) },
@@ -52,7 +52,7 @@
     maro:        { nome: 'MARO', cat: 'Abbigliamento sportivo · Milano', url: 'https://www.shopmaro.it/', ...std('maro', [0, 600, 1200, 1640, 900, 2000], [0, 800, 1330, 1640, 2000, 1000]) },
     gestionale: {
       nome: 'Home Unity · gestionale', cat: 'Gestionale · online e in uso', url: null,
-      L: { viste: [{ src: `${IMGL}homeunity-pc.webp`, y: 0 }, { src: '../assets/img/gestionale-reale/strutture.webp', y: 0 }, { src: '../assets/img/gestionale-reale/confronto.webp', y: 0 }], mappa: [0, 1, 2] },
+      L: { viste: [{ src: `${IMGL}homeunity-pc.webp`, y: 0 }, { src: 'assets/img/gestionale-reale/strutture.webp', y: 0 }, { src: 'assets/img/gestionale-reale/confronto.webp', y: 0 }], mappa: [0, 1, 2] },
     }
   };
   // le viste dei siti «standard» sono numeri (y); quelle di Carico e del gestionale sono oggetti. Questa funzione le rende uniformi
@@ -475,7 +475,7 @@
   (() => {
     const vista = $('[data-car-vista]'), traccia = $('[data-car-traccia]'), conta = $('[data-lav-conta]');
     traccia.innerHTML = LAVORI.map((w, i) =>
-      `<li class="car-scheda" data-i="${i}"><button type="button" class="car-bottone" aria-label="${w.nome}, ${w.cat.replace(' / ', ', ')}: apri il progetto"><span class="car-cornice"><img src="${w.img.startsWith('hq/') ? '../assets/img/' : IMGL}${w.img}.webp" width="${w.w || 1920}" height="${w.h || 1200}" alt="${w.nome}, la pagina d’apertura sul computer" draggable="false" loading="lazy" decoding="async"><span class="car-stato${/^Cliente/.test(w.stato) ? ' car-stato-on' : ''}">${/^Cliente/.test(w.stato) ? '<i aria-hidden="true"></i>' : ''}${w.stato}</span><span class="car-apri" aria-hidden="true">Apri il progetto <i>↗</i></span></span></button><div class="car-info"><div class="car-riga"><p class="car-nome">${w.nome}</p><p class="car-cat">${w.cat.replace(' / ', ' <span aria-hidden="true">/</span> ')}</p></div><p class="car-desc">${w.riga}</p><ul class="car-tag">${w.tag.map(t => `<li${/^Online (da|su|e) /.test(t) ? ' class="car-tag-on"' : ''}>${t}</li>`).join('')}</ul></div></li>`).join('');
+      `<li class="car-scheda" data-i="${i}"><button type="button" class="car-bottone" aria-label="${w.nome}, ${w.cat.replace(' / ', ', ')}: apri il progetto"><span class="car-cornice"><img src="${w.img.startsWith('hq/') ? 'assets/img/' : IMGL}${w.img}.webp" width="${w.w || 1920}" height="${w.h || 1200}" alt="${w.nome}, la pagina d’apertura sul computer" draggable="false" loading="lazy" decoding="async"><span class="car-stato${/^Cliente/.test(w.stato) ? ' car-stato-on' : ''}">${/^Cliente/.test(w.stato) ? '<i aria-hidden="true"></i>' : ''}${w.stato}</span><span class="car-apri" aria-hidden="true">Apri il progetto <i>↗</i></span></span></button><div class="car-info"><div class="car-riga"><p class="car-nome">${w.nome}</p><p class="car-cat">${w.cat.replace(' / ', ' <span aria-hidden="true">/</span> ')}</p></div><p class="car-desc">${w.riga}</p><ul class="car-tag">${w.tag.map(t => `<li${/^Online (da|su|e) /.test(t) ? ' class="car-tag-on"' : ''}>${t}</li>`).join('')}</ul></div></li>`).join('');
     const schede = $$('.car-scheda', traccia);
     let ia = document.documentElement.dataset.home === '01' ? Math.floor(LAVORI.length / 2) : 0, base = 0, trascinando = null, mossa = false, tRuota = 0;
     function posiziona(extra = 0) {

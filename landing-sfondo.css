@@ -21,7 +21,7 @@
   background-image:var(--dz-grana),linear-gradient(155deg,#F7F2E9 15%,#EEE6DA 100%);
 }
 .filo .dz.dz-piatto .dz-copy::before {
-  background:url("../assets/img/landing/filo-continuo.svg") no-repeat right center / auto 100%;
+  background:url("assets/img/landing/filo-continuo.svg") no-repeat right center / auto 100%;
   mask-image:linear-gradient(90deg,transparent 47%,#0007 72%,#000 100%);
 }
 .filo .dz-cucitura {
