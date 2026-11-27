@@ -11,7 +11,7 @@
    Obiettivi → Conversioni → la conversione → «Configurazione del tag» → «Usa il tag Google»):                */
 var GOOGLE_ADS_ID = 'AW-18599697732';        // ID dell'account Google Ads (inserito il 27/11/2026)
 var CONV_RICHIESTA = 'zraACLfb68AdEMS6g6VF';       // conversione «Invio modulo per i lead» (richiesta di preventivo)
-var CONV_WHATSAPP = '';        // facoltativa: etichetta di una seconda conversione «clic su WhatsApp»
+var CONV_WHATSAPP = 'CAd9CMXd68AdEMS6g6VF';        // conversione «Contatto» (clic su un link WhatsApp), secondaria
 /* Finché GOOGLE_ADS_ID è vuoto non c'è nulla da misurare: l'avviso non compare e Google non viene contattato. */
 
 (function () {
