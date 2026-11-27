@@ -29,3 +29,24 @@
   AddType font/woff2 .woff2
   AddType image/webp .webp
 </IfModule>
+
+# Indirizzi senza ".html" (27/11/2026): /sito-web al posto di /sito-web.html.
+# I vecchi indirizzi con .html restano validi e rimandano a quello pulito, parametri compresi
+# (es. il codice del clic di Google Ads). I link interni delle pagine usano ancora .html,
+# così il sito funziona anche aperto in locale: costano un rimando in più, tenuto in memoria dal browser.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Il rimando porta l'indirizzo completo in https: dietro il proxy di Aruba un rimando relativo
+  # usciva in http e costava un passaggio in più (misurato il 27/11/2026: 3 rimandi invece di 2).
+  # /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+(?:[^?\s]*/)?index\.html[?\s] [NC]
+  RewriteRule ^(.*/)?index\.html$ https://www.zerounolab.it/$1 [R=301,L]
+  # /pagina.html -> /pagina (solo se a chiederlo è il visitatore, non la regola qui sotto)
+  RewriteCond %{THE_REQUEST} \s/+[^?\s]+\.html[?\s] [NC]
+  RewriteRule ^(.+)\.html$ https://www.zerounolab.it/$1 [R=301,L]
+  # /pagina -> mostra pagina.html
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
