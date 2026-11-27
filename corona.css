@@ -1359,3 +1359,6 @@ html[data-tema="bn"] .srv-carta .srv-chip u, html[data-tema="bn"] .sv-risp { bac
 /* «Online da…» / «Online su…»: in verde, in risalto sulle altre voci */
 .car-tag li.car-tag-on { display: inline-flex; align-items: center; color: #4ade80; font-weight: 700; }
 .car-tag li.car-tag-on::before { content: ''; flex: none; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px rgba(74, 222, 128, .75); }
+
+/* 27/11/2026 · link «Informativa privacy» nella nota in fondo al modulo: stesso colore del testo, sottolineato */
+.contatto .nota a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

@@ -396,6 +396,7 @@
     if (manca) { errore.textContent = 'Compila i campi obbligatori: ' + manca[1] + '.'; errore.hidden = false; if (manca[0] === 'settore') vaiPasso(2); f[manca[0]].focus(); return; }
     errore.hidden = true;
     const via = (e.submitter && e.submitter.dataset.via) || 'wa';
+    const segnala = v => { try { document.dispatchEvent(new CustomEvent('zul:richiesta', { detail: { via: v, servizio: Q.servizio || '' } })); } catch (err) {} };   // letto da consenso.js per la conversione Google Ads
     const mostraGrazie = tipo => { $('[data-grazie-email]').hidden = tipo !== 'email'; $('[data-grazie-wa]').hidden = tipo !== 'wa'; grazie.hidden = false; const ok = $('[data-chiudi-contatto]', grazie); if (ok) ok.focus({ preventScroll: true }); };
     if (via === 'email') {
       if (f.botcheck && f.botcheck.checked) { mostraGrazie('email'); return; }   // trappola anti-spam: i robot la spuntano, le persone no
@@ -412,14 +413,14 @@
         .then(r => r.json().then(j => ({ ok: r.ok && j.success }))).catch(() => ({ ok: false }))
         .then(({ ok }) => {
           btn.disabled = false; btn.innerHTML = testo;
-          if (ok) mostraGrazie('email');
+          if (ok) { mostraGrazie('email'); segnala('email'); }
           else { errore.textContent = 'Non siamo riusciti a inviare la richiesta. Riprova tra poco oppure scrivici su WhatsApp.'; errore.hidden = false; }
         });
       return;
     }
     const righe = ['Ciao, sono ' + nome + '.', Q.servizio && ('Mi serve: ' + Q.servizio + '.'), sett && ('Attività: ' + sett + '.'), Q.tempi && ('Tempi: ' + Q.tempi + '.'), f.msg.value.trim() && ('Il progetto: ' + f.msg.value.trim().replace(/[.!?]+$/, '') + '.'), 'Mi trovi qui: ' + contatto + '.', Q.servizio === 'Landing page' && '(dalla promo da 299 €)'].filter(Boolean);
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(righe.join(' ')), '_blank', 'noopener');
-    mostraGrazie('wa');
+    mostraGrazie('wa'); segnala('wa');
   });
   // arrivo da una pagina dei servizi: ?preventivo=landing (e, se c'è, &settore=Ristorante) apre il preventivo già impostato
   (() => {

@@ -1,0 +1,31 @@
+# Zero Uno Lab · regole per lo spazio Aruba (Apache). GitHub Pages ignora questo file.
+# 27/11/2026: prima di queste regole gli script (.js) viaggiavano non compressi e nessun file
+# aveva una durata di cache, quindi a ogni visita il browser riscaricava immagini e caratteri.
+# Ogni blocco è dentro <IfModule>: se il modulo manca, la regola viene saltata e il sito resta in piedi.
+
+# Compressione dei file di testo
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# Durata della cache nel browser
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 10 minutes"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# Tipi di file che alcuni server non riconoscono
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+</IfModule>
